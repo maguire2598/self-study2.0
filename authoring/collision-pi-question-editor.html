@@ -1,0 +1,6773 @@
+<div id="collisionPiQuestionEditor">
+  <h2>碰撞与π · A板块题库筛选</h2>
+  <p class="text-muted" id="questionSummary"></p>
+
+  <div class="viz-controls" aria-label="题库筛选控件">
+    <label class="form-label">知识点
+      <select class="form-select" id="questionNodeSelect"></select>
+    </label>
+    <label class="form-label">题型
+      <select class="form-select" id="questionTypeFilter">
+        <option value="all">全部题型</option>
+        <option value="single_choice">单选题</option>
+        <option value="multiple_choice">多选题</option>
+        <option value="multi_blank">多空填空题</option>
+      </select>
+    </label>
+    <label class="form-label">搜索题干
+      <input class="form-control" id="questionSearch" type="search" placeholder="输入关键词">
+    </label>
+  </div>
+
+  <div class="viz-row">
+    <button class="btn btn-ghost" id="previousNode" type="button">上一个知识点</button>
+    <button class="btn btn-ghost" id="nextNode" type="button">下一个知识点</button>
+    <label class="form-check">
+      <input class="form-check-input" id="nodeEnabled" type="checkbox">
+      <span class="form-check-label">启用当前知识点全部题目</span>
+    </label>
+  </div>
+
+  <div id="questionList" aria-live="polite"></div>
+
+  <div class="viz-controls" aria-label="题库操作">
+    <button class="btn" id="saveDraft" type="button">保存本地草稿</button>
+    <button class="btn btn-ghost" id="resetQuestion" type="button">恢复当前知识点原题</button>
+    <button class="btn" id="copyQuestionBank" type="button">复制完整题库</button>
+    <button class="btn btn-primary" id="submitEdits" type="button">提交本次修改</button>
+  </div>
+  <p class="text-small text-muted" id="questionEditorStatus" role="status"></p>
+
+  <script id="embeddedQuestionBank" type="application/json">{
+  "$schema": "../../../schemas/objective_question_bank.schema.json",
+  "course_id": "collision-pi",
+  "section_id": "A",
+  "title": "碰撞与π · A板块客观题库",
+  "version": "1.0.0",
+  "distribution_per_node": {
+    "single_choice": 3,
+    "multiple_choice": 2,
+    "multi_blank": 1
+  },
+  "delivery_policy": {
+    "reveal_answer_after_wrong": false,
+    "wrong_answer_action": "error_followup_agent",
+    "correct_answer_actions": [
+      "next_question",
+      "error_followup_agent"
+    ]
+  },
+  "status_assessment": {
+    "enabled": false,
+    "note": "按当前产品决定暂缓设计和生成。"
+  },
+  "questions": [
+    {
+      "id": "cp-a1-sc-01",
+      "node_id": "A1",
+      "node_title": "碰撞系统与可观察现象",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“碰撞系统与可观察现象”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "研究对象由固定墙、小物块和大物块组成。"
+        },
+        {
+          "id": "B",
+          "text": "只记录两个物块之间的碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "墙壁会与两个物块一起自由移动。"
+        },
+        {
+          "id": "D",
+          "text": "只凭最终位置就能还原全部碰撞过程。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：研究对象由固定墙、小物块和大物块组成。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-sc-02",
+      "node_id": "A1",
+      "node_title": "碰撞系统与可观察现象",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“碰撞系统与可观察现象”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "墙壁会与两个物块一起自由移动。"
+        },
+        {
+          "id": "B",
+          "text": "只凭最终位置就能还原全部碰撞过程。"
+        },
+        {
+          "id": "C",
+          "text": "只记录两个物块之间的碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "需要同时记录物块间碰撞和小物块撞墙。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：需要同时记录物块间碰撞和小物块撞墙。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-sc-03",
+      "node_id": "A1",
+      "node_title": "碰撞系统与可观察现象",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“碰撞系统与可观察现象”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只记录两个物块之间的碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "墙壁会与两个物块一起自由移动。"
+        },
+        {
+          "id": "C",
+          "text": "系统现象要用位置、速度方向和事件次序共同描述。"
+        },
+        {
+          "id": "D",
+          "text": "只凭最终位置就能还原全部碰撞过程。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：系统现象要用位置、速度方向和事件次序共同描述。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-mc-01",
+      "node_id": "A1",
+      "node_title": "碰撞系统与可观察现象",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“碰撞系统与可观察现象”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "需要同时记录物块间碰撞和小物块撞墙。"
+        },
+        {
+          "id": "B",
+          "text": "只记录两个物块之间的碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "墙壁会与两个物块一起自由移动。"
+        },
+        {
+          "id": "D",
+          "text": "研究对象由固定墙、小物块和大物块组成。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：研究对象由固定墙、小物块和大物块组成。；需要同时记录物块间碰撞和小物块撞墙。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-mc-02",
+      "node_id": "A1",
+      "node_title": "碰撞系统与可观察现象",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“碰撞系统与可观察现象”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "墙壁会与两个物块一起自由移动。"
+        },
+        {
+          "id": "B",
+          "text": "只凭最终位置就能还原全部碰撞过程。"
+        },
+        {
+          "id": "C",
+          "text": "需要同时记录物块间碰撞和小物块撞墙。"
+        },
+        {
+          "id": "D",
+          "text": "系统现象要用位置、速度方向和事件次序共同描述。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：需要同时记录物块间碰撞和小物块撞墙。；系统现象要用位置、速度方向和事件次序共同描述。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-mb-01",
+      "node_id": "A1",
+      "node_title": "碰撞系统与可观察现象",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "该系统包含固定的____、质量为m的____和质量为M的大物块；计数时要记录两类碰撞事件。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "墙",
+            "墙壁"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "小物块",
+            "小滑块"
+          ]
+        }
+      ],
+      "explanation": "参考填法：墙；小物块",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-1-sc-01",
+      "node_id": "A1.1",
+      "node_title": "三个对象与空间顺序",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“三个对象与空间顺序”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "从左向右依次是大物块、墙壁、小物块。"
+        },
+        {
+          "id": "B",
+          "text": "两个物块初始都位于墙壁左侧。"
+        },
+        {
+          "id": "C",
+          "text": "大物块必须放在小物块与墙壁之间。"
+        },
+        {
+          "id": "D",
+          "text": "从左向右依次是墙壁、小物块m、大物块M。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：从左向右依次是墙壁、小物块m、大物块M。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-1-sc-02",
+      "node_id": "A1.1",
+      "node_title": "三个对象与空间顺序",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“三个对象与空间顺序”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "大物块必须放在小物块与墙壁之间。"
+        },
+        {
+          "id": "B",
+          "text": "从左向右依次是大物块、墙壁、小物块。"
+        },
+        {
+          "id": "C",
+          "text": "小物块位于墙壁与大物块之间。"
+        },
+        {
+          "id": "D",
+          "text": "两个物块初始都位于墙壁左侧。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：小物块位于墙壁与大物块之间。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-1-sc-03",
+      "node_id": "A1.1",
+      "node_title": "三个对象与空间顺序",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“三个对象与空间顺序”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "两个物块初始都位于墙壁左侧。"
+        },
+        {
+          "id": "B",
+          "text": "大物块从小物块右侧接近碰撞区域。"
+        },
+        {
+          "id": "C",
+          "text": "大物块必须放在小物块与墙壁之间。"
+        },
+        {
+          "id": "D",
+          "text": "从左向右依次是大物块、墙壁、小物块。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：大物块从小物块右侧接近碰撞区域。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-1-mc-01",
+      "node_id": "A1.1",
+      "node_title": "三个对象与空间顺序",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“三个对象与空间顺序”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "从左向右依次是大物块、墙壁、小物块。"
+        },
+        {
+          "id": "B",
+          "text": "两个物块初始都位于墙壁左侧。"
+        },
+        {
+          "id": "C",
+          "text": "从左向右依次是墙壁、小物块m、大物块M。"
+        },
+        {
+          "id": "D",
+          "text": "小物块位于墙壁与大物块之间。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：从左向右依次是墙壁、小物块m、大物块M。；小物块位于墙壁与大物块之间。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-1-mc-02",
+      "node_id": "A1.1",
+      "node_title": "三个对象与空间顺序",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“三个对象与空间顺序”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "大物块必须放在小物块与墙壁之间。"
+        },
+        {
+          "id": "B",
+          "text": "小物块位于墙壁与大物块之间。"
+        },
+        {
+          "id": "C",
+          "text": "大物块从小物块右侧接近碰撞区域。"
+        },
+        {
+          "id": "D",
+          "text": "两个物块初始都位于墙壁左侧。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：小物块位于墙壁与大物块之间。；大物块从小物块右侧接近碰撞区域。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-1-mb-01",
+      "node_id": "A1.1",
+      "node_title": "三个对象与空间顺序",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "从左向右，三个对象的空间顺序是____、____、____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "墙",
+            "墙壁"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "小物块m",
+            "小物块",
+            "小滑块"
+          ]
+        },
+        {
+          "id": "blank_3",
+          "accepted_answers": [
+            "大物块M",
+            "大物块",
+            "大滑块"
+          ]
+        }
+      ],
+      "explanation": "参考填法：墙；小物块m；大物块M",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-2-sc-01",
+      "node_id": "A1.2",
+      "node_title": "两种碰撞事件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“两种碰撞事件”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只有物块间碰撞才计数。"
+        },
+        {
+          "id": "B",
+          "text": "小物块撞墙只改变位置，不改变速度。"
+        },
+        {
+          "id": "C",
+          "text": "一种事件是大、小物块相撞。"
+        },
+        {
+          "id": "D",
+          "text": "大物块撞墙是模型中反复出现的主要事件。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：一种事件是大、小物块相撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-2-sc-02",
+      "node_id": "A1.2",
+      "node_title": "两种碰撞事件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“两种碰撞事件”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "大物块撞墙是模型中反复出现的主要事件。"
+        },
+        {
+          "id": "B",
+          "text": "另一种事件是小物块撞固定墙。"
+        },
+        {
+          "id": "C",
+          "text": "只有物块间碰撞才计数。"
+        },
+        {
+          "id": "D",
+          "text": "小物块撞墙只改变位置，不改变速度。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：另一种事件是小物块撞固定墙。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-2-sc-03",
+      "node_id": "A1.2",
+      "node_title": "两种碰撞事件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“两种碰撞事件”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "两种事件都计入总碰撞次数。"
+        },
+        {
+          "id": "B",
+          "text": "小物块撞墙只改变位置，不改变速度。"
+        },
+        {
+          "id": "C",
+          "text": "大物块撞墙是模型中反复出现的主要事件。"
+        },
+        {
+          "id": "D",
+          "text": "只有物块间碰撞才计数。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：两种事件都计入总碰撞次数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-2-mc-01",
+      "node_id": "A1.2",
+      "node_title": "两种碰撞事件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“两种碰撞事件”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "只有物块间碰撞才计数。"
+        },
+        {
+          "id": "B",
+          "text": "一种事件是大、小物块相撞。"
+        },
+        {
+          "id": "C",
+          "text": "另一种事件是小物块撞固定墙。"
+        },
+        {
+          "id": "D",
+          "text": "大物块撞墙是模型中反复出现的主要事件。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：一种事件是大、小物块相撞。；另一种事件是小物块撞固定墙。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-2-mc-02",
+      "node_id": "A1.2",
+      "node_title": "两种碰撞事件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“两种碰撞事件”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "另一种事件是小物块撞固定墙。"
+        },
+        {
+          "id": "B",
+          "text": "两种事件都计入总碰撞次数。"
+        },
+        {
+          "id": "C",
+          "text": "只有物块间碰撞才计数。"
+        },
+        {
+          "id": "D",
+          "text": "小物块撞墙只改变位置，不改变速度。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：另一种事件是小物块撞固定墙。；两种事件都计入总碰撞次数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-2-mb-01",
+      "node_id": "A1.2",
+      "node_title": "两种碰撞事件",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "总次数同时包含____碰撞和____碰撞。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "物块间",
+            "大物块与小物块",
+            "两物块之间"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "小物块与墙",
+            "小物块撞墙",
+            "墙壁"
+          ]
+        }
+      ],
+      "explanation": "参考填法：物块间；小物块与墙",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-3-sc-01",
+      "node_id": "A1.3",
+      "node_title": "一次碰撞的计数口径",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“一次碰撞的计数口径”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只有发出可听声音的接触才计数。"
+        },
+        {
+          "id": "B",
+          "text": "一次独立接触并完成一次速度更新记为一次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "接触持续的每一帧都算一次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "一次物块碰撞要按两个物块分别计两次。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：一次独立接触并完成一次速度更新记为一次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-3-sc-02",
+      "node_id": "A1.3",
+      "node_title": "一次碰撞的计数口径",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“一次碰撞的计数口径”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "物块分离后再次接触属于新的碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "一次物块碰撞要按两个物块分别计两次。"
+        },
+        {
+          "id": "C",
+          "text": "只有发出可听声音的接触才计数。"
+        },
+        {
+          "id": "D",
+          "text": "接触持续的每一帧都算一次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：物块分离后再次接触属于新的碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-3-sc-03",
+      "node_id": "A1.3",
+      "node_title": "一次碰撞的计数口径",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“一次碰撞的计数口径”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只有发出可听声音的接触才计数。"
+        },
+        {
+          "id": "B",
+          "text": "接触持续的每一帧都算一次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "一次物块碰撞要按两个物块分别计两次。"
+        },
+        {
+          "id": "D",
+          "text": "同一事件只能在状态表中增加一次计数。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：同一事件只能在状态表中增加一次计数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-3-mc-01",
+      "node_id": "A1.3",
+      "node_title": "一次碰撞的计数口径",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“一次碰撞的计数口径”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "一次独立接触并完成一次速度更新记为一次碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "物块分离后再次接触属于新的碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "接触持续的每一帧都算一次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "一次物块碰撞要按两个物块分别计两次。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：一次独立接触并完成一次速度更新记为一次碰撞。；物块分离后再次接触属于新的碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-3-mc-02",
+      "node_id": "A1.3",
+      "node_title": "一次碰撞的计数口径",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“一次碰撞的计数口径”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "同一事件只能在状态表中增加一次计数。"
+        },
+        {
+          "id": "B",
+          "text": "一次物块碰撞要按两个物块分别计两次。"
+        },
+        {
+          "id": "C",
+          "text": "只有发出可听声音的接触才计数。"
+        },
+        {
+          "id": "D",
+          "text": "物块分离后再次接触属于新的碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：物块分离后再次接触属于新的碰撞。；同一事件只能在状态表中增加一次计数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-3-mb-01",
+      "node_id": "A1.3",
+      "node_title": "一次碰撞的计数口径",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "一次独立____并完成一次____更新，记作一次碰撞事件。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "接触",
+            "碰撞接触"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "速度",
+            "运动状态"
+          ]
+        }
+      ],
+      "explanation": "参考填法：接触；速度",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-4-sc-01",
+      "node_id": "A1.4",
+      "node_title": "方向、速度正负与事件记录",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“方向、速度正负与事件记录”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "统一规定向右为速度正方向。"
+        },
+        {
+          "id": "B",
+          "text": "速度正负表示物体质量的大小。"
+        },
+        {
+          "id": "C",
+          "text": "每次碰撞后都重新选择正方向。"
+        },
+        {
+          "id": "D",
+          "text": "速度为负表示物体一定在墙壁左侧。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：统一规定向右为速度正方向。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-4-sc-02",
+      "node_id": "A1.4",
+      "node_title": "方向、速度正负与事件记录",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“方向、速度正负与事件记录”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "每次碰撞后都重新选择正方向。"
+        },
+        {
+          "id": "B",
+          "text": "速度为负表示物体一定在墙壁左侧。"
+        },
+        {
+          "id": "C",
+          "text": "速度正负表示物体质量的大小。"
+        },
+        {
+          "id": "D",
+          "text": "向左运动的速度记为负值。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：向左运动的速度记为负值。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-4-sc-03",
+      "node_id": "A1.4",
+      "node_title": "方向、速度正负与事件记录",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“方向、速度正负与事件记录”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "速度正负表示物体质量的大小。"
+        },
+        {
+          "id": "B",
+          "text": "每次碰撞后都重新选择正方向。"
+        },
+        {
+          "id": "C",
+          "text": "事件记录应保留碰撞编号和碰撞后的两物块速度。"
+        },
+        {
+          "id": "D",
+          "text": "速度为负表示物体一定在墙壁左侧。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：事件记录应保留碰撞编号和碰撞后的两物块速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-4-mc-01",
+      "node_id": "A1.4",
+      "node_title": "方向、速度正负与事件记录",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“方向、速度正负与事件记录”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "向左运动的速度记为负值。"
+        },
+        {
+          "id": "B",
+          "text": "速度正负表示物体质量的大小。"
+        },
+        {
+          "id": "C",
+          "text": "每次碰撞后都重新选择正方向。"
+        },
+        {
+          "id": "D",
+          "text": "统一规定向右为速度正方向。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：统一规定向右为速度正方向。；向左运动的速度记为负值。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-4-mc-02",
+      "node_id": "A1.4",
+      "node_title": "方向、速度正负与事件记录",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“方向、速度正负与事件记录”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "每次碰撞后都重新选择正方向。"
+        },
+        {
+          "id": "B",
+          "text": "速度为负表示物体一定在墙壁左侧。"
+        },
+        {
+          "id": "C",
+          "text": "向左运动的速度记为负值。"
+        },
+        {
+          "id": "D",
+          "text": "事件记录应保留碰撞编号和碰撞后的两物块速度。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：向左运动的速度记为负值。；事件记录应保留碰撞编号和碰撞后的两物块速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a1-4-mb-01",
+      "node_id": "A1.4",
+      "node_title": "方向、速度正负与事件记录",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "若规定向右为正，则向左运动的速度为____；事件表至少记录事件编号和碰撞后的____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "负",
+            "负值",
+            "小于0"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "速度",
+            "两物块速度",
+            "速度状态"
+          ]
+        }
+      ],
+      "explanation": "参考填法：负；速度",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-sc-01",
+      "node_id": "A2",
+      "node_title": "初始状态",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“初始状态”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "初始状态只需要给出两个物块的颜色。"
+        },
+        {
+          "id": "B",
+          "text": "两个物块必须具有相同初速度。"
+        },
+        {
+          "id": "C",
+          "text": "初始位置不会影响是否先发生物块碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "初始状态同时包含位置、质量、初速度和环境条件。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：初始状态同时包含位置、质量、初速度和环境条件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-sc-02",
+      "node_id": "A2",
+      "node_title": "初始状态",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“初始状态”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "初始位置不会影响是否先发生物块碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "初始状态只需要给出两个物块的颜色。"
+        },
+        {
+          "id": "C",
+          "text": "小物块初始静止，大物块从右侧向左运动。"
+        },
+        {
+          "id": "D",
+          "text": "两个物块必须具有相同初速度。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：小物块初始静止，大物块从右侧向左运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-sc-03",
+      "node_id": "A2",
+      "node_title": "初始状态",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“初始状态”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "两个物块必须具有相同初速度。"
+        },
+        {
+          "id": "B",
+          "text": "初始条件必须足以决定后续理想碰撞序列。"
+        },
+        {
+          "id": "C",
+          "text": "初始位置不会影响是否先发生物块碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "初始状态只需要给出两个物块的颜色。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：初始条件必须足以决定后续理想碰撞序列。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-mc-01",
+      "node_id": "A2",
+      "node_title": "初始状态",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“初始状态”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "初始状态只需要给出两个物块的颜色。"
+        },
+        {
+          "id": "B",
+          "text": "两个物块必须具有相同初速度。"
+        },
+        {
+          "id": "C",
+          "text": "初始状态同时包含位置、质量、初速度和环境条件。"
+        },
+        {
+          "id": "D",
+          "text": "小物块初始静止，大物块从右侧向左运动。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：初始状态同时包含位置、质量、初速度和环境条件。；小物块初始静止，大物块从右侧向左运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-mc-02",
+      "node_id": "A2",
+      "node_title": "初始状态",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“初始状态”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "初始位置不会影响是否先发生物块碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "小物块初始静止，大物块从右侧向左运动。"
+        },
+        {
+          "id": "C",
+          "text": "初始条件必须足以决定后续理想碰撞序列。"
+        },
+        {
+          "id": "D",
+          "text": "两个物块必须具有相同初速度。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：小物块初始静止，大物块从右侧向左运动。；初始条件必须足以决定后续理想碰撞序列。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-mb-01",
+      "node_id": "A2",
+      "node_title": "初始状态",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "课程模型的初始状态需要给出位置、____、初速度和____条件。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "质量",
+            "质量参数"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "环境",
+            "理想环境",
+            "理想化"
+          ]
+        }
+      ],
+      "explanation": "参考填法：质量；环境",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-1-sc-01",
+      "node_id": "A2.1",
+      "node_title": "位置与质量参数",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“位置与质量参数”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "大物块必须位于墙与小物块之间。"
+        },
+        {
+          "id": "B",
+          "text": "只要位置相同，质量比不会影响碰撞序列。"
+        },
+        {
+          "id": "C",
+          "text": "质量满足M≥m>0。"
+        },
+        {
+          "id": "D",
+          "text": "允许小物块质量m等于零。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：质量满足M≥m>0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-1-sc-02",
+      "node_id": "A2.1",
+      "node_title": "位置与质量参数",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“位置与质量参数”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "允许小物块质量m等于零。"
+        },
+        {
+          "id": "B",
+          "text": "小物块位于墙与大物块之间。"
+        },
+        {
+          "id": "C",
+          "text": "大物块必须位于墙与小物块之间。"
+        },
+        {
+          "id": "D",
+          "text": "只要位置相同，质量比不会影响碰撞序列。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：小物块位于墙与大物块之间。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-1-sc-03",
+      "node_id": "A2.1",
+      "node_title": "位置与质量参数",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“位置与质量参数”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "M/m是研究碰撞次数变化的关键参数。"
+        },
+        {
+          "id": "B",
+          "text": "只要位置相同，质量比不会影响碰撞序列。"
+        },
+        {
+          "id": "C",
+          "text": "允许小物块质量m等于零。"
+        },
+        {
+          "id": "D",
+          "text": "大物块必须位于墙与小物块之间。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：M/m是研究碰撞次数变化的关键参数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-1-mc-01",
+      "node_id": "A2.1",
+      "node_title": "位置与质量参数",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“位置与质量参数”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "大物块必须位于墙与小物块之间。"
+        },
+        {
+          "id": "B",
+          "text": "质量满足M≥m>0。"
+        },
+        {
+          "id": "C",
+          "text": "小物块位于墙与大物块之间。"
+        },
+        {
+          "id": "D",
+          "text": "允许小物块质量m等于零。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：质量满足M≥m>0。；小物块位于墙与大物块之间。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-1-mc-02",
+      "node_id": "A2.1",
+      "node_title": "位置与质量参数",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“位置与质量参数”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "小物块位于墙与大物块之间。"
+        },
+        {
+          "id": "B",
+          "text": "M/m是研究碰撞次数变化的关键参数。"
+        },
+        {
+          "id": "C",
+          "text": "大物块必须位于墙与小物块之间。"
+        },
+        {
+          "id": "D",
+          "text": "只要位置相同，质量比不会影响碰撞序列。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：小物块位于墙与大物块之间。；M/m是研究碰撞次数变化的关键参数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-1-mb-01",
+      "node_id": "A2.1",
+      "node_title": "位置与质量参数",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "质量参数满足M____m____0，小物块位于____和大物块之间。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "≥",
+            "大于等于"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            ">",
+            "大于"
+          ]
+        },
+        {
+          "id": "blank_3",
+          "accepted_answers": [
+            "墙",
+            "墙壁"
+          ]
+        }
+      ],
+      "explanation": "参考填法：≥；>；墙",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-2-sc-01",
+      "node_id": "A2.2",
+      "node_title": "初速度设置",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“初速度设置”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "V的负号表示速率小于零。"
+        },
+        {
+          "id": "B",
+          "text": "大物块初速度设为−V，其中V>0。"
+        },
+        {
+          "id": "C",
+          "text": "大物块初速度+V表示它向墙运动。"
+        },
+        {
+          "id": "D",
+          "text": "小物块初始必须向右运动。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：大物块初速度设为−V，其中V>0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-2-sc-02",
+      "node_id": "A2.2",
+      "node_title": "初速度设置",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“初速度设置”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "小物块初速度设为0。"
+        },
+        {
+          "id": "B",
+          "text": "小物块初始必须向右运动。"
+        },
+        {
+          "id": "C",
+          "text": "V的负号表示速率小于零。"
+        },
+        {
+          "id": "D",
+          "text": "大物块初速度+V表示它向墙运动。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：小物块初速度设为0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-2-sc-03",
+      "node_id": "A2.2",
+      "node_title": "初速度设置",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“初速度设置”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "V的负号表示速率小于零。"
+        },
+        {
+          "id": "B",
+          "text": "大物块初速度+V表示它向墙运动。"
+        },
+        {
+          "id": "C",
+          "text": "小物块初始必须向右运动。"
+        },
+        {
+          "id": "D",
+          "text": "负号表示大物块初始向左运动。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：负号表示大物块初始向左运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-2-mc-01",
+      "node_id": "A2.2",
+      "node_title": "初速度设置",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“初速度设置”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "大物块初速度设为−V，其中V>0。"
+        },
+        {
+          "id": "B",
+          "text": "小物块初速度设为0。"
+        },
+        {
+          "id": "C",
+          "text": "大物块初速度+V表示它向墙运动。"
+        },
+        {
+          "id": "D",
+          "text": "小物块初始必须向右运动。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：大物块初速度设为−V，其中V>0。；小物块初速度设为0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-2-mc-02",
+      "node_id": "A2.2",
+      "node_title": "初速度设置",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“初速度设置”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "负号表示大物块初始向左运动。"
+        },
+        {
+          "id": "B",
+          "text": "小物块初始必须向右运动。"
+        },
+        {
+          "id": "C",
+          "text": "V的负号表示速率小于零。"
+        },
+        {
+          "id": "D",
+          "text": "小物块初速度设为0。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：小物块初速度设为0。；负号表示大物块初始向左运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-2-mb-01",
+      "node_id": "A2.2",
+      "node_title": "初速度设置",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "取向右为正时，大物块初速度写作____，小物块初速度为____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "-V",
+            "−V"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "0",
+            "零"
+          ]
+        }
+      ],
+      "explanation": "参考填法：-V；0",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-3-sc-01",
+      "node_id": "A2.3",
+      "node_title": "理想化条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“理想化条件”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "水平面无摩擦。"
+        },
+        {
+          "id": "B",
+          "text": "碰撞时允许动能持续损失。"
+        },
+        {
+          "id": "C",
+          "text": "墙壁可自由后退。"
+        },
+        {
+          "id": "D",
+          "text": "物块需要在二维平面绕开彼此。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：水平面无摩擦。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-3-sc-02",
+      "node_id": "A2.3",
+      "node_title": "理想化条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“理想化条件”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "墙壁可自由后退。"
+        },
+        {
+          "id": "B",
+          "text": "物块需要在二维平面绕开彼此。"
+        },
+        {
+          "id": "C",
+          "text": "碰撞时允许动能持续损失。"
+        },
+        {
+          "id": "D",
+          "text": "所有碰撞均为完全弹性碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：所有碰撞均为完全弹性碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-3-sc-03",
+      "node_id": "A2.3",
+      "node_title": "理想化条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“理想化条件”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "碰撞时允许动能持续损失。"
+        },
+        {
+          "id": "B",
+          "text": "墙壁可自由后退。"
+        },
+        {
+          "id": "C",
+          "text": "运动是一维且墙壁固定。"
+        },
+        {
+          "id": "D",
+          "text": "物块需要在二维平面绕开彼此。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：运动是一维且墙壁固定。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-3-mc-01",
+      "node_id": "A2.3",
+      "node_title": "理想化条件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“理想化条件”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "所有碰撞均为完全弹性碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "碰撞时允许动能持续损失。"
+        },
+        {
+          "id": "C",
+          "text": "墙壁可自由后退。"
+        },
+        {
+          "id": "D",
+          "text": "水平面无摩擦。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：水平面无摩擦。；所有碰撞均为完全弹性碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-3-mc-02",
+      "node_id": "A2.3",
+      "node_title": "理想化条件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“理想化条件”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "墙壁可自由后退。"
+        },
+        {
+          "id": "B",
+          "text": "物块需要在二维平面绕开彼此。"
+        },
+        {
+          "id": "C",
+          "text": "所有碰撞均为完全弹性碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "运动是一维且墙壁固定。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：所有碰撞均为完全弹性碰撞。；运动是一维且墙壁固定。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-3-mb-01",
+      "node_id": "A2.3",
+      "node_title": "理想化条件",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "模型假设水平面____、碰撞完全____、运动为一维且墙壁固定。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "无摩擦",
+            "光滑"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "弹性",
+            "完全弹性"
+          ]
+        }
+      ],
+      "explanation": "参考填法：无摩擦；弹性",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-4-sc-01",
+      "node_id": "A2.4",
+      "node_title": "控制变量与参数范围",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“控制变量与参数范围”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "比较时可同时随意改变初速度和摩擦。"
+        },
+        {
+          "id": "B",
+          "text": "控制变量意味着所有参数都不能改变。"
+        },
+        {
+          "id": "C",
+          "text": "只计算一个质量比就能判断普遍规律。"
+        },
+        {
+          "id": "D",
+          "text": "比较质量比时应保持其他初始条件一致。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：比较质量比时应保持其他初始条件一致。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-4-sc-02",
+      "node_id": "A2.4",
+      "node_title": "控制变量与参数范围",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“控制变量与参数范围”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只计算一个质量比就能判断普遍规律。"
+        },
+        {
+          "id": "B",
+          "text": "比较时可同时随意改变初速度和摩擦。"
+        },
+        {
+          "id": "C",
+          "text": "必须明确哪些量被改变、哪些量保持不变。"
+        },
+        {
+          "id": "D",
+          "text": "控制变量意味着所有参数都不能改变。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：必须明确哪些量被改变、哪些量保持不变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-4-sc-03",
+      "node_id": "A2.4",
+      "node_title": "控制变量与参数范围",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“控制变量与参数范围”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "控制变量意味着所有参数都不能改变。"
+        },
+        {
+          "id": "B",
+          "text": "参数范围应包含基准质量比和用于推广的其他质量比。"
+        },
+        {
+          "id": "C",
+          "text": "只计算一个质量比就能判断普遍规律。"
+        },
+        {
+          "id": "D",
+          "text": "比较时可同时随意改变初速度和摩擦。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：参数范围应包含基准质量比和用于推广的其他质量比。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-4-mc-01",
+      "node_id": "A2.4",
+      "node_title": "控制变量与参数范围",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“控制变量与参数范围”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "比较时可同时随意改变初速度和摩擦。"
+        },
+        {
+          "id": "B",
+          "text": "控制变量意味着所有参数都不能改变。"
+        },
+        {
+          "id": "C",
+          "text": "比较质量比时应保持其他初始条件一致。"
+        },
+        {
+          "id": "D",
+          "text": "必须明确哪些量被改变、哪些量保持不变。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：比较质量比时应保持其他初始条件一致。；必须明确哪些量被改变、哪些量保持不变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-4-mc-02",
+      "node_id": "A2.4",
+      "node_title": "控制变量与参数范围",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“控制变量与参数范围”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "只计算一个质量比就能判断普遍规律。"
+        },
+        {
+          "id": "B",
+          "text": "必须明确哪些量被改变、哪些量保持不变。"
+        },
+        {
+          "id": "C",
+          "text": "参数范围应包含基准质量比和用于推广的其他质量比。"
+        },
+        {
+          "id": "D",
+          "text": "控制变量意味着所有参数都不能改变。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：必须明确哪些量被改变、哪些量保持不变。；参数范围应包含基准质量比和用于推广的其他质量比。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a2-4-mb-01",
+      "node_id": "A2.4",
+      "node_title": "控制变量与参数范围",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "研究质量比影响时，把____作为自变量，并尽量保持初速度与环境条件____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "质量比",
+            "M/m"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "一致",
+            "不变",
+            "相同"
+          ]
+        }
+      ],
+      "explanation": "参考填法：质量比；一致",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-sc-01",
+      "node_id": "A3",
+      "node_title": "第一次碰撞后的物理量变化",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“第一次碰撞后的物理量变化”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "每个物块的动量都分别保持不变。"
+        },
+        {
+          "id": "B",
+          "text": "完全弹性碰撞允许系统总动能任意增加。"
+        },
+        {
+          "id": "C",
+          "text": "第一次物块碰撞会重新分配两物块的速度、动量和动能。"
+        },
+        {
+          "id": "D",
+          "text": "第一次碰撞后两个物块一定同时静止。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：第一次物块碰撞会重新分配两物块的速度、动量和动能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-sc-02",
+      "node_id": "A3",
+      "node_title": "第一次碰撞后的物理量变化",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“第一次碰撞后的物理量变化”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "第一次碰撞后两个物块一定同时静止。"
+        },
+        {
+          "id": "B",
+          "text": "单个物块的物理量可以改变。"
+        },
+        {
+          "id": "C",
+          "text": "每个物块的动量都分别保持不变。"
+        },
+        {
+          "id": "D",
+          "text": "完全弹性碰撞允许系统总动能任意增加。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：单个物块的物理量可以改变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-sc-03",
+      "node_id": "A3",
+      "node_title": "第一次碰撞后的物理量变化",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“第一次碰撞后的物理量变化”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "理想系统在物块碰撞前后总动量和总动能保持不变。"
+        },
+        {
+          "id": "B",
+          "text": "完全弹性碰撞允许系统总动能任意增加。"
+        },
+        {
+          "id": "C",
+          "text": "第一次碰撞后两个物块一定同时静止。"
+        },
+        {
+          "id": "D",
+          "text": "每个物块的动量都分别保持不变。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：理想系统在物块碰撞前后总动量和总动能保持不变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-mc-01",
+      "node_id": "A3",
+      "node_title": "第一次碰撞后的物理量变化",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“第一次碰撞后的物理量变化”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "每个物块的动量都分别保持不变。"
+        },
+        {
+          "id": "B",
+          "text": "第一次物块碰撞会重新分配两物块的速度、动量和动能。"
+        },
+        {
+          "id": "C",
+          "text": "单个物块的物理量可以改变。"
+        },
+        {
+          "id": "D",
+          "text": "第一次碰撞后两个物块一定同时静止。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：第一次物块碰撞会重新分配两物块的速度、动量和动能。；单个物块的物理量可以改变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-mc-02",
+      "node_id": "A3",
+      "node_title": "第一次碰撞后的物理量变化",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“第一次碰撞后的物理量变化”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "单个物块的物理量可以改变。"
+        },
+        {
+          "id": "B",
+          "text": "理想系统在物块碰撞前后总动量和总动能保持不变。"
+        },
+        {
+          "id": "C",
+          "text": "每个物块的动量都分别保持不变。"
+        },
+        {
+          "id": "D",
+          "text": "完全弹性碰撞允许系统总动能任意增加。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：单个物块的物理量可以改变。；理想系统在物块碰撞前后总动量和总动能保持不变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-mb-01",
+      "node_id": "A3",
+      "node_title": "第一次碰撞后的物理量变化",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "第一次物块碰撞会重新分配两个物块的____；系统总____和总动能保持不变。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "速度",
+            "运动状态"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "动量"
+          ]
+        }
+      ],
+      "explanation": "参考填法：速度；动量",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-1-sc-01",
+      "node_id": "A3.1",
+      "node_title": "碰撞前后状态快照",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“碰撞前后状态快照”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只记录大物块速度即可推出任何现实误差。"
+        },
+        {
+          "id": "B",
+          "text": "碰撞前后应使用同一组变量记录状态。"
+        },
+        {
+          "id": "C",
+          "text": "碰撞前后应更换变量名以避免数值相同。"
+        },
+        {
+          "id": "D",
+          "text": "快照只记录发生碰撞的地点。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：碰撞前后应使用同一组变量记录状态。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-1-sc-02",
+      "node_id": "A3.1",
+      "node_title": "碰撞前后状态快照",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“碰撞前后状态快照”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "快照至少包含两物块的速度与方向。"
+        },
+        {
+          "id": "B",
+          "text": "快照只记录发生碰撞的地点。"
+        },
+        {
+          "id": "C",
+          "text": "只记录大物块速度即可推出任何现实误差。"
+        },
+        {
+          "id": "D",
+          "text": "碰撞前后应更换变量名以避免数值相同。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：快照至少包含两物块的速度与方向。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-1-sc-03",
+      "node_id": "A3.1",
+      "node_title": "碰撞前后状态快照",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“碰撞前后状态快照”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只记录大物块速度即可推出任何现实误差。"
+        },
+        {
+          "id": "B",
+          "text": "碰撞前后应更换变量名以避免数值相同。"
+        },
+        {
+          "id": "C",
+          "text": "快照只记录发生碰撞的地点。"
+        },
+        {
+          "id": "D",
+          "text": "前后快照的差异显示本次事件造成的变化。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：前后快照的差异显示本次事件造成的变化。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-1-mc-01",
+      "node_id": "A3.1",
+      "node_title": "碰撞前后状态快照",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“碰撞前后状态快照”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "碰撞前后应使用同一组变量记录状态。"
+        },
+        {
+          "id": "B",
+          "text": "快照至少包含两物块的速度与方向。"
+        },
+        {
+          "id": "C",
+          "text": "碰撞前后应更换变量名以避免数值相同。"
+        },
+        {
+          "id": "D",
+          "text": "快照只记录发生碰撞的地点。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：碰撞前后应使用同一组变量记录状态。；快照至少包含两物块的速度与方向。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-1-mc-02",
+      "node_id": "A3.1",
+      "node_title": "碰撞前后状态快照",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“碰撞前后状态快照”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "前后快照的差异显示本次事件造成的变化。"
+        },
+        {
+          "id": "B",
+          "text": "快照只记录发生碰撞的地点。"
+        },
+        {
+          "id": "C",
+          "text": "只记录大物块速度即可推出任何现实误差。"
+        },
+        {
+          "id": "D",
+          "text": "快照至少包含两物块的速度与方向。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：快照至少包含两物块的速度与方向。；前后快照的差异显示本次事件造成的变化。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-1-mb-01",
+      "node_id": "A3.1",
+      "node_title": "碰撞前后状态快照",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "状态快照应在碰撞____和碰撞____使用同一组变量记录两物块速度。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "前",
+            "之前"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "后",
+            "之后"
+          ]
+        }
+      ],
+      "explanation": "参考填法：前；后",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-2-sc-01",
+      "node_id": "A3.2",
+      "node_title": "质量比影响速度分配",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“质量比影响速度分配”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比改变会改变碰撞后的速度分配。"
+        },
+        {
+          "id": "B",
+          "text": "任何质量比都会得到完全相同的碰撞后速度。"
+        },
+        {
+          "id": "C",
+          "text": "等质量碰撞后两物块必定粘在一起。"
+        },
+        {
+          "id": "D",
+          "text": "质量越小的物块碰撞后速度必定为零。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：质量比改变会改变碰撞后的速度分配。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-2-sc-02",
+      "node_id": "A3.2",
+      "node_title": "质量比影响速度分配",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“质量比影响速度分配”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "等质量碰撞后两物块必定粘在一起。"
+        },
+        {
+          "id": "B",
+          "text": "质量越小的物块碰撞后速度必定为零。"
+        },
+        {
+          "id": "C",
+          "text": "任何质量比都会得到完全相同的碰撞后速度。"
+        },
+        {
+          "id": "D",
+          "text": "M=m时可用等质量弹性碰撞交换速度来理解。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：M=m时可用等质量弹性碰撞交换速度来理解。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-2-sc-03",
+      "node_id": "A3.2",
+      "node_title": "质量比影响速度分配",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“质量比影响速度分配”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "任何质量比都会得到完全相同的碰撞后速度。"
+        },
+        {
+          "id": "B",
+          "text": "等质量碰撞后两物块必定粘在一起。"
+        },
+        {
+          "id": "C",
+          "text": "M≫m时小物块可能获得远大于大物块的速率。"
+        },
+        {
+          "id": "D",
+          "text": "质量越小的物块碰撞后速度必定为零。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：M≫m时小物块可能获得远大于大物块的速率。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-2-mc-01",
+      "node_id": "A3.2",
+      "node_title": "质量比影响速度分配",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“质量比影响速度分配”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "M=m时可用等质量弹性碰撞交换速度来理解。"
+        },
+        {
+          "id": "B",
+          "text": "任何质量比都会得到完全相同的碰撞后速度。"
+        },
+        {
+          "id": "C",
+          "text": "等质量碰撞后两物块必定粘在一起。"
+        },
+        {
+          "id": "D",
+          "text": "质量比改变会改变碰撞后的速度分配。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：质量比改变会改变碰撞后的速度分配。；M=m时可用等质量弹性碰撞交换速度来理解。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-2-mc-02",
+      "node_id": "A3.2",
+      "node_title": "质量比影响速度分配",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“质量比影响速度分配”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "等质量碰撞后两物块必定粘在一起。"
+        },
+        {
+          "id": "B",
+          "text": "质量越小的物块碰撞后速度必定为零。"
+        },
+        {
+          "id": "C",
+          "text": "M=m时可用等质量弹性碰撞交换速度来理解。"
+        },
+        {
+          "id": "D",
+          "text": "M≫m时小物块可能获得远大于大物块的速率。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：M=m时可用等质量弹性碰撞交换速度来理解。；M≫m时小物块可能获得远大于大物块的速率。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-2-mb-01",
+      "node_id": "A3.2",
+      "node_title": "质量比影响速度分配",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "等质量一维完全弹性碰撞可理解为两个物块交换____；当M远大于m时，速度____会明显不同。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "速度",
+            "初速度"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "分配",
+            "重新分配"
+          ]
+        }
+      ],
+      "explanation": "参考填法：速度；分配",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-3-sc-01",
+      "node_id": "A3.3",
+      "node_title": "单体变化与系统总量",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“单体变化与系统总量”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "系统守恒意味着每个物块的动量都不变。"
+        },
+        {
+          "id": "B",
+          "text": "单体动能改变即可证明碰撞非弹性。"
+        },
+        {
+          "id": "C",
+          "text": "是否守恒与系统边界无关。"
+        },
+        {
+          "id": "D",
+          "text": "单个物块动量改变不代表系统总动量改变。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：单个物块动量改变不代表系统总动量改变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-3-sc-02",
+      "node_id": "A3.3",
+      "node_title": "单体变化与系统总量",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“单体变化与系统总量”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "是否守恒与系统边界无关。"
+        },
+        {
+          "id": "B",
+          "text": "系统守恒意味着每个物块的动量都不变。"
+        },
+        {
+          "id": "C",
+          "text": "单个物块动能可在碰撞中增减。"
+        },
+        {
+          "id": "D",
+          "text": "单体动能改变即可证明碰撞非弹性。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：单个物块动能可在碰撞中增减。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-3-sc-03",
+      "node_id": "A3.3",
+      "node_title": "单体变化与系统总量",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“单体变化与系统总量”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "单体动能改变即可证明碰撞非弹性。"
+        },
+        {
+          "id": "B",
+          "text": "守恒判断必须先说明所选系统边界。"
+        },
+        {
+          "id": "C",
+          "text": "是否守恒与系统边界无关。"
+        },
+        {
+          "id": "D",
+          "text": "系统守恒意味着每个物块的动量都不变。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：守恒判断必须先说明所选系统边界。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-3-mc-01",
+      "node_id": "A3.3",
+      "node_title": "单体变化与系统总量",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“单体变化与系统总量”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "系统守恒意味着每个物块的动量都不变。"
+        },
+        {
+          "id": "B",
+          "text": "单体动能改变即可证明碰撞非弹性。"
+        },
+        {
+          "id": "C",
+          "text": "单个物块动量改变不代表系统总动量改变。"
+        },
+        {
+          "id": "D",
+          "text": "单个物块动能可在碰撞中增减。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：单个物块动量改变不代表系统总动量改变。；单个物块动能可在碰撞中增减。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-3-mc-02",
+      "node_id": "A3.3",
+      "node_title": "单体变化与系统总量",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“单体变化与系统总量”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "是否守恒与系统边界无关。"
+        },
+        {
+          "id": "B",
+          "text": "单个物块动能可在碰撞中增减。"
+        },
+        {
+          "id": "C",
+          "text": "守恒判断必须先说明所选系统边界。"
+        },
+        {
+          "id": "D",
+          "text": "单体动能改变即可证明碰撞非弹性。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：单个物块动能可在碰撞中增减。；守恒判断必须先说明所选系统边界。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-3-mb-01",
+      "node_id": "A3.3",
+      "node_title": "单体变化与系统总量",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "碰撞中单个物块的动量可以____，但所选封闭系统的总动量可以保持____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "改变",
+            "变化"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "不变",
+            "守恒"
+          ]
+        }
+      ],
+      "explanation": "参考填法：改变；不变",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-4-sc-01",
+      "node_id": "A3.4",
+      "node_title": "第一次碰撞产生下一事件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“第一次碰撞产生下一事件”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "小物块接近墙壁时速度方向不重要。"
+        },
+        {
+          "id": "B",
+          "text": "第一次碰撞后事件链必定立即结束。"
+        },
+        {
+          "id": "C",
+          "text": "第一次碰撞通常使小物块获得向左速度。"
+        },
+        {
+          "id": "D",
+          "text": "第一次碰撞后小物块必定永远向右。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：第一次碰撞通常使小物块获得向左速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-4-sc-02",
+      "node_id": "A3.4",
+      "node_title": "第一次碰撞产生下一事件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“第一次碰撞产生下一事件”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "第一次碰撞后小物块必定永远向右。"
+        },
+        {
+          "id": "B",
+          "text": "小物块向左运动会接近墙壁。"
+        },
+        {
+          "id": "C",
+          "text": "小物块接近墙壁时速度方向不重要。"
+        },
+        {
+          "id": "D",
+          "text": "第一次碰撞后事件链必定立即结束。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：小物块向左运动会接近墙壁。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-4-sc-03",
+      "node_id": "A3.4",
+      "node_title": "第一次碰撞产生下一事件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“第一次碰撞产生下一事件”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "撞墙后速度反向，为再次物块碰撞创造可能。"
+        },
+        {
+          "id": "B",
+          "text": "第一次碰撞后事件链必定立即结束。"
+        },
+        {
+          "id": "C",
+          "text": "第一次碰撞后小物块必定永远向右。"
+        },
+        {
+          "id": "D",
+          "text": "小物块接近墙壁时速度方向不重要。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：撞墙后速度反向，为再次物块碰撞创造可能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-4-mc-01",
+      "node_id": "A3.4",
+      "node_title": "第一次碰撞产生下一事件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“第一次碰撞产生下一事件”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "小物块接近墙壁时速度方向不重要。"
+        },
+        {
+          "id": "B",
+          "text": "第一次碰撞通常使小物块获得向左速度。"
+        },
+        {
+          "id": "C",
+          "text": "小物块向左运动会接近墙壁。"
+        },
+        {
+          "id": "D",
+          "text": "第一次碰撞后小物块必定永远向右。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：第一次碰撞通常使小物块获得向左速度。；小物块向左运动会接近墙壁。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-4-mc-02",
+      "node_id": "A3.4",
+      "node_title": "第一次碰撞产生下一事件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“第一次碰撞产生下一事件”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "小物块向左运动会接近墙壁。"
+        },
+        {
+          "id": "B",
+          "text": "撞墙后速度反向，为再次物块碰撞创造可能。"
+        },
+        {
+          "id": "C",
+          "text": "小物块接近墙壁时速度方向不重要。"
+        },
+        {
+          "id": "D",
+          "text": "第一次碰撞后事件链必定立即结束。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：小物块向左运动会接近墙壁。；撞墙后速度反向，为再次物块碰撞创造可能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a3-4-mb-01",
+      "node_id": "A3.4",
+      "node_title": "第一次碰撞产生下一事件",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "第一次物块碰撞后，小物块通常向____运动，因而下一类事件可能是小物块____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "左",
+            "墙壁方向"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "撞墙",
+            "与墙碰撞"
+          ]
+        }
+      ],
+      "explanation": "参考填法：左；撞墙",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-sc-01",
+      "node_id": "A4",
+      "node_title": "后续碰撞的原因与事件链",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“后续碰撞的原因与事件链”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要发生过一次碰撞，后续必然无限持续。"
+        },
+        {
+          "id": "B",
+          "text": "事件链由自由运动、物块碰撞和墙壁碰撞连接而成。"
+        },
+        {
+          "id": "C",
+          "text": "后续事件只由物块颜色决定。"
+        },
+        {
+          "id": "D",
+          "text": "墙壁碰撞后小物块速度保持原方向。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：事件链由自由运动、物块碰撞和墙壁碰撞连接而成。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-sc-02",
+      "node_id": "A4",
+      "node_title": "后续碰撞的原因与事件链",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“后续碰撞的原因与事件链”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "是否发生下一次碰撞取决于相对位置和相对速度。"
+        },
+        {
+          "id": "B",
+          "text": "墙壁碰撞后小物块速度保持原方向。"
+        },
+        {
+          "id": "C",
+          "text": "只要发生过一次碰撞，后续必然无限持续。"
+        },
+        {
+          "id": "D",
+          "text": "后续事件只由物块颜色决定。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：是否发生下一次碰撞取决于相对位置和相对速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-sc-03",
+      "node_id": "A4",
+      "node_title": "后续碰撞的原因与事件链",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“后续碰撞的原因与事件链”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要发生过一次碰撞，后续必然无限持续。"
+        },
+        {
+          "id": "B",
+          "text": "后续事件只由物块颜色决定。"
+        },
+        {
+          "id": "C",
+          "text": "墙壁碰撞后小物块速度保持原方向。"
+        },
+        {
+          "id": "D",
+          "text": "每次碰撞后的状态都是判断下一事件的起点。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：每次碰撞后的状态都是判断下一事件的起点。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-mc-01",
+      "node_id": "A4",
+      "node_title": "后续碰撞的原因与事件链",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“后续碰撞的原因与事件链”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "事件链由自由运动、物块碰撞和墙壁碰撞连接而成。"
+        },
+        {
+          "id": "B",
+          "text": "是否发生下一次碰撞取决于相对位置和相对速度。"
+        },
+        {
+          "id": "C",
+          "text": "后续事件只由物块颜色决定。"
+        },
+        {
+          "id": "D",
+          "text": "墙壁碰撞后小物块速度保持原方向。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：事件链由自由运动、物块碰撞和墙壁碰撞连接而成。；是否发生下一次碰撞取决于相对位置和相对速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-mc-02",
+      "node_id": "A4",
+      "node_title": "后续碰撞的原因与事件链",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“后续碰撞的原因与事件链”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "每次碰撞后的状态都是判断下一事件的起点。"
+        },
+        {
+          "id": "B",
+          "text": "墙壁碰撞后小物块速度保持原方向。"
+        },
+        {
+          "id": "C",
+          "text": "只要发生过一次碰撞，后续必然无限持续。"
+        },
+        {
+          "id": "D",
+          "text": "是否发生下一次碰撞取决于相对位置和相对速度。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：是否发生下一次碰撞取决于相对位置和相对速度。；每次碰撞后的状态都是判断下一事件的起点。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-mb-01",
+      "node_id": "A4",
+      "node_title": "后续碰撞的原因与事件链",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "碰撞之间是____运动；判断下一事件要同时比较相对位置与相对____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "自由",
+            "匀速直线"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "速度"
+          ]
+        }
+      ],
+      "explanation": "参考填法：自由；速度",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-1-sc-01",
+      "node_id": "A4.1",
+      "node_title": "理想墙壁的速度反射",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“理想墙壁的速度反射”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "小物块撞固定墙后速度由v变为−v。"
+        },
+        {
+          "id": "B",
+          "text": "撞墙后速度仍为v且方向不变。"
+        },
+        {
+          "id": "C",
+          "text": "撞墙后小物块质量变为负值。"
+        },
+        {
+          "id": "D",
+          "text": "理想墙碰撞会使小物块速率增加一倍。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：小物块撞固定墙后速度由v变为−v。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-1-sc-02",
+      "node_id": "A4.1",
+      "node_title": "理想墙壁的速度反射",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“理想墙壁的速度反射”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "撞墙后小物块质量变为负值。"
+        },
+        {
+          "id": "B",
+          "text": "理想墙碰撞会使小物块速率增加一倍。"
+        },
+        {
+          "id": "C",
+          "text": "撞墙后速度仍为v且方向不变。"
+        },
+        {
+          "id": "D",
+          "text": "反射前后速率大小相同。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：反射前后速率大小相同。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-1-sc-03",
+      "node_id": "A4.1",
+      "node_title": "理想墙壁的速度反射",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“理想墙壁的速度反射”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "撞墙后速度仍为v且方向不变。"
+        },
+        {
+          "id": "B",
+          "text": "撞墙后小物块质量变为负值。"
+        },
+        {
+          "id": "C",
+          "text": "墙碰撞改变速度方向但不改变小物块动能。"
+        },
+        {
+          "id": "D",
+          "text": "理想墙碰撞会使小物块速率增加一倍。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：墙碰撞改变速度方向但不改变小物块动能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-1-mc-01",
+      "node_id": "A4.1",
+      "node_title": "理想墙壁的速度反射",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“理想墙壁的速度反射”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "反射前后速率大小相同。"
+        },
+        {
+          "id": "B",
+          "text": "撞墙后速度仍为v且方向不变。"
+        },
+        {
+          "id": "C",
+          "text": "撞墙后小物块质量变为负值。"
+        },
+        {
+          "id": "D",
+          "text": "小物块撞固定墙后速度由v变为−v。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：小物块撞固定墙后速度由v变为−v。；反射前后速率大小相同。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-1-mc-02",
+      "node_id": "A4.1",
+      "node_title": "理想墙壁的速度反射",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“理想墙壁的速度反射”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "撞墙后小物块质量变为负值。"
+        },
+        {
+          "id": "B",
+          "text": "理想墙碰撞会使小物块速率增加一倍。"
+        },
+        {
+          "id": "C",
+          "text": "反射前后速率大小相同。"
+        },
+        {
+          "id": "D",
+          "text": "墙碰撞改变速度方向但不改变小物块动能。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：反射前后速率大小相同。；墙碰撞改变速度方向但不改变小物块动能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-1-mb-01",
+      "node_id": "A4.1",
+      "node_title": "理想墙壁的速度反射",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "理想墙壁反射可写成v→____；速度大小____，方向反转。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "-v",
+            "−v"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "不变",
+            "保持不变"
+          ]
+        }
+      ],
+      "explanation": "参考填法：-v；不变",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-2-sc-01",
+      "node_id": "A4.2",
+      "node_title": "再次追上大物块的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“再次追上大物块的条件”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要小物块向右就一定能追上大物块。"
+        },
+        {
+          "id": "B",
+          "text": "大物块速度越快，小物块越容易追上。"
+        },
+        {
+          "id": "C",
+          "text": "相对位置不会影响是否再次接触。"
+        },
+        {
+          "id": "D",
+          "text": "小物块必须位于大物块左侧并具有足够的向右速度。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：小物块必须位于大物块左侧并具有足够的向右速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-2-sc-02",
+      "node_id": "A4.2",
+      "node_title": "再次追上大物块的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“再次追上大物块的条件”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "相对位置不会影响是否再次接触。"
+        },
+        {
+          "id": "B",
+          "text": "只要小物块向右就一定能追上大物块。"
+        },
+        {
+          "id": "C",
+          "text": "若两者都向右，小物块速度大于大物块速度时距离会缩短。"
+        },
+        {
+          "id": "D",
+          "text": "大物块速度越快，小物块越容易追上。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：若两者都向右，小物块速度大于大物块速度时距离会缩短。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-2-sc-03",
+      "node_id": "A4.2",
+      "node_title": "再次追上大物块的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“再次追上大物块的条件”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "大物块速度越快，小物块越容易追上。"
+        },
+        {
+          "id": "B",
+          "text": "应结合位置差与相对速度判断接触时刻。"
+        },
+        {
+          "id": "C",
+          "text": "相对位置不会影响是否再次接触。"
+        },
+        {
+          "id": "D",
+          "text": "只要小物块向右就一定能追上大物块。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：应结合位置差与相对速度判断接触时刻。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-2-mc-01",
+      "node_id": "A4.2",
+      "node_title": "再次追上大物块的条件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“再次追上大物块的条件”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要小物块向右就一定能追上大物块。"
+        },
+        {
+          "id": "B",
+          "text": "大物块速度越快，小物块越容易追上。"
+        },
+        {
+          "id": "C",
+          "text": "小物块必须位于大物块左侧并具有足够的向右速度。"
+        },
+        {
+          "id": "D",
+          "text": "若两者都向右，小物块速度大于大物块速度时距离会缩短。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：小物块必须位于大物块左侧并具有足够的向右速度。；若两者都向右，小物块速度大于大物块速度时距离会缩短。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-2-mc-02",
+      "node_id": "A4.2",
+      "node_title": "再次追上大物块的条件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“再次追上大物块的条件”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "相对位置不会影响是否再次接触。"
+        },
+        {
+          "id": "B",
+          "text": "若两者都向右，小物块速度大于大物块速度时距离会缩短。"
+        },
+        {
+          "id": "C",
+          "text": "应结合位置差与相对速度判断接触时刻。"
+        },
+        {
+          "id": "D",
+          "text": "大物块速度越快，小物块越容易追上。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：若两者都向右，小物块速度大于大物块速度时距离会缩短。；应结合位置差与相对速度判断接触时刻。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-2-mb-01",
+      "node_id": "A4.2",
+      "node_title": "再次追上大物块的条件",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两物块都向右时，小物块再次追上大物块通常要求v_m____v_M，且小物块位于大物块____侧。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            ">",
+            "大于"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "左"
+          ]
+        }
+      ],
+      "explanation": "参考填法：>；左",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-3-sc-01",
+      "node_id": "A4.3",
+      "node_title": "两类碰撞交替与状态表",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“两类碰撞交替与状态表”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "墙碰撞无需写入事件类型。"
+        },
+        {
+          "id": "B",
+          "text": "事件编号可以在每次墙碰撞后归零。"
+        },
+        {
+          "id": "C",
+          "text": "状态表应按事件发生顺序逐行记录。"
+        },
+        {
+          "id": "D",
+          "text": "状态表只需记录最终一行。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：状态表应按事件发生顺序逐行记录。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-3-sc-02",
+      "node_id": "A4.3",
+      "node_title": "两类碰撞交替与状态表",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“两类碰撞交替与状态表”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "状态表只需记录最终一行。"
+        },
+        {
+          "id": "B",
+          "text": "每行可包含事件编号、事件类型、vM和vm。"
+        },
+        {
+          "id": "C",
+          "text": "墙碰撞无需写入事件类型。"
+        },
+        {
+          "id": "D",
+          "text": "事件编号可以在每次墙碰撞后归零。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：每行可包含事件编号、事件类型、vM和vm。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-3-sc-03",
+      "node_id": "A4.3",
+      "node_title": "两类碰撞交替与状态表",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“两类碰撞交替与状态表”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "状态表能检查是否漏记或重复计算碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "事件编号可以在每次墙碰撞后归零。"
+        },
+        {
+          "id": "C",
+          "text": "状态表只需记录最终一行。"
+        },
+        {
+          "id": "D",
+          "text": "墙碰撞无需写入事件类型。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：状态表能检查是否漏记或重复计算碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-3-mc-01",
+      "node_id": "A4.3",
+      "node_title": "两类碰撞交替与状态表",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“两类碰撞交替与状态表”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "墙碰撞无需写入事件类型。"
+        },
+        {
+          "id": "B",
+          "text": "状态表应按事件发生顺序逐行记录。"
+        },
+        {
+          "id": "C",
+          "text": "每行可包含事件编号、事件类型、vM和vm。"
+        },
+        {
+          "id": "D",
+          "text": "状态表只需记录最终一行。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：状态表应按事件发生顺序逐行记录。；每行可包含事件编号、事件类型、vM和vm。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-3-mc-02",
+      "node_id": "A4.3",
+      "node_title": "两类碰撞交替与状态表",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“两类碰撞交替与状态表”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "每行可包含事件编号、事件类型、vM和vm。"
+        },
+        {
+          "id": "B",
+          "text": "状态表能检查是否漏记或重复计算碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "墙碰撞无需写入事件类型。"
+        },
+        {
+          "id": "D",
+          "text": "事件编号可以在每次墙碰撞后归零。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：每行可包含事件编号、事件类型、vM和vm。；状态表能检查是否漏记或重复计算碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-3-mb-01",
+      "node_id": "A4.3",
+      "node_title": "两类碰撞交替与状态表",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "状态表按事件____记录，每行至少写事件编号、事件类型以及____和v_m。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "顺序",
+            "发生顺序"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "v_M",
+            "大物块速度"
+          ]
+        }
+      ],
+      "explanation": "参考填法：顺序；v_M",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-4-sc-01",
+      "node_id": "A4.4",
+      "node_title": "不同质量比的现象比较",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“不同质量比的现象比较”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "不同质量比应使用不同计数规则。"
+        },
+        {
+          "id": "B",
+          "text": "质量比增大时通常会出现更多次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "质量比越大，碰撞次数必定越少。"
+        },
+        {
+          "id": "D",
+          "text": "质量比100与10000的碰撞次数相同。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：质量比增大时通常会出现更多次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-4-sc-02",
+      "node_id": "A4.4",
+      "node_title": "不同质量比的现象比较",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“不同质量比的现象比较”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "1、100、10000是观察π数字规律的典型质量比。"
+        },
+        {
+          "id": "B",
+          "text": "质量比100与10000的碰撞次数相同。"
+        },
+        {
+          "id": "C",
+          "text": "不同质量比应使用不同计数规则。"
+        },
+        {
+          "id": "D",
+          "text": "质量比越大，碰撞次数必定越少。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：1、100、10000是观察π数字规律的典型质量比。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-4-sc-03",
+      "node_id": "A4.4",
+      "node_title": "不同质量比的现象比较",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“不同质量比的现象比较”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "不同质量比应使用不同计数规则。"
+        },
+        {
+          "id": "B",
+          "text": "质量比越大，碰撞次数必定越少。"
+        },
+        {
+          "id": "C",
+          "text": "质量比100与10000的碰撞次数相同。"
+        },
+        {
+          "id": "D",
+          "text": "比较时应使用统一的碰撞计数口径。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：比较时应使用统一的碰撞计数口径。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-4-mc-01",
+      "node_id": "A4.4",
+      "node_title": "不同质量比的现象比较",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“不同质量比的现象比较”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比增大时通常会出现更多次碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "1、100、10000是观察π数字规律的典型质量比。"
+        },
+        {
+          "id": "C",
+          "text": "质量比越大，碰撞次数必定越少。"
+        },
+        {
+          "id": "D",
+          "text": "质量比100与10000的碰撞次数相同。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：质量比增大时通常会出现更多次碰撞。；1、100、10000是观察π数字规律的典型质量比。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-4-mc-02",
+      "node_id": "A4.4",
+      "node_title": "不同质量比的现象比较",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“不同质量比的现象比较”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "比较时应使用统一的碰撞计数口径。"
+        },
+        {
+          "id": "B",
+          "text": "质量比100与10000的碰撞次数相同。"
+        },
+        {
+          "id": "C",
+          "text": "不同质量比应使用不同计数规则。"
+        },
+        {
+          "id": "D",
+          "text": "1、100、10000是观察π数字规律的典型质量比。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：1、100、10000是观察π数字规律的典型质量比。；比较时应使用统一的碰撞计数口径。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-4-mb-01",
+      "node_id": "A4.4",
+      "node_title": "不同质量比的现象比较",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "典型质量比1、____、10000分别用于观察3、31、314次碰撞；比较时计数口径应____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "100"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "一致",
+            "相同"
+          ]
+        }
+      ],
+      "explanation": "参考填法：100；一致",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-5-sc-01",
+      "node_id": "A4.5",
+      "node_title": "无限质量与固定墙的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“无限质量与固定墙的区别”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "固定墙可视作某些计算中的无限质量极限。"
+        },
+        {
+          "id": "B",
+          "text": "质量很大就等于位置绝对固定。"
+        },
+        {
+          "id": "C",
+          "text": "固定墙与任意有限质量物块完全相同。"
+        },
+        {
+          "id": "D",
+          "text": "引入墙壁后两个物块组成的系统动量仍必然守恒。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：固定墙可视作某些计算中的无限质量极限。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-5-sc-02",
+      "node_id": "A4.5",
+      "node_title": "无限质量与固定墙的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“无限质量与固定墙的区别”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "固定墙与任意有限质量物块完全相同。"
+        },
+        {
+          "id": "B",
+          "text": "引入墙壁后两个物块组成的系统动量仍必然守恒。"
+        },
+        {
+          "id": "C",
+          "text": "质量很大就等于位置绝对固定。"
+        },
+        {
+          "id": "D",
+          "text": "有限质量物体仍可能因碰撞产生可观速度。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：有限质量物体仍可能因碰撞产生可观速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-5-sc-03",
+      "node_id": "A4.5",
+      "node_title": "无限质量与固定墙的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“无限质量与固定墙的区别”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量很大就等于位置绝对固定。"
+        },
+        {
+          "id": "B",
+          "text": "固定墙与任意有限质量物块完全相同。"
+        },
+        {
+          "id": "C",
+          "text": "极限类比不能抹去系统边界和外界冲量的差别。"
+        },
+        {
+          "id": "D",
+          "text": "引入墙壁后两个物块组成的系统动量仍必然守恒。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：极限类比不能抹去系统边界和外界冲量的差别。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-5-mc-01",
+      "node_id": "A4.5",
+      "node_title": "无限质量与固定墙的区别",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“无限质量与固定墙的区别”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "有限质量物体仍可能因碰撞产生可观速度。"
+        },
+        {
+          "id": "B",
+          "text": "质量很大就等于位置绝对固定。"
+        },
+        {
+          "id": "C",
+          "text": "固定墙与任意有限质量物块完全相同。"
+        },
+        {
+          "id": "D",
+          "text": "固定墙可视作某些计算中的无限质量极限。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：固定墙可视作某些计算中的无限质量极限。；有限质量物体仍可能因碰撞产生可观速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-5-mc-02",
+      "node_id": "A4.5",
+      "node_title": "无限质量与固定墙的区别",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“无限质量与固定墙的区别”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "固定墙与任意有限质量物块完全相同。"
+        },
+        {
+          "id": "B",
+          "text": "引入墙壁后两个物块组成的系统动量仍必然守恒。"
+        },
+        {
+          "id": "C",
+          "text": "有限质量物体仍可能因碰撞产生可观速度。"
+        },
+        {
+          "id": "D",
+          "text": "极限类比不能抹去系统边界和外界冲量的差别。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：有限质量物体仍可能因碰撞产生可观速度。；极限类比不能抹去系统边界和外界冲量的差别。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-5-mb-01",
+      "node_id": "A4.5",
+      "node_title": "无限质量与固定墙的区别",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "固定墙常被类比为质量趋于____的物体，但墙壁固定意味着系统边界与有限质量物体____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "无穷大",
+            "无限大",
+            "∞"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "不同",
+            "有区别"
+          ]
+        }
+      ],
+      "explanation": "参考填法：无穷大；不同",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-6-sc-01",
+      "node_id": "A4.6",
+      "node_title": "极端质量比的实验限制",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“极端质量比的实验限制”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "理想公式保证现实实验不存在误差。"
+        },
+        {
+          "id": "B",
+          "text": "质量比越极端，实验装置越容易制作。"
+        },
+        {
+          "id": "C",
+          "text": "测量分辨率只影响物块颜色，不影响计数。"
+        },
+        {
+          "id": "D",
+          "text": "极端质量比会使碰撞变得密集且难以分辨。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：极端质量比会使碰撞变得密集且难以分辨。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-6-sc-02",
+      "node_id": "A4.6",
+      "node_title": "极端质量比的实验限制",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“极端质量比的实验限制”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "测量分辨率只影响物块颜色，不影响计数。"
+        },
+        {
+          "id": "B",
+          "text": "理想公式保证现实实验不存在误差。"
+        },
+        {
+          "id": "C",
+          "text": "摩擦和非完全弹性会积累误差。"
+        },
+        {
+          "id": "D",
+          "text": "质量比越极端，实验装置越容易制作。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：摩擦和非完全弹性会积累误差。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-6-sc-03",
+      "node_id": "A4.6",
+      "node_title": "极端质量比的实验限制",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“极端质量比的实验限制”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比越极端，实验装置越容易制作。"
+        },
+        {
+          "id": "B",
+          "text": "传感器时间分辨率会限制可观测碰撞次数。"
+        },
+        {
+          "id": "C",
+          "text": "测量分辨率只影响物块颜色，不影响计数。"
+        },
+        {
+          "id": "D",
+          "text": "理想公式保证现实实验不存在误差。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：传感器时间分辨率会限制可观测碰撞次数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-6-mc-01",
+      "node_id": "A4.6",
+      "node_title": "极端质量比的实验限制",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“极端质量比的实验限制”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "理想公式保证现实实验不存在误差。"
+        },
+        {
+          "id": "B",
+          "text": "质量比越极端，实验装置越容易制作。"
+        },
+        {
+          "id": "C",
+          "text": "极端质量比会使碰撞变得密集且难以分辨。"
+        },
+        {
+          "id": "D",
+          "text": "摩擦和非完全弹性会积累误差。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：极端质量比会使碰撞变得密集且难以分辨。；摩擦和非完全弹性会积累误差。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-6-mc-02",
+      "node_id": "A4.6",
+      "node_title": "极端质量比的实验限制",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“极端质量比的实验限制”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "测量分辨率只影响物块颜色，不影响计数。"
+        },
+        {
+          "id": "B",
+          "text": "摩擦和非完全弹性会积累误差。"
+        },
+        {
+          "id": "C",
+          "text": "传感器时间分辨率会限制可观测碰撞次数。"
+        },
+        {
+          "id": "D",
+          "text": "质量比越极端，实验装置越容易制作。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：摩擦和非完全弹性会积累误差。；传感器时间分辨率会限制可观测碰撞次数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a4-6-mb-01",
+      "node_id": "A4.6",
+      "node_title": "极端质量比的实验限制",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "极端质量比实验同时受摩擦、非完全弹性和测量____限制；密集碰撞要求更高的时间____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "分辨率",
+            "精度"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "分辨率",
+            "精度"
+          ]
+        }
+      ],
+      "explanation": "参考填法：分辨率；分辨率",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-sc-01",
+      "node_id": "A5",
+      "node_title": "碰撞结束原因与状态",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“碰撞结束原因与状态”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要小物块离开墙壁就立即结束。"
+        },
+        {
+          "id": "B",
+          "text": "终止状态只由已经发生的次数决定。"
+        },
+        {
+          "id": "C",
+          "text": "碰撞结束表示未来不会再发生接触事件。"
+        },
+        {
+          "id": "D",
+          "text": "碰撞结束表示两个物块都静止。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：碰撞结束表示未来不会再发生接触事件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-sc-02",
+      "node_id": "A5",
+      "node_title": "碰撞结束原因与状态",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“碰撞结束原因与状态”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "碰撞结束表示两个物块都静止。"
+        },
+        {
+          "id": "B",
+          "text": "结束时物块仍可以继续运动。"
+        },
+        {
+          "id": "C",
+          "text": "只要小物块离开墙壁就立即结束。"
+        },
+        {
+          "id": "D",
+          "text": "终止状态只由已经发生的次数决定。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：结束时物块仍可以继续运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-sc-03",
+      "node_id": "A5",
+      "node_title": "碰撞结束原因与状态",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“碰撞结束原因与状态”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "终止判断依赖速度方向与相对速度。"
+        },
+        {
+          "id": "B",
+          "text": "终止状态只由已经发生的次数决定。"
+        },
+        {
+          "id": "C",
+          "text": "碰撞结束表示两个物块都静止。"
+        },
+        {
+          "id": "D",
+          "text": "只要小物块离开墙壁就立即结束。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：终止判断依赖速度方向与相对速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-mc-01",
+      "node_id": "A5",
+      "node_title": "碰撞结束原因与状态",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“碰撞结束原因与状态”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要小物块离开墙壁就立即结束。"
+        },
+        {
+          "id": "B",
+          "text": "碰撞结束表示未来不会再发生接触事件。"
+        },
+        {
+          "id": "C",
+          "text": "结束时物块仍可以继续运动。"
+        },
+        {
+          "id": "D",
+          "text": "碰撞结束表示两个物块都静止。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：碰撞结束表示未来不会再发生接触事件。；结束时物块仍可以继续运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-mc-02",
+      "node_id": "A5",
+      "node_title": "碰撞结束原因与状态",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“碰撞结束原因与状态”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "结束时物块仍可以继续运动。"
+        },
+        {
+          "id": "B",
+          "text": "终止判断依赖速度方向与相对速度。"
+        },
+        {
+          "id": "C",
+          "text": "只要小物块离开墙壁就立即结束。"
+        },
+        {
+          "id": "D",
+          "text": "终止状态只由已经发生的次数决定。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：结束时物块仍可以继续运动。；终止判断依赖速度方向与相对速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-mb-01",
+      "node_id": "A5",
+      "node_title": "碰撞结束原因与状态",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "碰撞序列结束并不等于物块____；它表示按当前速度继续运动时不再发生新的____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "静止",
+            "停止"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "碰撞",
+            "接触事件"
+          ]
+        }
+      ],
+      "explanation": "参考填法：静止；碰撞",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-1-sc-01",
+      "node_id": "A5.1",
+      "node_title": "不再撞墙的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“不再撞墙的条件”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "是否再撞墙与速度方向无关。"
+        },
+        {
+          "id": "B",
+          "text": "小物块速度不再向左时不会继续接近左侧墙壁。"
+        },
+        {
+          "id": "C",
+          "text": "vm<0时小物块一定远离左墙。"
+        },
+        {
+          "id": "D",
+          "text": "小物块速度为正表示它正在向墙运动。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：小物块速度不再向左时不会继续接近左侧墙壁。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-1-sc-02",
+      "node_id": "A5.1",
+      "node_title": "不再撞墙的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“不再撞墙的条件”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "在向右为正的约定下，可要求vm≥0。"
+        },
+        {
+          "id": "B",
+          "text": "小物块速度为正表示它正在向墙运动。"
+        },
+        {
+          "id": "C",
+          "text": "是否再撞墙与速度方向无关。"
+        },
+        {
+          "id": "D",
+          "text": "vm<0时小物块一定远离左墙。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：在向右为正的约定下，可要求vm≥0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-1-sc-03",
+      "node_id": "A5.1",
+      "node_title": "不再撞墙的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“不再撞墙的条件”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "是否再撞墙与速度方向无关。"
+        },
+        {
+          "id": "B",
+          "text": "vm<0时小物块一定远离左墙。"
+        },
+        {
+          "id": "C",
+          "text": "小物块速度为正表示它正在向墙运动。"
+        },
+        {
+          "id": "D",
+          "text": "还需结合当前位置确认小物块已经离开墙面。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：还需结合当前位置确认小物块已经离开墙面。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-1-mc-01",
+      "node_id": "A5.1",
+      "node_title": "不再撞墙的条件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“不再撞墙的条件”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "小物块速度不再向左时不会继续接近左侧墙壁。"
+        },
+        {
+          "id": "B",
+          "text": "在向右为正的约定下，可要求vm≥0。"
+        },
+        {
+          "id": "C",
+          "text": "vm<0时小物块一定远离左墙。"
+        },
+        {
+          "id": "D",
+          "text": "小物块速度为正表示它正在向墙运动。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：小物块速度不再向左时不会继续接近左侧墙壁。；在向右为正的约定下，可要求vm≥0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-1-mc-02",
+      "node_id": "A5.1",
+      "node_title": "不再撞墙的条件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“不再撞墙的条件”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "还需结合当前位置确认小物块已经离开墙面。"
+        },
+        {
+          "id": "B",
+          "text": "小物块速度为正表示它正在向墙运动。"
+        },
+        {
+          "id": "C",
+          "text": "是否再撞墙与速度方向无关。"
+        },
+        {
+          "id": "D",
+          "text": "在向右为正的约定下，可要求vm≥0。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：在向右为正的约定下，可要求vm≥0。；还需结合当前位置确认小物块已经离开墙面。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-1-mb-01",
+      "node_id": "A5.1",
+      "node_title": "不再撞墙的条件",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "取向右为正，小物块不再朝墙运动的速度条件是v_m____0，此时它向____或静止。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "≥",
+            "大于等于"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "右"
+          ]
+        }
+      ],
+      "explanation": "参考填法：≥；右",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-2-sc-01",
+      "node_id": "A5.2",
+      "node_title": "不再追上的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“不再追上的条件”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "两物块向右且大物块速度不小于小物块速度时，小物块无法从后方追上。"
+        },
+        {
+          "id": "B",
+          "text": "只要大物块向右，小物块就永远追不上。"
+        },
+        {
+          "id": "C",
+          "text": "vm>vM表示两物块距离一定增大。"
+        },
+        {
+          "id": "D",
+          "text": "两物块速度相等时小物块会立即穿过大物块。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：两物块向右且大物块速度不小于小物块速度时，小物块无法从后方追上。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-2-sc-02",
+      "node_id": "A5.2",
+      "node_title": "不再追上的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“不再追上的条件”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "vm>vM表示两物块距离一定增大。"
+        },
+        {
+          "id": "B",
+          "text": "两物块速度相等时小物块会立即穿过大物块。"
+        },
+        {
+          "id": "C",
+          "text": "只要大物块向右，小物块就永远追不上。"
+        },
+        {
+          "id": "D",
+          "text": "判断追赶要比较vM与vm。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：判断追赶要比较vM与vm。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-2-sc-03",
+      "node_id": "A5.2",
+      "node_title": "不再追上的条件",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“不再追上的条件”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要大物块向右，小物块就永远追不上。"
+        },
+        {
+          "id": "B",
+          "text": "vm>vM表示两物块距离一定增大。"
+        },
+        {
+          "id": "C",
+          "text": "若vm>vM且小物块在左侧，仍可能再次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "两物块速度相等时小物块会立即穿过大物块。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：若vm>vM且小物块在左侧，仍可能再次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-2-mc-01",
+      "node_id": "A5.2",
+      "node_title": "不再追上的条件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“不再追上的条件”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "判断追赶要比较vM与vm。"
+        },
+        {
+          "id": "B",
+          "text": "只要大物块向右，小物块就永远追不上。"
+        },
+        {
+          "id": "C",
+          "text": "vm>vM表示两物块距离一定增大。"
+        },
+        {
+          "id": "D",
+          "text": "两物块向右且大物块速度不小于小物块速度时，小物块无法从后方追上。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：两物块向右且大物块速度不小于小物块速度时，小物块无法从后方追上。；判断追赶要比较vM与vm。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-2-mc-02",
+      "node_id": "A5.2",
+      "node_title": "不再追上的条件",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“不再追上的条件”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "vm>vM表示两物块距离一定增大。"
+        },
+        {
+          "id": "B",
+          "text": "两物块速度相等时小物块会立即穿过大物块。"
+        },
+        {
+          "id": "C",
+          "text": "判断追赶要比较vM与vm。"
+        },
+        {
+          "id": "D",
+          "text": "若vm>vM且小物块在左侧，仍可能再次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：判断追赶要比较vM与vm。；若vm>vM且小物块在左侧，仍可能再次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-2-mb-01",
+      "node_id": "A5.2",
+      "node_title": "不再追上的条件",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两物块均向右且小物块在后方时，不再追上的速度条件是v_M____v_m；若v_m>v_M，距离可能继续____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "≥",
+            "大于等于"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "缩小",
+            "减小"
+          ]
+        }
+      ],
+      "explanation": "参考填法：≥；缩小",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-3-sc-01",
+      "node_id": "A5.3",
+      "node_title": "终止判据 vM≥vm≥0",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“终止判据 vM≥vm≥0”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "判据应写成vm≥vM且vM<0。"
+        },
+        {
+          "id": "B",
+          "text": "该判据表示小物块正在追赶大物块。"
+        },
+        {
+          "id": "C",
+          "text": "只要vM≥0，无论vm为何值都必然结束。"
+        },
+        {
+          "id": "D",
+          "text": "vM≥vm≥0表示两物块均不向左。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：vM≥vm≥0表示两物块均不向左。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-3-sc-02",
+      "node_id": "A5.3",
+      "node_title": "终止判据 vM≥vm≥0",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“终止判据 vM≥vm≥0”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要vM≥0，无论vm为何值都必然结束。"
+        },
+        {
+          "id": "B",
+          "text": "判据应写成vm≥vM且vM<0。"
+        },
+        {
+          "id": "C",
+          "text": "该不等式还表示大物块不比小物块慢。"
+        },
+        {
+          "id": "D",
+          "text": "该判据表示小物块正在追赶大物块。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：该不等式还表示大物块不比小物块慢。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-3-sc-03",
+      "node_id": "A5.3",
+      "node_title": "终止判据 vM≥vm≥0",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“终止判据 vM≥vm≥0”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "该判据表示小物块正在追赶大物块。"
+        },
+        {
+          "id": "B",
+          "text": "结合正确的空间顺序，它可作为碰撞链终止判据。"
+        },
+        {
+          "id": "C",
+          "text": "只要vM≥0，无论vm为何值都必然结束。"
+        },
+        {
+          "id": "D",
+          "text": "判据应写成vm≥vM且vM<0。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：结合正确的空间顺序，它可作为碰撞链终止判据。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-3-mc-01",
+      "node_id": "A5.3",
+      "node_title": "终止判据 vM≥vm≥0",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“终止判据 vM≥vm≥0”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "判据应写成vm≥vM且vM<0。"
+        },
+        {
+          "id": "B",
+          "text": "该判据表示小物块正在追赶大物块。"
+        },
+        {
+          "id": "C",
+          "text": "vM≥vm≥0表示两物块均不向左。"
+        },
+        {
+          "id": "D",
+          "text": "该不等式还表示大物块不比小物块慢。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：vM≥vm≥0表示两物块均不向左。；该不等式还表示大物块不比小物块慢。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-3-mc-02",
+      "node_id": "A5.3",
+      "node_title": "终止判据 vM≥vm≥0",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“终止判据 vM≥vm≥0”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要vM≥0，无论vm为何值都必然结束。"
+        },
+        {
+          "id": "B",
+          "text": "该不等式还表示大物块不比小物块慢。"
+        },
+        {
+          "id": "C",
+          "text": "结合正确的空间顺序，它可作为碰撞链终止判据。"
+        },
+        {
+          "id": "D",
+          "text": "该判据表示小物块正在追赶大物块。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：该不等式还表示大物块不比小物块慢。；结合正确的空间顺序，它可作为碰撞链终止判据。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-3-mb-01",
+      "node_id": "A5.3",
+      "node_title": "终止判据 vM≥vm≥0",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "碰撞链的速度终止判据可写为____≥____≥0。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "v_M",
+            "vM",
+            "大物块速度"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "v_m",
+            "vm",
+            "小物块速度"
+          ]
+        }
+      ],
+      "explanation": "参考填法：v_M；v_m",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-4-sc-01",
+      "node_id": "A5.4",
+      "node_title": "有限碰撞与持续运动的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“有限碰撞与持续运动的区别”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要物块继续运动就一定继续碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "最后一次碰撞后理想模型自动出现摩擦。"
+        },
+        {
+          "id": "C",
+          "text": "碰撞次数有限不等于运动时间有限。"
+        },
+        {
+          "id": "D",
+          "text": "有限次碰撞后所有速度必须变为零。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：碰撞次数有限不等于运动时间有限。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-4-sc-02",
+      "node_id": "A5.4",
+      "node_title": "有限碰撞与持续运动的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“有限碰撞与持续运动的区别”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "有限次碰撞后所有速度必须变为零。"
+        },
+        {
+          "id": "B",
+          "text": "最后一次碰撞后两物块可以一直匀速运动。"
+        },
+        {
+          "id": "C",
+          "text": "只要物块继续运动就一定继续碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "最后一次碰撞后理想模型自动出现摩擦。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：最后一次碰撞后两物块可以一直匀速运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-4-sc-03",
+      "node_id": "A5.4",
+      "node_title": "有限碰撞与持续运动的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“有限碰撞与持续运动的区别”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "事件链终止描述的是接触事件而非运动本身。"
+        },
+        {
+          "id": "B",
+          "text": "最后一次碰撞后理想模型自动出现摩擦。"
+        },
+        {
+          "id": "C",
+          "text": "有限次碰撞后所有速度必须变为零。"
+        },
+        {
+          "id": "D",
+          "text": "只要物块继续运动就一定继续碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：事件链终止描述的是接触事件而非运动本身。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-4-mc-01",
+      "node_id": "A5.4",
+      "node_title": "有限碰撞与持续运动的区别",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“有限碰撞与持续运动的区别”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "只要物块继续运动就一定继续碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "碰撞次数有限不等于运动时间有限。"
+        },
+        {
+          "id": "C",
+          "text": "最后一次碰撞后两物块可以一直匀速运动。"
+        },
+        {
+          "id": "D",
+          "text": "有限次碰撞后所有速度必须变为零。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：碰撞次数有限不等于运动时间有限。；最后一次碰撞后两物块可以一直匀速运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-4-mc-02",
+      "node_id": "A5.4",
+      "node_title": "有限碰撞与持续运动的区别",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“有限碰撞与持续运动的区别”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "最后一次碰撞后两物块可以一直匀速运动。"
+        },
+        {
+          "id": "B",
+          "text": "事件链终止描述的是接触事件而非运动本身。"
+        },
+        {
+          "id": "C",
+          "text": "只要物块继续运动就一定继续碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "最后一次碰撞后理想模型自动出现摩擦。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：最后一次碰撞后两物块可以一直匀速运动。；事件链终止描述的是接触事件而非运动本身。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a5-4-mb-01",
+      "node_id": "A5.4",
+      "node_title": "有限碰撞与持续运动的区别",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "“碰撞有限”限制的是____数量；最后一次碰撞后，物块仍可继续做____运动。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "碰撞事件",
+            "事件",
+            "碰撞"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "匀速直线",
+            "自由"
+          ]
+        }
+      ],
+      "explanation": "参考填法：碰撞事件；匀速直线",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-sc-01",
+      "node_id": "A6",
+      "node_title": "碰撞次数与π的现象关系",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“碰撞次数与π的现象关系”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "π关系只需要墙壁反射，不需要物块碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "特定质量比下碰撞次数依次呈现π的数字。"
+        },
+        {
+          "id": "C",
+          "text": "任何质量比的碰撞次数都等于314。"
+        },
+        {
+          "id": "D",
+          "text": "观察到31即可视作完成严格证明。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：特定质量比下碰撞次数依次呈现π的数字。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-sc-02",
+      "node_id": "A6",
+      "node_title": "碰撞次数与π的现象关系",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“碰撞次数与π的现象关系”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "A板块先观察规律，不承担完整数学证明。"
+        },
+        {
+          "id": "B",
+          "text": "观察到31即可视作完成严格证明。"
+        },
+        {
+          "id": "C",
+          "text": "π关系只需要墙壁反射，不需要物块碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "任何质量比的碰撞次数都等于314。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：A板块先观察规律，不承担完整数学证明。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-sc-03",
+      "node_id": "A6",
+      "node_title": "碰撞次数与π的现象关系",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“碰撞次数与π的现象关系”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "π关系只需要墙壁反射，不需要物块碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "任何质量比的碰撞次数都等于314。"
+        },
+        {
+          "id": "C",
+          "text": "观察到31即可视作完成严格证明。"
+        },
+        {
+          "id": "D",
+          "text": "规律的解释需要连接物理方程、几何计数和近似分析。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：规律的解释需要连接物理方程、几何计数和近似分析。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-mc-01",
+      "node_id": "A6",
+      "node_title": "碰撞次数与π的现象关系",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“碰撞次数与π的现象关系”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "特定质量比下碰撞次数依次呈现π的数字。"
+        },
+        {
+          "id": "B",
+          "text": "A板块先观察规律，不承担完整数学证明。"
+        },
+        {
+          "id": "C",
+          "text": "任何质量比的碰撞次数都等于314。"
+        },
+        {
+          "id": "D",
+          "text": "观察到31即可视作完成严格证明。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：特定质量比下碰撞次数依次呈现π的数字。；A板块先观察规律，不承担完整数学证明。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-mc-02",
+      "node_id": "A6",
+      "node_title": "碰撞次数与π的现象关系",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“碰撞次数与π的现象关系”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "规律的解释需要连接物理方程、几何计数和近似分析。"
+        },
+        {
+          "id": "B",
+          "text": "观察到31即可视作完成严格证明。"
+        },
+        {
+          "id": "C",
+          "text": "π关系只需要墙壁反射，不需要物块碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "A板块先观察规律，不承担完整数学证明。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：A板块先观察规律，不承担完整数学证明。；规律的解释需要连接物理方程、几何计数和近似分析。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-mb-01",
+      "node_id": "A6",
+      "node_title": "碰撞次数与π的现象关系",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "A板块先观察质量比与碰撞____的规律；完整解释将在后续连接物理、几何与____分析。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "次数",
+            "总次数"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "近似",
+            "误差"
+          ]
+        }
+      ],
+      "explanation": "参考填法：次数；近似",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-1-sc-01",
+      "node_id": "A6.1",
+      "node_title": "质量比—碰撞次数表",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“质量比—碰撞次数表”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比1对应3次碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "质量比1对应1次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "质量比100对应314次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "质量比10000对应31次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：质量比1对应3次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-1-sc-02",
+      "node_id": "A6.1",
+      "node_title": "质量比—碰撞次数表",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“质量比—碰撞次数表”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比100对应314次碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "质量比10000对应31次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "质量比1对应1次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "质量比100对应31次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：质量比100对应31次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-1-sc-03",
+      "node_id": "A6.1",
+      "node_title": "质量比—碰撞次数表",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“质量比—碰撞次数表”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比1对应1次碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "质量比100对应314次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "质量比10000对应314次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "质量比10000对应31次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：质量比10000对应314次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-1-mc-01",
+      "node_id": "A6.1",
+      "node_title": "质量比—碰撞次数表",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“质量比—碰撞次数表”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比100对应31次碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "质量比1对应1次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "质量比100对应314次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "质量比1对应3次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：质量比1对应3次碰撞。；质量比100对应31次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-1-mc-02",
+      "node_id": "A6.1",
+      "node_title": "质量比—碰撞次数表",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“质量比—碰撞次数表”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比100对应314次碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "质量比10000对应31次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "质量比100对应31次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "质量比10000对应314次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：质量比100对应31次碰撞。；质量比10000对应314次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-1-mb-01",
+      "node_id": "A6.1",
+      "node_title": "质量比—碰撞次数表",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "质量比1、100、10000对应的总碰撞次数依次是____、____、____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "3"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "31"
+          ]
+        },
+        {
+          "id": "blank_3",
+          "accepted_answers": [
+            "314"
+          ]
+        }
+      ],
+      "explanation": "参考填法：3；31；314",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-2-sc-01",
+      "node_id": "A6.2",
+      "node_title": "100ⁿ与π前n+1个数字",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“100ⁿ与π前n+1个数字”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比应取10ⁿ而不是100ⁿ。"
+        },
+        {
+          "id": "B",
+          "text": "n=1时应得到314次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "n表示只保留π的小数点后n位而删除整数位。"
+        },
+        {
+          "id": "D",
+          "text": "质量比M/m=100ⁿ时会得到π的整数位及其后n位数字。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：质量比M/m=100ⁿ时会得到π的整数位及其后n位数字。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-2-sc-02",
+      "node_id": "A6.2",
+      "node_title": "100ⁿ与π前n+1个数字",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“100ⁿ与π前n+1个数字”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "n表示只保留π的小数点后n位而删除整数位。"
+        },
+        {
+          "id": "B",
+          "text": "质量比应取10ⁿ而不是100ⁿ。"
+        },
+        {
+          "id": "C",
+          "text": "n=0时质量比为1并得到3次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "n=1时应得到314次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：n=0时质量比为1并得到3次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-2-sc-03",
+      "node_id": "A6.2",
+      "node_title": "100ⁿ与π前n+1个数字",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“100ⁿ与π前n+1个数字”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "n=1时应得到314次碰撞。"
+        },
+        {
+          "id": "B",
+          "text": "n=2时质量比为10000并得到314次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "n表示只保留π的小数点后n位而删除整数位。"
+        },
+        {
+          "id": "D",
+          "text": "质量比应取10ⁿ而不是100ⁿ。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：n=2时质量比为10000并得到314次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-2-mc-01",
+      "node_id": "A6.2",
+      "node_title": "100ⁿ与π前n+1个数字",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“100ⁿ与π前n+1个数字”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "质量比应取10ⁿ而不是100ⁿ。"
+        },
+        {
+          "id": "B",
+          "text": "n=1时应得到314次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "质量比M/m=100ⁿ时会得到π的整数位及其后n位数字。"
+        },
+        {
+          "id": "D",
+          "text": "n=0时质量比为1并得到3次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ],
+      "explanation": "成立的两项是：质量比M/m=100ⁿ时会得到π的整数位及其后n位数字。；n=0时质量比为1并得到3次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-2-mc-02",
+      "node_id": "A6.2",
+      "node_title": "100ⁿ与π前n+1个数字",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“100ⁿ与π前n+1个数字”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "n表示只保留π的小数点后n位而删除整数位。"
+        },
+        {
+          "id": "B",
+          "text": "n=0时质量比为1并得到3次碰撞。"
+        },
+        {
+          "id": "C",
+          "text": "n=2时质量比为10000并得到314次碰撞。"
+        },
+        {
+          "id": "D",
+          "text": "n=1时应得到314次碰撞。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：n=0时质量比为1并得到3次碰撞。；n=2时质量比为10000并得到314次碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-2-mb-01",
+      "node_id": "A6.2",
+      "node_title": "100ⁿ与π前n+1个数字",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "当M/m=____时，碰撞数呈现π的整数位及其后____位；n=2时得到314。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "100^n",
+            "100ⁿ"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "n"
+          ]
+        }
+      ],
+      "explanation": "参考填法：100^n；n",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-3-sc-01",
+      "node_id": "A6.3",
+      "node_title": "观察规律与证明的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“观察规律与证明的区别”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "证明不需要说明模型假设。"
+        },
+        {
+          "id": "B",
+          "text": "只要图像好看，数值误差无需检查。"
+        },
+        {
+          "id": "C",
+          "text": "有限个数值样例只能支持猜想。"
+        },
+        {
+          "id": "D",
+          "text": "看到三个样例相符就等于严格证明。"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ],
+      "explanation": "判断依据：有限个数值样例只能支持猜想。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-3-sc-02",
+      "node_id": "A6.3",
+      "node_title": "观察规律与证明的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“观察规律与证明的区别”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "看到三个样例相符就等于严格证明。"
+        },
+        {
+          "id": "B",
+          "text": "证明需要说明规律为何对目标参数成立。"
+        },
+        {
+          "id": "C",
+          "text": "证明不需要说明模型假设。"
+        },
+        {
+          "id": "D",
+          "text": "只要图像好看，数值误差无需检查。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：证明需要说明规律为何对目标参数成立。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-3-sc-03",
+      "node_id": "A6.3",
+      "node_title": "观察规律与证明的区别",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“观察规律与证明的区别”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "反例或边界情况可以检验猜想的适用范围。"
+        },
+        {
+          "id": "B",
+          "text": "只要图像好看，数值误差无需检查。"
+        },
+        {
+          "id": "C",
+          "text": "看到三个样例相符就等于严格证明。"
+        },
+        {
+          "id": "D",
+          "text": "证明不需要说明模型假设。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：反例或边界情况可以检验猜想的适用范围。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-3-mc-01",
+      "node_id": "A6.3",
+      "node_title": "观察规律与证明的区别",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“观察规律与证明的区别”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "证明不需要说明模型假设。"
+        },
+        {
+          "id": "B",
+          "text": "有限个数值样例只能支持猜想。"
+        },
+        {
+          "id": "C",
+          "text": "证明需要说明规律为何对目标参数成立。"
+        },
+        {
+          "id": "D",
+          "text": "看到三个样例相符就等于严格证明。"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ],
+      "explanation": "成立的两项是：有限个数值样例只能支持猜想。；证明需要说明规律为何对目标参数成立。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-3-mc-02",
+      "node_id": "A6.3",
+      "node_title": "观察规律与证明的区别",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“观察规律与证明的区别”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "证明需要说明规律为何对目标参数成立。"
+        },
+        {
+          "id": "B",
+          "text": "反例或边界情况可以检验猜想的适用范围。"
+        },
+        {
+          "id": "C",
+          "text": "证明不需要说明模型假设。"
+        },
+        {
+          "id": "D",
+          "text": "只要图像好看，数值误差无需检查。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：证明需要说明规律为何对目标参数成立。；反例或边界情况可以检验猜想的适用范围。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-3-mb-01",
+      "node_id": "A6.3",
+      "node_title": "观察规律与证明的区别",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "若若干样例符合规律，我们得到的是____；要成为证明，还需给出完整推理并检查适用____。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "猜想",
+            "观察",
+            "经验规律"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "范围",
+            "条件",
+            "边界"
+          ]
+        }
+      ],
+      "explanation": "参考填法：猜想；范围",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-4-sc-01",
+      "node_id": "A6.4",
+      "node_title": "精确关系与近似关系的疑问",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "关于“精确关系与近似关系的疑问”，下列哪项表述最准确？",
+      "options": [
+        {
+          "id": "A",
+          "text": "边界情况与公式是否正确无关。"
+        },
+        {
+          "id": "B",
+          "text": "精确碰撞计数必须处理取整边界。"
+        },
+        {
+          "id": "C",
+          "text": "用了近似号后可直接宣称所有整数结果精确。"
+        },
+        {
+          "id": "D",
+          "text": "误差再大也不会影响向下取整。"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ],
+      "explanation": "判断依据：精确碰撞计数必须处理取整边界。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-4-sc-02",
+      "node_id": "A6.4",
+      "node_title": "精确关系与近似关系的疑问",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在本课程的理想碰撞模型中，判断“精确关系与近似关系的疑问”时应采用哪项依据？",
+      "options": [
+        {
+          "id": "A",
+          "text": "小角度近似需要检查误差是否会改变整数结果。"
+        },
+        {
+          "id": "B",
+          "text": "误差再大也不会影响向下取整。"
+        },
+        {
+          "id": "C",
+          "text": "边界情况与公式是否正确无关。"
+        },
+        {
+          "id": "D",
+          "text": "用了近似号后可直接宣称所有整数结果精确。"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ],
+      "explanation": "判断依据：小角度近似需要检查误差是否会改变整数结果。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-4-sc-03",
+      "node_id": "A6.4",
+      "node_title": "精确关系与近似关系的疑问",
+      "question_type": "single_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "下列哪项最符合“精确关系与近似关系的疑问”的操作约定或适用边界？",
+      "options": [
+        {
+          "id": "A",
+          "text": "边界情况与公式是否正确无关。"
+        },
+        {
+          "id": "B",
+          "text": "用了近似号后可直接宣称所有整数结果精确。"
+        },
+        {
+          "id": "C",
+          "text": "误差再大也不会影响向下取整。"
+        },
+        {
+          "id": "D",
+          "text": "等质量等特殊情形可能暴露公式的严格不等号问题。"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ],
+      "explanation": "判断依据：等质量等特殊情形可能暴露公式的严格不等号问题。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-4-mc-01",
+      "node_id": "A6.4",
+      "node_title": "精确关系与近似关系的疑问",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "关于“精确关系与近似关系的疑问”，以下哪些属于需要掌握的核心事实？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "精确碰撞计数必须处理取整边界。"
+        },
+        {
+          "id": "B",
+          "text": "小角度近似需要检查误差是否会改变整数结果。"
+        },
+        {
+          "id": "C",
+          "text": "用了近似号后可直接宣称所有整数结果精确。"
+        },
+        {
+          "id": "D",
+          "text": "误差再大也不会影响向下取整。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ],
+      "explanation": "成立的两项是：精确碰撞计数必须处理取整边界。；小角度近似需要检查误差是否会改变整数结果。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-4-mc-02",
+      "node_id": "A6.4",
+      "node_title": "精确关系与近似关系的疑问",
+      "question_type": "multiple_choice",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "判断“精确关系与近似关系的疑问”的条件、过程或边界时，以下哪些表述成立？（选择两项）",
+      "options": [
+        {
+          "id": "A",
+          "text": "等质量等特殊情形可能暴露公式的严格不等号问题。"
+        },
+        {
+          "id": "B",
+          "text": "误差再大也不会影响向下取整。"
+        },
+        {
+          "id": "C",
+          "text": "边界情况与公式是否正确无关。"
+        },
+        {
+          "id": "D",
+          "text": "小角度近似需要检查误差是否会改变整数结果。"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ],
+      "explanation": "成立的两项是：小角度近似需要检查误差是否会改变整数结果。；等质量等特殊情形可能暴露公式的严格不等号问题。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    },
+    {
+      "id": "cp-a6-4-mb-01",
+      "node_id": "A6.4",
+      "node_title": "精确关系与近似关系的疑问",
+      "question_type": "multi_blank",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "从近似关系得到精确整数前，必须检查误差是否跨过____边界，并注意公式中的严格____号。",
+      "blanks": [
+        {
+          "id": "blank_1",
+          "accepted_answers": [
+            "取整",
+            "整数"
+          ]
+        },
+        {
+          "id": "blank_2",
+          "accepted_answers": [
+            "不等",
+            "不等式"
+          ]
+        }
+      ],
+      "explanation": "参考填法：取整；不等",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": ""
+    }
+  ]
+}</script>
+</div>
+
+<style>
+  #collisionPiQuestionEditor { display:grid; gap:16px; color:var(--foreground); }
+  #collisionPiQuestionEditor #questionList { display:grid; gap:12px; }
+  #collisionPiQuestionEditor .cqe-card { display:grid; gap:10px; }
+  #collisionPiQuestionEditor .cqe-heading { display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  #collisionPiQuestionEditor .cqe-options { display:grid; gap:8px; }
+  #collisionPiQuestionEditor .cqe-option { display:grid; grid-template-columns:auto 1fr; gap:8px; align-items:center; }
+  #collisionPiQuestionEditor .cqe-fields { display:grid; gap:8px; }
+  @media (max-width:520px) { #collisionPiQuestionEditor .cqe-option { grid-template-columns:1fr; } }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('collisionPiQuestionEditor');
+  const original = JSON.parse(root.querySelector('#embeddedQuestionBank').textContent);
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const storageKey = 'collision-pi-a-question-draft';
+  const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+  const bank = saved?.course_id === original.course_id && saved?.version === original.version ? saved : clone(original);
+  const originalById = new Map(original.questions.map(question => [question.id, question]));
+  const nodeSelect = root.querySelector('#questionNodeSelect');
+  const typeFilter = root.querySelector('#questionTypeFilter');
+  const searchInput = root.querySelector('#questionSearch');
+  const list = root.querySelector('#questionList');
+  const status = root.querySelector('#questionEditorStatus');
+  const summary = root.querySelector('#questionSummary');
+  const nodeEnabled = root.querySelector('#nodeEnabled');
+  const nodes = [...new Map(bank.questions.map(question => [question.node_id, question.node_title])).entries()];
+
+  const typeNames = {
+    single_choice: '单选题',
+    multiple_choice: '多选题',
+    multi_blank: '多空填空题'
+  };
+
+  function setStatus(message) {
+    status.textContent = message;
+  }
+
+  function markChanged(question) {
+    question.revision = (question.revision || 0) + 1;
+    updateSummary();
+  }
+
+  function changedQuestions() {
+    return bank.questions.filter(question => JSON.stringify(question) !== JSON.stringify(originalById.get(question.id)));
+  }
+
+  function updateSummary() {
+    const enabled = bank.questions.filter(question => question.enabled).length;
+    summary.textContent = `${nodes.length} 个知识点 · ${bank.questions.length} 道题 · 已启用 ${enabled} 道 · 已修改 ${changedQuestions().length} 道`;
+  }
+
+  function makeTextField(labelText, value, onInput, rows = 2) {
+    const label = document.createElement('label');
+    label.className = 'form-label';
+    label.append(document.createTextNode(labelText));
+    const control = document.createElement(rows > 1 ? 'textarea' : 'input');
+    control.className = 'form-control';
+    if (rows > 1) control.rows = rows;
+    control.value = value;
+    control.addEventListener('input', () => onInput(control.value));
+    label.append(control);
+    return label;
+  }
+
+  function renderQuestion(question) {
+    const card = document.createElement('article');
+    card.className = 'card cqe-card';
+    card.dataset.questionId = question.id;
+
+    const heading = document.createElement('div');
+    heading.className = 'cqe-heading';
+    const title = document.createElement('strong');
+    title.textContent = `${question.id} · ${typeNames[question.question_type]}`;
+    const enabledLabel = document.createElement('label');
+    enabledLabel.className = 'form-check';
+    const enabledInput = document.createElement('input');
+    enabledInput.className = 'form-check-input';
+    enabledInput.type = 'checkbox';
+    enabledInput.checked = question.enabled;
+    enabledInput.addEventListener('change', () => {
+      question.enabled = enabledInput.checked;
+      markChanged(question);
+      updateNodeEnabled();
+    });
+    const enabledText = document.createElement('span');
+    enabledText.className = 'form-check-label';
+    enabledText.textContent = '纳入题库';
+    enabledLabel.append(enabledInput, enabledText);
+    heading.append(title, enabledLabel);
+    card.append(heading);
+
+    card.append(makeTextField('题干', question.prompt, value => {
+      question.prompt = value;
+      markChanged(question);
+    }, 3));
+
+    if (question.options) {
+      const options = document.createElement('div');
+      options.className = 'cqe-options';
+      question.options.forEach(option => {
+        const row = document.createElement('label');
+        row.className = 'cqe-option';
+        const answer = document.createElement('input');
+        answer.type = question.question_type === 'single_choice' ? 'radio' : 'checkbox';
+        answer.name = `answer-${question.id}`;
+        answer.checked = question.correct_answers.includes(option.id);
+        answer.setAttribute('aria-label', `${option.id}为正确答案`);
+        answer.addEventListener('change', () => {
+          if (question.question_type === 'single_choice') {
+            question.correct_answers = [option.id];
+          } else if (answer.checked) {
+            question.correct_answers = [...new Set([...question.correct_answers, option.id])];
+          } else {
+            question.correct_answers = question.correct_answers.filter(id => id !== option.id);
+          }
+          markChanged(question);
+        });
+        const text = document.createElement('input');
+        text.className = 'form-control';
+        text.value = option.text;
+        text.setAttribute('aria-label', `选项${option.id}`);
+        text.addEventListener('input', () => {
+          option.text = text.value;
+          markChanged(question);
+        });
+        row.append(answer, text);
+        options.append(row);
+      });
+      card.append(options);
+    } else {
+      const fields = document.createElement('div');
+      fields.className = 'cqe-fields';
+      question.blanks.forEach((blank, index) => {
+        fields.append(makeTextField(`第 ${index + 1} 空可接受答案（用 | 分隔）`, blank.accepted_answers.join(' | '), value => {
+          blank.accepted_answers = value.split('|').map(item => item.trim()).filter(Boolean);
+          markChanged(question);
+        }, 1));
+      });
+      card.append(fields);
+    }
+
+    card.append(makeTextField('答案解析（仅作者端编辑）', question.explanation, value => {
+      question.explanation = value;
+      markChanged(question);
+    }, 2));
+    card.append(makeTextField('作者备注', question.author_notes || '', value => {
+      question.author_notes = value;
+      markChanged(question);
+    }, 2));
+    return card;
+  }
+
+  function currentNodeId() {
+    return nodeSelect.value || nodes[0][0];
+  }
+
+  function updateNodeEnabled() {
+    const nodeQuestions = bank.questions.filter(question => question.node_id === currentNodeId());
+    nodeEnabled.checked = nodeQuestions.every(question => question.enabled);
+    nodeEnabled.indeterminate = !nodeEnabled.checked && nodeQuestions.some(question => question.enabled);
+  }
+
+  function render() {
+    const query = searchInput.value.trim().toLowerCase();
+    const selectedType = typeFilter.value;
+    const questions = bank.questions.filter(question =>
+      question.node_id === currentNodeId() &&
+      (selectedType === 'all' || question.question_type === selectedType) &&
+      (!query || `${question.prompt} ${question.options?.map(option => option.text).join(' ') || ''}`.toLowerCase().includes(query))
+    );
+    list.replaceChildren(...questions.map(renderQuestion));
+    if (!questions.length) {
+      const empty = document.createElement('p');
+      empty.className = 'text-muted';
+      empty.textContent = '当前筛选条件下没有题目。';
+      list.append(empty);
+    }
+    updateNodeEnabled();
+    updateSummary();
+  }
+
+  function moveNode(step) {
+    const currentIndex = nodes.findIndex(([nodeId]) => nodeId === currentNodeId());
+    const nextIndex = (currentIndex + step + nodes.length) % nodes.length;
+    nodeSelect.value = nodes[nextIndex][0];
+    render();
+  }
+
+  nodes.forEach(([nodeId, title]) => {
+    const option = document.createElement('option');
+    option.value = nodeId;
+    option.textContent = `${nodeId} · ${title}`;
+    nodeSelect.append(option);
+  });
+
+  nodeSelect.addEventListener('change', render);
+  typeFilter.addEventListener('change', render);
+  searchInput.addEventListener('input', render);
+  root.querySelector('#previousNode').addEventListener('click', () => moveNode(-1));
+  root.querySelector('#nextNode').addEventListener('click', () => moveNode(1));
+  nodeEnabled.addEventListener('change', () => {
+    bank.questions.filter(question => question.node_id === currentNodeId()).forEach(question => {
+      question.enabled = nodeEnabled.checked;
+      markChanged(question);
+    });
+    render();
+  });
+
+  root.querySelector('#saveDraft').addEventListener('click', () => {
+    localStorage.setItem(storageKey, JSON.stringify(bank));
+    setStatus(`草稿已保存：${new Date().toLocaleTimeString()}`);
+  });
+
+  root.querySelector('#resetQuestion').addEventListener('click', () => {
+    const nodeId = currentNodeId();
+    bank.questions = bank.questions.map(question => question.node_id === nodeId ? clone(originalById.get(question.id)) : question);
+    localStorage.setItem(storageKey, JSON.stringify(bank));
+    setStatus(`${nodeId} 已恢复为初始题目。`);
+    render();
+  });
+
+  root.querySelector('#copyQuestionBank').addEventListener('click', async () => {
+    await navigator.clipboard.writeText(JSON.stringify(bank, null, 2));
+    setStatus('完整题库 JSON 已复制。');
+  });
+
+  root.querySelector('#submitEdits').addEventListener('click', async () => {
+    const changes = changedQuestions();
+    if (!changes.length) {
+      setStatus('当前没有需要提交的修改。');
+      return;
+    }
+    const prompt = `这是我对《碰撞与π》A板块题库的修改，共 ${changes.length} 道：\n\n${JSON.stringify(changes, null, 2)}\n\n请校验结构和答案后写回正式题库。`;
+    if (window.openai?.sendFollowUpMessage) {
+      await window.openai.sendFollowUpMessage({ title: '提交A板块题库修改', prompt });
+      setStatus(`已提交 ${changes.length} 道修改。`);
+    } else {
+      await navigator.clipboard.writeText(prompt);
+      setStatus('当前环境不能直接提交，修改内容已复制，请粘贴回对话。');
+    }
+  });
+
+  render();
+})();
+</script>
