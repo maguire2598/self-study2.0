@@ -1,0 +1,989 @@
+{
+  "$schema": "../../../schemas/objective_question_source.schema.json",
+  "course_id": "collision-pi",
+  "section_id": "A",
+  "version": "2.0.0",
+  "node_quotas": {
+    "A1.1": 5,
+    "A1.2": 5,
+    "A1.3": 4,
+    "A2.1": 6,
+    "A2.2": 5,
+    "A3.1": 8,
+    "A3.2": 10,
+    "A3.3": 12,
+    "A3.4": 8,
+    "A3.5": 10,
+    "A4.1": 6,
+    "A4.2": 10,
+    "A4.3": 8,
+    "A5.1": 10,
+    "A5.2": 4,
+    "A6.1": 10,
+    "A6.2": 5,
+    "A7.1": 5,
+    "A7.2": 5,
+    "A7.3": 4
+  },
+  "source_catalog": [
+    {
+      "id": "video-main",
+      "location": "sources/theory/弹性碰撞与π.txt",
+      "scope": "Course narrative, collision-and-π setup, learning sequence"
+    },
+    {
+      "id": "openstax-collision",
+      "location": "https://openstax.org/books/college-physics/pages/8-4-elastic-collisions-in-one-dimension",
+      "scope": "One-dimensional elastic collision, momentum and kinetic-energy equations"
+    },
+    {
+      "id": "openstax-inelastic",
+      "location": "https://openstax.org/books/physics/pages/8-3-elastic-and-inelastic-collisions",
+      "scope": "Elastic/inelastic distinction and system momentum conditions"
+    },
+    {
+      "id": "openstax-incline",
+      "location": "https://openstax.org/books/college-physics-2e/pages/7-3-gravitational-potential-energy",
+      "scope": "Gravitational potential energy and speed from height"
+    },
+    {
+      "id": "openstax-spring",
+      "location": "https://openstax.org/books/college-physics-2e/pages/7-4-conservative-forces-and-potential-energy",
+      "scope": "Hooke-law spring energy and staged energy calculations"
+    }
+  ],
+  "calculation_fixtures": [
+    {
+      "id": "CAL-A3-EQ-01",
+      "node_id": "A3.2",
+      "kind": "elastic_1d",
+      "m1": 2,
+      "m2": 2,
+      "u1": -3,
+      "u2": 0,
+      "expected": {"v1": 0, "v2": -3}
+    },
+    {
+      "id": "CAL-A3-EQ-02",
+      "node_id": "A3.2",
+      "kind": "elastic_1d",
+      "m1": 1,
+      "m2": 1,
+      "u1": 2,
+      "u2": -1,
+      "expected": {"v1": -1, "v2": 2}
+    },
+    {
+      "id": "CAL-A3-UN-01",
+      "node_id": "A3.3",
+      "kind": "elastic_1d",
+      "m1": 3,
+      "m2": 1,
+      "u1": -4,
+      "u2": 0,
+      "expected": {"v1": -2, "v2": -6}
+    },
+    {
+      "id": "CAL-A3-UN-02",
+      "node_id": "A3.3",
+      "kind": "elastic_1d",
+      "m1": 1,
+      "m2": 3,
+      "u1": 4,
+      "u2": 0,
+      "expected": {"v1": -2, "v2": 2}
+    },
+    {
+      "id": "CAL-A3-UN-03",
+      "node_id": "A3.3",
+      "kind": "elastic_1d",
+      "m1": 3,
+      "m2": 1,
+      "u1": 2,
+      "u2": -2,
+      "expected": {"v1": 0, "v2": 4}
+    },
+    {
+      "id": "CAL-A3-DP-01",
+      "node_id": "A3.5",
+      "kind": "elastic_1d",
+      "m1": 3,
+      "m2": 1,
+      "u1": -4,
+      "u2": 0,
+      "expected": {"v1": -2, "v2": -6, "delta_p1": 6, "delta_p2": -6}
+    },
+    {
+      "id": "CAL-A7-IN-01",
+      "node_id": "A7.1",
+      "kind": "incline_speed",
+      "g": 10,
+      "height": 1.25,
+      "expected": {"speed": 5}
+    },
+    {
+      "id": "CAL-A7-SP-01",
+      "node_id": "A7.2",
+      "kind": "spring_compression",
+      "mass": 1,
+      "speed": 2,
+      "k": 100,
+      "expected": {"compression": 0.2}
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SC-A3-RELATIVE",
+      "context": "两小球 A、B 可视为质点，在同一直线轨道上运动。规定向右为正方向；初始时 A 在左、B 在右，碰撞前两球均做匀速直线运动。两球间距减小到零时发生碰撞。",
+      "source_refs": ["video-main", "openstax-collision"],
+      "questions": [
+        {
+          "key": "a3-1-relative-01",
+          "node_id": "A3.1",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "initial",
+          "variant_axis": "direction",
+          "ask": "A 的速度为 +4 m/s，B 的速度为 +1 m/s。碰撞前两球间距怎样变化？",
+          "options": [
+            {"text": "每秒减小 3 m", "correct": true},
+            {"text": "每秒增大 3 m", "correct": false},
+            {"text": "每秒减小 5 m", "correct": false},
+            {"text": "保持不变", "correct": false}
+          ],
+          "explanation": "A 在后方且速度更大，间距的变化率为 u_B-u_A=1-4=-3 m/s，所以间距每秒减小 3 m。"
+        },
+        {
+          "key": "a3-1-relative-02",
+          "node_id": "A3.1",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "initial",
+          "variant_axis": "direction",
+          "ask": "A 的速度为 -1 m/s，B 的速度为 -3 m/s。若轨道足够长，两球是否会碰撞？",
+          "options": [
+            {"text": "会，因为 B 向左运动得更快，二者每秒接近 2 m", "correct": true},
+            {"text": "会，因为两球速度大小之和为 4 m/s", "correct": false},
+            {"text": "不会，因为 A 也向左运动", "correct": false},
+            {"text": "不会，因为 B 的速度为负", "correct": false}
+          ],
+          "explanation": "虽然两球都向左，但右侧的 B 速度更负，B 从右侧追近 A；u_A-u_B=(-1)-(-3)=2 m/s，间距会减小。"
+        },
+        {
+          "key": "a3-1-relative-03",
+          "node_id": "A3.1",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "initial",
+          "variant_axis": "initial_velocity",
+          "ask": "A 的速度为 +2 m/s，B 的速度为 +5 m/s。若二者速度保持不变，最合理的判断是什么？",
+          "options": [
+            {"text": "两球不会碰撞，间距持续增大", "correct": true},
+            {"text": "两球会碰撞，因为都向右", "correct": false},
+            {"text": "两球会碰撞，因为 A 位于左侧", "correct": false},
+            {"text": "两球间距保持不变", "correct": false}
+          ],
+          "explanation": "右侧的 B 比左侧的 A 运动得快，u_B-u_A=3 m/s，间距持续增大。"
+        },
+        {
+          "key": "a3-1-relative-04",
+          "node_id": "A3.1",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "initial",
+          "variant_axis": "initial_velocity",
+          "ask": "在 A 始终位于 B 左侧且两球速度保持不变的前提下，哪些速度组合会使两球最终相碰？",
+          "options": [
+            {"text": "u_A=+3 m/s，u_B=+1 m/s", "correct": true},
+            {"text": "u_A=-1 m/s，u_B=-4 m/s", "correct": true},
+            {"text": "u_A=+2 m/s，u_B=+2 m/s", "correct": false},
+            {"text": "u_A=-3 m/s，u_B=-1 m/s", "correct": false}
+          ],
+          "explanation": "初始为 A 左 B 右时，只有 u_A>u_B 才会闭合间距。前两组满足，后两组分别保持间距和增大间距。"
+        },
+        {
+          "key": "a3-1-relative-05",
+          "node_id": "A3.1",
+          "question_type": "multi_blank",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "initial",
+          "variant_axis": "observation",
+          "ask": "初始时 A 位于 x=0 m，B 位于 x=12 m；u_A=+5 m/s，u_B=+2 m/s。两球将在经过____s 后于 x=____m 处相碰。",
+          "blanks": [
+            {"id": "time", "accepted_answers": ["4", "4.0"]},
+            {"id": "position", "accepted_answers": ["20", "20.0"]}
+          ],
+          "explanation": "闭合速度为 5-2=3 m/s，碰撞时间 t=12/3=4 s；碰撞位置为 0+5×4=20 m。"
+        },
+        {
+          "key": "a3-1-relative-06",
+          "node_id": "A3.1",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "initial",
+          "variant_axis": "direction",
+          "ask": "初始间距为 10 m，A 以 +3 m/s 向右运动，B 以 -2 m/s 向左运动。两球经多长时间相碰？",
+          "options": [
+            {"text": "2 s", "correct": true},
+            {"text": "5 s", "correct": false},
+            {"text": "10 s", "correct": false},
+            {"text": "不会相碰", "correct": false}
+          ],
+          "explanation": "两球相向运动，闭合速度为 3-(-2)=5 m/s，因此 t=10/5=2 s。"
+        },
+        {
+          "key": "a3-1-relative-07",
+          "node_id": "A3.1",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "initial",
+          "variant_axis": "direction",
+          "ask": "A 位于 x=-5 m、速度为 -2 m/s，B 位于 x=+5 m、速度为 +1 m/s。若速度不变，两球的运动关系是？",
+          "options": [
+            {"text": "背向运动，不会碰撞", "correct": true},
+            {"text": "相向运动，约 3.3 s 后碰撞", "correct": false},
+            {"text": "同向追赶，10 s 后碰撞", "correct": false},
+            {"text": "间距不变", "correct": false}
+          ],
+          "explanation": "A 向左、B 向右，二者分别远离对方，间距以 3 m/s 增大。"
+        },
+        {
+          "key": "a3-1-relative-08",
+          "node_id": "A3.1",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "special_case",
+          "variant_axis": "model_assumption",
+          "ask": "要判断碰撞前做匀速直线运动的 A、B 是否会在有限时间内相碰，必须利用哪些信息？",
+          "options": [
+            {"text": "两球的初始相对位置", "correct": true},
+            {"text": "两球的速度差及方向", "correct": true},
+            {"text": "所选坐标原点的具体位置", "correct": false},
+            {"text": "两球表面的颜色", "correct": false}
+          ],
+          "explanation": "能否相碰取决于初始间距能否在相对运动中减到零；平移坐标原点不改变相对位置，颜色也不影响运动。"
+        }
+      ]
+    },
+    {
+      "id": "SC-A3-EQUAL",
+      "context": "两个质量相等的小球 A、B 在光滑水平直轨道上发生一维弹性碰撞。规定向右为正方向，碰撞过程中两球组成的系统所受外力冲量可忽略。对质量相等的一维弹性碰撞，碰后两球交换各自的速度。",
+      "source_refs": ["video-main", "openstax-collision"],
+      "questions": [
+        {
+          "key": "a3-2-equal-01",
+          "node_id": "A3.2",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "after_first_collision",
+          "variant_axis": "initial_velocity",
+          "ask": "碰撞前 A 以速度 +v 运动，B 静止。碰撞后的速度最可能是？",
+          "options": [
+            {"text": "A 静止，B 的速度为 +v", "correct": true},
+            {"text": "A 的速度为 -v，B 静止", "correct": false},
+            {"text": "A、B 均以 +v/2 运动", "correct": false},
+            {"text": "A、B 均静止", "correct": false}
+          ],
+          "explanation": "质量相等且为一维弹性碰撞时，两球交换速度；A 把 +v 这一速度状态交给 B。"
+        },
+        {
+          "key": "a3-2-equal-02",
+          "node_id": "A3.2",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "direction",
+          "ask": "碰撞前 u_A=+4 m/s、u_B=-2 m/s。碰撞后 A、B 的速度分别为？",
+          "options": [
+            {"text": "-2 m/s、+4 m/s", "correct": true},
+            {"text": "+2 m/s、-4 m/s", "correct": false},
+            {"text": "-4 m/s、+2 m/s", "correct": false},
+            {"text": "+1 m/s、+1 m/s", "correct": false}
+          ],
+          "explanation": "等质量一维弹性碰撞交换速度，因此 v_A=u_B=-2 m/s，v_B=u_A=+4 m/s。"
+        },
+        {
+          "key": "a3-2-equal-03",
+          "node_id": "A3.2",
+          "question_type": "multi_blank",
+          "question_style": "calculation",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "initial_velocity",
+          "ask": "A、B 的质量均为 2 kg，碰撞前 u_A=-3 m/s、u_B=0。规定向右为正，碰后 v_A=____m/s，v_B=____m/s。",
+          "blanks": [
+            {"id": "vA", "accepted_answers": ["0", "0.0"]},
+            {"id": "vB", "accepted_answers": ["-3", "-3.0"]}
+          ],
+          "calculation_fixture_id": "CAL-A3-EQ-01",
+          "explanation": "由动量守恒 m(u_A+u_B)=m(v_A+v_B) 和动能守恒 u_A²+u_B²=v_A²+v_B²，非平凡碰撞解等价于交换速度，得到 v_A=0、v_B=-3 m/s。"
+        },
+        {
+          "key": "a3-2-equal-04",
+          "node_id": "A3.2",
+          "question_type": "single_choice",
+          "question_style": "calculation",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "initial_velocity",
+          "ask": "A、B 的质量均为 1 kg，碰撞前 u_A=+2 m/s、u_B=-1 m/s。规定向右为正，碰后速度应为？",
+          "options": [
+            {"text": "v_A=-1 m/s，v_B=+2 m/s", "correct": true},
+            {"text": "v_A=+1 m/s，v_B=0", "correct": false},
+            {"text": "v_A=-2 m/s，v_B=+1 m/s", "correct": false},
+            {"text": "v_A=+0.5 m/s，v_B=+0.5 m/s", "correct": false}
+          ],
+          "calculation_fixture_id": "CAL-A3-EQ-02",
+          "explanation": "联立 m u_A+m u_B=m v_A+m v_B 与动能守恒式，碰撞解为两球交换速度，所以 v_A=-1 m/s、v_B=+2 m/s。"
+        },
+        {
+          "key": "a3-2-equal-05",
+          "node_id": "A3.2",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "system_boundary",
+          "ask": "对这次等质量一维弹性碰撞，哪些说法一定成立？",
+          "options": [
+            {"text": "A、B 系统的总动量不变", "correct": true},
+            {"text": "A、B 系统的总动能不变", "correct": true},
+            {"text": "A 的动量在碰撞前后一定不变", "correct": false},
+            {"text": "B 的动能在碰撞前后一定不变", "correct": false}
+          ],
+          "explanation": "外力冲量可忽略保证系统动量守恒，弹性碰撞还保证系统总动能守恒；单个球的动量和动能通常会改变。"
+        },
+        {
+          "key": "a3-2-equal-06",
+          "node_id": "A3.2",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "special_case",
+          "variant_axis": "initial_velocity",
+          "ask": "初始时 A 在 B 左侧，且 u_A=u_B=+3 m/s。若两球保持匀速，接下来会怎样？",
+          "options": [
+            {"text": "间距不变，不会发生这次碰撞", "correct": true},
+            {"text": "A 追上 B，并交换速度", "correct": false},
+            {"text": "B 追上 A，并交换速度", "correct": false},
+            {"text": "两球立即同时静止", "correct": false}
+          ],
+          "explanation": "两球速度相同，初始间距不变，因而没有接触，也就不能套用碰后交换速度的结论。"
+        },
+        {
+          "key": "a3-2-equal-07",
+          "node_id": "A3.2",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "after_first_collision",
+          "variant_axis": "direction",
+          "ask": "碰撞前 A 从左侧以 +3 m/s 向右运动，B 从右侧以 -3 m/s 向左运动。碰后两球怎样运动？",
+          "options": [
+            {"text": "A 以 -3 m/s 向左，B 以 +3 m/s 向右", "correct": true},
+            {"text": "A、B 均静止", "correct": false},
+            {"text": "A、B 均以 +3 m/s 向右", "correct": false},
+            {"text": "A 保持 +3 m/s，B 保持 -3 m/s", "correct": false}
+          ],
+          "explanation": "两球交换速度，A 得到 B 原来的 -3 m/s，B 得到 A 原来的 +3 m/s，因而反向分离。"
+        },
+        {
+          "key": "a3-2-equal-08",
+          "node_id": "A3.2",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "after_first_collision",
+          "variant_axis": "observation",
+          "ask": "若 A、B 外观完全相同且没有标记，观察者只记录每一时刻两个球的位置，为什么碰撞画面可能看起来像两球彼此穿过？",
+          "options": [
+            {"text": "因为两球交换速度后，位置轨迹与无标记质点直接穿行的轨迹相同", "correct": true},
+            {"text": "因为弹性碰撞中两个球都暂时失去质量", "correct": false},
+            {"text": "因为碰撞后系统总动量变为零", "correct": false},
+            {"text": "因为两球碰后必定沿同一方向运动", "correct": false}
+          ],
+          "explanation": "带标签看是 A、B 交换速度；去掉标签只看占据的位置，交换身份无法分辨，轨迹就与两条路径相互穿过等效。"
+        },
+        {
+          "key": "a3-2-equal-09",
+          "node_id": "A3.2",
+          "question_type": "multi_blank",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "initial_velocity",
+          "ask": "碰撞前 u_A=+6 m/s、u_B=+2 m/s，且 A 从左侧追上 B。碰后 v_A=____m/s，v_B=____m/s。",
+          "blanks": [
+            {"id": "vA", "accepted_answers": ["2", "+2", "2.0"]},
+            {"id": "vB", "accepted_answers": ["6", "+6", "6.0"]}
+          ],
+          "explanation": "A、B 质量相等且发生一维弹性碰撞，碰后交换速度，故 v_A=+2 m/s，v_B=+6 m/s。"
+        },
+        {
+          "key": "a3-2-equal-10",
+          "node_id": "A3.2",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "special_case",
+          "variant_axis": "model_assumption",
+          "ask": "用速度关系描述这类碰撞，哪些结论正确？",
+          "options": [
+            {"text": "碰前与碰后的质心速度相同", "correct": true},
+            {"text": "碰后相对速度 v_A-v_B 等于碰前相对速度 u_A-u_B 的相反数", "correct": true},
+            {"text": "每个球碰后的速度都等于碰前速度的相反数", "correct": false},
+            {"text": "两球碰后的速度必定相等", "correct": false}
+          ],
+          "explanation": "系统动量守恒使质心速度不变；完全弹性的一维正碰使分离相对速度等于接近相对速度的大小，方向相反。"
+        }
+      ]
+    },
+    {
+      "id": "SC-A3-UNEQUAL",
+      "context": "质量为 M 与 m 的两小球在光滑水平直轨道上做一维弹性碰撞，规定向右为正方向，且 M=3m。基准情形为重球 M 以 -4 m/s 运动、轻球 m 静止，二者的初始位置保证能够相碰；部分题目会明确改变初速度或交换前方、后方小球的质量。",
+      "source_refs": ["video-main", "openstax-collision"],
+      "questions": [
+        {
+          "key": "a3-3-unequal-01",
+          "node_id": "A3.3",
+          "question_type": "multi_blank",
+          "question_style": "calculation",
+          "difficulty": 3,
+          "event_stage": "after_first_collision",
+          "variant_axis": "mass_ratio",
+          "ask": "取 M=3 kg、m=1 kg，碰前 u_M=-4 m/s、u_m=0。规定向右为正，碰后 v_M=____m/s，v_m=____m/s。",
+          "blanks": [
+            {"id": "vM", "accepted_answers": ["-2", "-2.0"]},
+            {"id": "vm", "accepted_answers": ["-6", "-6.0"]}
+          ],
+          "calculation_fixture_id": "CAL-A3-UN-01",
+          "explanation": "一维弹性碰撞公式给出 v_M=[(3-1)(-4)+2×1×0]/4=-2 m/s，v_m=[2×3×(-4)+(1-3)×0]/4=-6 m/s；总动量与总动能均保持不变。"
+        },
+        {
+          "key": "a3-3-unequal-02",
+          "node_id": "A3.3",
+          "question_type": "single_choice",
+          "question_style": "calculation",
+          "difficulty": 3,
+          "event_stage": "after_first_collision",
+          "variant_axis": "mass_ratio",
+          "ask": "质量 1 kg 的 A 球从左侧以 +4 m/s 撞上静止的 3 kg B 球。规定向右为正，若为一维弹性碰撞，碰后速度为？",
+          "options": [
+            {"text": "v_A=-2 m/s，v_B=+2 m/s", "correct": true},
+            {"text": "v_A=0，v_B=+4 m/s", "correct": false},
+            {"text": "v_A=+2 m/s，v_B=-2 m/s", "correct": false},
+            {"text": "v_A=+1 m/s，v_B=+1 m/s", "correct": false}
+          ],
+          "calculation_fixture_id": "CAL-A3-UN-02",
+          "explanation": "代入一维弹性碰撞公式，v_A=[(1-3)×4+2×3×0]/4=-2 m/s，v_B=[2×1×4+(3-1)×0]/4=+2 m/s。"
+        },
+        {
+          "key": "a3-3-unequal-03",
+          "node_id": "A3.3",
+          "question_type": "multi_blank",
+          "question_style": "calculation",
+          "difficulty": 3,
+          "event_stage": "after_first_collision",
+          "variant_axis": "initial_velocity",
+          "ask": "质量 3 kg 的 A 球在左侧以 +2 m/s 运动，质量 1 kg 的 B 球在右侧以 -2 m/s 运动。规定向右为正，弹性碰撞后 v_A=____m/s，v_B=____m/s。",
+          "blanks": [
+            {"id": "vA", "accepted_answers": ["0", "0.0"]},
+            {"id": "vB", "accepted_answers": ["4", "+4", "4.0"]}
+          ],
+          "calculation_fixture_id": "CAL-A3-UN-03",
+          "explanation": "代入 m_A=3、m_B=1、u_A=2、u_B=-2，得 v_A=[2×2+2×1×(-2)]/4=0，v_B=[2×3×2+(1-3)×(-2)]/4=4 m/s。"
+        },
+        {
+          "key": "a3-3-unequal-04",
+          "node_id": "A3.3",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "mass_ratio",
+          "ask": "若重球 M 以速度 +u 撞上前方静止的轻球 m，碰后运动特征是哪一项？",
+          "options": [
+            {"text": "两球都向右，重球速度为 u/2，轻球速度为 3u/2", "correct": true},
+            {"text": "重球静止，轻球速度为 +u", "correct": false},
+            {"text": "重球以 -u/2 反弹，轻球速度为 +u/2", "correct": false},
+            {"text": "两球粘在一起，以 3u/4 运动", "correct": false}
+          ],
+          "explanation": "M=3m 时，v_M=(M-m)u/(M+m)=u/2，v_m=2Mu/(M+m)=3u/2；这不同于等质量时的完全速度交换。"
+        },
+        {
+          "key": "a3-3-unequal-05",
+          "node_id": "A3.3",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "mass_ratio",
+          "ask": "若轻球 m 以速度 +u 撞上前方静止的重球 M，碰后运动特征是哪一项？",
+          "options": [
+            {"text": "轻球以 -u/2 反弹，重球以 +u/2 前进", "correct": true},
+            {"text": "轻球静止，重球以 +u 前进", "correct": false},
+            {"text": "两球都以 +u/4 前进", "correct": false},
+            {"text": "轻球以 +u/2 前进，重球以 -u/2 后退", "correct": false}
+          ],
+          "explanation": "取 m_1=m、m_2=3m，弹性碰撞公式给出 v_m=(m-3m)u/(4m)=-u/2，v_M=2mu/(4m)=u/2。"
+        },
+        {
+          "key": "a3-3-unequal-06",
+          "node_id": "A3.3",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "system_boundary",
+          "ask": "在轨道光滑、碰撞完全弹性的模型中，哪些量对 M、m 组成的系统守恒？",
+          "options": [
+            {"text": "系统总动量", "correct": true},
+            {"text": "系统总动能", "correct": true},
+            {"text": "重球自身的动量", "correct": false},
+            {"text": "轻球自身的动能", "correct": false}
+          ],
+          "explanation": "系统外力冲量可忽略，所以总动量守恒；碰撞完全弹性，所以总动能守恒。两球之间的冲量会改变单个球的动量和动能。"
+        },
+        {
+          "key": "a3-3-unequal-07",
+          "node_id": "A3.3",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "special_case",
+          "variant_axis": "model_assumption",
+          "ask": "为什么不能把“碰后交换速度”直接用于 M=3m 的情形？",
+          "options": [
+            {"text": "速度交换是一维弹性碰撞在两球质量相等时的特殊结果", "correct": true},
+            {"text": "只有非弹性碰撞才允许交换速度", "correct": false},
+            {"text": "质量不等时系统动量一定不守恒", "correct": false},
+            {"text": "质量不等时两球一定粘在一起", "correct": false}
+          ],
+          "explanation": "一般解含有质量比；只有 m_1=m_2 时，自身初速度项的系数才变为零，从而简化成速度交换。"
+        },
+        {
+          "key": "a3-3-unequal-08",
+          "node_id": "A3.3",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "after_first_collision",
+          "variant_axis": "observation",
+          "ask": "重球 M 以速度 +u 撞上静止轻球 m 后，系统初动能在两球之间怎样分配？",
+          "options": [
+            {"text": "重球保留 1/4，轻球获得 3/4", "correct": true},
+            {"text": "重球保留 3/4，轻球获得 1/4", "correct": false},
+            {"text": "两球各占 1/2", "correct": false},
+            {"text": "轻球获得全部动能", "correct": false}
+          ],
+          "explanation": "碰后 v_M=u/2、v_m=3u/2。重球动能为初始总动能的 (u/2)²/u²=1/4，轻球获得其余 3/4。"
+        }
+      ]
+    },
+    {
+      "id": "SC-A3-LARGE-RATIO",
+      "context": "质量为 M 和 m 的两球在光滑水平直轨道上发生一维弹性碰撞，质量比 M/m=100。规定向右为正方向；题目中的入射球都从左侧接近前方静止的目标球。",
+      "source_refs": ["video-main", "openstax-collision"],
+      "questions": [
+        {
+          "key": "a3-3-large-ratio-01",
+          "node_id": "A3.3",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "mass_ratio",
+          "ask": "若重球 M 以 +u 撞上静止轻球 m，哪组碰后速度趋势正确？",
+          "options": [
+            {"text": "重球仍以接近 +u 的速度前进，轻球以接近 +2u 的速度前进", "correct": true},
+            {"text": "重球静止，轻球以 +u 前进", "correct": false},
+            {"text": "重球以接近 -u 反弹，轻球几乎不动", "correct": false},
+            {"text": "两球交换速度", "correct": false}
+          ],
+          "explanation": "精确结果为 v_M=99u/101，v_m=200u/101。重球速度只略微减小，轻球速度接近 2u；大质量比不等同于等质量速度交换。"
+        },
+        {
+          "key": "a3-3-large-ratio-02",
+          "node_id": "A3.3",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "after_first_collision",
+          "variant_axis": "observation",
+          "ask": "重球 M 以 +u 撞上静止轻球 m 后，轻球速度接近 2u。对此次动能转移的判断哪项正确？",
+          "options": [
+            {"text": "轻球只获得约 3.9% 的初始总动能，重球仍保留绝大部分动能", "correct": true},
+            {"text": "轻球获得约 96% 的初始总动能", "correct": false},
+            {"text": "两球各获得一半初始总动能", "correct": false},
+            {"text": "轻球动能超过系统初始总动能", "correct": false}
+          ],
+          "explanation": "转移给静止目标球的动能比例为 4Mm/(M+m)²=400/10201≈3.9%。轻球速度虽大，但质量仅为重球的 1/100。"
+        },
+        {
+          "key": "a3-3-large-ratio-03",
+          "node_id": "A3.3",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "mass_ratio",
+          "ask": "若改为轻球 m 以 +u 撞上静止重球 M，碰后现象最接近哪一项？",
+          "options": [
+            {"text": "轻球以接近 -u 的速度反弹，重球以很小的正速度前进", "correct": true},
+            {"text": "轻球静止，重球以 +u 前进", "correct": false},
+            {"text": "轻球继续以 +u 前进，重球保持静止", "correct": false},
+            {"text": "两球都以接近 +u/2 前进", "correct": false}
+          ],
+          "explanation": "此时 v_m=-99u/101，v_M=2u/101。轻球几乎以原速反向，重球仅获得很小的正速度。"
+        },
+        {
+          "key": "a3-3-large-ratio-04",
+          "node_id": "A3.3",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "special_case",
+          "variant_axis": "mass_ratio",
+          "ask": "保持重球以 +u 撞击静止轻球，并让 M/m 从 100 继续增大。哪些极限趋势正确？",
+          "options": [
+            {"text": "重球碰前、碰后速度之差趋近于零", "correct": true},
+            {"text": "轻球碰后速度趋近于 +2u", "correct": true},
+            {"text": "两球碰后趋于交换速度", "correct": false},
+            {"text": "轻球获得的动能比例趋近于 100%", "correct": false}
+          ],
+          "explanation": "v_M=(M-m)u/(M+m)→u，v_m=2Mu/(M+m)→2u；但转移动能比例 4Mm/(M+m)²→0。"
+        }
+      ]
+    },
+    {
+      "id": "SC-A3-NONIDEAL",
+      "context": "两小车 A、B 沿水平直轨道相碰。规定向右为正方向。比较三种明确情形：Ⅰ，轨道光滑且发生弹性碰撞；Ⅱ，轨道光滑且发生完全非弹性碰撞，碰后两车粘在一起；Ⅲ，轨道粗糙，研究时段内地面对两车系统的摩擦冲量不可忽略。除题目另有说明外，不计空气阻力。",
+      "source_refs": ["video-main", "openstax-collision", "openstax-inelastic"],
+      "questions": [
+        {
+          "key": "a3-4-nonideal-01",
+          "node_id": "A3.4",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "after_first_collision",
+          "variant_axis": "elasticity",
+          "ask": "对情形Ⅰ和情形Ⅱ的系统守恒量进行比较，哪项正确？",
+          "options": [
+            {"text": "两种情形总动量都守恒，只有情形Ⅰ总动能守恒", "correct": true},
+            {"text": "两种情形总动量和总动能都守恒", "correct": false},
+            {"text": "只有情形Ⅰ总动量守恒", "correct": false},
+            {"text": "情形Ⅱ总动能守恒而总动量不守恒", "correct": false}
+          ],
+          "explanation": "光滑轨道上系统外力冲量可忽略，两种碰撞的总动量都守恒；完全非弹性碰撞会把部分机械能转化为内能，只有弹性碰撞保持总动能。"
+        },
+        {
+          "key": "a3-4-nonideal-02",
+          "node_id": "A3.4",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "elasticity",
+          "ask": "在情形Ⅱ中，A、B 质量均为 m；碰前 A 以 +4 m/s 运动，B 静止。碰后共同速度以及系统剩余动能占初动能的比例分别为？",
+          "options": [
+            {"text": "+2 m/s，1/2", "correct": true},
+            {"text": "+4 m/s，1", "correct": false},
+            {"text": "+2 m/s，1", "correct": false},
+            {"text": "0，0", "correct": false}
+          ],
+          "explanation": "动量守恒给出 m×4=(2m)v，故 v=2 m/s。初动能为 8m，末动能为 (1/2)(2m)×2²=4m，比例为 1/2。"
+        },
+        {
+          "key": "a3-4-nonideal-03",
+          "node_id": "A3.4",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "terminal",
+          "variant_axis": "friction",
+          "ask": "在情形Ⅰ中，两车碰后已经分离，且轨道足够长。忽略其他阻力，随后每辆车的速度怎样变化？",
+          "options": [
+            {"text": "各自保持碰后速度做匀速直线运动", "correct": true},
+            {"text": "都逐渐减速到静止", "correct": false},
+            {"text": "都不断加速", "correct": false},
+            {"text": "速度大小不变但每秒反向一次", "correct": false}
+          ],
+          "explanation": "分离后水平方向没有合外力，每辆车均保持碰后速度；碰撞是否弹性不等同于碰后是否有摩擦。"
+        },
+        {
+          "key": "a3-4-nonideal-04",
+          "node_id": "A3.4",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "extension_stage",
+          "variant_axis": "friction",
+          "ask": "在情形Ⅲ的整个研究时段内，把 A、B 两车作为系统，为什么不能直接断言系统总动量守恒？",
+          "options": [
+            {"text": "地面对系统有不可忽略的外力冲量", "correct": true},
+            {"text": "两车之间存在大小相等的相互作用力", "correct": false},
+            {"text": "只要有碰撞，动量就一定不守恒", "correct": false},
+            {"text": "动量只有在两车质量相等时才守恒", "correct": false}
+          ],
+          "explanation": "A、B 间的碰撞力属于系统内力并成对抵消；粗糙地面的摩擦是外力，其冲量不可忽略时会改变系统总动量。"
+        },
+        {
+          "key": "a3-4-nonideal-05",
+          "node_id": "A3.4",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "elasticity",
+          "ask": "情形Ⅱ中损失的系统动能通常转化为什么形式？",
+          "options": [
+            {"text": "小车及连接处的内能", "correct": true},
+            {"text": "形变、声等对应的能量", "correct": true},
+            {"text": "凭空消失的能量", "correct": false},
+            {"text": "系统额外增加的总动量", "correct": false}
+          ],
+          "explanation": "机械动能的减少对应形变、发热和声等能量形式的增加；能量没有消失，也不会因此凭空产生系统动量。"
+        },
+        {
+          "key": "a3-4-nonideal-06",
+          "node_id": "A3.4",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "special_case",
+          "variant_axis": "elasticity",
+          "ask": "用两车的相对运动描述碰后状态，情形Ⅰ与情形Ⅱ最明显的区别是？",
+          "options": [
+            {"text": "情形Ⅰ有分离相对速度，情形Ⅱ碰后相对速度为零", "correct": true},
+            {"text": "情形Ⅰ碰后相对速度为零，情形Ⅱ一定反向分离", "correct": false},
+            {"text": "两种情形碰后相对速度都为零", "correct": false},
+            {"text": "两种情形都要求每辆车速度大小不变", "correct": false}
+          ],
+          "explanation": "弹性碰撞后两车分离；完全非弹性碰撞后粘成一个整体，两车速度相同，彼此的相对速度为零。"
+        },
+        {
+          "key": "a3-4-nonideal-07",
+          "node_id": "A3.4",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "extension_stage",
+          "variant_axis": "system_boundary",
+          "ask": "区分系统内力与外力时，哪些判断正确？",
+          "options": [
+            {"text": "A 对 B 与 B 对 A 的碰撞冲量在系统总动量变化中相互抵消", "correct": true},
+            {"text": "粗糙地面对两车的摩擦冲量会计入系统所受外力冲量", "correct": true},
+            {"text": "两车间碰撞力越大，系统总动量变化一定越大", "correct": false},
+            {"text": "只要选择 A、B 为系统，任何地面作用都自动成为内力", "correct": false}
+          ],
+          "explanation": "两车之间的作用属于内力，对系统总动量的净贡献为零；地面不在所选系统内，摩擦属于外力。"
+        },
+        {
+          "key": "a3-4-nonideal-08",
+          "node_id": "A3.4",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "special_case",
+          "variant_axis": "model_assumption",
+          "ask": "实验测得一次碰撞前后两车系统的总动能减少。仅凭这一事实能推出什么？",
+          "options": [
+            {"text": "这次碰撞不是完全弹性的，但还需检查外力冲量才能判断系统动量是否守恒", "correct": true},
+            {"text": "系统总动量一定不守恒", "correct": false},
+            {"text": "两车碰后一定粘在一起", "correct": false},
+            {"text": "系统能量一定不守恒", "correct": false}
+          ],
+          "explanation": "总动能减少排除了完全弹性碰撞，但非弹性程度可以不同，未必粘连；动量是否守恒由系统外力冲量决定。"
+        }
+      ]
+    },
+    {
+      "id": "SC-A3-CONSERVATION",
+      "context": "质量 3 kg 的 A 球与质量 1 kg 的 B 球在光滑水平直轨道上发生一维弹性碰撞，规定向右为正方向。基准情形中 u_A=-4 m/s、u_B=0，碰后 v_A=-2 m/s、v_B=-6 m/s；碰撞过程中两球系统所受外力冲量可忽略。部分题目会明确改用其他质量或碰撞类型。",
+      "source_refs": ["video-main", "openstax-collision", "openstax-inelastic"],
+      "questions": [
+        {
+          "key": "a3-5-conservation-01",
+          "node_id": "A3.5",
+          "question_type": "multi_blank",
+          "question_style": "calculation",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "system_boundary",
+          "ask": "在基准情形中，按 Δp=p_末-p_初 计算，A 的动量变化量为____kg·m/s，B 的动量变化量为____kg·m/s。",
+          "blanks": [
+            {"id": "delta_p_A", "accepted_answers": ["6", "+6", "6.0"]},
+            {"id": "delta_p_B", "accepted_answers": ["-6", "-6.0"]}
+          ],
+          "calculation_fixture_id": "CAL-A3-DP-01",
+          "explanation": "Δp_A=3×[-2-(-4)]=+6 kg·m/s，Δp_B=1×(-6-0)=-6 kg·m/s。二者之和为零，与系统总动量不变一致。"
+        },
+        {
+          "key": "a3-5-conservation-02",
+          "node_id": "A3.5",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "after_first_collision",
+          "variant_axis": "observation",
+          "ask": "基准情形中，A、B 系统碰前和碰后的总动量分别是多少？",
+          "options": [
+            {"text": "均为 -12 kg·m/s", "correct": true},
+            {"text": "碰前 -12 kg·m/s，碰后 +12 kg·m/s", "correct": false},
+            {"text": "碰前 -4 kg·m/s，碰后 -8 kg·m/s", "correct": false},
+            {"text": "碰前、碰后均为 0", "correct": false}
+          ],
+          "explanation": "碰前总动量为 3×(-4)+1×0=-12 kg·m/s；碰后为 3×(-2)+1×(-6)=-12 kg·m/s。"
+        },
+        {
+          "key": "a3-5-conservation-03",
+          "node_id": "A3.5",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "observation",
+          "ask": "基准情形中，A、B 系统碰前和碰后的总动能分别是多少？",
+          "options": [
+            {"text": "均为 24 J", "correct": true},
+            {"text": "碰前 24 J，碰后 12 J", "correct": false},
+            {"text": "碰前 12 J，碰后 24 J", "correct": false},
+            {"text": "均为 12 J", "correct": false}
+          ],
+          "explanation": "碰前动能为 (1/2)×3×4²=24 J；碰后为 (1/2)×3×2²+(1/2)×1×6²=6+18=24 J。"
+        },
+        {
+          "key": "a3-5-conservation-04",
+          "node_id": "A3.5",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "direction",
+          "ask": "基准情形中，分别考察单个球的动量，哪些说法正确？",
+          "options": [
+            {"text": "A 的动量由 -12 kg·m/s 变为 -6 kg·m/s", "correct": true},
+            {"text": "B 的动量由 0 变为 -6 kg·m/s", "correct": true},
+            {"text": "A 的动量变化量为 -6 kg·m/s", "correct": false},
+            {"text": "B 的动量在碰撞中保持不变", "correct": false}
+          ],
+          "explanation": "p_A: -12→-6 kg·m/s，故增加 6 kg·m/s；p_B: 0→-6 kg·m/s，故减少 6 kg·m/s。单球动量均改变。"
+        },
+        {
+          "key": "a3-5-conservation-05",
+          "node_id": "A3.5",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "observation",
+          "ask": "基准情形中，分别考察单个球的动能，哪些说法正确？",
+          "options": [
+            {"text": "A 的动能减少 18 J", "correct": true},
+            {"text": "B 的动能增加 18 J", "correct": true},
+            {"text": "A、B 的动能各自保持不变", "correct": false},
+            {"text": "系统总动能增加 36 J", "correct": false}
+          ],
+          "explanation": "A 的动能从 24 J 变为 6 J，B 的动能从 0 变为 18 J；一减一增恰好抵消，系统总动能仍为 24 J。"
+        },
+        {
+          "key": "a3-5-conservation-06",
+          "node_id": "A3.5",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "special_case",
+          "variant_axis": "system_boundary",
+          "ask": "从“单个球”和“两球系统”两个层次比较，哪些概括正确？",
+          "options": [
+            {"text": "单个球的动量可以改变，而两球系统总动量不变", "correct": true},
+            {"text": "单个球的动能可以改变，而弹性碰撞中系统总动能不变", "correct": true},
+            {"text": "系统量守恒要求每个球对应的量都不变", "correct": false},
+            {"text": "只要某个球动能增加，系统总动能就一定增加", "correct": false}
+          ],
+          "explanation": "碰撞通过内力在两球之间转移动量和动能；某个成员的增减可由另一个成员补偿，系统总量仍可守恒。"
+        },
+        {
+          "key": "a3-5-conservation-07",
+          "node_id": "A3.5",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "after_first_collision",
+          "variant_axis": "system_boundary",
+          "ask": "若碰撞期间两球系统外力冲量可忽略，A 从 B 获得的冲量为 J，则 B 的动量变化量为？",
+          "options": [
+            {"text": "-J", "correct": true},
+            {"text": "+J", "correct": false},
+            {"text": "0", "correct": false},
+            {"text": "一定为 J/2", "correct": false}
+          ],
+          "explanation": "两球间作用力等大反向且作用时间相同，所以相互作用冲量等大反向，Δp_A+Δp_B=0。"
+        },
+        {
+          "key": "a3-5-conservation-08",
+          "node_id": "A3.5",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "special_case",
+          "variant_axis": "system_boundary",
+          "ask": "在同一次碰撞中改变研究对象，哪些判断正确？",
+          "options": [
+            {"text": "只选 A 为系统时，B 对 A 的碰撞力是外力", "correct": true},
+            {"text": "把 A、B 一起选为系统时，两球间碰撞力是内力", "correct": true},
+            {"text": "研究对象怎样选都不会影响内力、外力的分类", "correct": false},
+            {"text": "只选 A 为系统时，A 的动量必定守恒", "correct": false}
+          ],
+          "explanation": "内外力分类依赖系统边界。只研究 A 时，B 的作用跨越边界；研究 A、B 整体时，两球相互作用位于系统内部。"
+        },
+        {
+          "key": "a3-5-conservation-09",
+          "node_id": "A3.5",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "special_case",
+          "variant_axis": "mass_ratio",
+          "ask": "若改用两个等质量小球，A 以 +v 撞上静止 B，并发生一维弹性碰撞，能量变化应怎样描述？",
+          "options": [
+            {"text": "A 的动能全部转移给 B，系统总动能不变", "correct": true},
+            {"text": "A、B 各保留一半动能", "correct": false},
+            {"text": "A 的动能不变，B 凭空获得动能", "correct": false},
+            {"text": "系统总动能变为零", "correct": false}
+          ],
+          "explanation": "等质量一维弹性碰撞交换速度，A 停下、B 以 +v 运动，因此动能从 A 完全转移到 B，而系统总动能守恒。"
+        },
+        {
+          "key": "a3-5-conservation-10",
+          "node_id": "A3.5",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "extension_stage",
+          "variant_axis": "elasticity",
+          "ask": "若将碰撞改为完全非弹性碰撞，但轨道仍光滑、外力冲量仍可忽略，系统量会怎样？",
+          "options": [
+            {"text": "总动量守恒，总动能减少", "correct": true},
+            {"text": "总动量和总动能都守恒", "correct": false},
+            {"text": "总动量减少，总动能守恒", "correct": false},
+            {"text": "总动量与总动能都必定变为零", "correct": false}
+          ],
+          "explanation": "光滑条件使系统总动量守恒；完全非弹性碰撞把部分动能转化为内能，所以总动能不守恒。"
+        }
+      ]
+    }
+  ],
+  "standalone_questions": []
+}
