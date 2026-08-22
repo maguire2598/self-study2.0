@@ -25,6 +25,13 @@ CORE_SCENARIOS = {
 }
 EXTENSION_SCENARIOS = {"SC-A7-INCLINE", "SC-A7-SPRING", "SC-A7-BOUNDARY"}
 
+EXPECTED_SCENARIO_IDS = (
+    "SC-A3-RELATIVE", "SC-A3-EQUAL", "SC-A3-UNEQUAL", "SC-A3-LARGE-RATIO",
+    "SC-A3-NONIDEAL", "SC-A3-CONSERVATION", "SC-A4-FIRST-WALL",
+    "SC-A4-CHASE", "SC-A4-STATE-1", "SC-A4-STATE-3", "SC-A7-INCLINE",
+    "SC-A7-SPRING", "SC-A7-BOUNDARY",
+)
+
 EXPECTED_SOURCES = {
     "video-main": "sources/theory/弹性碰撞与π.txt",
     "openstax-collision": "https://openstax.org/books/college-physics/pages/8-4-elastic-collisions-in-one-dimension",
@@ -101,6 +108,21 @@ class QuestionSourceSchemaTests(unittest.TestCase):
             "option", "blank", "question", "scenario",
         ):
             self.assertFalse(self.defs[definition]["additionalProperties"], definition)
+
+    def test_schema_pins_source_and_scenario_ids_by_position(self):
+        cases = (
+            ("source_catalog", tuple(EXPECTED_SOURCES), "#/$defs/source"),
+            ("scenarios", EXPECTED_SCENARIO_IDS, "#/$defs/scenario"),
+        )
+        for property_name, expected_ids, definition_ref in cases:
+            collection = self.schema["properties"][property_name]
+            self.assertIs(collection["items"], False, property_name)
+            self.assertEqual(len(collection["prefixItems"]), len(expected_ids))
+            pinned_ids = []
+            for item in collection["prefixItems"]:
+                self.assertEqual(item["allOf"][0], {"$ref": definition_ref})
+                pinned_ids.append(item["allOf"][1]["properties"]["id"]["const"])
+            self.assertEqual(tuple(pinned_ids), expected_ids)
 
     def test_schema_routes_context_specific_text_fields(self):
         scenario_items = self.defs["scenario"]["properties"]["questions"]["items"]

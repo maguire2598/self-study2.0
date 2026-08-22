@@ -48,7 +48,39 @@
       "minItems": 5,
       "maxItems": 5,
       "uniqueItems": true,
-      "items": {"$ref": "#/$defs/source"}
+      "prefixItems": [
+        {
+          "allOf": [
+            {"$ref": "#/$defs/source"},
+            {"type": "object", "properties": {"id": {"const": "video-main"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/source"},
+            {"type": "object", "properties": {"id": {"const": "openstax-collision"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/source"},
+            {"type": "object", "properties": {"id": {"const": "openstax-inelastic"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/source"},
+            {"type": "object", "properties": {"id": {"const": "openstax-incline"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/source"},
+            {"type": "object", "properties": {"id": {"const": "openstax-spring"}}}
+          ]
+        }
+      ],
+      "items": false
     },
     "calculation_fixtures": {
       "type": "array",
@@ -62,7 +94,87 @@
       "minItems": 13,
       "maxItems": 13,
       "uniqueItems": true,
-      "items": {"$ref": "#/$defs/scenario"}
+      "prefixItems": [
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A3-RELATIVE"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A3-EQUAL"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A3-UNEQUAL"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A3-LARGE-RATIO"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A3-NONIDEAL"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A3-CONSERVATION"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A4-FIRST-WALL"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A4-CHASE"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A4-STATE-1"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A4-STATE-3"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A7-INCLINE"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A7-SPRING"}}}
+          ]
+        },
+        {
+          "allOf": [
+            {"$ref": "#/$defs/scenario"},
+            {"type": "object", "properties": {"id": {"const": "SC-A7-BOUNDARY"}}}
+          ]
+        }
+      ],
+      "items": false
     },
     "standalone_questions": {
       "type": "array",
