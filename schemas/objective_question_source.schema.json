@@ -2,66 +2,206 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ObjectiveQuestionSource",
   "type": "object",
+  "additionalProperties": false,
   "required": [
     "course_id", "section_id", "version", "node_quotas", "source_catalog",
     "calculation_fixtures", "scenarios", "standalone_questions"
   ],
   "properties": {
+    "$schema": {"const": "../../../schemas/objective_question_source.schema.json"},
     "course_id": {"const": "collision-pi"},
     "section_id": {"const": "A"},
     "version": {"const": "2.0.0"},
     "node_quotas": {
       "type": "object",
-      "minProperties": 20,
-      "maxProperties": 20,
-      "additionalProperties": {"type": "integer", "minimum": 1}
+      "additionalProperties": false,
+      "required": [
+        "A1.1", "A1.2", "A1.3", "A2.1", "A2.2", "A3.1", "A3.2",
+        "A3.3", "A3.4", "A3.5", "A4.1", "A4.2", "A4.3", "A5.1",
+        "A5.2", "A6.1", "A6.2", "A7.1", "A7.2", "A7.3"
+      ],
+      "properties": {
+        "A1.1": {"const": 5},
+        "A1.2": {"const": 5},
+        "A1.3": {"const": 4},
+        "A2.1": {"const": 6},
+        "A2.2": {"const": 5},
+        "A3.1": {"const": 8},
+        "A3.2": {"const": 10},
+        "A3.3": {"const": 12},
+        "A3.4": {"const": 8},
+        "A3.5": {"const": 10},
+        "A4.1": {"const": 6},
+        "A4.2": {"const": 10},
+        "A4.3": {"const": 8},
+        "A5.1": {"const": 10},
+        "A5.2": {"const": 4},
+        "A6.1": {"const": 10},
+        "A6.2": {"const": 5},
+        "A7.1": {"const": 5},
+        "A7.2": {"const": 5},
+        "A7.3": {"const": 4}
+      }
     },
     "source_catalog": {
       "type": "array",
       "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
       "items": {"$ref": "#/$defs/source"}
     },
     "calculation_fixtures": {
       "type": "array",
       "minItems": 8,
       "maxItems": 8,
+      "uniqueItems": true,
       "items": {"$ref": "#/$defs/calculationFixture"}
     },
     "scenarios": {
       "type": "array",
       "minItems": 13,
       "maxItems": 13,
+      "uniqueItems": true,
       "items": {"$ref": "#/$defs/scenario"}
     },
     "standalone_questions": {
       "type": "array",
       "minItems": 44,
       "maxItems": 44,
-      "items": {"$ref": "#/$defs/question"}
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/standaloneQuestion"}
     }
   },
   "$defs": {
     "source": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["id", "location", "scope"],
       "properties": {
-        "id": {"type": "string", "minLength": 1},
-        "location": {"type": "string", "minLength": 1},
+        "id": {
+          "enum": [
+            "video-main", "openstax-collision", "openstax-inelastic",
+            "openstax-incline", "openstax-spring"
+          ]
+        },
+        "location": {
+          "enum": [
+            "sources/theory/弹性碰撞与π.txt",
+            "https://openstax.org/books/college-physics/pages/8-4-elastic-collisions-in-one-dimension",
+            "https://openstax.org/books/physics/pages/8-3-elastic-and-inelastic-collisions",
+            "https://openstax.org/books/college-physics-2e/pages/7-3-gravitational-potential-energy",
+            "https://openstax.org/books/college-physics-2e/pages/7-4-conservative-forces-and-potential-energy"
+          ]
+        },
         "scope": {"type": "string", "minLength": 1}
-      }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"id": {"const": "video-main"}}, "required": ["id"]},
+          "then": {"properties": {"location": {"const": "sources/theory/弹性碰撞与π.txt"}}}
+        },
+        {
+          "if": {"properties": {"id": {"const": "openstax-collision"}}, "required": ["id"]},
+          "then": {"properties": {"location": {"const": "https://openstax.org/books/college-physics/pages/8-4-elastic-collisions-in-one-dimension"}}}
+        },
+        {
+          "if": {"properties": {"id": {"const": "openstax-inelastic"}}, "required": ["id"]},
+          "then": {"properties": {"location": {"const": "https://openstax.org/books/physics/pages/8-3-elastic-and-inelastic-collisions"}}}
+        },
+        {
+          "if": {"properties": {"id": {"const": "openstax-incline"}}, "required": ["id"]},
+          "then": {"properties": {"location": {"const": "https://openstax.org/books/college-physics-2e/pages/7-3-gravitational-potential-energy"}}}
+        },
+        {
+          "if": {"properties": {"id": {"const": "openstax-spring"}}, "required": ["id"]},
+          "then": {"properties": {"location": {"const": "https://openstax.org/books/college-physics-2e/pages/7-4-conservative-forces-and-potential-energy"}}}
+        }
+      ]
     },
     "calculationFixture": {
+      "oneOf": [
+        {"$ref": "#/$defs/elasticFixture"},
+        {"$ref": "#/$defs/inclineFixture"},
+        {"$ref": "#/$defs/springFixture"}
+      ]
+    },
+    "elasticFixture": {
       "type": "object",
-      "required": ["id", "node_id", "kind", "expected"],
+      "additionalProperties": false,
+      "required": ["id", "node_id", "kind", "m1", "m2", "u1", "u2", "expected"],
       "properties": {
-        "id": {"type": "string", "minLength": 1},
-        "node_id": {"type": "string", "pattern": "^A[1-7]\\.[1-5]$"},
-        "kind": {"enum": ["elastic_1d", "incline_speed", "spring_compression"]},
-        "expected": {"type": "object"}
+        "id": {
+          "enum": [
+            "CAL-A3-EQ-01", "CAL-A3-EQ-02", "CAL-A3-UN-01",
+            "CAL-A3-UN-02", "CAL-A3-UN-03", "CAL-A3-DP-01"
+          ]
+        },
+        "node_id": {"enum": ["A3.2", "A3.3", "A3.5"]},
+        "kind": {"const": "elastic_1d"},
+        "m1": {"type": "number", "exclusiveMinimum": 0},
+        "m2": {"type": "number", "exclusiveMinimum": 0},
+        "u1": {"type": "number"},
+        "u2": {"type": "number"},
+        "expected": {"$ref": "#/$defs/elasticExpected"}
       }
+    },
+    "inclineFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "node_id", "kind", "g", "height", "expected"],
+      "properties": {
+        "id": {"const": "CAL-A7-IN-01"},
+        "node_id": {"const": "A7.1"},
+        "kind": {"const": "incline_speed"},
+        "g": {"type": "number", "exclusiveMinimum": 0},
+        "height": {"type": "number", "minimum": 0},
+        "expected": {"$ref": "#/$defs/inclineExpected"}
+      }
+    },
+    "springFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "node_id", "kind", "mass", "speed", "k", "expected"],
+      "properties": {
+        "id": {"const": "CAL-A7-SP-01"},
+        "node_id": {"const": "A7.2"},
+        "kind": {"const": "spring_compression"},
+        "mass": {"type": "number", "exclusiveMinimum": 0},
+        "speed": {"type": "number", "minimum": 0},
+        "k": {"type": "number", "exclusiveMinimum": 0},
+        "expected": {"$ref": "#/$defs/springExpected"}
+      }
+    },
+    "elasticExpected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["v1", "v2"],
+      "dependentRequired": {
+        "delta_p1": ["delta_p2"],
+        "delta_p2": ["delta_p1"]
+      },
+      "properties": {
+        "v1": {"type": "number"},
+        "v2": {"type": "number"},
+        "delta_p1": {"type": "number"},
+        "delta_p2": {"type": "number"}
+      }
+    },
+    "inclineExpected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["speed"],
+      "properties": {"speed": {"type": "number", "minimum": 0}}
+    },
+    "springExpected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["compression"],
+      "properties": {"compression": {"type": "number", "minimum": 0}}
     },
     "option": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["text", "correct"],
       "properties": {
         "text": {"type": "string", "minLength": 1},
@@ -70,25 +210,36 @@
     },
     "blank": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["id", "accepted_answers"],
       "properties": {
         "id": {"type": "string", "minLength": 1},
         "accepted_answers": {
           "type": "array",
           "minItems": 1,
+          "uniqueItems": true,
           "items": {"type": "string", "minLength": 1}
         }
       }
     },
     "question": {
       "type": "object",
+      "additionalProperties": false,
       "required": [
         "key", "node_id", "question_type", "question_style", "difficulty",
         "event_stage", "variant_axis", "explanation"
       ],
       "properties": {
         "key": {"type": "string", "minLength": 1},
-        "node_id": {"type": "string", "pattern": "^A[1-7]\\.[1-5]$"},
+        "node_id": {
+          "type": "string",
+          "pattern": "^A[1-7]\\.[1-5]$",
+          "enum": [
+            "A1.1", "A1.2", "A1.3", "A2.1", "A2.2", "A3.1", "A3.2",
+            "A3.3", "A3.4", "A3.5", "A4.1", "A4.2", "A4.3", "A5.1",
+            "A5.2", "A6.1", "A6.2", "A7.1", "A7.2", "A7.3"
+          ]
+        },
         "question_type": {"enum": ["single_choice", "multiple_choice", "multi_blank"]},
         "question_style": {"enum": ["scenario", "calculation", "concise"]},
         "difficulty": {"type": "integer", "minimum": 1, "maximum": 3},
@@ -107,21 +258,126 @@
         },
         "prompt": {"type": "string", "minLength": 1},
         "ask": {"type": "string", "minLength": 1},
-        "options": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"$ref": "#/$defs/option"}},
-        "blanks": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/blank"}},
-        "calculation_fixture_id": {"type": "string"},
+        "options": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {"$ref": "#/$defs/option"}
+        },
+        "blanks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/blank"}
+        },
+        "calculation_fixture_id": {
+          "enum": [
+            "CAL-A3-EQ-01", "CAL-A3-EQ-02", "CAL-A3-UN-01", "CAL-A3-UN-02",
+            "CAL-A3-UN-03", "CAL-A3-DP-01", "CAL-A7-IN-01", "CAL-A7-SP-01"
+          ]
+        },
         "explanation": {"type": "string", "minLength": 1},
         "author_notes": {"type": "string"}
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"question_type": {"const": "single_choice"}},
+            "required": ["question_type"]
+          },
+          "then": {
+            "required": ["options"],
+            "not": {"required": ["blanks"]},
+            "properties": {
+              "options": {
+                "contains": {"type": "object", "required": ["correct"], "properties": {"correct": {"const": true}}},
+                "minContains": 1,
+                "maxContains": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"question_type": {"const": "multiple_choice"}},
+            "required": ["question_type"]
+          },
+          "then": {
+            "required": ["options"],
+            "not": {"required": ["blanks"]},
+            "properties": {
+              "options": {
+                "contains": {"type": "object", "required": ["correct"], "properties": {"correct": {"const": true}}},
+                "minContains": 2,
+                "maxContains": 2
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"question_type": {"const": "multi_blank"}},
+            "required": ["question_type"]
+          },
+          "then": {
+            "required": ["blanks"],
+            "not": {"required": ["options"]}
+          }
+        },
+        {
+          "if": {
+            "properties": {"question_style": {"const": "calculation"}},
+            "required": ["question_style"]
+          },
+          "then": {"required": ["calculation_fixture_id"]},
+          "else": {"not": {"required": ["calculation_fixture_id"]}}
+        }
+      ]
+    },
+    "scenarioQuestion": {
+      "type": "object",
+      "allOf": [{"$ref": "#/$defs/question"}],
+      "required": ["ask"],
+      "not": {"required": ["prompt"]}
+    },
+    "standaloneQuestion": {
+      "type": "object",
+      "allOf": [{"$ref": "#/$defs/question"}],
+      "required": ["prompt"],
+      "not": {"required": ["ask"]}
     },
     "scenario": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["id", "context", "source_refs", "questions"],
       "properties": {
-        "id": {"type": "string", "pattern": "^SC-A[347]-"},
+        "id": {
+          "pattern": "^SC-A[347]-",
+          "enum": [
+            "SC-A3-RELATIVE", "SC-A3-EQUAL", "SC-A3-UNEQUAL", "SC-A3-LARGE-RATIO",
+            "SC-A3-NONIDEAL", "SC-A3-CONSERVATION", "SC-A4-FIRST-WALL",
+            "SC-A4-CHASE", "SC-A4-STATE-1", "SC-A4-STATE-3", "SC-A7-INCLINE",
+            "SC-A7-SPRING", "SC-A7-BOUNDARY"
+          ]
+        },
         "context": {"type": "string", "minLength": 1},
-        "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-        "questions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/question"}}
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "video-main", "openstax-collision", "openstax-inelastic",
+              "openstax-incline", "openstax-spring"
+            ]
+          }
+        },
+        "questions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/scenarioQuestion"}
+        }
       }
     }
   }

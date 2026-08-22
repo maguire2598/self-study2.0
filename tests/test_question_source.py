@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "content/courses/collision-pi/question-source-a.json"
+SCHEMA = ROOT / "schemas/objective_question_source.schema.json"
 
 EXPECTED_QUOTAS = {
     "A1.1": 5, "A1.2": 5, "A1.3": 4,
@@ -24,6 +25,117 @@ CORE_SCENARIOS = {
 }
 EXTENSION_SCENARIOS = {"SC-A7-INCLINE", "SC-A7-SPRING", "SC-A7-BOUNDARY"}
 
+EXPECTED_SOURCES = {
+    "video-main": "sources/theory/弹性碰撞与π.txt",
+    "openstax-collision": "https://openstax.org/books/college-physics/pages/8-4-elastic-collisions-in-one-dimension",
+    "openstax-inelastic": "https://openstax.org/books/physics/pages/8-3-elastic-and-inelastic-collisions",
+    "openstax-incline": "https://openstax.org/books/college-physics-2e/pages/7-3-gravitational-potential-energy",
+    "openstax-spring": "https://openstax.org/books/college-physics-2e/pages/7-4-conservative-forces-and-potential-energy",
+}
+
+EXPECTED_FIXTURES = {
+    "CAL-A3-EQ-01": {
+        "id": "CAL-A3-EQ-01", "node_id": "A3.2", "kind": "elastic_1d",
+        "m1": 2, "m2": 2, "u1": -3, "u2": 0, "expected": {"v1": 0, "v2": -3},
+    },
+    "CAL-A3-EQ-02": {
+        "id": "CAL-A3-EQ-02", "node_id": "A3.2", "kind": "elastic_1d",
+        "m1": 1, "m2": 1, "u1": 2, "u2": -1, "expected": {"v1": -1, "v2": 2},
+    },
+    "CAL-A3-UN-01": {
+        "id": "CAL-A3-UN-01", "node_id": "A3.3", "kind": "elastic_1d",
+        "m1": 3, "m2": 1, "u1": -4, "u2": 0, "expected": {"v1": -2, "v2": -6},
+    },
+    "CAL-A3-UN-02": {
+        "id": "CAL-A3-UN-02", "node_id": "A3.3", "kind": "elastic_1d",
+        "m1": 1, "m2": 3, "u1": 4, "u2": 0, "expected": {"v1": -2, "v2": 2},
+    },
+    "CAL-A3-UN-03": {
+        "id": "CAL-A3-UN-03", "node_id": "A3.3", "kind": "elastic_1d",
+        "m1": 3, "m2": 1, "u1": 2, "u2": -2, "expected": {"v1": 0, "v2": 4},
+    },
+    "CAL-A3-DP-01": {
+        "id": "CAL-A3-DP-01", "node_id": "A3.5", "kind": "elastic_1d",
+        "m1": 3, "m2": 1, "u1": -4, "u2": 0,
+        "expected": {"v1": -2, "v2": -6, "delta_p1": 6, "delta_p2": -6},
+    },
+    "CAL-A7-IN-01": {
+        "id": "CAL-A7-IN-01", "node_id": "A7.1", "kind": "incline_speed",
+        "g": 10, "height": 1.25, "expected": {"speed": 5},
+    },
+    "CAL-A7-SP-01": {
+        "id": "CAL-A7-SP-01", "node_id": "A7.2", "kind": "spring_compression",
+        "mass": 1, "speed": 2, "k": 100, "expected": {"compression": 0.2},
+    },
+}
+
+
+class QuestionSourceSchemaTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
+        cls.defs = cls.schema["$defs"]
+
+    def test_schema_locks_quota_source_and_scenario_identities(self):
+        quotas = self.schema["properties"]["node_quotas"]
+        self.assertEqual(set(quotas["properties"]), set(EXPECTED_QUOTAS))
+        self.assertEqual(set(quotas["required"]), set(EXPECTED_QUOTAS))
+        self.assertFalse(quotas["additionalProperties"])
+        for node_id, quota in EXPECTED_QUOTAS.items():
+            self.assertEqual(quotas["properties"][node_id], {"const": quota})
+
+        sources = self.schema["properties"]["source_catalog"]
+        self.assertEqual(sources["minItems"], len(EXPECTED_SOURCES))
+        self.assertEqual(sources["maxItems"], len(EXPECTED_SOURCES))
+        self.assertTrue(sources["uniqueItems"])
+        self.assertEqual(set(self.defs["source"]["properties"]["id"]["enum"]), set(EXPECTED_SOURCES))
+        self.assertEqual(
+            set(self.defs["scenario"]["properties"]["id"]["enum"]),
+            CORE_SCENARIOS | EXTENSION_SCENARIOS,
+        )
+
+    def test_schema_closes_authored_objects(self):
+        self.assertFalse(self.schema["additionalProperties"])
+        for definition in (
+            "source", "elasticFixture", "inclineFixture", "springFixture",
+            "option", "blank", "question", "scenario",
+        ):
+            self.assertFalse(self.defs[definition]["additionalProperties"], definition)
+
+    def test_schema_routes_context_specific_text_fields(self):
+        scenario_items = self.defs["scenario"]["properties"]["questions"]["items"]
+        standalone_items = self.schema["properties"]["standalone_questions"]["items"]
+        self.assertEqual(scenario_items, {"$ref": "#/$defs/scenarioQuestion"})
+        self.assertEqual(standalone_items, {"$ref": "#/$defs/standaloneQuestion"})
+
+        scenario_question = self.defs["scenarioQuestion"]
+        self.assertIn("ask", scenario_question["required"])
+        self.assertEqual(scenario_question["not"], {"required": ["prompt"]})
+        standalone_question = self.defs["standaloneQuestion"]
+        self.assertIn("prompt", standalone_question["required"])
+        self.assertEqual(standalone_question["not"], {"required": ["ask"]})
+
+    def test_schema_routes_answer_payloads_and_calculation_fixture(self):
+        branches = {
+            rule["if"]["properties"].get("question_type", {}).get("const"):
+                rule["then"]
+            for rule in self.defs["question"]["allOf"]
+            if "question_type" in rule.get("if", {}).get("properties", {})
+        }
+        for question_type in ("single_choice", "multiple_choice"):
+            self.assertIn("options", branches[question_type]["required"])
+            self.assertEqual(branches[question_type]["not"], {"required": ["blanks"]})
+        self.assertIn("blanks", branches["multi_blank"]["required"])
+        self.assertEqual(branches["multi_blank"]["not"], {"required": ["options"]})
+
+        calculation_branch = next(
+            rule["then"]
+            for rule in self.defs["question"]["allOf"]
+            if rule.get("if", {}).get("properties", {}).get("question_style", {}).get("const")
+            == "calculation"
+        )
+        self.assertIn("calculation_fixture_id", calculation_branch["required"])
+
 
 class QuestionSourceTests(unittest.TestCase):
     @classmethod
@@ -39,6 +151,11 @@ class QuestionSourceTests(unittest.TestCase):
     def test_quota_and_scenario_contract(self):
         self.assertEqual(self.source["node_quotas"], EXPECTED_QUOTAS)
         self.assertEqual(sum(EXPECTED_QUOTAS.values()), 140)
+        actual_quotas = Counter(
+            question["node_id"]
+            for question in self.scenario_questions + self.standalone
+        )
+        self.assertEqual(actual_quotas, Counter(EXPECTED_QUOTAS))
         scenario_ids = {scenario["id"] for scenario in self.source["scenarios"]}
         self.assertEqual(scenario_ids, CORE_SCENARIOS | EXTENSION_SCENARIOS)
         self.assertEqual(len(self.scenario_questions), 96)
@@ -54,6 +171,7 @@ class QuestionSourceTests(unittest.TestCase):
     def test_calculation_fixtures_are_physically_consistent(self):
         fixtures = self.source["calculation_fixtures"]
         self.assertEqual(len(fixtures), 8)
+        self.assertEqual({fixture["id"]: fixture for fixture in fixtures}, EXPECTED_FIXTURES)
         for fixture in fixtures:
             if fixture["kind"] == "elastic_1d":
                 m1, m2 = fixture["m1"], fixture["m2"]
@@ -81,16 +199,24 @@ class QuestionSourceTests(unittest.TestCase):
             else:
                 self.fail(f"unknown calculation kind: {fixture['kind']}")
 
+        fixture_references = Counter(
+            question["calculation_fixture_id"]
+            for question in self.scenario_questions + self.standalone
+            if question["question_style"] == "calculation"
+        )
+        self.assertEqual(fixture_references, Counter(EXPECTED_FIXTURES.keys()))
+
     def test_sources_and_question_keys_are_complete(self):
-        expected_sources = {
-            "video-main", "openstax-collision", "openstax-inelastic",
-            "openstax-incline", "openstax-spring",
+        actual_sources = {
+            item["id"]: item["location"]
+            for item in self.source["source_catalog"]
         }
-        self.assertEqual({item["id"] for item in self.source["source_catalog"]}, expected_sources)
+        self.assertEqual(len(self.source["source_catalog"]), len(EXPECTED_SOURCES))
+        self.assertEqual(actual_sources, EXPECTED_SOURCES)
         for scenario in self.source["scenarios"]:
             keys = [question["key"] for question in scenario["questions"]]
             self.assertEqual(len(keys), len(set(keys)), scenario["id"])
-            self.assertTrue(set(scenario["source_refs"]).issubset(expected_sources))
+            self.assertTrue(set(scenario["source_refs"]).issubset(EXPECTED_SOURCES))
 
     def test_question_payloads_match_types_and_style(self):
         banned = ("关于“", "判断“", "下列哪项最符合“")
