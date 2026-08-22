@@ -15,11 +15,26 @@ class KnowledgePuzzleTests(unittest.TestCase):
         cls.nodes = cls.puzzle["nodes"]
 
     def test_exact_node_and_board_counts(self):
-        self.assertEqual(len(self.nodes), 144)
+        self.assertEqual(len(self.nodes), 139)
         self.assertEqual(
             Counter(node["board"] for node in self.nodes),
-            Counter({"A": 32, "B": 30, "C": 46, "D": 36}),
+            Counter({"A": 27, "B": 30, "C": 46, "D": 36}),
         )
+
+    def test_a_has_seven_stages_and_twenty_assessed_nodes(self):
+        a_nodes = [node for node in self.nodes if node["board"] == "A"]
+        self.assertEqual(sum(node["depth"] == 1 for node in a_nodes), 7)
+        self.assertEqual(sum(node["depth"] == 2 for node in a_nodes), 20)
+        self.assertEqual(
+            [node["id"] for node in a_nodes if node["depth"] == 1],
+            ["A1", "A2", "A3", "A4", "A5", "A6", "A7"],
+        )
+
+    def test_markdown_is_generated_from_json(self):
+        from scripts.build_collision_pi_knowledge_puzzle import render_markdown
+
+        expected = PUZZLE_PATH.with_suffix(".md").read_text(encoding="utf-8")
+        self.assertEqual(render_markdown(self.puzzle), expected)
 
     def test_node_ids_are_unique(self):
         ids = [node["id"] for node in self.nodes]

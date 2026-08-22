@@ -28,8 +28,8 @@ class ProjectContractTests(unittest.TestCase):
             (ROOT / "content/courses/collision-pi/knowledge-puzzle.json").read_text(encoding="utf-8")
         )
         counts = Counter(node["board"] for node in data["nodes"])
-        self.assertEqual(counts, Counter({"A": 32, "B": 30, "C": 46, "D": 36}))
-        self.assertEqual(len(data["nodes"]), 144)
+        self.assertEqual(counts, Counter({"A": 27, "B": 30, "C": 46, "D": 36}))
+        self.assertEqual(len(data["nodes"]), 139)
 
     def test_a_question_bank_contract(self):
         bank = json.loads(
