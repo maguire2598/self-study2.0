@@ -1,5 +1,8 @@
+import copy
 import json
 import math
+import os
+import subprocess
 import unittest
 from collections import Counter
 from pathlib import Path
@@ -31,6 +34,22 @@ EXPECTED_SCENARIO_IDS = (
     "SC-A4-CHASE", "SC-A4-STATE-1", "SC-A4-STATE-3", "SC-A7-INCLINE",
     "SC-A7-SPRING", "SC-A7-BOUNDARY",
 )
+
+EXPECTED_SCENARIO_NODE_COUNTS = {
+    "SC-A3-RELATIVE": {"A3.1": 8},
+    "SC-A3-EQUAL": {"A3.2": 10},
+    "SC-A3-UNEQUAL": {"A3.3": 8},
+    "SC-A3-LARGE-RATIO": {"A3.3": 4},
+    "SC-A3-NONIDEAL": {"A3.4": 8},
+    "SC-A3-CONSERVATION": {"A3.5": 10},
+    "SC-A4-FIRST-WALL": {"A4.1": 6},
+    "SC-A4-CHASE": {"A4.2": 10, "A5.1": 5},
+    "SC-A4-STATE-1": {"A4.3": 4},
+    "SC-A4-STATE-3": {"A4.3": 4, "A5.1": 5},
+    "SC-A7-INCLINE": {"A7.1": 5},
+    "SC-A7-SPRING": {"A7.2": 5},
+    "SC-A7-BOUNDARY": {"A7.3": 4},
+}
 
 EXPECTED_SOURCES = {
     "video-main": "sources/theory/弹性碰撞与π.txt",
@@ -75,6 +94,26 @@ EXPECTED_FIXTURES = {
         "mass": 1, "speed": 2, "k": 100, "expected": {"compression": 0.2},
     },
 }
+
+
+def validate_source_with_pwsh(source):
+    env = os.environ.copy()
+    env["QUESTION_SOURCE_SCHEMA"] = str(SCHEMA)
+    script = (
+        "$json = [Console]::In.ReadToEnd(); "
+        "try { "
+        "$valid = $json | Test-Json -SchemaFile $env:QUESTION_SOURCE_SCHEMA -ErrorAction Stop; "
+        "if ($valid) { exit 0 } else { exit 1 } "
+        "} catch { [Console]::Error.WriteLine($_.Exception.Message); exit 1 }"
+    )
+    return subprocess.run(
+        ["pwsh", "-NoProfile", "-NonInteractive", "-Command", script],
+        input=json.dumps(source, ensure_ascii=False),
+        text=True,
+        capture_output=True,
+        env=env,
+        check=False,
+    )
 
 
 class QuestionSourceSchemaTests(unittest.TestCase):
@@ -183,12 +222,64 @@ class QuestionSourceTests(unittest.TestCase):
         self.assertEqual(len(self.scenario_questions), 96)
         self.assertEqual(len(self.standalone), 44)
 
+    def test_scenario_order_and_family_node_allocations(self):
+        scenario_ids = tuple(scenario["id"] for scenario in self.source["scenarios"])
+        self.assertEqual(scenario_ids, EXPECTED_SCENARIO_IDS)
+        for scenario in self.source["scenarios"]:
+            expected = Counter(EXPECTED_SCENARIO_NODE_COUNTS[scenario["id"]])
+            actual = Counter(question["node_id"] for question in scenario["questions"])
+            self.assertEqual(len(scenario["questions"]), sum(expected.values()), scenario["id"])
+            self.assertEqual(actual, expected, scenario["id"])
+
     def test_style_distribution(self):
         styles = Counter(
             question["question_style"]
             for question in self.scenario_questions + self.standalone
         )
         self.assertEqual(styles, Counter({"scenario": 88, "calculation": 8, "concise": 44}))
+
+    def test_grouped_and_standalone_style_placement(self):
+        self.assertTrue(
+            all(
+                question["question_style"] in {"scenario", "calculation"}
+                for question in self.scenario_questions
+            )
+        )
+        self.assertTrue(all(question["question_style"] == "concise" for question in self.standalone))
+
+    def test_draft202012_schema_accepts_source_and_rejects_style_mutations(self):
+        valid = validate_source_with_pwsh(self.source)
+        self.assertEqual(valid.returncode, 0, valid.stdout + valid.stderr)
+
+        mutations = []
+        grouped_concise = copy.deepcopy(self.source)
+        grouped_concise["scenarios"][0]["questions"][0]["question_style"] = "concise"
+        mutations.append(("grouped concise", grouped_concise))
+        standalone_scenario = copy.deepcopy(self.source)
+        standalone_scenario["standalone_questions"][0]["question_style"] = "scenario"
+        mutations.append(("standalone scenario", standalone_scenario))
+
+        for label, mutation in mutations:
+            with self.subTest(label=label):
+                result = validate_source_with_pwsh(mutation)
+                self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_a6_1_count_questions_pin_canonical_initial_state(self):
+        questions = [question for question in self.standalone if question["node_id"] == "A6.1"]
+        self.assertEqual(len(questions), 10)
+        required_phrases = (
+            "墙位于左侧",
+            "m 位于墙与物块 M 之间",
+            "m 初始静止",
+            "M 以非零速度向墙运动",
+            "轨道光滑",
+            "碰撞完全弹性",
+            "墙固定",
+            "计一次",
+        )
+        for question in questions:
+            for phrase in required_phrases:
+                self.assertIn(phrase, question["prompt"], question["key"])
 
     def test_calculation_fixtures_are_physically_consistent(self):
         fixtures = self.source["calculation_fixtures"]

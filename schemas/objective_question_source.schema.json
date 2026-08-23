@@ -449,13 +449,19 @@
       "type": "object",
       "allOf": [{"$ref": "#/$defs/question"}],
       "required": ["ask"],
-      "not": {"required": ["prompt"]}
+      "not": {"required": ["prompt"]},
+      "properties": {
+        "question_style": {"enum": ["scenario", "calculation"]}
+      }
     },
     "standaloneQuestion": {
       "type": "object",
       "allOf": [{"$ref": "#/$defs/question"}],
       "required": ["prompt"],
-      "not": {"required": ["ask"]}
+      "not": {"required": ["ask"]},
+      "properties": {
+        "question_style": {"const": "concise"}
+      }
     },
     "scenario": {
       "type": "object",

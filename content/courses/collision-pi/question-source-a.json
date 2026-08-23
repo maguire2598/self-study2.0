@@ -1583,7 +1583,7 @@
       "difficulty": 1,
       "event_stage": "terminal",
       "variant_axis": "mass_ratio",
-      "prompt": "在光滑、完全弹性且墙固定的理想装置中，每次滑块接触或碰墙都计一次。M/m=100^0 时观察到的总数是？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。M/m=100^0 时，总碰撞数是？",
       "options": [
         {"text": "3", "correct": true},
         {"text": "1", "correct": false},
@@ -1600,7 +1600,7 @@
       "difficulty": 1,
       "event_stage": "terminal",
       "variant_axis": "mass_ratio",
-      "prompt": "轨道光滑、碰撞完全弹性、墙固定，并按每次接触计数。M/m=100^1 时观察到的总数是？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。M/m=100^1 时，总碰撞数是？",
       "options": [
         {"text": "31", "correct": true},
         {"text": "3", "correct": false},
@@ -1617,7 +1617,7 @@
       "difficulty": 1,
       "event_stage": "terminal",
       "variant_axis": "mass_ratio",
-      "prompt": "光滑轨道上各次碰撞完全弹性，墙固定且按每次接触计数。M/m=100^2 时观察值是？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。M/m=100^2 时，总碰撞数是？",
       "options": [
         {"text": "314", "correct": true},
         {"text": "31", "correct": false},
@@ -1634,7 +1634,7 @@
       "difficulty": 1,
       "event_stage": "terminal",
       "variant_axis": "mass_ratio",
-      "prompt": "轨道光滑、碰撞完全弹性、墙固定，并按每次接触计数。M/m=100^3 时观察到多少次？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。M/m=100^3 时，总碰撞数是多少？",
       "options": [
         {"text": "3141", "correct": true},
         {"text": "314", "correct": false},
@@ -1651,7 +1651,7 @@
       "difficulty": 2,
       "event_stage": "terminal",
       "variant_axis": "observation",
-      "prompt": "轨道光滑、碰撞完全弹性、墙固定，并按每次接触计数。n=0、1、2、3 时，观察序列依次为____、____、____、____。",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。令 M/m=100^n，n=0、1、2、3 时，总碰撞数依次为____、____、____、____。",
       "blanks": [
         {"id": "n0", "accepted_answers": ["3", "3次"]},
         {"id": "n1", "accepted_answers": ["31", "31次"]},
@@ -1668,7 +1668,7 @@
       "difficulty": 2,
       "event_stage": "terminal",
       "variant_axis": "mass_ratio",
-      "prompt": "轨道光滑、碰撞完全弹性、墙固定且统一计数时记录到 31 次碰撞。若 M/m=100^n，n 是？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。若记录到 31 次碰撞，且 M/m=100^n，n 是多少？",
       "options": [
         {"text": "1", "correct": true},
         {"text": "0", "correct": false},
@@ -1685,7 +1685,7 @@
       "difficulty": 2,
       "event_stage": "terminal",
       "variant_axis": "counting",
-      "prompt": "光滑、完全弹性、固定墙且统一计数时，按观察规律 N=floor(π×10^n)。n=2 得到？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。按观察规律 N=floor(π×10^n)，n=2 时 N 是多少？",
       "options": [
         {"text": "314", "correct": true},
         {"text": "31", "correct": false},
@@ -1702,7 +1702,7 @@
       "difficulty": 2,
       "event_stage": "terminal",
       "variant_axis": "observation",
-      "prompt": "轨道光滑、碰撞完全弹性、墙固定且统一计数时，哪些“n—碰撞数”配对符合观察序列？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。令 M/m=100^n，哪些“n—总碰撞数”配对符合观察序列？",
       "options": [
         {"text": "n=0—3 次", "correct": true},
         {"text": "n=2—314 次", "correct": true},
@@ -1719,7 +1719,7 @@
       "difficulty": 2,
       "event_stage": "special_case",
       "variant_axis": "observation",
-      "prompt": "在光滑、完全弹性、固定墙且统一计数的模型中，观察值为 3、31、314、3141。它直接显示什么？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。当 M/m 依次为 100^0、100^1、100^2、100^3 时，总碰撞数为 3、31、314、3141；这些数据直接显示什么？",
       "options": [
         {"text": "碰撞数依次呈现 π 的更多数字", "correct": true},
         {"text": "仅凭四项已经完成数学证明", "correct": false},
@@ -1736,7 +1736,7 @@
       "difficulty": 3,
       "event_stage": "terminal",
       "variant_axis": "mass_ratio",
-      "prompt": "若轨道光滑、碰撞完全弹性、墙固定并统一计数，且采用 N=floor(π×10^n)，M/m=100^4 时预测总数是？",
+      "prompt": "墙位于左侧，小物块 m 位于墙与物块 M 之间；m 初始静止，M 以非零速度向墙运动。轨道光滑，碰撞完全弹性，墙固定，每次物块接触或碰墙都计一次。采用 N=floor(π×10^n) 时，M/m=100^4 对应的总碰撞数是？",
       "options": [
         {"text": "31415", "correct": true},
         {"text": "3141", "correct": false},
