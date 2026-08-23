@@ -196,14 +196,14 @@
           "difficulty": 2,
           "event_stage": "initial",
           "variant_axis": "initial_velocity",
-          "ask": "在 A 始终位于 B 左侧且两球速度保持不变的前提下，哪些速度组合会使两球最终相碰？",
+          "ask": "初始时 A 位于 B 左侧且两球速度保持不变，哪些速度组合会使两球最终相碰？",
           "options": [
             {"text": "u_A=+3 m/s，u_B=+1 m/s", "correct": true},
             {"text": "u_A=-1 m/s，u_B=-4 m/s", "correct": true},
             {"text": "u_A=+2 m/s，u_B=+2 m/s", "correct": false},
             {"text": "u_A=-3 m/s，u_B=-1 m/s", "correct": false}
           ],
-          "explanation": "初始为 A 左 B 右时，只有 u_A>u_B 才会闭合间距。前两组满足，后两组分别保持间距和增大间距。"
+          "explanation": "初始为 A 左、B 右时，只有 u_A>u_B 才会闭合间距；u_A=+3>+1 和 u_A=-1>-4 时满足。u_A=u_B 时保持间距，u_A<u_B 时增大间距。"
         },
         {
           "key": "a3-1-relative-05",
@@ -1051,8 +1051,8 @@
       "context": "一滑块从光滑斜面上由静止下滑，离开斜面后进入光滑水平轨道，并在水平段与另一静止滑块发生一次时间很短的碰撞。斜面阶段与短碰阶段分别选取研究系统和时间区间。",
       "source_refs": ["video-main", "openstax-collision", "openstax-incline"],
       "questions": [
-        {"key":"a7-1-incline-01","node_id":"A7.1","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"extension_stage","variant_axis":"incline","ask":"从滑块在光滑斜面顶端由静止释放到到达斜面底端前，取滑块与地球为系统。已知竖直高度 h=1.25 m、g=10 m/s²，由 mgh=mv²/2 得底端速率为____m/s。","blanks":[{"id":"speed","accepted_answers":["5","5.0","5 m/s","5m/s"]}],"calculation_fixture_id":"CAL-A7-IN-01","explanation":"斜面阶段无耗散功，滑块—地球系统机械能守恒，v=√(2gh)=√(2×10×1.25)=5 m/s。"},
-        {"key":"a7-1-incline-02","node_id":"A7.1","question_type":"single_choice","question_style":"scenario","difficulty":1,"event_stage":"extension_stage","variant_axis":"system_boundary","ask":"从滑块在光滑斜面顶端由静止释放到到达斜面底端前，取滑块与地球为研究系统。最合适的守恒关系是什么？","options":[{"text":"系统机械能守恒，重力势能转化为动能","correct":true},{"text":"滑块自身动量守恒","correct":false},{"text":"两滑块总动量守恒","correct":false},{"text":"滑块动能始终不变","correct":false}],"explanation":"斜面光滑，取滑块与地球为系统时重力是内力且无耗散功，可在该下滑区间使用机械能守恒。"},
+        {"key":"a7-1-incline-01","node_id":"A7.1","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"extension_stage","variant_axis":"incline","ask":"从滑块在光滑斜面顶端由静止释放到斜面底端，取滑块与地球为系统。已知竖直高度 h=1.25 m、g=10 m/s²，由 mgh=mv²/2 得底端速率为____m/s。","blanks":[{"id":"speed","accepted_answers":["5","5.0","5 m/s","5m/s"]}],"calculation_fixture_id":"CAL-A7-IN-01","explanation":"斜面阶段无耗散功，滑块—地球系统机械能守恒，v=√(2gh)=√(2×10×1.25)=5 m/s。"},
+        {"key":"a7-1-incline-02","node_id":"A7.1","question_type":"single_choice","question_style":"scenario","difficulty":1,"event_stage":"extension_stage","variant_axis":"system_boundary","ask":"从滑块在光滑斜面顶端由静止释放到斜面底端，取滑块与地球为研究系统。最合适的守恒关系是什么？","options":[{"text":"系统机械能守恒，重力势能转化为动能","correct":true},{"text":"滑块自身动量守恒","correct":false},{"text":"两滑块总动量守恒","correct":false},{"text":"滑块动能始终不变","correct":false}],"explanation":"斜面光滑，取滑块与地球为系统时重力是内力且无耗散功，可在该下滑区间使用机械能守恒。"},
         {"key":"a7-1-incline-03","node_id":"A7.1","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"extension_stage","variant_axis":"system_boundary","ask":"在水平轨道上两滑块接触到分离的短暂碰撞期间，取两滑块为研究系统且外力冲量可忽略。应使用哪条守恒关系？","options":[{"text":"两滑块系统总动量守恒","correct":true},{"text":"滑块与地球系统重力势能守恒","correct":false},{"text":"每个滑块的动量各自守恒","correct":false},{"text":"斜面下滑与碰撞合并后总动量必定守恒","correct":false}],"explanation":"短碰期间两滑块相互作用力是内力，外力冲量可忽略，因此两滑块总动量守恒；这与此前斜面阶段分开分析。"},
         {"key":"a7-1-incline-04","node_id":"A7.1","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"extension_stage","variant_axis":"model_assumption","ask":"滑块先从光滑斜面下滑，后在水平轨道与另一滑块短暂碰撞。哪些阶段划分是正确的？","options":[{"text":"斜面下滑阶段可研究滑块—地球系统的机械能","correct":true},{"text":"短碰阶段可研究两滑块系统的动量","correct":true},{"text":"从斜面顶端到碰后分离的全过程都叫碰撞","correct":false},{"text":"可忽略阶段差异，用同一条动量守恒式连接斜面顶端与碰后状态","correct":false}],"explanation":"下滑是受重力作用的运动阶段，碰撞只是水平段接触时间很短的一段；两段的研究系统和适用规律不同。"},
         {"key":"a7-1-incline-05","node_id":"A7.1","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"extension_stage","variant_axis":"incline","ask":"从滑块离开光滑斜面底端到它在水平段接触另一滑块之前，取该滑块为研究对象且水平轨道无摩擦。其速率怎样变化？","options":[{"text":"保持等于斜面底端速率","correct":true},{"text":"因重力做正功而持续增大","correct":false},{"text":"因支持力做负功而减小","correct":false},{"text":"在接触另一滑块前已按碰撞规律改变","correct":false}],"explanation":"水平匀速阶段重力与支持力均不做功，且尚未发生接触碰撞，滑块保持斜面底端速率。"}
@@ -1318,7 +1318,7 @@
         {"text": "u_m=+1 m/s，u_M=+3 m/s", "correct": false},
         {"text": "u_m=-3 m/s，u_M=-1 m/s", "correct": false}
       ],
-      "explanation": "m 位于左侧时，只要 u_m>u_M，间距就减小；前两组满足这一条件。"
+      "explanation": "m 位于左侧时，只要 u_m>u_M，间距就减小；+3>+1 与 -1>-3 两组满足这一条件。"
     },
     {
       "key": "a2-1-smooth-01",
@@ -1556,7 +1556,7 @@
         {"text": "v_m=-1 m/s，v_M=+2 m/s", "correct": false},
         {"text": "v_m=+3 m/s，v_M=+1 m/s", "correct": false}
       ],
-      "explanation": "前两种状态中 m 不撞左墙且追不上前方 M；第三种会撞墙，第四种会追上 M。"
+      "explanation": "v_m=+1<v_M=+2 与 v_m=0<v_M=+1 时，m 不撞左墙且追不上前方 M；v_m=-1 时会撞墙，v_m=+3>v_M=+1 时会追上 M。"
     },
     {
       "key": "a5-2-ended-04",

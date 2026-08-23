@@ -356,6 +356,25 @@ class QuestionSourceTests(unittest.TestCase):
             for question in scenario["questions"]:
                 self.assertFalse(any(phrase in question["ask"] for phrase in dependent_phrases))
 
+    def test_prompts_do_not_contradict_future_contact(self):
+        for question in self.scenario_questions:
+            if "最终相碰" in question["ask"]:
+                self.assertNotIn("始终位于", question["ask"], question["key"])
+
+    def test_prompt_text_has_no_duplicated_arrival_wording(self):
+        for question in self.scenario_questions + self.standalone:
+            text = question.get("ask", question.get("prompt", ""))
+            self.assertNotIn("到到达", text, question["key"])
+
+    def test_explanations_do_not_depend_on_source_option_order(self):
+        position_dependent = ("前两组", "后两组", "前两种状态", "第三种", "第四种")
+        for question in self.scenario_questions + self.standalone:
+            explanation = question["explanation"]
+            self.assertFalse(
+                any(phrase in explanation for phrase in position_dependent),
+                question["key"],
+            )
+
     def test_scenario_and_standalone_text_fields_are_separate(self):
         for question in self.scenario_questions:
             self.assertTrue(question["ask"].strip())

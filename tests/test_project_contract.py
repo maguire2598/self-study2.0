@@ -8,6 +8,27 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ProjectContractTests(unittest.TestCase):
+    def test_current_docs_do_not_claim_retired_a_contract(self):
+        current_files = [
+            ROOT / "AGENTS.md",
+            ROOT / "README.md",
+            ROOT / "docs/roadmap.md",
+            ROOT / "docs/decisions/conversation-decisions.md",
+        ]
+        retired = [
+            "144 个知识节点",
+            "144 节点知识拼图",
+            "A 板块 192 道",
+            "A 板块 192 题",
+            "A 板块 32 个节点",
+            "每个知识节点 6 题",
+            "32 个节点 × 6 题",
+        ]
+        for path in current_files:
+            text = path.read_text(encoding="utf-8")
+            for phrase in retired:
+                self.assertNotIn(phrase, text, f"{path}: {phrase}")
+
     def test_required_project_files_exist(self):
         required = [
             "AGENTS.md",
