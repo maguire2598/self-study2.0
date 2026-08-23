@@ -2,6 +2,7 @@ import copy
 import json
 import math
 import os
+import re
 import subprocess
 import unittest
 from collections import Counter
@@ -367,13 +368,17 @@ class QuestionSourceTests(unittest.TestCase):
             self.assertNotIn("到到达", text, question["key"])
 
     def test_explanations_do_not_depend_on_source_option_order(self):
-        position_dependent = ("前两组", "后两组", "前两种状态", "第三种", "第四种")
+        position_dependent = re.compile(
+            r"(?:"
+            r"第[一二三四](?:[、，和及与][一二三四])?项|"
+            r"[前后][一二两三四](?:项|组|种状态)|"
+            r"第[一二三四]个选项|"
+            r"第[一二三四]种会"
+            r")"
+        )
         for question in self.scenario_questions + self.standalone:
             explanation = question["explanation"]
-            self.assertFalse(
-                any(phrase in explanation for phrase in position_dependent),
-                question["key"],
-            )
+            self.assertIsNone(position_dependent.search(explanation), question["key"])
 
     def test_scenario_and_standalone_text_fields_are_separate(self):
         for question in self.scenario_questions:
