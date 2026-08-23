@@ -1082,5 +1082,753 @@
       ]
     }
   ],
-  "standalone_questions": []
+  "standalone_questions": [
+    {
+      "key": "a1-1-layout-01",
+      "node_id": "A1.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "prompt": "墙在最左侧，小滑块 m 位于墙与大滑块 M 之间。初始排列是？",
+      "options": [
+        {"text": "墙—m—M", "correct": true},
+        {"text": "墙—M—m", "correct": false},
+        {"text": "m—墙—M", "correct": false},
+        {"text": "M—墙—m", "correct": false}
+      ],
+      "explanation": "题干已说明墙最左、m 在墙与 M 之间，因此从左到右是墙、m、M。"
+    },
+    {
+      "key": "a1-1-position-02",
+      "node_id": "A1.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "prompt": "同一水平轴上，x_m=1 m，x_M=4 m。哪个滑块在右侧？",
+      "options": [
+        {"text": "M", "correct": true},
+        {"text": "m", "correct": false},
+        {"text": "两者重合", "correct": false},
+        {"text": "仅凭坐标无法判断", "correct": false}
+      ],
+      "explanation": "同一坐标轴上 4 m 大于 1 m，所以 M 位于 m 的右侧。"
+    },
+    {
+      "key": "a1-1-velocity-03",
+      "node_id": "A1.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "initial",
+      "variant_axis": "initial_velocity",
+      "prompt": "规定向右为正。初始时 u_m=0，u_M=-2 m/s，表示什么？",
+      "options": [
+        {"text": "m 静止，M 向左运动", "correct": true},
+        {"text": "m 向右运动，M 静止", "correct": false},
+        {"text": "两滑块都向左运动", "correct": false},
+        {"text": "两滑块都静止", "correct": false}
+      ],
+      "explanation": "速度为零表示静止；在向右为正的约定下，负速度表示向左。"
+    },
+    {
+      "key": "a1-1-record-04",
+      "node_id": "A1.1",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "prompt": "要记录两滑块的一维初始运动状态，哪些信息直接有用？",
+      "options": [
+        {"text": "两滑块的初始位置", "correct": true},
+        {"text": "两滑块的带符号初速度", "correct": true},
+        {"text": "滑块表面的颜色", "correct": false},
+        {"text": "实验桌的编号", "correct": false}
+      ],
+      "explanation": "一维初始运动状态需要位置和带方向的速度；颜色与桌号不决定运动状态。"
+    },
+    {
+      "key": "a1-1-approach-05",
+      "node_id": "A1.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "initial",
+      "variant_axis": "initial_velocity",
+      "prompt": "m 在 x=1 m，M 在 x=5 m；规定向右为正，u_m=+3 m/s，u_M=0。初始时两者怎样运动？",
+      "options": [
+        {"text": "m 从左侧接近 M", "correct": true},
+        {"text": "M 从右侧远离 m", "correct": false},
+        {"text": "两者间距保持不变", "correct": false},
+        {"text": "两者背向运动", "correct": false}
+      ],
+      "explanation": "m 位于左侧并向右运动，M 静止，因此二者间距开始减小。"
+    },
+    {
+      "key": "a1-2-count-01",
+      "node_id": "A1.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "after_wall_collision",
+      "variant_axis": "counting",
+      "prompt": "m 先与 M 接触一次，随后与墙接触一次。按课程约定共记几次碰撞？",
+      "options": [
+        {"text": "2 次", "correct": true},
+        {"text": "1 次", "correct": false},
+        {"text": "3 次", "correct": false},
+        {"text": "0 次", "correct": false}
+      ],
+      "explanation": "一次滑块—滑块接触和一次滑块—墙接触各计一次，共 2 次。"
+    },
+    {
+      "key": "a1-2-sequence-02",
+      "node_id": "A1.2",
+      "question_type": "multi_blank",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_second_collision",
+      "variant_axis": "counting",
+      "prompt": "事件依次为“m 碰 M、m 碰墙、m 再碰 M”。其中滑块间碰撞____次，碰墙____次，总计____次。",
+      "blanks": [
+        {"id": "block", "accepted_answers": ["2", "2次"]},
+        {"id": "wall", "accepted_answers": ["1", "1次"]},
+        {"id": "total", "accepted_answers": ["3", "3次"]}
+      ],
+      "explanation": "两次 m—M 接触分别计数，另有一次 m—墙接触，所以分类计数为 2、1，总数为 3。"
+    },
+    {
+      "key": "a1-2-events-03",
+      "node_id": "A1.2",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "special_case",
+      "variant_axis": "counting",
+      "prompt": "按课程的碰撞计数约定，哪些事件各计一次？",
+      "options": [
+        {"text": "两个滑块发生一次接触碰撞", "correct": true},
+        {"text": "滑块与墙发生一次接触碰撞", "correct": true},
+        {"text": "滑块匀速经过地面刻度线", "correct": false},
+        {"text": "计时器每跳动一秒", "correct": false}
+      ],
+      "explanation": "计数对象是滑块间或滑块与墙之间的接触碰撞，经过刻度线和计时器跳动不属于碰撞。"
+    },
+    {
+      "key": "a1-2-repeat-04",
+      "node_id": "A1.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_second_collision",
+      "variant_axis": "counting",
+      "prompt": "同一对滑块先接触后分离，过一会儿又接触。两次接触怎样计数？",
+      "options": [
+        {"text": "记 2 次滑块间碰撞", "correct": true},
+        {"text": "因对象相同只记 1 次", "correct": false},
+        {"text": "只记第二次", "correct": false},
+        {"text": "不计入总数", "correct": false}
+      ],
+      "explanation": "计数按接触事件进行；分离后的再次接触是新的碰撞事件。"
+    },
+    {
+      "key": "a1-2-wall-05",
+      "node_id": "A1.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_wall_collision",
+      "variant_axis": "counting",
+      "prompt": "记录表已有 2 次滑块间碰撞。m 又碰墙一次后，总碰撞数应写多少？",
+      "options": [
+        {"text": "3", "correct": true},
+        {"text": "2", "correct": false},
+        {"text": "1", "correct": false},
+        {"text": "4", "correct": false}
+      ],
+      "explanation": "碰墙事件也计一次，因此原有 2 次再加 1 次，合计 3 次。"
+    },
+    {
+      "key": "a1-3-sign-01",
+      "node_id": "A1.3",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "initial",
+      "variant_axis": "direction",
+      "prompt": "规定向右为正，滑块速度记为 -3 m/s。它正向哪边运动？",
+      "options": [
+        {"text": "向左", "correct": true},
+        {"text": "向右", "correct": false},
+        {"text": "静止", "correct": false},
+        {"text": "方向无法判断", "correct": false}
+      ],
+      "explanation": "在向右为正的约定下，负号表示速度方向向左。"
+    },
+    {
+      "key": "a1-3-convention-02",
+      "node_id": "A1.3",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "initial",
+      "variant_axis": "direction",
+      "prompt": "改为规定向左为正。一个向右运动、速率为 2 m/s 的滑块，速度应记为？",
+      "options": [
+        {"text": "-2 m/s", "correct": true},
+        {"text": "+2 m/s", "correct": false},
+        {"text": "0", "correct": false},
+        {"text": "+4 m/s", "correct": false}
+      ],
+      "explanation": "正方向改为向左后，向右与正方向相反，因此速度是 -2 m/s。"
+    },
+    {
+      "key": "a1-3-wall-state-03",
+      "node_id": "A1.3",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_wall_collision",
+      "variant_axis": "direction",
+      "prompt": "向右为正。m 碰固定墙前速度为 -2 m/s，理想反弹且速率不变。碰后记录是？",
+      "options": [
+        {"text": "v_m=+2 m/s", "correct": true},
+        {"text": "v_m=-2 m/s", "correct": false},
+        {"text": "v_m=0", "correct": false},
+        {"text": "v_m=+4 m/s", "correct": false}
+      ],
+      "explanation": "理想墙面反弹只改变速度方向，速率仍为 2 m/s，故碰后速度为正。"
+    },
+    {
+      "key": "a1-3-state-record-04",
+      "node_id": "A1.3",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "prompt": "向右为正，m 在 M 左侧。哪些记录都表示两滑块正在接近？",
+      "options": [
+        {"text": "u_m=+3 m/s，u_M=+1 m/s", "correct": true},
+        {"text": "u_m=-1 m/s，u_M=-3 m/s", "correct": true},
+        {"text": "u_m=+1 m/s，u_M=+3 m/s", "correct": false},
+        {"text": "u_m=-3 m/s，u_M=-1 m/s", "correct": false}
+      ],
+      "explanation": "m 位于左侧时，只要 u_m>u_M，间距就减小；前两组满足这一条件。"
+    },
+    {
+      "key": "a2-1-smooth-01",
+      "node_id": "A2.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "special_case",
+      "variant_axis": "friction",
+      "prompt": "两次碰撞之间，滑块在粗糙轨道上滑行。哪项理想结论最先需要修正？",
+      "options": [
+        {"text": "滑块在碰撞间保持匀速", "correct": true},
+        {"text": "滑块具有质量", "correct": false},
+        {"text": "轨道是一维的", "correct": false},
+        {"text": "碰撞事件可以计数", "correct": false}
+      ],
+      "explanation": "粗糙轨道会给滑块摩擦力，使其在两次碰撞之间速度发生变化。"
+    },
+    {
+      "key": "a2-1-deformation-02",
+      "node_id": "A2.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_first_collision",
+      "variant_axis": "elasticity",
+      "prompt": "两滑块碰后留下明显永久变形。最稳妥的判断是？",
+      "options": [
+        {"text": "不能再假定这次碰撞的总动能守恒", "correct": true},
+        {"text": "两滑块总动量一定不守恒", "correct": false},
+        {"text": "两滑块质量都变为零", "correct": false},
+        {"text": "碰撞前后每个滑块速度都不变", "correct": false}
+      ],
+      "explanation": "永久变形表明部分机械能转化为内能等；若短碰期间外力冲量可忽略，总动量仍可守恒。"
+    },
+    {
+      "key": "a2-1-inelastic-03",
+      "node_id": "A2.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_first_collision",
+      "variant_axis": "elasticity",
+      "prompt": "实测一次滑块碰撞的恢复系数小于 1。它与理想模型的主要差别是？",
+      "options": [
+        {"text": "碰撞并非完全弹性", "correct": true},
+        {"text": "轨道一定不是直线", "correct": false},
+        {"text": "滑块一定没有质量", "correct": false},
+        {"text": "固定墙必定在移动", "correct": false}
+      ],
+      "explanation": "恢复系数小于 1 表示相对分离速度不足以恢复到完全弹性碰撞的水平。"
+    },
+    {
+      "key": "a2-1-wall-impulse-04",
+      "node_id": "A2.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_wall_collision",
+      "variant_axis": "system_boundary",
+      "prompt": "m 撞固定墙并反弹。若研究系统只取 m 和 M，为何不能跨这段过程用两滑块总动量守恒？",
+      "options": [
+        {"text": "墙对系统施加了外冲量", "correct": true},
+        {"text": "m 的质量突然改变", "correct": false},
+        {"text": "M 一定同时撞墙", "correct": false},
+        {"text": "速度不能带正负号", "correct": false}
+      ],
+      "explanation": "墙不在所选两滑块系统内，墙的接触力产生外冲量并改变两滑块总动量。"
+    },
+    {
+      "key": "a2-1-ideal-set-05",
+      "node_id": "A2.1",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "initial",
+      "variant_axis": "model_assumption",
+      "prompt": "要采用课程中的理想碰撞链模型，哪些条件直接用于排除耗散？",
+      "options": [
+        {"text": "水平轨道光滑", "correct": true},
+        {"text": "各次碰撞完全弹性", "correct": true},
+        {"text": "滑块涂成同一颜色", "correct": false},
+        {"text": "坐标原点设在墙上", "correct": false}
+      ],
+      "explanation": "光滑轨道排除滑行摩擦，完全弹性排除碰撞中的动能损失；颜色和原点位置不影响耗散。"
+    },
+    {
+      "key": "a2-1-fixed-wall-06",
+      "node_id": "A2.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_wall_collision",
+      "variant_axis": "model_assumption",
+      "prompt": "理想模型把墙视为固定且碰墙完全弹性。m 以 -v 撞墙后应怎样记录？",
+      "options": [
+        {"text": "m 以 +v 离墙，速率不变", "correct": true},
+        {"text": "m 仍以 -v 穿过墙", "correct": false},
+        {"text": "m 与墙一起以 -v/2 运动", "correct": false},
+        {"text": "m 必定停在墙边", "correct": false}
+      ],
+      "explanation": "固定理想墙的弹性反弹使 m 的速度反向而速率不变；这不等于两滑块系统跨碰墙过程动量守恒。"
+    },
+    {
+      "key": "a2-2-ratio-01",
+      "node_id": "A2.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "initial",
+      "variant_axis": "mass_ratio",
+      "prompt": "大滑块质量 M=6 kg，小滑块质量 m=2 kg。质量比 M/m 是？",
+      "options": [
+        {"text": "3", "correct": true},
+        {"text": "1/3", "correct": false},
+        {"text": "4", "correct": false},
+        {"text": "8", "correct": false}
+      ],
+      "explanation": "按定义 M/m=6/2=3。"
+    },
+    {
+      "key": "a2-2-control-02",
+      "node_id": "A2.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "initial",
+      "variant_axis": "mass_ratio",
+      "prompt": "要比较质量比对碰撞总数的影响，哪组实验最合理？",
+      "options": [
+        {"text": "只改变 M，保持 m、初始速度和理想条件相同", "correct": true},
+        {"text": "同时改变 M 和初始速度", "correct": false},
+        {"text": "改变质量比时也把光滑轨道换成粗糙轨道", "correct": false},
+        {"text": "每次采用不同的碰撞计数规则", "correct": false}
+      ],
+      "explanation": "只让质量比这一因素变化，才能把碰撞数差异归因于质量比。"
+    },
+    {
+      "key": "a2-2-confound-03",
+      "node_id": "A2.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "special_case",
+      "variant_axis": "initial_velocity",
+      "prompt": "甲实验把 M/m 从 1 改为 100，同时把 M 的初速度也改了。由两次碰撞数不同能直接说明什么？",
+      "options": [
+        {"text": "不能把差异只归因于质量比", "correct": true},
+        {"text": "差异一定只由质量比造成", "correct": false},
+        {"text": "初速度永远不影响碰撞链", "correct": false},
+        {"text": "两次实验必有相同碰撞数", "correct": false}
+      ],
+      "explanation": "质量比和初速度同时变化，形成混杂因素，无法只评价质量比的作用。"
+    },
+    {
+      "key": "a2-2-constants-04",
+      "node_id": "A2.2",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "initial",
+      "variant_axis": "model_assumption",
+      "prompt": "比较两种质量比的理想碰撞链时，哪些条件应保持一致？",
+      "options": [
+        {"text": "初始位置与速度设置", "correct": true},
+        {"text": "光滑、完全弹性和固定墙条件", "correct": true},
+        {"text": "大滑块与小滑块的质量比", "correct": false},
+        {"text": "滑块标签的字体", "correct": false}
+      ],
+      "explanation": "质量比是要改变的自变量，其余会影响碰撞链的初态和理想条件应保持一致。"
+    },
+    {
+      "key": "a2-2-valid-comparison-05",
+      "node_id": "A2.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 3,
+      "event_stage": "initial",
+      "variant_axis": "mass_ratio",
+      "prompt": "两次实验都令 M 以相同速度向墙运动、m 静止，并使用同一理想装置；仅 M/m 不同。这样的比较主要检验什么？",
+      "options": [
+        {"text": "质量比改变对碰撞链的影响", "correct": true},
+        {"text": "摩擦力改变对碰撞链的影响", "correct": false},
+        {"text": "初速度方向改变对碰撞链的影响", "correct": false},
+        {"text": "计数约定改变对结果的影响", "correct": false}
+      ],
+      "explanation": "初态、装置和计数条件一致，唯一主动改变的是 M/m，因此比较针对质量比。"
+    },
+    {
+      "key": "a5-2-terminal-motion-01",
+      "node_id": "A5.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "terminal",
+      "variant_axis": "event_sequence",
+      "prompt": "墙在左，m 在 M 左侧。两者都向右，v_m=1 m/s、v_M=2 m/s。最合理的判断是？",
+      "options": [
+        {"text": "两者继续运动，但不会再碰撞", "correct": true},
+        {"text": "两者必须立即停止", "correct": false},
+        {"text": "m 会追上 M", "correct": false},
+        {"text": "m 会转身撞墙", "correct": false}
+      ],
+      "explanation": "M 在前且更快，间距增大；m 又在向右远离左墙，所以事件链已经结束，但两者仍可运动。"
+    },
+    {
+      "key": "a5-2-one-moving-02",
+      "node_id": "A5.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "terminal",
+      "variant_axis": "observation",
+      "prompt": "墙在左，m 静止在 M 左侧，M 以 1 m/s 向右远离。能否是无后续碰撞的状态？",
+      "options": [
+        {"text": "能，事件链结束不要求所有物体停止", "correct": true},
+        {"text": "不能，M 必须先停下", "correct": false},
+        {"text": "不能，m 必定自动追上 M", "correct": false},
+        {"text": "不能，静止的 m 必定撞墙", "correct": false}
+      ],
+      "explanation": "m 静止且不接近墙，M 向右远离 m，没有新的接触条件；M 不必停止。"
+    },
+    {
+      "key": "a5-2-terminal-states-03",
+      "node_id": "A5.2",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "terminal",
+      "variant_axis": "initial_velocity",
+      "prompt": "墙在左，m 在 M 左侧。哪些速度状态不会再产生碰撞？",
+      "options": [
+        {"text": "v_m=+1 m/s，v_M=+2 m/s", "correct": true},
+        {"text": "v_m=0，v_M=+1 m/s", "correct": true},
+        {"text": "v_m=-1 m/s，v_M=+2 m/s", "correct": false},
+        {"text": "v_m=+3 m/s，v_M=+1 m/s", "correct": false}
+      ],
+      "explanation": "前两种状态中 m 不撞左墙且追不上前方 M；第三种会撞墙，第四种会追上 M。"
+    },
+    {
+      "key": "a5-2-ended-04",
+      "node_id": "A5.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "terminal",
+      "variant_axis": "observation",
+      "prompt": "最后一次碰撞后，m 和 M 都以非零速度向右运动，M 在前且 v_M>v_m。此时“碰撞结束”表示什么？",
+      "options": [
+        {"text": "以后没有新的接触碰撞事件", "correct": true},
+        {"text": "两滑块的速度都变为零", "correct": false},
+        {"text": "两滑块的位置都不再改变", "correct": false},
+        {"text": "系统中所有动能都消失", "correct": false}
+      ],
+      "explanation": "碰撞链结束描述的是后续不再接触，不是所有物体停止；题设中两滑块仍以非零速度运动。"
+    },
+    {
+      "key": "a6-1-n0-01",
+      "node_id": "A6.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "terminal",
+      "variant_axis": "mass_ratio",
+      "prompt": "在光滑、完全弹性且墙固定的理想装置中，每次滑块接触或碰墙都计一次。M/m=100^0 时观察到的总数是？",
+      "options": [
+        {"text": "3", "correct": true},
+        {"text": "1", "correct": false},
+        {"text": "31", "correct": false},
+        {"text": "314", "correct": false}
+      ],
+      "explanation": "该理想设置下正在研究的序列从 n=0 对应 3 开始。"
+    },
+    {
+      "key": "a6-1-n1-02",
+      "node_id": "A6.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "terminal",
+      "variant_axis": "mass_ratio",
+      "prompt": "轨道光滑、碰撞完全弹性、墙固定，并按每次接触计数。M/m=100^1 时观察到的总数是？",
+      "options": [
+        {"text": "31", "correct": true},
+        {"text": "3", "correct": false},
+        {"text": "100", "correct": false},
+        {"text": "314", "correct": false}
+      ],
+      "explanation": "在光滑、完全弹性、固定墙的设置中，n=1 对应观察值 31。"
+    },
+    {
+      "key": "a6-1-n2-03",
+      "node_id": "A6.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "terminal",
+      "variant_axis": "mass_ratio",
+      "prompt": "光滑轨道上各次碰撞完全弹性，墙固定且按每次接触计数。M/m=100^2 时观察值是？",
+      "options": [
+        {"text": "314", "correct": true},
+        {"text": "31", "correct": false},
+        {"text": "10000", "correct": false},
+        {"text": "3141", "correct": false}
+      ],
+      "explanation": "理想序列中 n=2 对应 314，呈现 π 的前三位数字。"
+    },
+    {
+      "key": "a6-1-n3-04",
+      "node_id": "A6.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 1,
+      "event_stage": "terminal",
+      "variant_axis": "mass_ratio",
+      "prompt": "轨道光滑、碰撞完全弹性、墙固定，并按每次接触计数。M/m=100^3 时观察到多少次？",
+      "options": [
+        {"text": "3141", "correct": true},
+        {"text": "314", "correct": false},
+        {"text": "1000", "correct": false},
+        {"text": "3142", "correct": false}
+      ],
+      "explanation": "在光滑、完全弹性且墙固定的模型中，n=3 对应观察值 3141。"
+    },
+    {
+      "key": "a6-1-sequence-05",
+      "node_id": "A6.1",
+      "question_type": "multi_blank",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "terminal",
+      "variant_axis": "observation",
+      "prompt": "轨道光滑、碰撞完全弹性、墙固定，并按每次接触计数。n=0、1、2、3 时，观察序列依次为____、____、____、____。",
+      "blanks": [
+        {"id": "n0", "accepted_answers": ["3", "3次"]},
+        {"id": "n1", "accepted_answers": ["31", "31次"]},
+        {"id": "n2", "accepted_answers": ["314", "314次"]},
+        {"id": "n3", "accepted_answers": ["3141", "3141次"]}
+      ],
+      "explanation": "光滑轨道、完全弹性碰撞和固定墙条件下，M/m=100^n 的观察序列为 3、31、314、3141。"
+    },
+    {
+      "key": "a6-1-reverse-06",
+      "node_id": "A6.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "terminal",
+      "variant_axis": "mass_ratio",
+      "prompt": "轨道光滑、碰撞完全弹性、墙固定且统一计数时记录到 31 次碰撞。若 M/m=100^n，n 是？",
+      "options": [
+        {"text": "1", "correct": true},
+        {"text": "0", "correct": false},
+        {"text": "2", "correct": false},
+        {"text": "3", "correct": false}
+      ],
+      "explanation": "在规定的理想序列中，31 与 n=1、即 M/m=100 对应。"
+    },
+    {
+      "key": "a6-1-floor-07",
+      "node_id": "A6.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "terminal",
+      "variant_axis": "counting",
+      "prompt": "光滑、完全弹性、固定墙且统一计数时，按观察规律 N=floor(π×10^n)。n=2 得到？",
+      "options": [
+        {"text": "314", "correct": true},
+        {"text": "31", "correct": false},
+        {"text": "315", "correct": false},
+        {"text": "3141", "correct": false}
+      ],
+      "explanation": "π×10^2≈314.159，向下取整得到 314；这里是在使用所研究的理想规律。"
+    },
+    {
+      "key": "a6-1-pairs-08",
+      "node_id": "A6.1",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "terminal",
+      "variant_axis": "observation",
+      "prompt": "轨道光滑、碰撞完全弹性、墙固定且统一计数时，哪些“n—碰撞数”配对符合观察序列？",
+      "options": [
+        {"text": "n=0—3 次", "correct": true},
+        {"text": "n=2—314 次", "correct": true},
+        {"text": "n=1—314 次", "correct": false},
+        {"text": "n=3—314 次", "correct": false}
+      ],
+      "explanation": "观察序列是 n=0→3、n=1→31、n=2→314、n=3→3141，因此第一、二项配对正确。"
+    },
+    {
+      "key": "a6-1-digit-09",
+      "node_id": "A6.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "special_case",
+      "variant_axis": "observation",
+      "prompt": "在光滑、完全弹性、固定墙且统一计数的模型中，观察值为 3、31、314、3141。它直接显示什么？",
+      "options": [
+        {"text": "碰撞数依次呈现 π 的更多数字", "correct": true},
+        {"text": "仅凭四项已经完成数学证明", "correct": false},
+        {"text": "碰撞数始终等于质量比", "correct": false},
+        {"text": "所有滑块最终必定静止", "correct": false}
+      ],
+      "explanation": "这些理想数据呈现 π 数字的延伸规律，但有限个数据点本身不是证明。"
+    },
+    {
+      "key": "a6-1-predict-10",
+      "node_id": "A6.1",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 3,
+      "event_stage": "terminal",
+      "variant_axis": "mass_ratio",
+      "prompt": "若轨道光滑、碰撞完全弹性、墙固定并统一计数，且采用 N=floor(π×10^n)，M/m=100^4 时预测总数是？",
+      "options": [
+        {"text": "31415", "correct": true},
+        {"text": "3141", "correct": false},
+        {"text": "31416", "correct": false},
+        {"text": "10000", "correct": false}
+      ],
+      "explanation": "此处 n=4，π×10^4≈31415.926，向下取整为 31415；这是基于理想规律的预测。"
+    },
+    {
+      "key": "a6-2-evidence-01",
+      "node_id": "A6.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "special_case",
+      "variant_axis": "observation",
+      "prompt": "光滑、完全弹性、固定墙且统一计数的实验得到 3、31、314、3141。由这些数据能得出的稳妥结论是？",
+      "options": [
+        {"text": "它支持这一规律的猜想，但不能代替证明", "correct": true},
+        {"text": "四个数据点已经证明规律对所有 n 成立", "correct": false},
+        {"text": "规律在任何非理想装置中都成立", "correct": false},
+        {"text": "以后无需检查计数误差", "correct": false}
+      ],
+      "explanation": "有限次数值吻合是支持性证据；要推广到所有 n，还需要基于模型的严格推导。"
+    },
+    {
+      "key": "a6-2-floor-error-02",
+      "node_id": "A6.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 3,
+      "event_stage": "special_case",
+      "variant_axis": "counting",
+      "prompt": "某量近似为 314.0002，误差可能达到 0.001。要用向下取整确定碰撞数，应怎样处理？",
+      "options": [
+        {"text": "先控制误差；当前范围跨过整数 314，不能确定取整结果", "correct": true},
+        {"text": "直接取 314，误差不会影响整数", "correct": false},
+        {"text": "一律四舍五入为 314", "correct": false},
+        {"text": "把近似值乘以质量比即可消除误差", "correct": false}
+      ],
+      "explanation": "真值可能落在 313.9992 到 314.0012 之间，向下取整可能为 313 或 314，必须先缩小误差范围。"
+    },
+    {
+      "key": "a6-2-nonideal-03",
+      "node_id": "A6.2",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "special_case",
+      "variant_axis": "model_assumption",
+      "prompt": "实际装置中，哪些变化可能破坏理想的 π 数字碰撞规律？",
+      "options": [
+        {"text": "轨道存在不可忽略的摩擦", "correct": true},
+        {"text": "碰撞并非完全弹性", "correct": true},
+        {"text": "把坐标原点向右平移", "correct": false},
+        {"text": "给滑块更换颜色标签", "correct": false}
+      ],
+      "explanation": "摩擦和不完全弹性都会改变各阶段速度，从而可能改变后续事件及总数；坐标平移和颜色不改变物理过程。"
+    },
+    {
+      "key": "a6-2-wall-mass-04",
+      "node_id": "A6.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 2,
+      "event_stage": "after_wall_collision",
+      "variant_axis": "model_assumption",
+      "prompt": "若“墙”其实是可移动且质量有限的平台，为什么理想计数规律可能改变？",
+      "options": [
+        {"text": "平台会反冲，滑块碰后的速度未必只是等速反向", "correct": true},
+        {"text": "有限质量会让时间停止", "correct": false},
+        {"text": "平台移动会使 π 变成有理数", "correct": false},
+        {"text": "墙的质量与碰撞状态无关", "correct": false}
+      ],
+      "explanation": "固定墙条件被破坏后，墙会参与动量和能量交换，反弹状态及后续碰撞次数都可能变化。"
+    },
+    {
+      "key": "a6-2-proof-scope-05",
+      "node_id": "A6.2",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "difficulty": 3,
+      "event_stage": "special_case",
+      "variant_axis": "model_assumption",
+      "prompt": "要把 N=floor(π×10^n) 从观察提升为理想模型中的结论，哪一步不可缺少？",
+      "options": [
+        {"text": "在明确理想条件下给出适用于一般 n 的推导", "correct": true},
+        {"text": "只把 n=0 的实验重复很多次", "correct": false},
+        {"text": "忽略整数边界附近的近似误差", "correct": false},
+        {"text": "假定非弹性碰撞与弹性碰撞结果相同", "correct": false}
+      ],
+      "explanation": "一般性结论需要在光滑、完全弹性、固定墙等假设下推导，并对取整所需的精度负责；重复个例不能替代证明。"
+    }
+  ]
 }
