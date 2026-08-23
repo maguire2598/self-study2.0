@@ -11,8 +11,16 @@ if (scripts.length < 2) {
 }
 
 const bank = JSON.parse(scripts[0][1]);
-if (bank.questions.length !== 192) {
-  throw new Error(`expected 192 questions, found ${bank.questions.length}`);
+if (bank.questions.length !== 140) {
+  throw new Error(`expected 140 questions, found ${bank.questions.length}`);
+}
+
+if (!source.includes('id="questionScenarioFilter"')) {
+  throw new Error('scenario filter is missing');
+}
+
+if (!source.includes('question.scenario_id') || !source.includes('question.question_style')) {
+  throw new Error('scenario metadata rendering is missing');
 }
 
 new Function(scripts.at(-1)[1]);

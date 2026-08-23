@@ -14,6 +14,12 @@
         <option value="multi_blank">多空填空题</option>
       </select>
     </label>
+    <label class="form-label">场景题组
+      <select class="form-select" id="questionScenarioFilter">
+        <option value="all">全部场景</option>
+        <option value="standalone">独立短题</option>
+      </select>
+    </label>
     <label class="form-label">搜索题干
       <input class="form-control" id="questionSearch" type="search" placeholder="输入关键词">
     </label>
@@ -63,12 +69,14 @@
   const originalById = new Map(original.questions.map(question => [question.id, question]));
   const nodeSelect = root.querySelector('#questionNodeSelect');
   const typeFilter = root.querySelector('#questionTypeFilter');
+  const scenarioFilter = root.querySelector('#questionScenarioFilter');
   const searchInput = root.querySelector('#questionSearch');
   const list = root.querySelector('#questionList');
   const status = root.querySelector('#questionEditorStatus');
   const summary = root.querySelector('#questionSummary');
   const nodeEnabled = root.querySelector('#nodeEnabled');
   const nodes = [...new Map(bank.questions.map(question => [question.node_id, question.node_title])).entries()];
+  const scenarios = [...new Set(bank.questions.map(question => question.scenario_id).filter(Boolean))];
 
   const typeNames = {
     single_choice: '单选题',
@@ -133,6 +141,15 @@
     enabledLabel.append(enabledInput, enabledText);
     heading.append(title, enabledLabel);
     card.append(heading);
+
+    const metadata = document.createElement('p');
+    metadata.className = 'text-small text-muted';
+    metadata.textContent = [
+      question.question_style,
+      question.scenario_id || 'standalone',
+      question.event_stage
+    ].join(' · ');
+    card.append(metadata);
 
     card.append(makeTextField('题干', question.prompt, value => {
       question.prompt = value;
@@ -205,12 +222,19 @@
     nodeEnabled.indeterminate = !nodeEnabled.checked && nodeQuestions.some(question => question.enabled);
   }
 
+  function matchesScenario(question) {
+    if (scenarioFilter.value === 'all') return true;
+    if (scenarioFilter.value === 'standalone') return !question.scenario_id;
+    return question.scenario_id === scenarioFilter.value;
+  }
+
   function render() {
     const query = searchInput.value.trim().toLowerCase();
     const selectedType = typeFilter.value;
     const questions = bank.questions.filter(question =>
       question.node_id === currentNodeId() &&
       (selectedType === 'all' || question.question_type === selectedType) &&
+      matchesScenario(question) &&
       (!query || `${question.prompt} ${question.options?.map(option => option.text).join(' ') || ''}`.toLowerCase().includes(query))
     );
     list.replaceChildren(...questions.map(renderQuestion));
@@ -238,8 +262,16 @@
     nodeSelect.append(option);
   });
 
+  scenarios.forEach(scenarioId => {
+    const option = document.createElement('option');
+    option.value = scenarioId;
+    option.textContent = scenarioId;
+    scenarioFilter.append(option);
+  });
+
   nodeSelect.addEventListener('change', render);
   typeFilter.addEventListener('change', render);
+  scenarioFilter.addEventListener('change', render);
   searchInput.addEventListener('input', render);
   root.querySelector('#previousNode').addEventListener('click', () => moveNode(-1));
   root.querySelector('#nextNode').addEventListener('click', () => moveNode(1));
