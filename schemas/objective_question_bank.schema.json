@@ -3,11 +3,25 @@
   "title": "ObjectiveQuestionBank",
   "description": "具有标准答案的课程客观题库，与旧版状态定位题库相互独立。",
   "type": "object",
-  "required": ["course_id", "section_id", "version", "delivery_policy", "status_assessment", "questions"],
+  "required": ["course_id", "section_id", "version", "question_count_by_node", "delivery_policy", "status_assessment", "questions"],
   "properties": {
     "course_id": { "type": "string" },
     "section_id": { "type": "string" },
     "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "question_count_by_node": {
+      "type": "object",
+      "minProperties": 20,
+      "maxProperties": 20,
+      "propertyNames": {
+        "enum": [
+          "A1.1", "A1.2", "A1.3", "A2.1", "A2.2",
+          "A3.1", "A3.2", "A3.3", "A3.4", "A3.5",
+          "A4.1", "A4.2", "A4.3", "A5.1", "A5.2",
+          "A6.1", "A6.2", "A7.1", "A7.2", "A7.3"
+        ]
+      },
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
     "delivery_policy": {
       "type": "object",
       "required": ["reveal_answer_after_wrong", "wrong_answer_action", "correct_answer_actions"],
@@ -31,16 +45,32 @@
     },
     "questions": {
       "type": "array",
-      "minItems": 192,
-      "maxItems": 192,
+      "minItems": 140,
+      "maxItems": 140,
       "items": {
         "type": "object",
-        "required": ["id", "node_id", "node_title", "question_type", "assessment_kind", "prompt", "explanation", "enabled", "revision"],
+        "required": ["id", "node_id", "node_title", "question_type", "question_style", "assessment_kind", "prompt", "explanation", "enabled", "revision"],
         "properties": {
           "id": { "type": "string" },
           "node_id": { "type": "string", "pattern": "^A" },
           "node_title": { "type": "string" },
           "question_type": { "enum": ["single_choice", "multiple_choice", "multi_blank"] },
+          "question_style": { "enum": ["scenario", "calculation", "concise"] },
+          "scenario_id": { "type": "string" },
+          "event_stage": {
+            "enum": [
+              "initial", "after_first_collision", "after_wall_collision",
+              "after_second_collision", "terminal", "special_case", "extension_stage"
+            ]
+          },
+          "variant_axis": {
+            "enum": [
+              "mass_ratio", "initial_velocity", "friction", "elasticity", "incline", "spring",
+              "system_boundary", "counting", "direction", "observation", "model_assumption", "event_sequence"
+            ]
+          },
+          "calculation_fixture_id": { "type": "string" },
+          "source_refs": { "type": "array", "items": { "type": "string" } },
           "assessment_kind": { "const": "objective" },
           "prompt": { "type": "string", "minLength": 1 },
           "options": {

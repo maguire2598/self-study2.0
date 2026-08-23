@@ -35,7 +35,8 @@ class ProjectContractTests(unittest.TestCase):
         bank = json.loads(
             (ROOT / "content/courses/collision-pi/question-bank-a.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(len(bank["questions"]), 192)
+        self.assertEqual(len(bank["questions"]), 140)
+        self.assertEqual(bank["version"], "2.0.0")
         self.assertFalse(bank["status_assessment"]["enabled"])
         self.assertFalse(bank["delivery_policy"]["reveal_answer_after_wrong"])
         self.assertEqual(bank["delivery_policy"]["wrong_answer_action"], "error_followup_agent")
