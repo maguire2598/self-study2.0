@@ -266,10 +266,10 @@
           "options": [
             {"text": "两球的初始相对位置", "correct": true},
             {"text": "两球的速度差及方向", "correct": true},
-            {"text": "所选坐标原点的具体位置", "correct": false},
-            {"text": "两球表面的颜色", "correct": false}
+            {"text": "只记录两球的速率，不记录运动方向", "correct": false},
+            {"text": "只记录两球间的距离，不记录谁在左侧", "correct": false}
           ],
-          "explanation": "能否相碰取决于初始间距能否在相对运动中减到零；平移坐标原点不改变相对位置，颜色也不影响运动。"
+          "explanation": "能否相碰取决于带前后次序的初始相对位置，以及带方向的速度差；只有距离和速率无法判断两球是在接近还是远离。"
         }
       ]
     },
@@ -1039,7 +1039,7 @@
         {"key":"a4-3-state3-02","node_id":"A4.3","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"after_wall_collision","variant_axis":"direction","ask":"第一次滑块碰撞后 v_M=-V/2、v_m=-3V/2。小滑块第一次撞左墙并弹性反弹后，速度状态是哪一组？","options":[{"text":"v_M=-V/2，v_m=+3V/2","correct":true},{"text":"v_M=+V/2，v_m=+3V/2","correct":false},{"text":"v_M=-V/2，v_m=-3V/2","correct":false},{"text":"v_M=0，v_m=+V","correct":false}],"explanation":"墙只改变小滑块速度方向；M 保持 -V/2，小滑块由 -3V/2 变为 +3V/2。"},
         {"key":"a4-3-state3-03","node_id":"A4.3","question_type":"single_choice","question_style":"scenario","difficulty":3,"event_stage":"after_second_collision","variant_axis":"mass_ratio","ask":"小滑块第一次离墙后以 +3V/2 与速度 -V/2 的 M 相碰。第二次滑块弹性碰撞后的速度是哪一组？","options":[{"text":"v_M=+V/2，v_m=-3V/2","correct":true},{"text":"v_M=-V/2，v_m=+3V/2","correct":false},{"text":"v_M=+V，v_m=0","correct":false},{"text":"v_M=0，v_m=-V","correct":false}],"explanation":"第二次滑块碰撞后 M 改为 +V/2，小滑块改为 -3V/2，因此小滑块再次朝左墙运动。"},
         {"key":"a4-3-state3-04","node_id":"A4.3","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"after_wall_collision","variant_axis":"event_sequence","ask":"第二次滑块碰撞后 v_M=+V/2、v_m=-3V/2。小滑块第二次撞左墙并弹性反弹后，哪些说法正确？","options":[{"text":"v_M=+V/2","correct":true},{"text":"v_m=+3V/2","correct":true},{"text":"小滑块与 M 的间距将持续增大","correct":false},{"text":"M 会转为向左运动","correct":false}],"explanation":"M 保持 +V/2，小滑块撞墙后变为 +3V/2；小滑块在后方且速度更大，将追上 M。"},
-        {"key":"a5-1-state3-01","node_id":"A5.1","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"terminal","variant_axis":"mass_ratio","ask":"小滑块第二次离墙后以 +3V/2 从后方追上速度 +V/2 的 M。第三次滑块弹性碰撞后的速度是哪一组？","options":[{"text":"v_M=+V，v_m=0","correct":true},{"text":"v_M=0，v_m=+V","correct":false},{"text":"v_M=+V/2，v_m=+3V/2","correct":false},{"text":"v_M=-V，v_m=0","correct":false}],"explanation":"第三次滑块碰撞后，大滑块获得 +V，小滑块静止，形成 v_M=+V、v_m=0 的末态。"},
+        {"key":"a5-1-state3-01","node_id":"A5.1","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"terminal","variant_axis":"system_boundary","ask":"第三次滑块碰撞后，质量 3m 的 M 以 +V 运动，质量 m 的小滑块静止；此后两者都不再接触墙。两滑块系统的总动量及其后续变化应怎样判断？","options":[{"text":"总动量为 +3mV，之后无外冲量时保持不变","correct":true},{"text":"总动量为 0，因为小滑块已经静止","correct":false},{"text":"总动量为 +mV，因为只需计算运动物体的动量","correct":false},{"text":"不能确定，因为系统动量只在碰撞瞬间有定义","correct":false}],"explanation":"末态总动量为 3m×(+V)+m×0=+3mV；此后两滑块不接触墙，光滑轨道也不给水平外冲量，因此该系统总动量保持不变。"},
         {"key":"a5-1-state3-02","node_id":"A5.1","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"terminal","variant_axis":"observation","ask":"第三次滑块碰撞后，小滑块位于 M 左侧，v_M=+V、v_m=0。哪一判据说明碰撞链已经结束？","options":[{"text":"v_M≥v_m≥0，前方 M 不会被后方小滑块追上","correct":true},{"text":"v_m>v_M≥0，小滑块会继续追上 M","correct":false},{"text":"v_M<0，M 会朝墙运动","correct":false},{"text":"v_m<0，小滑块会再次撞墙","correct":false}],"explanation":"末态满足 v_M≥v_m≥0；M 向右远离，小滑块静止，既无追及也无后续撞墙。"},
         {"key":"a5-1-state3-03","node_id":"A5.1","question_type":"single_choice","question_style":"scenario","difficulty":3,"event_stage":"terminal","variant_axis":"counting","ask":"在 M=3m、u_M=-V、u_m=0 的全过程中，把滑块间碰撞和小滑块撞墙都计入，总碰撞次数是多少？","options":[{"text":"5 次","correct":true},{"text":"3 次","correct":false},{"text":"4 次","correct":false},{"text":"6 次","correct":false}],"explanation":"依次发生滑块碰撞 1、撞墙 1、滑块碰撞 2、撞墙 2、滑块碰撞 3，共 5 次。"},
         {"key":"a5-1-state3-04","node_id":"A5.1","question_type":"multiple_choice","question_style":"scenario","difficulty":3,"event_stage":"terminal","variant_axis":"event_sequence","ask":"在 M=3m 的五次碰撞链中，哪些相邻状态对应正确？","options":[{"text":"撞墙 1 后：(v_M,v_m)=(-V/2,+3V/2)","correct":true},{"text":"撞墙 2 后：(v_M,v_m)=(+V/2,+3V/2)","correct":true},{"text":"滑块碰撞 2 后：(v_M,v_m)=(-V/2,+3V/2)","correct":false},{"text":"滑块碰撞 3 后：(v_M,v_m)=(0,+V)","correct":false}],"explanation":"两次撞墙分别只反转小滑块速度；第二次滑块碰撞后为 (+V/2,-3V/2)，第三次后为 (+V,0)。"},
@@ -1146,10 +1146,10 @@
       "options": [
         {"text": "两滑块的初始位置", "correct": true},
         {"text": "两滑块的带符号初速度", "correct": true},
-        {"text": "滑块表面的颜色", "correct": false},
-        {"text": "实验桌的编号", "correct": false}
+        {"text": "两滑块的速率（不记录方向）", "correct": false},
+        {"text": "两滑块的质量比（不记录位置和速度）", "correct": false}
       ],
-      "explanation": "一维初始运动状态需要位置和带方向的速度；颜色与桌号不决定运动状态。"
+      "explanation": "一维初始运动状态需要位置和带方向的速度；只有速率会丢失方向，只有质量比也不能给出运动状态。"
     },
     {
       "key": "a1-1-approach-05",
@@ -1349,7 +1349,7 @@
       "options": [
         {"text": "不能再假定这次碰撞的总动能守恒", "correct": true},
         {"text": "两滑块总动量一定不守恒", "correct": false},
-        {"text": "两滑块质量都变为零", "correct": false},
+        {"text": "只要总动量守恒，总动能也一定守恒", "correct": false},
         {"text": "碰撞前后每个滑块速度都不变", "correct": false}
       ],
       "explanation": "永久变形表明部分机械能转化为内能等；若短碰期间外力冲量可忽略，总动量仍可守恒。"
@@ -1365,11 +1365,11 @@
       "prompt": "实测一次滑块碰撞的恢复系数小于 1。它与理想模型的主要差别是？",
       "options": [
         {"text": "碰撞并非完全弹性", "correct": true},
-        {"text": "轨道一定不是直线", "correct": false},
-        {"text": "滑块一定没有质量", "correct": false},
-        {"text": "固定墙必定在移动", "correct": false}
+        {"text": "两滑块系统总动量一定不守恒", "correct": false},
+        {"text": "碰后两滑块一定粘在一起", "correct": false},
+        {"text": "碰撞前后两滑块总动能一定相等", "correct": false}
       ],
-      "explanation": "恢复系数小于 1 表示相对分离速度不足以恢复到完全弹性碰撞的水平。"
+      "explanation": "恢复系数小于 1 表示碰撞并非完全弹性；外冲量可忽略时总动量仍可守恒，也不能仅凭这一条件断定两滑块必定粘住。"
     },
     {
       "key": "a2-1-wall-impulse-04",
@@ -1400,10 +1400,10 @@
       "options": [
         {"text": "水平轨道光滑", "correct": true},
         {"text": "各次碰撞完全弹性", "correct": true},
-        {"text": "滑块涂成同一颜色", "correct": false},
-        {"text": "坐标原点设在墙上", "correct": false}
+        {"text": "轨道可以有摩擦，只要摩擦力恒定", "correct": false},
+        {"text": "碰撞可以留下永久变形，只要总动量守恒", "correct": false}
       ],
-      "explanation": "光滑轨道排除滑行摩擦，完全弹性排除碰撞中的动能损失；颜色和原点位置不影响耗散。"
+      "explanation": "光滑轨道排除滑行摩擦，完全弹性排除碰撞中的动能损失；恒定摩擦仍会耗散能量，总动量守恒也不能排除碰撞变形造成的能量损失。"
     },
     {
       "key": "a2-1-fixed-wall-06",
@@ -1486,7 +1486,7 @@
         {"text": "初始位置与速度设置", "correct": true},
         {"text": "光滑、完全弹性和固定墙条件", "correct": true},
         {"text": "大滑块与小滑块的质量比", "correct": false},
-        {"text": "滑块标签的字体", "correct": false}
+        {"text": "每次实验同时改变大滑块的初速度", "correct": false}
       ],
       "explanation": "质量比是要改变的自变量，其余会影响碰撞链的初态和理想条件应保持一致。"
     },
@@ -1791,10 +1791,10 @@
       "options": [
         {"text": "轨道存在不可忽略的摩擦", "correct": true},
         {"text": "碰撞并非完全弹性", "correct": true},
-        {"text": "把坐标原点向右平移", "correct": false},
-        {"text": "给滑块更换颜色标签", "correct": false}
+        {"text": "把两个滑块和墙整体向右平移相同距离", "correct": false},
+        {"text": "保持方向不变，把所有初速度等比例放大", "correct": false}
       ],
-      "explanation": "摩擦和不完全弹性都会改变各阶段速度，从而可能改变后续事件及总数；坐标平移和颜色不改变物理过程。"
+      "explanation": "摩擦和不完全弹性会改变各阶段速度及后续事件；整体平移不改变相对位置，正比例放大全部初速度只改变时间尺度，不改变理想模型中的事件顺序与计数。"
     },
     {
       "key": "a6-2-wall-mass-04",
@@ -1807,9 +1807,9 @@
       "prompt": "若“墙”其实是可移动且质量有限的平台，为什么理想计数规律可能改变？",
       "options": [
         {"text": "平台会反冲，滑块碰后的速度未必只是等速反向", "correct": true},
-        {"text": "有限质量会让时间停止", "correct": false},
-        {"text": "平台移动会使 π 变成有理数", "correct": false},
-        {"text": "墙的质量与碰撞状态无关", "correct": false}
+        {"text": "只要碰墙完全弹性，有限质量平台仍等效于固定墙", "correct": false},
+        {"text": "平台反冲只改变碰撞所需时间，不改变任何碰后速度", "correct": false},
+        {"text": "分析滑块与平台的碰撞时可以忽略平台的动量变化", "correct": false}
       ],
       "explanation": "固定墙条件被破坏后，墙会参与动量和能量交换，反弹状态及后续碰撞次数都可能变化。"
     },

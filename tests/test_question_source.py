@@ -248,6 +248,17 @@ class QuestionSourceTests(unittest.TestCase):
         )
         self.assertTrue(all(question["question_style"] == "concise" for question in self.standalone))
 
+    def test_a5_1_asks_for_third_collision_velocity_only_once(self):
+        repeated_target = [
+            question["key"]
+            for question in self.scenario_questions
+            if question["node_id"] == "A5.1"
+            and "第三次滑块" in question["ask"]
+            and "碰撞后" in question["ask"]
+            and "速度是哪一组" in question["ask"]
+        ]
+        self.assertEqual(repeated_target, ["a5-1-chase-terminal-01"])
+
     def test_draft202012_schema_accepts_source_and_rejects_style_mutations(self):
         valid = validate_source_with_pwsh(self.source)
         self.assertEqual(valid.returncode, 0, valid.stdout + valid.stderr)
@@ -351,11 +362,38 @@ class QuestionSourceTests(unittest.TestCase):
                 self.assertIn(question["calculation_fixture_id"], fixture_ids)
 
     def test_scenario_questions_are_self_contained(self):
-        dependent_phrases = ("根据上一问", "由前题可知", "继续上题", "沿用上一题")
+        dependent_reference = re.compile(
+            r"(?:"
+            r"(?:上|前)(?:一)?(?:问|题)|"
+            r"(?:前面|刚才)(?:的)?(?:问|题)|"
+            r"(?:继续|沿用|承接)(?:上|前)(?:一)?(?:问|题)"
+            r")"
+        )
+        self.assertIsNone(dependent_reference.search("第一次碰撞后、第二次碰撞前"))
         for scenario in self.source["scenarios"]:
             self.assertTrue(scenario["context"].strip())
             for question in scenario["questions"]:
-                self.assertFalse(any(phrase in question["ask"] for phrase in dependent_phrases))
+                self.assertIsNone(
+                    dependent_reference.search(question["ask"]),
+                    question["key"],
+                )
+
+    def test_distractors_avoid_cosmetic_or_fantastical_claims(self):
+        banned_fragments = (
+            "颜色",
+            "编号",
+            "字体",
+            "质量都变为零",
+            "一定没有质量",
+            "时间停止",
+            "π 变成有理数",
+        )
+        for question in self.scenario_questions + self.standalone:
+            for option in question.get("options", []):
+                if option["correct"]:
+                    continue
+                for fragment in banned_fragments:
+                    self.assertNotIn(fragment, option["text"], question["key"])
 
     def test_prompts_do_not_contradict_future_contact(self):
         for question in self.scenario_questions:

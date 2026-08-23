@@ -3,18 +3,25 @@ import unittest
 from collections import Counter
 from pathlib import Path
 
+from scripts import build_collision_pi_question_editor as editor_builder
+
 
 ROOT = Path(__file__).resolve().parents[1]
+CURRENT_FILES = (
+    ROOT / "AGENTS.md",
+    ROOT / "README.md",
+    ROOT / "docs/roadmap.md",
+    ROOT / "docs/decisions/conversation-decisions.md",
+)
+CURRENT_CONTRACT = (
+    "《碰撞与π》知识拼图共 139 个节点：A=27、B=30、C=46、D=36。",
+    "A 板块有 20 个承载题目的二级节点，共 140 道客观题。",
+    "题量按知识重要性分配，题库包含 13 个场景题组和 8 道计算题。",
+)
 
 
 class ProjectContractTests(unittest.TestCase):
     def test_current_docs_do_not_claim_retired_a_contract(self):
-        current_files = [
-            ROOT / "AGENTS.md",
-            ROOT / "README.md",
-            ROOT / "docs/roadmap.md",
-            ROOT / "docs/decisions/conversation-decisions.md",
-        ]
         retired = [
             "144 个知识节点",
             "144 节点知识拼图",
@@ -24,10 +31,22 @@ class ProjectContractTests(unittest.TestCase):
             "每个知识节点 6 题",
             "32 个节点 × 6 题",
         ]
-        for path in current_files:
+        for path in CURRENT_FILES:
             text = path.read_text(encoding="utf-8")
             for phrase in retired:
                 self.assertNotIn(phrase, text, f"{path}: {phrase}")
+
+    def test_current_docs_state_exact_current_contract(self):
+        for path in CURRENT_FILES:
+            text = path.read_text(encoding="utf-8")
+            for statement in CURRENT_CONTRACT:
+                self.assertIn(statement, text, f"{path}: {statement}")
+
+    def test_checked_in_question_editor_matches_builder(self):
+        checked_in = (ROOT / "authoring/collision-pi-question-editor.html").read_text(
+            encoding="utf-8"
+        )
+        self.assertEqual(editor_builder.build(), checked_in)
 
     def test_required_project_files_exist(self):
         required = [

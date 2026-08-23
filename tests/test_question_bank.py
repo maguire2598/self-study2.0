@@ -59,6 +59,9 @@ class QuestionBankTests(unittest.TestCase):
         self.assertEqual(Counter(q["node_id"] for q in self.questions), Counter(EXPECTED_QUOTAS))
         self.assertGreater(len(set(EXPECTED_QUOTAS.values())), 1)
 
+    def test_checked_in_bank_matches_generator(self):
+        self.assertEqual(generator.build_bank(), self.bank)
+
     def test_bank_nodes_equal_assessed_a_nodes(self):
         puzzle = json.loads(PUZZLE_PATH.read_text(encoding="utf-8"))
         expected = {
