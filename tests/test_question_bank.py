@@ -184,9 +184,90 @@ class QuestionBankTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_formal_schema_accepts_the_140_question_contract(self):
-        candidate = generator.build_bank()
+        candidate = deepcopy(self.bank)
         result = validate_bank_with_pwsh(candidate)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def assert_schema_rejects(self, candidate, label):
+        result = validate_bank_with_pwsh(candidate)
+        self.assertNotEqual(result.returncode, 0, f"{label}: {result.stdout}{result.stderr}")
+
+    def mutated_question(self, *, question_type=None, question_style=None):
+        candidate = deepcopy(self.bank)
+        question = next(
+            question
+            for question in candidate["questions"]
+            if (question_type is None or question["question_type"] == question_type)
+            and (question_style is None or question["question_style"] == question_style)
+        )
+        return candidate, question
+
+    def test_formal_schema_routes_question_payloads(self):
+        mutations = []
+
+        candidate, question = self.mutated_question(question_type="single_choice")
+        question.pop("options")
+        question.pop("correct_answers")
+        mutations.append(("single choice without payload", candidate))
+
+        candidate, question = self.mutated_question(question_type="multi_blank")
+        question.pop("blanks")
+        mutations.append(("multi blank without blanks", candidate))
+
+        candidate, question = self.mutated_question(question_type="single_choice")
+        question["blanks"] = [{"id": "unexpected", "accepted_answers": ["x"]}]
+        mutations.append(("choice with blanks", candidate))
+
+        candidate, question = self.mutated_question(question_type="multi_blank")
+        question["options"] = [
+            {"id": option_id, "text": option_id}
+            for option_id in ("A", "B", "C", "D")
+        ]
+        question["correct_answers"] = ["A"]
+        mutations.append(("multi blank with choice payload", candidate))
+
+        for label, candidate in mutations:
+            with self.subTest(label=label):
+                self.assert_schema_rejects(candidate, label)
+
+    def test_formal_schema_locks_choice_cardinality_and_ids(self):
+        mutations = []
+
+        candidate, question = self.mutated_question(question_type="single_choice")
+        question["correct_answers"] = ["A", "B"]
+        mutations.append(("single choice with two answers", candidate))
+
+        candidate, question = self.mutated_question(question_type="multiple_choice")
+        question["correct_answers"] = ["A"]
+        mutations.append(("multiple choice with one answer", candidate))
+
+        candidate, question = self.mutated_question(question_type="multiple_choice")
+        question["correct_answers"] = ["A", "A"]
+        mutations.append(("multiple choice with duplicate answers", candidate))
+
+        candidate, question = self.mutated_question(question_type="single_choice")
+        question["options"].pop()
+        mutations.append(("choice with three options", candidate))
+
+        candidate, question = self.mutated_question(question_type="single_choice")
+        question["options"][0]["id"] = "D"
+        mutations.append(("choice without strict A-B-C-D ids", candidate))
+
+        for label, candidate in mutations:
+            with self.subTest(label=label):
+                self.assert_schema_rejects(candidate, label)
+
+    def test_formal_schema_requires_question_metadata(self):
+        for field in ("difficulty", "event_stage", "variant_axis"):
+            with self.subTest(field=field):
+                candidate = deepcopy(self.bank)
+                candidate["questions"][0].pop(field)
+                self.assert_schema_rejects(candidate, f"question without {field}")
+
+    def test_formal_schema_requires_calculation_fixture(self):
+        candidate, question = self.mutated_question(question_style="calculation")
+        question.pop("calculation_fixture_id")
+        self.assert_schema_rejects(candidate, "calculation without fixture")
 
 
 if __name__ == "__main__":
