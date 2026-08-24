@@ -194,7 +194,7 @@
       "required": ["id", "node_id", "kind", "m1", "m2", "u1", "u2", "e", "expected"],
       "properties": {
         "id": {"enum": ["CAL-B3-RE-01", "CAL-B3-RE-02", "CAL-B3-RE-03", "CAL-B3-RE-04"]},
-        "node_id": {"const": "B3.5"}, "kind": {"const": "restitution_1d"},
+        "node_id": {"enum": ["B3.4", "B3.5"]}, "kind": {"const": "restitution_1d"},
         "m1": {"type": "number", "exclusiveMinimum": 0}, "m2": {"type": "number", "exclusiveMinimum": 0},
         "u1": {"type": "number"}, "u2": {"type": "number"}, "e": {"type": "number", "minimum": 0, "maximum": 1},
         "expected": {"$ref": "#/$defs/velocityExpected"}

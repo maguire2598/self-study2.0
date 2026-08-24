@@ -270,6 +270,11 @@ class QuestionSourceBTests(unittest.TestCase):
                 self.assertTrue(all(blank["accepted_answers"] for blank in question["blanks"]), question["key"])
             if question["question_style"] == "calculation":
                 self.assertIn(question.get("calculation_fixture_id"), fixture_ids, question["key"])
+                self.assertEqual(
+                    self.fixtures[question["calculation_fixture_id"]]["node_id"],
+                    question["node_id"],
+                    question["key"],
+                )
             else:
                 self.assertNotIn("calculation_fixture_id", question, question["key"])
 
@@ -479,6 +484,11 @@ class QuestionSourceBTests(unittest.TestCase):
                     self.assertTrue(all(blank["accepted_answers"] for blank in question["blanks"]), question["key"])
                 if question["question_style"] == "calculation":
                     self.assertIn(question["calculation_fixture_id"], fixture_ids, question["key"])
+                    self.assertEqual(
+                        self.fixtures[question["calculation_fixture_id"]]["node_id"],
+                        question["node_id"],
+                        question["key"],
+                    )
 
 
 if __name__ == "__main__":
