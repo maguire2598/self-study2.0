@@ -43,10 +43,21 @@ class ProjectContractTests(unittest.TestCase):
                 self.assertIn(statement, text, f"{path}: {statement}")
 
     def test_checked_in_question_editor_matches_builder(self):
-        checked_in = (ROOT / "authoring/collision-pi-question-editor.html").read_text(
+        expected = editor_builder.build()
+        actual = (ROOT / "authoring/collision-pi-question-editor.html").read_text(
             encoding="utf-8"
         )
-        self.assertEqual(editor_builder.build(), checked_in)
+        self.assertEqual(actual, expected)
+
+        scripts = [
+            script.split(">", 1)[1].rsplit("</script>", 1)[0]
+            for script in actual.split("<script")
+            if "</script>" in script
+        ]
+        banks = json.loads(scripts[0])
+        self.assertEqual(set(banks), {"A", "B"})
+        self.assertEqual(len(banks["A"]["questions"]), 140)
+        self.assertEqual(len(banks["B"]["questions"]), 168)
 
     def test_required_project_files_exist(self):
         required = [

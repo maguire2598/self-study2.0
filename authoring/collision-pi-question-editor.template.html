@@ -1,8 +1,15 @@
+<meta charset="utf-8">
 <div id="collisionPiQuestionEditor">
-  <h2>碰撞与π · A板块题库筛选</h2>
+  <h2 id="questionEditorTitle">碰撞与π · A板块题库筛选</h2>
   <p class="text-muted" id="questionSummary"></p>
 
   <div class="viz-controls" aria-label="题库筛选控件">
+    <label class="form-label">板块
+      <select class="form-select" id="questionSectionFilter">
+        <option value="A">A 板块</option>
+        <option value="B">B 板块</option>
+      </select>
+    </label>
     <label class="form-label">知识点
       <select class="form-select" id="questionNodeSelect"></select>
     </label>
@@ -44,7 +51,7 @@
   </div>
   <p class="text-small text-muted" id="questionEditorStatus" role="status"></p>
 
-  <script id="embeddedQuestionBank" type="application/json">__QUESTION_BANK_JSON__</script>
+  <script id="embeddedQuestionBanks" type="application/json">__QUESTION_BANKS_JSON__</script>
 </div>
 
 <style>
@@ -55,19 +62,23 @@
   #collisionPiQuestionEditor .cqe-options { display:grid; gap:8px; }
   #collisionPiQuestionEditor .cqe-option { display:grid; grid-template-columns:auto 1fr; gap:8px; align-items:center; }
   #collisionPiQuestionEditor .cqe-fields { display:grid; gap:8px; }
+  #collisionPiQuestionEditor .cqe-card, #collisionPiQuestionEditor .cqe-card p, #collisionPiQuestionEditor .cqe-heading strong { min-width:0; overflow-wrap:anywhere; }
   @media (max-width:520px) { #collisionPiQuestionEditor .cqe-option { grid-template-columns:1fr; } }
 </style>
 
 <script>
 (() => {
   const root = document.getElementById('collisionPiQuestionEditor');
-  const original = JSON.parse(root.querySelector('#embeddedQuestionBank').textContent);
+  const banks = JSON.parse(root.querySelector('#embeddedQuestionBanks').textContent);
   const clone = value => JSON.parse(JSON.stringify(value));
-  const storageKey = 'collision-pi-a-question-draft';
-  const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
-  const bank = saved?.course_id === original.course_id && saved?.version === original.version ? saved : clone(original);
-  const originalById = new Map(original.questions.map(question => [question.id, question]));
+  const query = new URLSearchParams(location.search);
+  const requestedSection = query.get("section");
+  let sectionId = Object.hasOwn(banks, requestedSection) ? requestedSection : 'A';
+  let bank;
+  let originalById;
+  let nodes = [];
   const nodeSelect = root.querySelector('#questionNodeSelect');
+  const sectionFilter = root.querySelector('#questionSectionFilter');
   const typeFilter = root.querySelector('#questionTypeFilter');
   const scenarioFilter = root.querySelector('#questionScenarioFilter');
   const searchInput = root.querySelector('#questionSearch');
@@ -75,8 +86,7 @@
   const status = root.querySelector('#questionEditorStatus');
   const summary = root.querySelector('#questionSummary');
   const nodeEnabled = root.querySelector('#nodeEnabled');
-  const nodes = [...new Map(bank.questions.map(question => [question.node_id, question.node_title])).entries()];
-  const scenarios = [...new Set(bank.questions.map(question => question.scenario_id).filter(Boolean))];
+  const title = root.querySelector('#questionEditorTitle');
 
   const typeNames = {
     single_choice: '单选题',
@@ -88,18 +98,79 @@
     status.textContent = message;
   }
 
+  function draftKey(sectionId) {
+    return `collision-pi-question-editor:${sectionId}:draft-v1`;
+  }
+
+  function isMatchingBank(candidate, original) {
+    return candidate?.course_id === original.course_id && candidate?.version === original.version;
+  }
+
+  function loadDraft(sectionId) {
+    const original = banks[sectionId];
+    const saved = JSON.parse(localStorage.getItem(draftKey(sectionId)) || 'null');
+    return isMatchingBank(saved, original) ? saved : clone(original);
+  }
+
+  function currentBank() {
+    return bank;
+  }
+
+  function currentNodeEntries() {
+    const active = currentBank();
+    return Object.keys(active.question_count_by_node).map(nodeId => {
+      const question = active.questions.find(item => item.node_id === nodeId);
+      return [nodeId, question?.node_title || nodeId];
+    });
+  }
+
+  function currentScenarios() {
+    return [...new Set(currentBank().questions.map(question => question.scenario_id).filter(Boolean))];
+  }
+
+  function rebuildDependentFilters() {
+    const requestedNode = query.get('node') || query.get('node_id');
+    nodes = currentNodeEntries();
+    nodeSelect.replaceChildren(new Option('全部知识点', 'all'), ...nodes.map(([nodeId, nodeTitle]) => {
+      const option = document.createElement('option');
+      option.value = nodeId;
+      option.textContent = `${nodeId} · ${nodeTitle}`;
+      return option;
+    }));
+    nodeSelect.value = nodes.some(([nodeId]) => nodeId === requestedNode) ? requestedNode : nodes[0]?.[0] || '';
+    scenarioFilter.replaceChildren(
+      new Option('全部场景', 'all'),
+      new Option('独立短题', 'standalone'),
+      ...currentScenarios().map(scenarioId => new Option(scenarioId, scenarioId))
+    );
+    typeFilter.value = 'all';
+    scenarioFilter.value = 'all';
+    searchInput.value = '';
+  }
+
+  function activateSection(nextSection) {
+    if (bank) localStorage.setItem(draftKey(sectionId), JSON.stringify(currentBank()));
+    sectionId = nextSection;
+    bank = loadDraft(sectionId);
+    originalById = new Map(banks[sectionId].questions.map(question => [question.id, question]));
+    sectionFilter.value = sectionId;
+    title.textContent = `碰撞与π · ${sectionId}板块题库筛选`;
+    rebuildDependentFilters();
+  }
+
   function markChanged(question) {
     question.revision = (question.revision || 0) + 1;
     updateSummary();
   }
 
   function changedQuestions() {
-    return bank.questions.filter(question => JSON.stringify(question) !== JSON.stringify(originalById.get(question.id)));
+    return currentBank().questions.filter(question => JSON.stringify(question) !== JSON.stringify(originalById.get(question.id)));
   }
 
   function updateSummary() {
-    const enabled = bank.questions.filter(question => question.enabled).length;
-    summary.textContent = `${nodes.length} 个知识点 · ${bank.questions.length} 道题 · 已启用 ${enabled} 道 · 已修改 ${changedQuestions().length} 道`;
+    const active = currentBank();
+    const enabled = active.questions.filter(question => question.enabled).length;
+    summary.textContent = `${nodes.length} 个知识点 · ${active.questions.length} 道题 · 已启用 ${enabled} 道 · 已修改 ${changedQuestions().length} 道`;
   }
 
   function makeTextField(labelText, value, onInput, rows = 2) {
@@ -217,7 +288,7 @@
   }
 
   function updateNodeEnabled() {
-    const nodeQuestions = bank.questions.filter(question => question.node_id === currentNodeId());
+    const nodeQuestions = currentBank().questions.filter(question => question.node_id === currentNodeId());
     nodeEnabled.checked = nodeQuestions.every(question => question.enabled);
     nodeEnabled.indeterminate = !nodeEnabled.checked && nodeQuestions.some(question => question.enabled);
   }
@@ -231,8 +302,8 @@
   function render() {
     const query = searchInput.value.trim().toLowerCase();
     const selectedType = typeFilter.value;
-    const questions = bank.questions.filter(question =>
-      question.node_id === currentNodeId() &&
+    const questions = currentBank().questions.filter(question =>
+      (currentNodeId() === 'all' || question.node_id === currentNodeId()) &&
       (selectedType === 'all' || question.question_type === selectedType) &&
       matchesScenario(question) &&
       (!query || `${question.prompt} ${question.options?.map(option => option.text).join(' ') || ''}`.toLowerCase().includes(query))
@@ -255,28 +326,18 @@
     render();
   }
 
-  nodes.forEach(([nodeId, title]) => {
-    const option = document.createElement('option');
-    option.value = nodeId;
-    option.textContent = `${nodeId} · ${title}`;
-    nodeSelect.append(option);
-  });
-
-  scenarios.forEach(scenarioId => {
-    const option = document.createElement('option');
-    option.value = scenarioId;
-    option.textContent = scenarioId;
-    scenarioFilter.append(option);
-  });
-
   nodeSelect.addEventListener('change', render);
+  sectionFilter.addEventListener('change', () => {
+    activateSection(sectionFilter.value);
+    render();
+  });
   typeFilter.addEventListener('change', render);
   scenarioFilter.addEventListener('change', render);
   searchInput.addEventListener('input', render);
   root.querySelector('#previousNode').addEventListener('click', () => moveNode(-1));
   root.querySelector('#nextNode').addEventListener('click', () => moveNode(1));
   nodeEnabled.addEventListener('change', () => {
-    bank.questions.filter(question => question.node_id === currentNodeId()).forEach(question => {
+    currentBank().questions.filter(question => question.node_id === currentNodeId()).forEach(question => {
       question.enabled = nodeEnabled.checked;
       markChanged(question);
     });
@@ -284,20 +345,20 @@
   });
 
   root.querySelector('#saveDraft').addEventListener('click', () => {
-    localStorage.setItem(storageKey, JSON.stringify(bank));
+    localStorage.setItem(draftKey(sectionId), JSON.stringify(currentBank()));
     setStatus(`草稿已保存：${new Date().toLocaleTimeString()}`);
   });
 
   root.querySelector('#resetQuestion').addEventListener('click', () => {
     const nodeId = currentNodeId();
-    bank.questions = bank.questions.map(question => question.node_id === nodeId ? clone(originalById.get(question.id)) : question);
-    localStorage.setItem(storageKey, JSON.stringify(bank));
+    currentBank().questions = currentBank().questions.map(question => question.node_id === nodeId ? clone(originalById.get(question.id)) : question);
+    localStorage.setItem(draftKey(sectionId), JSON.stringify(currentBank()));
     setStatus(`${nodeId} 已恢复为初始题目。`);
     render();
   });
 
   root.querySelector('#copyQuestionBank').addEventListener('click', async () => {
-    await navigator.clipboard.writeText(JSON.stringify(bank, null, 2));
+    await navigator.clipboard.writeText(JSON.stringify(currentBank(), null, 2));
     setStatus('完整题库 JSON 已复制。');
   });
 
@@ -307,9 +368,9 @@
       setStatus('当前没有需要提交的修改。');
       return;
     }
-    const prompt = `这是我对《碰撞与π》A板块题库的修改，共 ${changes.length} 道：\n\n${JSON.stringify(changes, null, 2)}\n\n请校验结构和答案后写回正式题库。`;
+    const prompt = `这是我对《碰撞与π》${sectionId}板块题库的修改，共 ${changes.length} 道：\n\n${JSON.stringify(changes, null, 2)}\n\n请校验结构和答案后写回正式题库。`;
     if (window.openai?.sendFollowUpMessage) {
-      await window.openai.sendFollowUpMessage({ title: '提交A板块题库修改', prompt });
+      await window.openai.sendFollowUpMessage({ title: `提交${sectionId}板块题库修改`, prompt });
       setStatus(`已提交 ${changes.length} 道修改。`);
     } else {
       await navigator.clipboard.writeText(prompt);
@@ -317,6 +378,7 @@
     }
   });
 
+  activateSection(sectionId);
   render();
 })();
 </script>

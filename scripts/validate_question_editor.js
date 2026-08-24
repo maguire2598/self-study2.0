@@ -6,13 +6,33 @@ const editorPath = path.join(root, 'authoring', 'collision-pi-question-editor.ht
 const source = fs.readFileSync(editorPath, 'utf8');
 const scripts = [...source.matchAll(/<script(?: [^>]*)?>([\s\S]*?)<\/script>/g)];
 
+if (!source.startsWith('<meta charset="utf-8">')) {
+  throw new Error('editor must declare UTF-8 before its Chinese content');
+}
+
 if (scripts.length < 2) {
   throw new Error(`expected embedded data and application scripts, found ${scripts.length}`);
 }
 
-const bank = JSON.parse(scripts[0][1]);
-if (bank.questions.length !== 140) {
-  throw new Error(`expected 140 questions, found ${bank.questions.length}`);
+const banks = JSON.parse(scripts[0][1]);
+if (banks.A.questions.length !== 140 || banks.B.questions.length !== 168) {
+  throw new Error('expected A=140 and B=168 questions');
+}
+
+if (!source.includes('id="questionSectionFilter"')) {
+  throw new Error('section filter is missing');
+}
+
+if (!source.includes("new Option('全部知识点', 'all')")) {
+  throw new Error('node filter must allow cross-node scenario filtering');
+}
+
+if (!source.includes('get("section")')) {
+  throw new Error('section=B URL handling is missing');
+}
+
+if (!source.includes('collision-pi-question-editor:${sectionId}:draft-v1')) {
+  throw new Error('section-qualified draft key is missing');
 }
 
 if (!source.includes('id="questionScenarioFilter"')) {
@@ -24,4 +44,4 @@ if (!source.includes('question.scenario_id') || !source.includes('question.quest
 }
 
 new Function(scripts.at(-1)[1]);
-console.log(`question editor validation OK: ${bank.questions.length} questions, ${scripts.length} script blocks`);
+console.log(`question editor validation OK: A=${banks.A.questions.length}, B=${banks.B.questions.length} questions, ${scripts.length} script blocks`);
