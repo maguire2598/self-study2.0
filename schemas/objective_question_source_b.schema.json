@@ -1,0 +1,330 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ObjectiveQuestionSourceB",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "course_id", "section_id", "version", "node_quotas", "source_catalog",
+    "calculation_fixtures", "scenarios", "standalone_questions"
+  ],
+  "properties": {
+    "$schema": {"const": "../../../schemas/objective_question_source_b.schema.json"},
+    "course_id": {"const": "collision-pi"},
+    "section_id": {"const": "B"},
+    "version": {"const": "1.0.0"},
+    "node_quotas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "B1.1", "B1.2", "B1.3", "B1.4", "B2.1", "B2.2", "B2.3", "B2.4",
+        "B3.1", "B3.2", "B3.3", "B3.4", "B3.5", "B4.1", "B4.2", "B4.3",
+        "B4.4", "B4.5", "B5.1", "B5.2", "B5.3", "B5.4"
+      ],
+      "properties": {
+        "B1.1": {"const": 6}, "B1.2": {"const": 6}, "B1.3": {"const": 6}, "B1.4": {"const": 6},
+        "B2.1": {"const": 8}, "B2.2": {"const": 10}, "B2.3": {"const": 8}, "B2.4": {"const": 6},
+        "B3.1": {"const": 6}, "B3.2": {"const": 8}, "B3.3": {"const": 8}, "B3.4": {"const": 10}, "B3.5": {"const": 6},
+        "B4.1": {"const": 10}, "B4.2": {"const": 12}, "B4.3": {"const": 10}, "B4.4": {"const": 8}, "B4.5": {"const": 6},
+        "B5.1": {"const": 8}, "B5.2": {"const": 8}, "B5.3": {"const": 8}, "B5.4": {"const": 4}
+      }
+    },
+    "source_catalog": {
+      "type": "array", "minItems": 5, "maxItems": 5, "uniqueItems": true,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/source"}, {"type": "object", "properties": {"id": {"const": "video-main"}}}]},
+        {"allOf": [{"$ref": "#/$defs/source"}, {"type": "object", "properties": {"id": {"const": "openstax-momentum"}}}]},
+        {"allOf": [{"$ref": "#/$defs/source"}, {"type": "object", "properties": {"id": {"const": "openstax-impulse"}}}]},
+        {"allOf": [{"$ref": "#/$defs/source"}, {"type": "object", "properties": {"id": {"const": "openstax-conservation"}}}]},
+        {"allOf": [{"$ref": "#/$defs/source"}, {"type": "object", "properties": {"id": {"const": "openstax-elastic"}}}]}
+      ],
+      "items": false
+    },
+    "calculation_fixtures": {
+      "type": "array", "minItems": 32, "maxItems": 32, "uniqueItems": true,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B1-MI-01"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B1-MI-02"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B1-MI-03"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B1-MI-04"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B1-EA-01"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B1-EA-02"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B1-EA-03"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B1-EA-04"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B3-EL-01"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B3-EL-02"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B3-EL-03"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B3-EL-04"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-01"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-02"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-03"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-04"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-05"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-06"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-07"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-08"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-09"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-10"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-11"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B4-EL-12"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B3-RE-01"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B3-RE-02"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B3-RE-03"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B3-RE-04"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B5-CH-01"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B5-CH-02"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B5-CH-03"}}}]},
+        {"allOf": [{"$ref": "#/$defs/calculationFixture"}, {"properties": {"id": {"const": "CAL-B5-CH-04"}}}]}
+      ],
+      "items": false
+    },
+    "scenarios": {
+      "type": "array", "minItems": 15, "maxItems": 15, "uniqueItems": true,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B1-RECORD"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B1-IMPULSE"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B1-ENERGY"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B2-BOUNDARY"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B2-CONSERVE"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B2-ELASTICITY"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B3-EQUATIONS"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B3-RELATIVE"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B3-RESTITUTION"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B4-SOLVE"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B4-RATIO"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B4-CHECK"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B5-CHAIN"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B5-TERMINAL"}}}]},
+        {"allOf": [{"$ref": "#/$defs/scenario"}, {"type": "object", "properties": {"id": {"const": "SC-B5-GEOMETRY"}}}]}
+      ],
+      "items": false
+    },
+    "standalone_questions": {
+      "type": "array", "minItems": 32, "maxItems": 32, "uniqueItems": true,
+      "items": {"$ref": "#/$defs/standaloneQuestion"}
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "location", "scope"],
+      "properties": {
+        "id": {"enum": ["video-main", "openstax-momentum", "openstax-impulse", "openstax-conservation", "openstax-elastic"]},
+        "location": {"enum": [
+          "sources/theory/弹性碰撞与π.txt",
+          "https://openstax.org/books/college-physics/pages/8-1-linear-momentum-and-force",
+          "https://openstax.org/books/college-physics/pages/8-2-impulse",
+          "https://openstax.org/books/college-physics/pages/8-3-conservation-of-momentum",
+          "https://openstax.org/books/college-physics/pages/8-4-elastic-collisions-in-one-dimension"
+        ]},
+        "scope": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {"if": {"properties": {"id": {"const": "video-main"}}, "required": ["id"]}, "then": {"properties": {"location": {"const": "sources/theory/弹性碰撞与π.txt"}}}},
+        {"if": {"properties": {"id": {"const": "openstax-momentum"}}, "required": ["id"]}, "then": {"properties": {"location": {"const": "https://openstax.org/books/college-physics/pages/8-1-linear-momentum-and-force"}}}},
+        {"if": {"properties": {"id": {"const": "openstax-impulse"}}, "required": ["id"]}, "then": {"properties": {"location": {"const": "https://openstax.org/books/college-physics/pages/8-2-impulse"}}}},
+        {"if": {"properties": {"id": {"const": "openstax-conservation"}}, "required": ["id"]}, "then": {"properties": {"location": {"const": "https://openstax.org/books/college-physics/pages/8-3-conservation-of-momentum"}}}},
+        {"if": {"properties": {"id": {"const": "openstax-elastic"}}, "required": ["id"]}, "then": {"properties": {"location": {"const": "https://openstax.org/books/college-physics/pages/8-4-elastic-collisions-in-one-dimension"}}}}
+      ]
+    },
+    "fixtureId": {"enum": [
+      "CAL-B1-MI-01", "CAL-B1-MI-02", "CAL-B1-MI-03", "CAL-B1-MI-04",
+      "CAL-B1-EA-01", "CAL-B1-EA-02", "CAL-B1-EA-03", "CAL-B1-EA-04",
+      "CAL-B3-EL-01", "CAL-B3-EL-02", "CAL-B3-EL-03", "CAL-B3-EL-04",
+      "CAL-B4-EL-01", "CAL-B4-EL-02", "CAL-B4-EL-03", "CAL-B4-EL-04",
+      "CAL-B4-EL-05", "CAL-B4-EL-06", "CAL-B4-EL-07", "CAL-B4-EL-08",
+      "CAL-B4-EL-09", "CAL-B4-EL-10", "CAL-B4-EL-11", "CAL-B4-EL-12",
+      "CAL-B3-RE-01", "CAL-B3-RE-02", "CAL-B3-RE-03", "CAL-B3-RE-04",
+      "CAL-B5-CH-01", "CAL-B5-CH-02", "CAL-B5-CH-03", "CAL-B5-CH-04"
+    ]},
+    "calculationFixture": {"oneOf": [
+      {"$ref": "#/$defs/momentumImpulseFixture"},
+      {"$ref": "#/$defs/energyAuditFixture"},
+      {"$ref": "#/$defs/elasticFixture"},
+      {"$ref": "#/$defs/restitutionFixture"},
+      {"$ref": "#/$defs/collisionChainFixture"}
+    ]},
+    "momentumImpulseFixture": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "node_id", "kind", "mass", "u", "v", "expected"],
+      "properties": {
+        "id": {"enum": ["CAL-B1-MI-01", "CAL-B1-MI-02", "CAL-B1-MI-03", "CAL-B1-MI-04"]},
+        "node_id": {"enum": ["B1.1", "B1.2", "B1.4", "B2.1", "B2.2", "B2.4"]},
+        "kind": {"const": "momentum_impulse"}, "mass": {"type": "number", "exclusiveMinimum": 0},
+        "u": {"type": "number"}, "v": {"type": "number"}, "expected": {"$ref": "#/$defs/momentumImpulseExpected"}
+      }
+    },
+    "momentumImpulseExpected": {
+      "type": "object", "additionalProperties": false,
+      "required": ["p_before", "p_after", "delta_p", "impulse"],
+      "properties": {"p_before": {"type": "number"}, "p_after": {"type": "number"}, "delta_p": {"type": "number"}, "impulse": {"type": "number"}}
+    },
+    "energyAuditFixture": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "node_id", "kind", "masses", "before", "after", "expected"],
+      "properties": {
+        "id": {"enum": ["CAL-B1-EA-01", "CAL-B1-EA-02", "CAL-B1-EA-03", "CAL-B1-EA-04"]},
+        "node_id": {"enum": ["B1.3", "B2.2", "B2.3"]}, "kind": {"const": "energy_audit"},
+        "masses": {"$ref": "#/$defs/twoPositiveNumbers"}, "before": {"$ref": "#/$defs/twoNumbers"},
+        "after": {"$ref": "#/$defs/twoNumbers"}, "expected": {"$ref": "#/$defs/energyAuditExpected"}
+      }
+    },
+    "energyAuditExpected": {
+      "type": "object", "additionalProperties": false,
+      "required": ["k_before", "k_after", "delta_k"],
+      "properties": {"k_before": {"type": "number", "minimum": 0}, "k_after": {"type": "number", "minimum": 0}, "delta_k": {"type": "number"}}
+    },
+    "elasticFixture": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "node_id", "kind", "m1", "m2", "u1", "u2", "expected"],
+      "properties": {
+        "id": {"enum": [
+          "CAL-B3-EL-01", "CAL-B3-EL-02", "CAL-B3-EL-03", "CAL-B3-EL-04",
+          "CAL-B4-EL-01", "CAL-B4-EL-02", "CAL-B4-EL-03", "CAL-B4-EL-04",
+          "CAL-B4-EL-05", "CAL-B4-EL-06", "CAL-B4-EL-07", "CAL-B4-EL-08",
+          "CAL-B4-EL-09", "CAL-B4-EL-10", "CAL-B4-EL-11", "CAL-B4-EL-12"
+        ]},
+        "node_id": {"enum": ["B3.1", "B3.2", "B3.3", "B3.4", "B4.1", "B4.2", "B4.3", "B4.4", "B4.5"]},
+        "kind": {"const": "elastic_1d"}, "m1": {"type": "number", "exclusiveMinimum": 0},
+        "m2": {"type": "number", "exclusiveMinimum": 0}, "u1": {"type": "number"}, "u2": {"type": "number"},
+        "expected": {"$ref": "#/$defs/velocityExpected"}
+      }
+    },
+    "restitutionFixture": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "node_id", "kind", "m1", "m2", "u1", "u2", "e", "expected"],
+      "properties": {
+        "id": {"enum": ["CAL-B3-RE-01", "CAL-B3-RE-02", "CAL-B3-RE-03", "CAL-B3-RE-04"]},
+        "node_id": {"const": "B3.5"}, "kind": {"const": "restitution_1d"},
+        "m1": {"type": "number", "exclusiveMinimum": 0}, "m2": {"type": "number", "exclusiveMinimum": 0},
+        "u1": {"type": "number"}, "u2": {"type": "number"}, "e": {"type": "number", "minimum": 0, "maximum": 1},
+        "expected": {"$ref": "#/$defs/velocityExpected"}
+      }
+    },
+    "velocityExpected": {
+      "type": "object", "additionalProperties": false, "required": ["v1", "v2"],
+      "properties": {"v1": {"type": "number"}, "v2": {"type": "number"}}
+    },
+    "collisionChainFixture": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "node_id", "kind", "masses", "initial", "events", "terminal"],
+      "properties": {
+        "id": {"enum": ["CAL-B5-CH-01", "CAL-B5-CH-02", "CAL-B5-CH-03", "CAL-B5-CH-04"]},
+        "node_id": {"enum": ["B5.1", "B5.2", "B5.3"]}, "kind": {"const": "collision_chain"},
+        "masses": {"$ref": "#/$defs/twoPositiveNumbers"}, "initial": {"$ref": "#/$defs/chainInitial"},
+        "events": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/chainEvent"}},
+        "terminal": {"$ref": "#/$defs/chainTerminal"}
+      }
+    },
+    "chainInitial": {
+      "type": "object", "additionalProperties": false, "required": ["velocities"],
+      "properties": {"velocities": {"$ref": "#/$defs/twoNumbers"}}
+    },
+    "chainEvent": {
+      "type": "object", "additionalProperties": false, "required": ["type", "expected_velocities"],
+      "properties": {
+        "type": {"enum": ["object_collision", "fixed_wall"]}, "object": {"type": "integer", "minimum": 0, "maximum": 1},
+        "expected_velocities": {"$ref": "#/$defs/twoNumbers"}
+      },
+      "allOf": [
+        {"if": {"properties": {"type": {"const": "fixed_wall"}}, "required": ["type"]}, "then": {"required": ["object"]}},
+        {"if": {"properties": {"type": {"const": "object_collision"}}, "required": ["type"]}, "then": {"not": {"required": ["object"]}}}
+      ]
+    },
+    "chainTerminal": {
+      "type": "object", "additionalProperties": false,
+      "required": ["positions", "left_object", "right_object", "expected"],
+      "properties": {
+        "positions": {"$ref": "#/$defs/twoNumbers"}, "left_object": {"type": "integer", "minimum": 0, "maximum": 1},
+        "right_object": {"type": "integer", "minimum": 0, "maximum": 1}, "expected": {"$ref": "#/$defs/chainTerminalExpected"}
+      }
+    },
+    "chainTerminalExpected": {
+      "type": "object", "additionalProperties": false, "required": ["gap", "closing_speed", "has_future_contact"],
+      "properties": {"gap": {"type": "number", "exclusiveMinimum": 0}, "closing_speed": {"type": "number"}, "has_future_contact": {"type": "boolean"}}
+    },
+    "twoNumbers": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+    "twoPositiveNumbers": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "exclusiveMinimum": 0}},
+    "option": {
+      "type": "object", "additionalProperties": false, "required": ["text", "correct"],
+      "properties": {"text": {"type": "string", "minLength": 1}, "correct": {"type": "boolean"}}
+    },
+    "blank": {
+      "type": "object", "additionalProperties": false, "required": ["id", "accepted_answers"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "accepted_answers": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "question": {
+      "type": "object", "additionalProperties": false,
+      "required": ["key", "node_id", "question_type", "question_style", "difficulty", "event_stage", "variant_axis", "explanation"],
+      "properties": {
+        "key": {"type": "string", "minLength": 1},
+        "node_id": {"enum": [
+          "B1.1", "B1.2", "B1.3", "B1.4", "B2.1", "B2.2", "B2.3", "B2.4",
+          "B3.1", "B3.2", "B3.3", "B3.4", "B3.5", "B4.1", "B4.2", "B4.3",
+          "B4.4", "B4.5", "B5.1", "B5.2", "B5.3", "B5.4"
+        ]},
+        "question_type": {"enum": ["single_choice", "multiple_choice", "multi_blank"]},
+        "question_style": {"enum": ["scenario", "calculation", "concise"]},
+        "difficulty": {"type": "integer", "minimum": 1, "maximum": 3},
+        "event_stage": {"enum": ["initial", "after_first_collision", "after_wall_collision", "after_second_collision", "terminal", "special_case", "extension_stage"]},
+        "variant_axis": {"enum": [
+          "mass_ratio", "initial_velocity", "friction", "elasticity", "incline", "spring",
+          "system_boundary", "counting", "direction", "observation", "model_assumption", "event_sequence",
+          "impulse", "energy", "conservation", "equation_setup", "solution_method", "restitution", "limit", "state_geometry"
+        ]},
+        "prompt": {"type": "string", "minLength": 1}, "ask": {"type": "string", "minLength": 1},
+        "options": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"$ref": "#/$defs/option"}},
+        "blanks": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/blank"}},
+        "calculation_fixture_id": {"$ref": "#/$defs/fixtureId"},
+        "explanation": {"type": "string", "minLength": 1}, "author_notes": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"question_type": {"const": "single_choice"}}, "required": ["question_type"]},
+          "then": {
+            "required": ["options"], "not": {"required": ["blanks"]},
+            "properties": {"options": {"contains": {"required": ["correct"], "properties": {"correct": {"const": true}}}, "minContains": 1, "maxContains": 1}}
+          }
+        },
+        {
+          "if": {"properties": {"question_type": {"const": "multiple_choice"}}, "required": ["question_type"]},
+          "then": {
+            "required": ["options"], "not": {"required": ["blanks"]},
+            "properties": {"options": {"contains": {"required": ["correct"], "properties": {"correct": {"const": true}}}, "minContains": 2, "maxContains": 2}}
+          }
+        },
+        {
+          "if": {"properties": {"question_type": {"const": "multi_blank"}}, "required": ["question_type"]},
+          "then": {"required": ["blanks"], "not": {"required": ["options"]}}
+        },
+        {
+          "if": {"properties": {"question_style": {"const": "calculation"}}, "required": ["question_style"]},
+          "then": {"required": ["calculation_fixture_id"]}, "else": {"not": {"required": ["calculation_fixture_id"]}}
+        }
+      ]
+    },
+    "scenarioQuestion": {
+      "type": "object", "allOf": [{"$ref": "#/$defs/question"}], "required": ["ask"],
+      "not": {"required": ["prompt"]}, "properties": {"question_style": {"enum": ["scenario", "calculation"]}}
+    },
+    "standaloneQuestion": {
+      "type": "object", "allOf": [{"$ref": "#/$defs/question"}], "required": ["prompt"],
+      "not": {"required": ["ask"]}, "properties": {"question_style": {"const": "concise"}}
+    },
+    "scenario": {
+      "type": "object", "additionalProperties": false, "required": ["id", "context", "source_refs", "questions"],
+      "properties": {
+        "id": {"enum": [
+          "SC-B1-RECORD", "SC-B1-IMPULSE", "SC-B1-ENERGY", "SC-B2-BOUNDARY", "SC-B2-CONSERVE", "SC-B2-ELASTICITY",
+          "SC-B3-EQUATIONS", "SC-B3-RELATIVE", "SC-B3-RESTITUTION", "SC-B4-SOLVE", "SC-B4-RATIO", "SC-B4-CHECK",
+          "SC-B5-CHAIN", "SC-B5-TERMINAL", "SC-B5-GEOMETRY"
+        ]},
+        "context": {"type": "string", "minLength": 1},
+        "source_refs": {"type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": true, "items": {"enum": ["video-main", "openstax-momentum", "openstax-impulse", "openstax-conservation", "openstax-elastic"]}},
+        "questions": {"type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true, "items": {"$ref": "#/$defs/scenarioQuestion"}}
+      }
+    }
+  }
+}

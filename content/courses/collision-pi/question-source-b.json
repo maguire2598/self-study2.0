@@ -1,0 +1,139 @@
+{
+  "$schema": "../../../schemas/objective_question_source_b.schema.json",
+  "course_id": "collision-pi",
+  "section_id": "B",
+  "version": "1.0.0",
+  "node_quotas": {
+    "B1.1": 6, "B1.2": 6, "B1.3": 6, "B1.4": 6,
+    "B2.1": 8, "B2.2": 10, "B2.3": 8, "B2.4": 6,
+    "B3.1": 6, "B3.2": 8, "B3.3": 8, "B3.4": 10, "B3.5": 6,
+    "B4.1": 10, "B4.2": 12, "B4.3": 10, "B4.4": 8, "B4.5": 6,
+    "B5.1": 8, "B5.2": 8, "B5.3": 8, "B5.4": 4
+  },
+  "source_catalog": [
+    {"id":"video-main","location":"sources/theory/弹性碰撞与π.txt","scope":"课程主叙事、弹性碰撞方程、连续碰撞与速度状态图"},
+    {"id":"openstax-momentum","location":"https://openstax.org/books/college-physics/pages/8-1-linear-momentum-and-force","scope":"动量定义、方向和单位"},
+    {"id":"openstax-impulse","location":"https://openstax.org/books/college-physics/pages/8-2-impulse","scope":"冲量—动量定理和力—时间图像"},
+    {"id":"openstax-conservation","location":"https://openstax.org/books/college-physics/pages/8-3-conservation-of-momentum","scope":"系统边界、外力与总动量守恒条件"},
+    {"id":"openstax-elastic","location":"https://openstax.org/books/college-physics/pages/8-4-elastic-collisions-in-one-dimension","scope":"一维弹性碰撞的动量、动能约束和碰后速度"}
+  ],
+  "calculation_fixtures": [
+    {"id":"CAL-B1-MI-01","node_id":"B1.1","kind":"momentum_impulse","mass":2,"u":3,"v":-1,"expected":{"p_before":6,"p_after":-2,"delta_p":-8,"impulse":-8}},
+    {"id":"CAL-B1-MI-02","node_id":"B1.4","kind":"momentum_impulse","mass":1.5,"u":-2,"v":2,"expected":{"p_before":-3,"p_after":3,"delta_p":6,"impulse":6}},
+    {"id":"CAL-B1-MI-03","node_id":"B1.2","kind":"momentum_impulse","mass":0.5,"u":6,"v":-2,"expected":{"p_before":3,"p_after":-1,"delta_p":-4,"impulse":-4}},
+    {"id":"CAL-B1-MI-04","node_id":"B2.4","kind":"momentum_impulse","mass":4,"u":-1,"v":0.5,"expected":{"p_before":-4,"p_after":2,"delta_p":6,"impulse":6}},
+    {"id":"CAL-B1-EA-01","node_id":"B1.3","kind":"energy_audit","masses":[2,1],"before":[3,0],"after":[1,2],"expected":{"k_before":9,"k_after":3,"delta_k":-6}},
+    {"id":"CAL-B1-EA-02","node_id":"B2.2","kind":"energy_audit","masses":[1,1],"before":[3,-1],"after":[-1,3],"expected":{"k_before":5,"k_after":5,"delta_k":0}},
+    {"id":"CAL-B1-EA-03","node_id":"B2.2","kind":"energy_audit","masses":[2,2],"before":[2,0],"after":[1,1],"expected":{"k_before":4,"k_after":2,"delta_k":-2}},
+    {"id":"CAL-B1-EA-04","node_id":"B2.3","kind":"energy_audit","masses":[1,3],"before":[4,0],"after":[-2,2],"expected":{"k_before":8,"k_after":8,"delta_k":0}},
+    {"id":"CAL-B3-EL-01","node_id":"B3.2","kind":"elastic_1d","m1":1,"m2":1,"u1":3,"u2":0,"expected":{"v1":0,"v2":3}},
+    {"id":"CAL-B3-EL-02","node_id":"B3.3","kind":"elastic_1d","m1":1,"m2":1,"u1":2,"u2":-2,"expected":{"v1":-2,"v2":2}},
+    {"id":"CAL-B3-EL-03","node_id":"B3.2","kind":"elastic_1d","m1":1,"m2":3,"u1":5,"u2":1,"expected":{"v1":-1,"v2":3}},
+    {"id":"CAL-B3-EL-04","node_id":"B3.4","kind":"elastic_1d","m1":3,"m2":1,"u1":2,"u2":-2,"expected":{"v1":0,"v2":4}},
+    {"id":"CAL-B4-EL-01","node_id":"B4.1","kind":"elastic_1d","m1":1,"m2":3,"u1":4,"u2":0,"expected":{"v1":-2,"v2":2}},
+    {"id":"CAL-B4-EL-02","node_id":"B4.1","kind":"elastic_1d","m1":3,"m2":1,"u1":4,"u2":0,"expected":{"v1":2,"v2":6}},
+    {"id":"CAL-B4-EL-03","node_id":"B4.2","kind":"elastic_1d","m1":2,"m2":2,"u1":3,"u2":-1,"expected":{"v1":-1,"v2":3}},
+    {"id":"CAL-B4-EL-04","node_id":"B4.2","kind":"elastic_1d","m1":2,"m2":1,"u1":5,"u2":1,"expected":{"v1":2.3333333333333335,"v2":6.333333333333333}},
+    {"id":"CAL-B4-EL-05","node_id":"B4.2","kind":"elastic_1d","m1":1,"m2":2,"u1":6,"u2":0,"expected":{"v1":-2,"v2":4}},
+    {"id":"CAL-B4-EL-06","node_id":"B4.2","kind":"elastic_1d","m1":4,"m2":1,"u1":3,"u2":0,"expected":{"v1":1.8,"v2":4.8}},
+    {"id":"CAL-B4-EL-07","node_id":"B4.3","kind":"elastic_1d","m1":1,"m2":4,"u1":5,"u2":0,"expected":{"v1":-3,"v2":2}},
+    {"id":"CAL-B4-EL-08","node_id":"B4.3","kind":"elastic_1d","m1":4,"m2":1,"u1":2,"u2":-2,"expected":{"v1":0.4,"v2":4.4}},
+    {"id":"CAL-B4-EL-09","node_id":"B4.3","kind":"elastic_1d","m1":5,"m2":5,"u1":-3,"u2":2,"expected":{"v1":2,"v2":-3}},
+    {"id":"CAL-B4-EL-10","node_id":"B4.4","kind":"elastic_1d","m1":3,"m2":1,"u1":3,"u2":1,"expected":{"v1":2,"v2":4}},
+    {"id":"CAL-B4-EL-11","node_id":"B4.4","kind":"elastic_1d","m1":10,"m2":1,"u1":1,"u2":0,"expected":{"v1":0.8181818181818182,"v2":1.8181818181818181}},
+    {"id":"CAL-B4-EL-12","node_id":"B4.5","kind":"elastic_1d","m1":1,"m2":10,"u1":2,"u2":0,"expected":{"v1":-1.6363636363636365,"v2":0.36363636363636365}},
+    {"id":"CAL-B3-RE-01","node_id":"B3.5","kind":"restitution_1d","m1":1,"m2":1,"u1":4,"u2":0,"e":1,"expected":{"v1":0,"v2":4}},
+    {"id":"CAL-B3-RE-02","node_id":"B3.5","kind":"restitution_1d","m1":1,"m2":1,"u1":4,"u2":0,"e":0.5,"expected":{"v1":1,"v2":3}},
+    {"id":"CAL-B3-RE-03","node_id":"B3.5","kind":"restitution_1d","m1":1,"m2":1,"u1":4,"u2":0,"e":0,"expected":{"v1":2,"v2":2}},
+    {"id":"CAL-B3-RE-04","node_id":"B3.5","kind":"restitution_1d","m1":2,"m2":1,"u1":3,"u2":0,"e":0.5,"expected":{"v1":1.5,"v2":3}},
+    {"id":"CAL-B5-CH-01","node_id":"B5.1","kind":"collision_chain","masses":[3,1],"initial":{"velocities":[-1,0]},"events":[{"type":"object_collision","expected_velocities":[-0.5,-1.5]},{"type":"fixed_wall","object":1,"expected_velocities":[-0.5,1.5]},{"type":"object_collision","expected_velocities":[0.5,-1.5]}],"terminal":{"positions":[1,0],"left_object":1,"right_object":0,"expected":{"gap":1,"closing_speed":-2,"has_future_contact":false}}},
+    {"id":"CAL-B5-CH-02","node_id":"B5.2","kind":"collision_chain","masses":[1,1],"initial":{"velocities":[-2,0]},"events":[{"type":"object_collision","expected_velocities":[0,-2]},{"type":"fixed_wall","object":1,"expected_velocities":[0,2]}],"terminal":{"positions":[2,0],"left_object":1,"right_object":0,"expected":{"gap":2,"closing_speed":2,"has_future_contact":true}}},
+    {"id":"CAL-B5-CH-03","node_id":"B5.3","kind":"collision_chain","masses":[1,3],"initial":{"velocities":[-2,0]},"events":[{"type":"object_collision","expected_velocities":[1,-1]},{"type":"fixed_wall","object":1,"expected_velocities":[1,1]}],"terminal":{"positions":[2,0],"left_object":1,"right_object":0,"expected":{"gap":2,"closing_speed":0,"has_future_contact":false}}},
+    {"id":"CAL-B5-CH-04","node_id":"B5.3","kind":"collision_chain","masses":[3,1],"initial":{"velocities":[-2,0]},"events":[{"type":"object_collision","expected_velocities":[-1,-3]},{"type":"fixed_wall","object":1,"expected_velocities":[-1,3]},{"type":"object_collision","expected_velocities":[1,-3]},{"type":"fixed_wall","object":1,"expected_velocities":[1,3]},{"type":"object_collision","expected_velocities":[2,0]}],"terminal":{"positions":[2,0],"left_object":1,"right_object":0,"expected":{"gap":2,"closing_speed":-2,"has_future_contact":false}}}
+  ],
+  "scenarios": [
+    {
+      "id": "SC-B1-RECORD",
+      "context": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。表中的速度均为同一坐标系下的带符号速度。",
+      "source_refs": ["video-main", "openstax-momentum"],
+      "questions": [
+        {"key":"b1-1-record-01","node_id":"B1.1","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"after_first_collision","variant_axis":"direction","ask":"规定向右为正，A 车质量 2 kg，速度由 +3 m/s 变为 -1 m/s。填写 A 车碰前动量、碰后动量和动量变化，单位均为 kg·m/s。","blanks":[{"id":"p0","accepted_answers":["6","+6"]},{"id":"p1","accepted_answers":["-2"]},{"id":"dp","accepted_answers":["-8"]}],"calculation_fixture_id":"CAL-B1-MI-01","explanation":"按 p=mv，碰前 p=2×3=+6，碰后 p=2×(-1)=-2，所以 Δp=p后-p前=-8 kg·m/s。"},
+        {"key":"b1-1-record-02","node_id":"B1.1","question_type":"single_choice","question_style":"scenario","difficulty":1,"event_stage":"after_first_collision","variant_axis":"direction","ask":"规定向右为正，B 车质量 1 kg，碰后速度为 +4 m/s。B 车碰后动量是多少？","options":[{"text":"+4 kg·m/s","correct":true},{"text":"-4 kg·m/s","correct":false},{"text":"4 J","correct":false},{"text":"+1 kg·m/s","correct":false}],"explanation":"动量与速度同向，p_B=1×(+4)=+4 kg·m/s；J 是能量单位。"},
+        {"key":"b1-1-record-03","node_id":"B1.1","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"initial","variant_axis":"direction","ask":"规定向右为正，读取同一张测速表时，哪些记录方式正确？","options":[{"text":"向左运动的速度和动量都记负号","correct":true},{"text":"静止物体的动量为 0","correct":true},{"text":"动量只取大小，不记录方向","correct":false},{"text":"质量为正，所以动量不可能为负","correct":false}],"explanation":"一维动量 p=mv 带方向符号；静止时 v=0，因而 p=0。"},
+        {"key":"b1-1-record-04","node_id":"B1.1","question_type":"multi_blank","question_style":"scenario","difficulty":1,"event_stage":"initial","variant_axis":"direction","ask":"规定向右为正，一辆 3 kg 小车以 2 m/s 向左运动。它的速度记为____m/s，动量记为____kg·m/s。","blanks":[{"id":"v","accepted_answers":["-2"]},{"id":"p","accepted_answers":["-6"]}],"explanation":"向左速度为 -2 m/s，代入 p=mv 得 p=3×(-2)=-6 kg·m/s。"},
+        {"key":"b1-4-record-01","node_id":"B1.4","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"initial","variant_axis":"observation","ask":"以 A、B 两车为研究系统，碰前系统总动量是多少？","options":[{"text":"+6 kg·m/s","correct":true},{"text":"+3 kg·m/s","correct":false},{"text":"+4 kg·m/s","correct":false},{"text":"9 J","correct":false}],"explanation":"系统总动量是各车带符号动量之和：2×3+1×0=+6 kg·m/s。"},
+        {"key":"b1-4-record-02","node_id":"B1.4","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"observation","ask":"以 A、B 两车为研究系统，碰后系统总动量是多少？","options":[{"text":"+2 kg·m/s","correct":true},{"text":"+6 kg·m/s","correct":false},{"text":"-2 kg·m/s","correct":false},{"text":"+5 kg·m/s","correct":false}],"explanation":"碰后总动量为 2×(-1)+1×4=+2 kg·m/s；不能只取任一辆车的动量。"},
+        {"key":"b1-4-record-03","node_id":"B1.4","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"after_first_collision","variant_axis":"direction","ask":"规定向右为正，另一次记录中只把 1.5 kg 的 C 车作为系统，C 车速度由 -2 m/s 变为 +2 m/s。该单体系统碰前动量为____kg·m/s，碰后动量为____kg·m/s，变化量为____kg·m/s。","blanks":[{"id":"p0","accepted_answers":["-3"]},{"id":"p1","accepted_answers":["3","+3"]},{"id":"dp","accepted_answers":["6","+6"]}],"calculation_fixture_id":"CAL-B1-MI-02","explanation":"单体系统的总动量就是 C 车动量：-3 kg·m/s 变为 +3 kg·m/s，故 Δp=+6 kg·m/s。"},
+        {"key":"b1-4-record-04","node_id":"B1.4","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"system_boundary","ask":"比较单车动量与两车系统总动量时，哪些说法正确？","options":[{"text":"A 车动量改变不等于系统总动量必然改变","correct":true},{"text":"系统总动量要把系统内各车动量按符号相加","correct":true},{"text":"任一辆车动量守恒就等于两车总动量守恒","correct":false},{"text":"系统总动量等于各车动量大小之和","correct":false}],"explanation":"内部交换可使单车动量改变而系统总量不变；总动量必须做带符号的矢量和。"}
+      ]
+    },
+    {
+      "id": "SC-B1-IMPULSE",
+      "context": "力传感器研究一辆 0.5 kg 小车与弹簧挡板的短暂作用，规定向右为正。小车速度在 0.020 s 内由 +6 m/s 变为 -2 m/s，传感器曲线在该时间内的有向面积表示合力冲量。",
+      "source_refs": ["openstax-momentum", "openstax-impulse"],
+      "questions": [
+        {"key":"b1-2-impulse-01","node_id":"B1.2","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"after_first_collision","variant_axis":"impulse","ask":"小车质量 0.5 kg，规定向右为正，速度由 +6 m/s 变为 -2 m/s。填写碰前动量、碰后动量和挡板对小车的冲量，单位均为 kg·m/s 或 N·s。","blanks":[{"id":"p0","accepted_answers":["3","+3"]},{"id":"p1","accepted_answers":["-1"]},{"id":"i","accepted_answers":["-4"]}],"calculation_fixture_id":"CAL-B1-MI-03","explanation":"p前=0.5×6=+3，p后=0.5×(-2)=-1，冲量 I=Δp=-1-3=-4 N·s。"},
+        {"key":"b1-2-impulse-02","node_id":"B1.2","question_type":"single_choice","question_style":"scenario","difficulty":1,"event_stage":"after_first_collision","variant_axis":"direction","ask":"规定向右为正，传感器得到挡板对小车的冲量为 -4 N·s。该冲量方向怎样？","options":[{"text":"向左","correct":true},{"text":"向右","correct":false},{"text":"没有方向","correct":false},{"text":"先向右后向左且合冲量为零","correct":false}],"explanation":"冲量是矢量，负号表示方向与规定的正方向相反，即向左。"},
+        {"key":"b1-2-impulse-03","node_id":"B1.2","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"impulse","ask":"读取这段力—时间曲线时，哪些关系可以直接使用？","options":[{"text":"曲线有向面积等于合力冲量","correct":true},{"text":"合力冲量等于小车动量变化","correct":true},{"text":"曲线最高点等于总冲量","correct":false},{"text":"冲量等于碰后动量本身","correct":false}],"explanation":"力—时间图像的有向面积给出冲量，冲量—动量定理给出 I=Δp；峰值力不是面积。"},
+        {"key":"b1-2-impulse-04","node_id":"B1.2","question_type":"multi_blank","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"impulse","ask":"若同样的 -4 N·s 冲量均匀分布在更长的接触时间内，动量变化仍为____N·s，平均合力的大小会____。","blanks":[{"id":"i","accepted_answers":["-4"]},{"id":"force","accepted_answers":["减小","变小"]}],"explanation":"冲量固定时 Δp 固定；由 I=F平均Δt，作用时间增大使平均力大小减小。"}
+      ]
+    },
+    {
+      "id": "SC-B1-ENERGY",
+      "context": "两车在水平轨道上发生一次碰撞。A 车质量 2 kg、速度由 3 m/s 变为 1 m/s；B 车质量 1 kg、速度由 0 变为 2 m/s。这里只比较碰撞前后两车系统的平动动能，不把方向符号带入速率平方。",
+      "source_refs": ["video-main", "openstax-elastic"],
+      "questions": [
+        {"key":"b1-3-energy-01","node_id":"B1.3","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"after_first_collision","variant_axis":"energy","ask":"A、B 两车质量分别为 2 kg、1 kg，速度由 (3,0) m/s 变为 (1,2) m/s。填写系统碰前动能、碰后动能和 ΔK，单位为 J。","blanks":[{"id":"k0","accepted_answers":["9"]},{"id":"k1","accepted_answers":["3"]},{"id":"dk","accepted_answers":["-6"]}],"calculation_fixture_id":"CAL-B1-EA-01","explanation":"K前=½×2×3²=9 J，K后=½×2×1²+½×1×2²=3 J，因此 ΔK=-6 J。"},
+        {"key":"b1-3-energy-02","node_id":"B1.3","question_type":"single_choice","question_style":"scenario","difficulty":1,"event_stage":"initial","variant_axis":"energy","ask":"若某车向左运动，计算它的动能时应怎样处理速度？","options":[{"text":"先取速率，平方后动能仍为非负量","correct":true},{"text":"保留负号，使动能为负","correct":false},{"text":"只要向左，动能就记为零","correct":false},{"text":"用质量乘速度，不需要平方","correct":false}],"explanation":"动能 K=½mv²，速度平方消去方向符号，所以动能是非负标量。"},
+        {"key":"b1-3-energy-03","node_id":"B1.3","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"energy","ask":"两车系统平动动能减少 6 J 时，哪些能量去向在真实碰撞中可能出现？","options":[{"text":"物体形变和内能增加","correct":true},{"text":"产生声能","correct":true},{"text":"动量自动转化为能量","correct":false},{"text":"负方向运动产生负动能抵消","correct":false}],"explanation":"非弹性碰撞会把部分平动动能转化为形变、内能和声能；动量与能量是不同物理量。"},
+        {"key":"b1-3-energy-04","node_id":"B1.3","question_type":"multi_blank","question_style":"scenario","difficulty":1,"event_stage":"initial","variant_axis":"energy","ask":"质量不变时，速率从 2 m/s 变为 4 m/s，动能变为原来的____倍；若方向反转但速率不变，动能____。","blanks":[{"id":"ratio","accepted_answers":["4","四"]},{"id":"change","accepted_answers":["不变","保持不变"]}],"explanation":"动能与速率平方成正比，速率加倍使动能变为四倍；只反向不改变速率和动能。"}
+      ]
+    },
+    {
+      "id": "SC-B2-BOUNDARY",
+      "context": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。",
+      "source_refs": ["video-main", "openstax-impulse", "openstax-conservation"],
+      "questions": [
+        {"key":"b2-1-boundary-01","node_id":"B2.1","question_type":"single_choice","question_style":"scenario","difficulty":1,"event_stage":"initial","variant_axis":"system_boundary","ask":"只研究两滑块彼此碰撞时的总动量，最直接的系统边界是什么？","options":[{"text":"把两滑块一起选入系统","correct":true},{"text":"只选速度较大的滑块","correct":false},{"text":"只选固定墙","correct":false},{"text":"把碰撞前状态当作系统","correct":false}],"explanation":"系统是选定的一组物体；研究两滑块间的内部交换，应把两滑块一起纳入。"},
+        {"key":"b2-1-boundary-02","node_id":"B2.1","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"initial","variant_axis":"system_boundary","ask":"在使用守恒关系前，研究记录至少要明确哪些内容？","options":[{"text":"哪些物体属于系统","correct":true},{"text":"比较哪一段时间或哪次接触","correct":true},{"text":"先假定所有碰撞都完全弹性","correct":false},{"text":"只记录末态而省略初态","correct":false}],"explanation":"守恒判断依赖系统边界和研究时段；弹性必须由条件或数据确定，不能预设。"},
+        {"key":"b2-1-boundary-03","node_id":"B2.1","question_type":"multi_blank","question_style":"scenario","difficulty":2,"event_stage":"after_wall_collision","variant_axis":"system_boundary","ask":"研究左滑块撞固定墙时，若系统只选左滑块，墙的作用力属于____力；若把墙和地球也纳入，墙对滑块的力变为系统____力。","blanks":[{"id":"external","accepted_answers":["外","外力"]},{"id":"internal","accepted_answers":["内","内力"]}],"explanation":"同一个相互作用是否属于外力取决于系统边界；扩大系统后，墙与滑块之间的力成为内力。"},
+        {"key":"b2-1-boundary-04","node_id":"B2.1","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"after_wall_collision","variant_axis":"event_sequence","ask":"若把“滑块互撞的短暂阶段”和“滑块随后撞墙的阶段”合并研究，最容易漏掉什么？","options":[{"text":"墙在后一阶段给滑块系统的外冲量","correct":true},{"text":"滑块质量的正值","correct":false},{"text":"动能单位中的平方","correct":false},{"text":"直轨是一维的事实","correct":false}],"explanation":"跨过墙碰撞会把一个明显的外冲量纳入研究时段，不能仍套用仅适于滑块互撞短阶段的条件。"},
+        {"key":"b2-1-boundary-05","node_id":"B2.1","question_type":"multi_blank","question_style":"scenario","difficulty":1,"event_stage":"initial","variant_axis":"observation","ask":"一次守恒判断的记录卡应写“研究系统：____”和“研究时段：____”，再检查外界作用。","blanks":[{"id":"system","accepted_answers":["所选物体集合","选定物体集合","研究对象"]},{"id":"interval","accepted_answers":["明确的起止阶段","明确起止时刻","指定时间区间"]}],"explanation":"系统回答研究哪些物体，时段回答比较哪两个状态；两者共同决定哪些作用是外界作用。"},
+        {"key":"b2-1-boundary-06","node_id":"B2.1","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"after_wall_collision","variant_axis":"system_boundary","ask":"同一条实验记录可针对不同问题重选系统。哪些选择与问题匹配？","options":[{"text":"研究两滑块交换动量时选两滑块系统","correct":true},{"text":"研究墙的反冲时把墙和地球纳入系统","correct":true},{"text":"研究左滑块受墙冲量时只选右滑块","correct":false},{"text":"研究碰撞阶段时把时间区间选为实验全天","correct":false}],"explanation":"系统边界和时间区间都要围绕研究问题选择；无关物体或过宽时段会掩盖关键作用。"},
+        {"key":"b2-4-boundary-01","node_id":"B2.4","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"after_wall_collision","variant_axis":"direction","ask":"规定向右为正，4 kg 滑块撞墙时速度由 -1 m/s 变为 +0.5 m/s。填写碰前动量、碰后动量和墙对滑块的冲量，单位为 kg·m/s 或 N·s。","blanks":[{"id":"p0","accepted_answers":["-4"]},{"id":"p1","accepted_answers":["2","+2"]},{"id":"i","accepted_answers":["6","+6"]}],"calculation_fixture_id":"CAL-B1-MI-04","explanation":"p前=-4，p后=+2，墙对滑块的冲量 I=Δp=+2-(-4)=+6 N·s。"},
+        {"key":"b2-4-boundary-02","node_id":"B2.4","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"after_wall_collision","variant_axis":"system_boundary","ask":"以左滑块单独为系统，研究从撞墙接触开始到离墙结束的阶段，其动量为何不守恒？","options":[{"text":"固定墙对该系统有不可忽略的外冲量","correct":true},{"text":"滑块速度出现负号","correct":false},{"text":"滑块动能一定守恒","correct":false},{"text":"墙的质量没有写在滑块公式里","correct":false}],"explanation":"墙不在单滑块系统内，墙力产生外冲量并改变滑块动量；速度符号只是方向记录。"},
+        {"key":"b2-4-boundary-03","node_id":"B2.4","question_type":"multiple_choice","question_style":"scenario","difficulty":3,"event_stage":"after_wall_collision","variant_axis":"conservation","ask":"选取滑块—墙—地球组成的系统，研究从墙接触开始到离墙结束的阶段。哪些判断合理？","options":[{"text":"墙与滑块的作用成为系统内相互作用","correct":true},{"text":"足够忽略系统外冲量时总动量可守恒","correct":true},{"text":"滑块自身动量因此保持不变","correct":false},{"text":"固定墙完全不接收任何动量","correct":false}],"explanation":"扩大系统可把墙的冲量交换纳入内部；守恒的是扩大后系统总动量，不是滑块单体动量。"},
+        {"key":"b2-4-boundary-04","node_id":"B2.4","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"terminal","variant_axis":"friction","ask":"若把研究时段延长到碰撞后滑块在粗糙轨道上滑行并停下，两滑块系统最需要新增考虑什么？","options":[{"text":"轨道摩擦的外冲量和机械能耗散","correct":true},{"text":"把所有速度符号改为正","correct":false},{"text":"动量和动能始终同时守恒","correct":false},{"text":"只保留碰撞瞬间的初态","correct":false}],"explanation":"长时段内摩擦不可忽略，它给滑块系统外冲量并把机械能转化为内能。"}
+      ]
+    },
+    {
+      "id": "SC-B2-CONSERVE",
+      "context": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。",
+      "source_refs": ["openstax-impulse", "openstax-conservation", "openstax-elastic"],
+      "questions": [
+        {"key":"b2-2-conserve-01","node_id":"B2.2","question_type":"single_choice","question_style":"scenario","difficulty":1,"event_stage":"after_first_collision","variant_axis":"conservation","ask":"选取两滑块组成的系统，研究从接触开始到分离结束的阶段。水平外冲量可忽略时，哪一关系成立？","options":[{"text":"两车碰前总动量等于碰后总动量","correct":true},{"text":"每辆车的动量各自不变","correct":false},{"text":"两车碰后速度必定相同","correct":false},{"text":"系统总动能必定不变","correct":false}],"explanation":"外冲量可忽略给出系统总动量守恒；内部交换仍可改变每辆车动量，也不能单独推出动能条件。"},
+        {"key":"b2-2-conserve-02","node_id":"B2.2","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"impulse","ask":"两车相互作用期间，哪些冲量关系解释了系统总动量不因内力改变？","options":[{"text":"A 对 B 的冲量与 B 对 A 的冲量等大反向","correct":true},{"text":"两车动量变化量之和为零","correct":true},{"text":"每辆车受到的冲量都为零","correct":false},{"text":"两车动量变化量方向必定相同","correct":false}],"explanation":"成对内力在同一作用时间内给出等大反向冲量，所以 Δp_A+Δp_B=0，而单车冲量一般不为零。"},
+        {"key":"b2-2-conserve-03","node_id":"B2.2","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"after_first_collision","variant_axis":"conservation","ask":"选取两个 1 kg 滑块组成的系统，研究从接触开始到分离结束的阶段，水平外冲量可忽略。速度由 (+3,-1) m/s 变为 (-1,+3) m/s。填写碰前、碰后总动能，单位为 J。","blanks":[{"id":"k0","accepted_answers":["5"]},{"id":"k1","accepted_answers":["5"]}],"calculation_fixture_id":"CAL-B1-EA-02","explanation":"两状态总动能均为 ½×1×3²+½×1×1²=5 J；本组数据同时与总动量守恒和完全弹性相容。"},
+        {"key":"b2-2-conserve-04","node_id":"B2.2","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"after_first_collision","variant_axis":"conservation","ask":"选取两个 2 kg 滑块组成的系统，研究从接触开始到分离结束的阶段，水平外冲量可忽略。速度由 (+2,0) m/s 变为 (+1,+1) m/s。填写碰前、碰后总动能及变化量，单位为 J。","blanks":[{"id":"k0","accepted_answers":["4"]},{"id":"k1","accepted_answers":["2"]},{"id":"dk","accepted_answers":["-2"]}],"calculation_fixture_id":"CAL-B1-EA-03","explanation":"总动量碰前后均为 +4 kg·m/s，但总动能从 4 J 降至 2 J；动量守恒不能推出动能守恒。"},
+        {"key":"b2-2-conserve-05","node_id":"B2.2","question_type":"multi_blank","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"conservation","ask":"选取两滑块组成的系统，研究从接触开始到分离结束的阶段。若系统所受水平外冲量为 J外，则总动量变化 ΔP系统=____；当 J外可忽略时，ΔP系统≈____。","blanks":[{"id":"relation","accepted_answers":["J外","外冲量"]},{"id":"zero","accepted_answers":["0","零"]}],"explanation":"冲量—动量定理用于整个系统时给出 ΔP系统=J外；外冲量可忽略才得到总动量近似不变。"},
+        {"key":"b2-2-conserve-06","node_id":"B2.2","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"system_boundary","ask":"若改为只选 A 车作为系统，B 车对 A 车的作用在碰撞阶段属于什么？","options":[{"text":"外力作用，其冲量可改变 A 车动量","correct":true},{"text":"内力作用，A 车动量必定不变","correct":false},{"text":"不属于任何力，因为 B 车也在运动","correct":false},{"text":"只改变 A 车动能而不改变动量","correct":false}],"explanation":"B 车在单 A 车系统之外，因此 B 对 A 的碰撞力是外力，可使 A 的动量改变。"},
+        {"key":"b2-2-conserve-07","node_id":"B2.2","question_type":"multiple_choice","question_style":"scenario","difficulty":3,"event_stage":"after_first_collision","variant_axis":"conservation","ask":"选取两滑块组成的系统，研究从接触开始到分离结束的阶段。哪些变化会使“总动量守恒”需要重新检查？","options":[{"text":"轨道在碰撞时给出不可忽略的水平摩擦冲量","correct":true},{"text":"一辆车碰撞期间同时受到外部推杆冲量","correct":true},{"text":"两车之间内力随时间变化","correct":false},{"text":"两车质量不相等","correct":false}],"explanation":"守恒条件取决于系统外冲量；内力即使变力也成对抵消，质量不等不破坏总动量守恒。"},
+        {"key":"b2-2-conserve-08","node_id":"B2.2","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"conservation","ask":"选取两滑块组成的系统，研究从接触开始到分离结束的阶段。测得碰前总动量 +4 kg·m/s、碰后 +3.6 kg·m/s，最直接的结论是什么？","options":[{"text":"该时段存在 -0.4 N·s 的系统外冲量或测量误差需查明","correct":true},{"text":"两车间内冲量没有成对出现","correct":false},{"text":"系统总动能一定增加 0.4 J","correct":false},{"text":"只要碰撞短暂就可忽略这项差异","correct":false}],"explanation":"ΔP=3.6-4.0=-0.4 kg·m/s，对应系统外冲量或实验误差；不能用内力破坏系统总动量。"}
+      ]
+    },
+    {
+      "id": "SC-B2-ELASTICITY",
+      "context": "实验员选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段，水平外冲量可忽略。一次记录中质量为 1 kg 和 3 kg 的滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s；另有橡皮泥滑块碰后粘在一起。",
+      "source_refs": ["openstax-conservation", "openstax-elastic"],
+      "questions": [
+        {"key":"b2-3-elasticity-01","node_id":"B2.3","question_type":"multi_blank","question_style":"calculation","difficulty":2,"event_stage":"after_first_collision","variant_axis":"energy","ask":"质量为 1 kg 和 3 kg 的两滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s。填写碰前、碰后系统总动能和变化量，单位为 J。","blanks":[{"id":"k0","accepted_answers":["8"]},{"id":"k1","accepted_answers":["8"]},{"id":"dk","accepted_answers":["0"]}],"calculation_fixture_id":"CAL-B1-EA-04","explanation":"K前=½×1×4²=8 J，K后=½×1×(-2)²+½×3×2²=8 J，故总动能变化为 0。"},
+        {"key":"b2-3-elasticity-02","node_id":"B2.3","question_type":"multiple_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"elasticity","ask":"要把这次两滑块碰撞判为完全弹性，记录应同时支持哪些条件？","options":[{"text":"两滑块系统总动量碰前后相等","correct":true},{"text":"两滑块系统总动能碰前后相等","correct":true},{"text":"每辆滑块动量各自不变","correct":false},{"text":"碰后两车必须粘在一起","correct":false}],"explanation":"完全弹性碰撞在适用的封闭系统内同时保持总动量和总动能；单车动量一般改变。"},
+        {"key":"b2-3-elasticity-03","node_id":"B2.3","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"elasticity","ask":"橡皮泥滑块碰后粘在一起，且两滑块系统水平外冲量可忽略。哪项判断正确？","options":[{"text":"总动量守恒，但平动动能通常减少","correct":true},{"text":"总动量和总动能都必定守恒","correct":false},{"text":"总动量不守恒，因为两者同速","correct":false},{"text":"减少的动能变成负动量","correct":false}],"explanation":"完全非弹性碰撞仍可满足系统总动量守恒，但部分平动动能转化为形变和内能。"},
+        {"key":"b2-3-elasticity-04","node_id":"B2.3","question_type":"multi_blank","question_style":"scenario","difficulty":1,"event_stage":"after_first_collision","variant_axis":"energy","ask":"非弹性碰撞中减少的平动动能可转化为物体的____能、声能和形变相关能量；系统总能量仍____。","blanks":[{"id":"internal","accepted_answers":["内","内能"]},{"id":"total","accepted_answers":["守恒","保持守恒"]}],"explanation":"平动动能不是所有能量；耗散过程把它转入内能、声能等形式，而总能量仍守恒。"},
+        {"key":"b2-3-elasticity-05","node_id":"B2.3","question_type":"single_choice","question_style":"scenario","difficulty":2,"event_stage":"after_first_collision","variant_axis":"conservation","ask":"选取两滑块组成的系统，研究从接触开始到分离结束的阶段。仅验证总动量守恒，能否据此断定碰撞完全弹性？","options":[{"text":"不能，还需检验系统总动能是否保持","correct":true},{"text":"能，总动量守恒就是完全弹性的定义","correct":false},{"text":"能，只要两车碰后分开","correct":false},{"text":"不能，因为完全弹性时动量反而不守恒","correct":false}],"explanation":"动量条件与弹性程度是两条独立约束；完全弹性还要求系统总动能守恒。"},
+        {"key":"b2-3-elasticity-06","node_id":"B2.3","question_type":"multiple_choice","question_style":"scenario","difficulty":3,"event_stage":"after_first_collision","variant_axis":"model_assumption","ask":"真实钢制小车碰撞被近似为完全弹性模型时，哪些做法合理？","options":[{"text":"比较碰前后总动能，确认损失相对很小","correct":true},{"text":"说明空气轨道和弹簧碰头使耗散可近似忽略","correct":true},{"text":"因为模型叫弹性就省略实验条件","correct":false},{"text":"把任何测量差异都解释成动量转化为能量","correct":false}],"explanation":"近似模型要由装置条件和数据误差范围支持；动量与能量不能互相转化来掩盖不一致。"}
+      ]
+    }
+  ],
+  "standalone_questions": []
+}
