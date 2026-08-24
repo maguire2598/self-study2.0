@@ -239,8 +239,8 @@
       }
     },
     "chainTerminalExpected": {
-      "type": "object", "additionalProperties": false, "required": ["gap", "closing_speed", "has_future_contact"],
-      "properties": {"gap": {"type": "number", "exclusiveMinimum": 0}, "closing_speed": {"type": "number"}, "has_future_contact": {"type": "boolean"}}
+      "type": "object", "additionalProperties": false, "required": ["gap", "closing_speed", "has_future_contact", "collision_count"],
+      "properties": {"gap": {"type": "number", "exclusiveMinimum": 0}, "closing_speed": {"type": "number"}, "has_future_contact": {"type": "boolean"}, "collision_count": {"type": "integer", "minimum": 1}}
     },
     "twoNumbers": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
     "twoPositiveNumbers": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "exclusiveMinimum": 0}},

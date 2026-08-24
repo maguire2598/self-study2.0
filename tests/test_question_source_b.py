@@ -307,7 +307,7 @@ class QuestionSourceBTests(unittest.TestCase):
         concise_ask["standalone_questions"][0]["ask"] = "不允许的字段"
         mutations.append(("concise ask", concise_ask))
         choice_blanks = copy.deepcopy(self.source)
-        choice_blanks["scenarios"][0]["questions"][0]["blanks"] = [
+        choice_blanks["scenarios"][0]["questions"][1]["blanks"] = [
             {"id": "x", "accepted_answers": ["x"]}
         ]
         mutations.append(("choice blanks", choice_blanks))
@@ -356,7 +356,7 @@ class QuestionSourceBTests(unittest.TestCase):
             for question in self.all_questions
             if question["question_style"] == "calculation"
         )
-        self.assertEqual(references, Counter(self.fixtures))
+        self.assertEqual(references, Counter(self.fixtures.keys()))
         for fixture in fixtures:
             self.assert_fixture_physics(fixture)
 
@@ -420,6 +420,16 @@ class QuestionSourceBTests(unittest.TestCase):
         self.assertAlmostEqual(terminal["expected"]["gap"], gap)
         self.assertAlmostEqual(terminal["expected"]["closing_speed"], closing_speed)
         self.assertEqual(terminal["expected"]["has_future_contact"], has_future_contact)
+        self.assertEqual(terminal["expected"]["collision_count"], len(fixture["events"]))
+
+    def test_chain_fixtures_derive_every_event_and_collision_count(self):
+        chain_fixtures = [
+            fixture for fixture in self.fixtures.values()
+            if fixture["kind"] == "collision_chain"
+        ]
+        self.assertEqual(len(chain_fixtures), 4)
+        for fixture in chain_fixtures:
+            self.assert_chain_states_match_event_updates(fixture)
 
     def test_b1_b2_checkpoint_content(self):
         selected = [
