@@ -1,10 +1,13 @@
 import copy
+import difflib
 import json
+import math
 import os
 import re
 import subprocess
 import unittest
 from collections import Counter
+from fractions import Fraction
 from pathlib import Path
 
 
@@ -70,13 +73,29 @@ OPTION_POSITION = re.compile(
     r"(?:第[一二三四](?:[、，和及与][一二三四])?项|"
     r"[前后][一二两三四](?:项|组|种状态)|第[一二三四]个选项|第[一二三四]种会)"
 )
-IRRELEVANT_DISTRACTORS = ("颜色", "编号", "字体", "质量都变为零", "时间停止")
+IRRELEVANT_OR_META_DISTRACTOR = re.compile(
+    r"(?:(?:答案.{0,3}选项|答案.{0,3}排列|选项.{0,3}排列)|颜色|字体|编号|轨道长度|"
+    r"(?:物体|小车|滑块).{0,4}命名|"
+    r"(?:质量|动能单位).{0,6}(?:正值|平方)|直轨.{0,4}一维|质量都变为零|时间停止)"
+)
 POSITIVE_DIRECTION = re.compile(r"(?:规定|取|以)向[左右]为正")
 SYSTEM_SELECTION = re.compile(r"(?:以|选取|选择).{0,24}(?:为|组成的)(?:研究)?系统")
 RESEARCH_INTERVAL = re.compile(
     r"(?:碰撞开始至碰撞结束|碰撞的短暂时间内|碰撞过程中|作用时间内|研究时段内|"
     r"从[^，。；]{1,24}到[^，。；]{1,24}(?:的)?(?:阶段|过程|时段|时间内))"
 )
+NEGLIGIBLE_EXTERNAL_IMPULSE = re.compile(
+    r"(?:水平)?(?:系统)?外冲量.{0,8}(?:可忽略|为零|近似为零)"
+)
+MAX_GROUPED_CONCISE_SIMILARITY = 0.53
+
+
+def semantic_question_text(question):
+    correct_payload = "".join(
+        option["text"] for option in question.get("options", []) if option["correct"]
+    ) + "".join(blank["accepted_answers"][0] for blank in question.get("blanks", []))
+    text = question.get("ask", question.get("prompt", "")) + question["explanation"] + correct_payload
+    return re.sub(r"[，。；：、？（）()_+\-×=·/\s\dA-Za-z]+", "", text)
 
 
 def validate_source_with_pwsh(source):
@@ -330,8 +349,25 @@ class QuestionSourceBTests(unittest.TestCase):
             for option in question.get("options", []):
                 if option["correct"]:
                     continue
-                for fragment in IRRELEVANT_DISTRACTORS:
-                    self.assertNotIn(fragment, option["text"], question["key"])
+                self.assertIsNone(
+                    IRRELEVANT_OR_META_DISTRACTOR.search(option["text"]),
+                    question["key"],
+                )
+
+    def test_grouped_and_concise_questions_are_not_rephrased_duplicates(self):
+        for grouped in self.scenario_questions:
+            grouped_text = semantic_question_text(grouped)
+            for concise in self.standalone:
+                if concise["node_id"] != grouped["node_id"]:
+                    continue
+                similarity = difflib.SequenceMatcher(
+                    None, grouped_text, semantic_question_text(concise)
+                ).ratio()
+                self.assertLess(
+                    similarity,
+                    MAX_GROUPED_CONCISE_SIMILARITY,
+                    f"{grouped['key']} / {concise['key']} = {similarity:.3f}",
+                )
 
     def test_direction_and_conservation_prompts_state_needed_conditions(self):
         scenario_context = {scenario["id"]: scenario["context"] for scenario in self.source["scenarios"]}
@@ -343,6 +379,12 @@ class QuestionSourceBTests(unittest.TestCase):
                 if question["variant_axis"] == "conservation":
                     self.assertRegex(text, SYSTEM_SELECTION, question["key"])
                     self.assertRegex(text, RESEARCH_INTERVAL, question["key"])
+                if question["question_style"] == "calculation":
+                    fixture = self.fixtures[question["calculation_fixture_id"]]
+                    if fixture["kind"] in {"elastic_1d", "restitution_1d"}:
+                        self.assertRegex(text, SYSTEM_SELECTION, question["key"])
+                        self.assertRegex(text, RESEARCH_INTERVAL, question["key"])
+                        self.assertRegex(text, NEGLIGIBLE_EXTERNAL_IMPULSE, question["key"])
         for question in self.standalone:
             text = question["prompt"]
             if question["variant_axis"] == "direction":
@@ -350,6 +392,31 @@ class QuestionSourceBTests(unittest.TestCase):
             if question["variant_axis"] == "conservation":
                 self.assertRegex(text, SYSTEM_SELECTION, question["key"])
                 self.assertRegex(text, RESEARCH_INTERVAL, question["key"])
+
+    def test_energy_conservation_with_sound_uses_an_energy_closed_system(self):
+        question = next(q for q in self.all_questions if q["key"] == "b2-3-elasticity-04")
+        text = question["ask"]
+        self.assertRegex(text, r"(?:选取|选择).{0,40}环境.{0,24}系统")
+        self.assertRegex(text, r"(?:系统外|更外界).{0,12}能量传递.{0,8}可忽略")
+
+    def test_b2_4_includes_a_movable_wall_system_boundary(self):
+        questions = [q for q in self.all_questions if q["node_id"] == "B2.4"]
+        movable_wall_questions = [
+            question
+            for question in questions
+            if "可移动" in question.get("ask", question.get("prompt", ""))
+        ]
+        self.assertTrue(movable_wall_questions)
+        text = " ".join(
+            question.get("ask", question.get("prompt", ""))
+            + " "
+            + question["explanation"]
+            + " "
+            + " ".join(option["text"] for option in question.get("options", []))
+            for question in movable_wall_questions
+        )
+        self.assertIn("反冲", text)
+        self.assertIn("系统", text)
 
     def test_fixture_kind_counts_references_and_physics(self):
         fixtures = list(self.fixtures.values())
@@ -363,6 +430,98 @@ class QuestionSourceBTests(unittest.TestCase):
         self.assertEqual(references, Counter(self.fixtures.keys()))
         for fixture in fixtures:
             self.assert_fixture_physics(fixture)
+
+    def test_every_calculation_accepts_answers_derived_from_its_fixture(self):
+        calculation_questions = [
+            question
+            for question in self.all_questions
+            if question["question_style"] == "calculation"
+        ]
+        self.assertEqual(len(calculation_questions), 32)
+        for question in calculation_questions:
+            self.assert_question_accepts_fixture_answers(question)
+
+        mutation = copy.deepcopy(
+            next(q for q in calculation_questions if q["key"] == "b4-2-solve-04")
+        )
+        mutation["blanks"][0]["accepted_answers"] = ["8/3"]
+        with self.assertRaises(AssertionError):
+            self.assert_question_accepts_fixture_answers(mutation)
+
+    def assert_question_accepts_fixture_answers(self, question):
+        fixture = self.fixtures[question["calculation_fixture_id"]]
+        canonical = self.canonical_fixture_answers(fixture)
+        for blank in question["blanks"]:
+            self.assertIn(blank["id"], canonical, question["key"])
+            expected = canonical[blank["id"]]
+            if isinstance(expected, str):
+                self.assertIn(expected, blank["accepted_answers"], question["key"])
+                continue
+            numeric_answers = []
+            for answer in blank["accepted_answers"]:
+                try:
+                    numeric_answers.append(float(Fraction(answer.removeprefix("+"))))
+                except (ValueError, ZeroDivisionError):
+                    continue
+            self.assertTrue(
+                any(math.isclose(actual, expected, rel_tol=1e-9, abs_tol=1e-9)
+                    for actual in numeric_answers),
+                f"{question['key']}:{blank['id']} expected {expected}",
+            )
+
+    def canonical_fixture_answers(self, fixture):
+        kind = fixture["kind"]
+        if kind == "momentum_impulse":
+            p0 = fixture["mass"] * fixture["u"]
+            p1 = fixture["mass"] * fixture["v"]
+            return {"p0": p0, "p1": p1, "dp": p1 - p0, "i": p1 - p0}
+        if kind == "energy_audit":
+            k0 = sum(0.5 * m * u ** 2 for m, u in zip(fixture["masses"], fixture["before"]))
+            k1 = sum(0.5 * m * v ** 2 for m, v in zip(fixture["masses"], fixture["after"]))
+            return {"k0": k0, "k1": k1, "dk": k1 - k0}
+        if kind in {"elastic_1d", "restitution_1d"}:
+            m1, m2 = fixture["m1"], fixture["m2"]
+            u1, u2 = fixture["u1"], fixture["u2"]
+            e = 1 if kind == "elastic_1d" else fixture["e"]
+            v1 = (m1 * u1 + m2 * u2 - m2 * e * (u1 - u2)) / (m1 + m2)
+            v2 = (m1 * u1 + m2 * u2 + m1 * e * (u1 - u2)) / (m1 + m2)
+            momentum = m1 * u1 + m2 * u2
+            return {
+                "v1": v1,
+                "v2": v2,
+                "relative": v2 - v1,
+                "p0": momentum,
+                "p1": m1 * v1 + m2 * v2,
+            }
+        if kind == "collision_chain":
+            velocities = list(fixture["initial"]["velocities"])
+            for event in fixture["events"]:
+                if event["type"] == "object_collision":
+                    m1, m2 = fixture["masses"]
+                    u1, u2 = velocities
+                    velocities = [
+                        ((m1 - m2) * u1 + 2 * m2 * u2) / (m1 + m2),
+                        (2 * m1 * u1 + (m2 - m1) * u2) / (m1 + m2),
+                    ]
+                else:
+                    velocities[event["object"]] = -velocities[event["object"]]
+            if velocities[1] < 0:
+                next_wall = 1 + sum(event["type"] == "fixed_wall" for event in fixture["events"])
+                next_event = f"小滑块第{'一二三四五'[next_wall - 1]}次撞墙"
+            elif fixture["terminal"]["expected"]["has_future_contact"]:
+                next_objects = 1 + sum(
+                    event["type"] == "object_collision" for event in fixture["events"]
+                )
+                next_event = f"第{'一二三四五'[next_objects - 1]}次物块碰撞"
+            else:
+                next_event = "终止"
+            return {
+                "vM": velocities[0],
+                "vm": velocities[1],
+                "next": next_event,
+                "count": len(fixture["events"]),
+            }
+        self.fail(f"unknown calculation kind: {kind}")
 
     def assert_fixture_physics(self, fixture):
         kind = fixture["kind"]
