@@ -1,0 +1,6846 @@
+{
+  "$schema": "../../../schemas/objective_question_bank.schema.json",
+  "course_id": "collision-pi",
+  "section_id": "B",
+  "title": "碰撞与π · B板块客观题库",
+  "version": "1.0.0",
+  "question_count_by_node": {
+    "B1.1": 6,
+    "B1.2": 6,
+    "B1.3": 6,
+    "B1.4": 6,
+    "B2.1": 8,
+    "B2.2": 10,
+    "B2.3": 8,
+    "B2.4": 6,
+    "B3.1": 6,
+    "B3.2": 8,
+    "B3.3": 8,
+    "B3.4": 10,
+    "B3.5": 6,
+    "B4.1": 10,
+    "B4.2": 12,
+    "B4.3": 10,
+    "B4.4": 8,
+    "B4.5": 6,
+    "B5.1": 8,
+    "B5.2": 8,
+    "B5.3": 8,
+    "B5.4": 4
+  },
+  "delivery_policy": {
+    "reveal_answer_after_wrong": false,
+    "wrong_answer_action": "error_followup_agent",
+    "correct_answer_actions": [
+      "next_question",
+      "error_followup_agent"
+    ]
+  },
+  "status_assessment": {
+    "enabled": false,
+    "note": "按当前产品决定暂缓设计和生成。"
+  },
+  "questions": [
+    {
+      "id": "cp-b1-1-b1-1-record-01",
+      "node_id": "B1.1",
+      "node_title": "动量 p=mv 与正负方向",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。碰撞时外部推杆也对系统施加水平冲量，因此本表不预设两车总动量守恒；速度均为同一坐标系下的带符号速度。\n\n规定向右为正，A 车质量 2 kg，速度由 +3 m/s 变为 -1 m/s。填写 A 车碰前动量、碰后动量和动量变化，单位均为 kg·m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "direction",
+      "explanation": "按 p=mv，碰前 p=2×3=+6，碰后 p=2×(-1)=-2，所以 Δp=p后-p前=-8 kg·m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-RECORD",
+      "source_refs": [
+        "video-main",
+        "openstax-momentum"
+      ],
+      "calculation_fixture_id": "CAL-B1-MI-01",
+      "blanks": [
+        {
+          "id": "p0",
+          "accepted_answers": [
+            "6",
+            "+6"
+          ]
+        },
+        {
+          "id": "p1",
+          "accepted_answers": [
+            "-2"
+          ]
+        },
+        {
+          "id": "dp",
+          "accepted_answers": [
+            "-8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b1-1-b1-1-record-02",
+      "node_id": "B1.1",
+      "node_title": "动量 p=mv 与正负方向",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。碰撞时外部推杆也对系统施加水平冲量，因此本表不预设两车总动量守恒；速度均为同一坐标系下的带符号速度。\n\n规定向右为正，B 车质量 1 kg，碰后速度为 +4 m/s。B 车碰后动量是多少？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "direction",
+      "explanation": "动量与速度同向，p_B=1×(+4)=+4 kg·m/s；J 是能量单位。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-RECORD",
+      "source_refs": [
+        "video-main",
+        "openstax-momentum"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "-4 kg·m/s"
+        },
+        {
+          "id": "B",
+          "text": "4 J"
+        },
+        {
+          "id": "C",
+          "text": "+1 kg·m/s"
+        },
+        {
+          "id": "D",
+          "text": "+4 kg·m/s"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b1-1-b1-1-record-03",
+      "node_id": "B1.1",
+      "node_title": "动量 p=mv 与正负方向",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。碰撞时外部推杆也对系统施加水平冲量，因此本表不预设两车总动量守恒；速度均为同一坐标系下的带符号速度。\n\n规定向右为正，读取同一张测速表时，哪些记录方式正确？",
+      "event_stage": "initial",
+      "variant_axis": "direction",
+      "explanation": "一维动量 p=mv 带方向符号；静止时 v=0，因而 p=0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-RECORD",
+      "source_refs": [
+        "video-main",
+        "openstax-momentum"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "动量只取大小，不记录方向"
+        },
+        {
+          "id": "B",
+          "text": "质量为正，所以动量不可能为负"
+        },
+        {
+          "id": "C",
+          "text": "向左运动的速度和动量都记负号"
+        },
+        {
+          "id": "D",
+          "text": "静止物体的动量为 0"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b1-1-b1-1-record-04",
+      "node_id": "B1.1",
+      "node_title": "动量 p=mv 与正负方向",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。碰撞时外部推杆也对系统施加水平冲量，因此本表不预设两车总动量守恒；速度均为同一坐标系下的带符号速度。\n\n规定向右为正，一辆 3 kg 小车以 2 m/s 向左运动。它的速度记为____m/s，动量记为____kg·m/s。",
+      "event_stage": "initial",
+      "variant_axis": "direction",
+      "explanation": "向左速度为 -2 m/s，代入 p=mv 得 p=3×(-2)=-6 kg·m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-RECORD",
+      "source_refs": [
+        "video-main",
+        "openstax-momentum"
+      ],
+      "blanks": [
+        {
+          "id": "v",
+          "accepted_answers": [
+            "-2"
+          ]
+        },
+        {
+          "id": "p",
+          "accepted_answers": [
+            "-6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b1-4-b1-4-record-01",
+      "node_id": "B1.4",
+      "node_title": "单体量与系统总量",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。碰撞时外部推杆也对系统施加水平冲量，因此本表不预设两车总动量守恒；速度均为同一坐标系下的带符号速度。\n\n以 A、B 两车为研究系统，碰前系统总动量是多少？",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "系统总动量是各车带符号动量之和：2×3+1×0=+6 kg·m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-RECORD",
+      "source_refs": [
+        "video-main",
+        "openstax-momentum"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "+6 kg·m/s"
+        },
+        {
+          "id": "B",
+          "text": "+3 kg·m/s"
+        },
+        {
+          "id": "C",
+          "text": "+4 kg·m/s"
+        },
+        {
+          "id": "D",
+          "text": "9 J"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b1-4-b1-4-record-02",
+      "node_id": "B1.4",
+      "node_title": "单体量与系统总量",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。碰撞时外部推杆也对系统施加水平冲量，因此本表不预设两车总动量守恒；速度均为同一坐标系下的带符号速度。\n\n以 A、B 两车为研究系统，碰后系统总动量是多少？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "observation",
+      "explanation": "碰后总动量为 2×(-1)+1×4=+2 kg·m/s；不能只取任一辆车的动量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-RECORD",
+      "source_refs": [
+        "video-main",
+        "openstax-momentum"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "+6 kg·m/s"
+        },
+        {
+          "id": "B",
+          "text": "-2 kg·m/s"
+        },
+        {
+          "id": "C",
+          "text": "+5 kg·m/s"
+        },
+        {
+          "id": "D",
+          "text": "+2 kg·m/s"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b1-4-b1-4-record-03",
+      "node_id": "B1.4",
+      "node_title": "单体量与系统总量",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。碰撞时外部推杆也对系统施加水平冲量，因此本表不预设两车总动量守恒；速度均为同一坐标系下的带符号速度。\n\n规定向右为正，另一次记录中只把 1.5 kg 的 C 车作为系统，C 车速度由 -2 m/s 变为 +2 m/s。该单体系统碰前动量为____kg·m/s，碰后动量为____kg·m/s，变化量为____kg·m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "direction",
+      "explanation": "单体系统的总动量就是 C 车动量：-3 kg·m/s 变为 +3 kg·m/s，故 Δp=+6 kg·m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-RECORD",
+      "source_refs": [
+        "video-main",
+        "openstax-momentum"
+      ],
+      "calculation_fixture_id": "CAL-B1-MI-02",
+      "blanks": [
+        {
+          "id": "p0",
+          "accepted_answers": [
+            "-3"
+          ]
+        },
+        {
+          "id": "p1",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        },
+        {
+          "id": "dp",
+          "accepted_answers": [
+            "6",
+            "+6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b1-4-b1-4-record-04",
+      "node_id": "B1.4",
+      "node_title": "单体量与系统总量",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "测速器记录光滑直轨上两车的瞬时状态，规定向右为正。A 车质量 2 kg，碰前速度 +3 m/s、碰后速度 -1 m/s；B 车质量 1 kg，碰前静止、碰后速度 +4 m/s。碰撞时外部推杆也对系统施加水平冲量，因此本表不预设两车总动量守恒；速度均为同一坐标系下的带符号速度。\n\n比较单车动量与两车系统总动量时，哪些说法正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "system_boundary",
+      "explanation": "内部交换可使单车动量改变而系统总量不变；总动量必须做带符号的矢量和。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-RECORD",
+      "source_refs": [
+        "video-main",
+        "openstax-momentum"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "系统总动量等于各车动量大小之和"
+        },
+        {
+          "id": "B",
+          "text": "A 车动量改变不等于系统总动量必然改变"
+        },
+        {
+          "id": "C",
+          "text": "系统总动量要把系统内各车动量按符号相加"
+        },
+        {
+          "id": "D",
+          "text": "任一辆车动量守恒就等于两车总动量守恒"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b1-2-b1-2-impulse-01",
+      "node_id": "B1.2",
+      "node_title": "冲量与动量变化 Δp",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "力传感器研究一辆 0.5 kg 小车与弹簧挡板的短暂作用，规定向右为正。小车速度在 0.020 s 内由 +6 m/s 变为 -2 m/s，传感器曲线在该时间内的有向面积表示合力冲量。\n\n小车质量 0.5 kg，规定向右为正，速度由 +6 m/s 变为 -2 m/s。填写碰前动量、碰后动量和挡板对小车的冲量，单位均为 kg·m/s 或 N·s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "impulse",
+      "explanation": "p前=0.5×6=+3，p后=0.5×(-2)=-1，冲量 I=Δp=-1-3=-4 N·s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-IMPULSE",
+      "source_refs": [
+        "openstax-momentum",
+        "openstax-impulse"
+      ],
+      "calculation_fixture_id": "CAL-B1-MI-03",
+      "blanks": [
+        {
+          "id": "p0",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        },
+        {
+          "id": "p1",
+          "accepted_answers": [
+            "-1"
+          ]
+        },
+        {
+          "id": "i",
+          "accepted_answers": [
+            "-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b1-2-b1-2-impulse-02",
+      "node_id": "B1.2",
+      "node_title": "冲量与动量变化 Δp",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "力传感器研究一辆 0.5 kg 小车与弹簧挡板的短暂作用，规定向右为正。小车速度在 0.020 s 内由 +6 m/s 变为 -2 m/s，传感器曲线在该时间内的有向面积表示合力冲量。\n\n规定向右为正，传感器得到挡板对小车的冲量为 -4 N·s。该冲量方向怎样？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "direction",
+      "explanation": "冲量是矢量，负号表示方向与规定的正方向相反，即向左。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-IMPULSE",
+      "source_refs": [
+        "openstax-momentum",
+        "openstax-impulse"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "向右"
+        },
+        {
+          "id": "B",
+          "text": "没有方向"
+        },
+        {
+          "id": "C",
+          "text": "先向右后向左且合冲量为零"
+        },
+        {
+          "id": "D",
+          "text": "向左"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b1-2-b1-2-impulse-03",
+      "node_id": "B1.2",
+      "node_title": "冲量与动量变化 Δp",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "力传感器研究一辆 0.5 kg 小车与弹簧挡板的短暂作用，规定向右为正。小车速度在 0.020 s 内由 +6 m/s 变为 -2 m/s，传感器曲线在该时间内的有向面积表示合力冲量。\n\n读取这段力—时间曲线时，哪些关系可以直接使用？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "impulse",
+      "explanation": "力—时间图像的有向面积给出冲量，冲量—动量定理给出 I=Δp；峰值力不是面积。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-IMPULSE",
+      "source_refs": [
+        "openstax-momentum",
+        "openstax-impulse"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "曲线最高点等于总冲量"
+        },
+        {
+          "id": "B",
+          "text": "冲量等于碰后动量本身"
+        },
+        {
+          "id": "C",
+          "text": "曲线有向面积等于合力冲量"
+        },
+        {
+          "id": "D",
+          "text": "合力冲量等于小车动量变化"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b1-2-b1-2-impulse-04",
+      "node_id": "B1.2",
+      "node_title": "冲量与动量变化 Δp",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "力传感器研究一辆 0.5 kg 小车与弹簧挡板的短暂作用，规定向右为正。小车速度在 0.020 s 内由 +6 m/s 变为 -2 m/s，传感器曲线在该时间内的有向面积表示合力冲量。\n\n若同样的 -4 N·s 冲量均匀分布在更长的接触时间内，动量变化仍为____N·s，平均合力的大小会____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "impulse",
+      "explanation": "冲量固定时 Δp 固定；由 I=F平均Δt，作用时间增大使平均力大小减小。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-IMPULSE",
+      "source_refs": [
+        "openstax-momentum",
+        "openstax-impulse"
+      ],
+      "blanks": [
+        {
+          "id": "i",
+          "accepted_answers": [
+            "-4"
+          ]
+        },
+        {
+          "id": "force",
+          "accepted_answers": [
+            "减小",
+            "变小"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b1-3-b1-3-energy-01",
+      "node_id": "B1.3",
+      "node_title": "动能 ½mv² 与能量转化",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在水平轨道上发生一次完全非弹性碰撞。A 车质量 2 kg、速度由 3 m/s 变为 2 m/s；B 车质量 1 kg、速度由 0 变为 2 m/s。碰撞短时段内水平外冲量可忽略；这里只比较碰撞前后两车系统的平动动能。\n\nA、B 两车质量分别为 2 kg、1 kg，速度由 (3,0) m/s 变为 (2,2) m/s。填写系统碰前动能、碰后动能和 ΔK，单位为 J。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "energy",
+      "explanation": "K前=½×2×3²=9 J，K后=½×2×2²+½×1×2²=6 J，因此 ΔK=-3 J；总动量碰前后均为 6 kg·m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-ENERGY",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B1-EA-01",
+      "blanks": [
+        {
+          "id": "k0",
+          "accepted_answers": [
+            "9"
+          ]
+        },
+        {
+          "id": "k1",
+          "accepted_answers": [
+            "6"
+          ]
+        },
+        {
+          "id": "dk",
+          "accepted_answers": [
+            "-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b1-3-b1-3-energy-02",
+      "node_id": "B1.3",
+      "node_title": "动能 ½mv² 与能量转化",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "两车在水平轨道上发生一次完全非弹性碰撞。A 车质量 2 kg、速度由 3 m/s 变为 2 m/s；B 车质量 1 kg、速度由 0 变为 2 m/s。碰撞短时段内水平外冲量可忽略；这里只比较碰撞前后两车系统的平动动能。\n\n若某车向左运动，计算它的动能时应怎样处理速度？",
+      "event_stage": "initial",
+      "variant_axis": "energy",
+      "explanation": "动能 K=½mv²，速度平方消去方向符号，所以动能是非负标量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-ENERGY",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "保留负号，使动能为负"
+        },
+        {
+          "id": "B",
+          "text": "只要向左，动能就记为零"
+        },
+        {
+          "id": "C",
+          "text": "用质量乘速度，不需要平方"
+        },
+        {
+          "id": "D",
+          "text": "先取速率，平方后动能仍为非负量"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b1-3-b1-3-energy-03",
+      "node_id": "B1.3",
+      "node_title": "动能 ½mv² 与能量转化",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在水平轨道上发生一次完全非弹性碰撞。A 车质量 2 kg、速度由 3 m/s 变为 2 m/s；B 车质量 1 kg、速度由 0 变为 2 m/s。碰撞短时段内水平外冲量可忽略；这里只比较碰撞前后两车系统的平动动能。\n\n两车系统平动动能减少 3 J 时，哪些能量去向在真实碰撞中可能出现？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "energy",
+      "explanation": "非弹性碰撞会把部分平动动能转化为形变、内能和声能；动量与能量是不同物理量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-ENERGY",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "动量自动转化为能量"
+        },
+        {
+          "id": "B",
+          "text": "负方向运动产生负动能抵消"
+        },
+        {
+          "id": "C",
+          "text": "物体形变和内能增加"
+        },
+        {
+          "id": "D",
+          "text": "产生声能"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b1-3-b1-3-energy-04",
+      "node_id": "B1.3",
+      "node_title": "动能 ½mv² 与能量转化",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "两车在水平轨道上发生一次完全非弹性碰撞。A 车质量 2 kg、速度由 3 m/s 变为 2 m/s；B 车质量 1 kg、速度由 0 变为 2 m/s。碰撞短时段内水平外冲量可忽略；这里只比较碰撞前后两车系统的平动动能。\n\n质量不变时，速率从 2 m/s 变为 4 m/s，动能变为原来的____倍；若方向反转但速率不变，动能____。",
+      "event_stage": "initial",
+      "variant_axis": "energy",
+      "explanation": "动能与速率平方成正比，速率加倍使动能变为四倍；只反向不改变速率和动能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B1-ENERGY",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "ratio",
+          "accepted_answers": [
+            "4",
+            "四"
+          ]
+        },
+        {
+          "id": "change",
+          "accepted_answers": [
+            "不变",
+            "保持不变"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-1-b2-1-boundary-01",
+      "node_id": "B2.1",
+      "node_title": "研究系统与时间区间",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n只研究两滑块彼此碰撞时的总动量，最直接的系统边界是什么？",
+      "event_stage": "initial",
+      "variant_axis": "system_boundary",
+      "explanation": "系统是选定的一组物体；研究两滑块间的内部交换，应把两滑块一起纳入。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "把两滑块一起选入系统"
+        },
+        {
+          "id": "B",
+          "text": "只选速度较大的滑块"
+        },
+        {
+          "id": "C",
+          "text": "只选固定墙"
+        },
+        {
+          "id": "D",
+          "text": "把碰撞前状态当作系统"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b2-1-b2-1-boundary-02",
+      "node_id": "B2.1",
+      "node_title": "研究系统与时间区间",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n在使用守恒关系前，研究记录至少要明确哪些内容？",
+      "event_stage": "initial",
+      "variant_axis": "system_boundary",
+      "explanation": "守恒判断依赖系统边界和研究时段；弹性必须由条件或数据确定，不能预设。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "比较哪一段时间或哪次接触"
+        },
+        {
+          "id": "B",
+          "text": "先假定所有碰撞都完全弹性"
+        },
+        {
+          "id": "C",
+          "text": "只记录末态而省略初态"
+        },
+        {
+          "id": "D",
+          "text": "哪些物体属于系统"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b2-1-b2-1-boundary-03",
+      "node_id": "B2.1",
+      "node_title": "研究系统与时间区间",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n研究左滑块撞固定墙时，若系统只选左滑块，墙的作用力属于____力；若把墙和地球也纳入，墙对滑块的力变为系统____力。",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "system_boundary",
+      "explanation": "同一个相互作用是否属于外力取决于系统边界；扩大系统后，墙与滑块之间的力成为内力。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "blanks": [
+        {
+          "id": "external",
+          "accepted_answers": [
+            "外",
+            "外力"
+          ]
+        },
+        {
+          "id": "internal",
+          "accepted_answers": [
+            "内",
+            "内力"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-1-b2-1-boundary-04",
+      "node_id": "B2.1",
+      "node_title": "研究系统与时间区间",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n若把“滑块互撞的短暂阶段”和“滑块随后撞墙的阶段”合并研究，最容易漏掉什么？",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "event_sequence",
+      "explanation": "跨过墙碰撞会把墙的外冲量纳入研究时段；两滑块内冲量成对抵消，速度负号只记录方向，完全弹性也不能消除外冲量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "误以为完全弹性条件允许忽略墙对系统的外冲量"
+        },
+        {
+          "id": "B",
+          "text": "墙在后一阶段给滑块系统的外冲量"
+        },
+        {
+          "id": "C",
+          "text": "误以为两滑块的内力冲量在互撞阶段没有抵消"
+        },
+        {
+          "id": "D",
+          "text": "误以为向左速度的负号会自动破坏系统动量守恒"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b2-1-b2-1-boundary-05",
+      "node_id": "B2.1",
+      "node_title": "研究系统与时间区间",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n一次守恒判断的记录卡应写“研究系统：____”和“研究时段：____”，再检查外界作用。",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "系统回答研究哪些物体，时段回答比较哪两个状态；两者共同决定哪些作用是外界作用。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "blanks": [
+        {
+          "id": "system",
+          "accepted_answers": [
+            "所选物体集合",
+            "选定物体集合",
+            "研究对象"
+          ]
+        },
+        {
+          "id": "interval",
+          "accepted_answers": [
+            "明确的起止阶段",
+            "明确起止时刻",
+            "指定时间区间"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-1-b2-1-boundary-06",
+      "node_id": "B2.1",
+      "node_title": "研究系统与时间区间",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n同一条实验记录可针对不同问题重选系统。哪些选择与问题匹配？",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "system_boundary",
+      "explanation": "系统边界和时间区间都要围绕研究问题选择；无关物体或过宽时段会掩盖关键作用。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "研究墙的反冲时把墙和地球纳入系统"
+        },
+        {
+          "id": "B",
+          "text": "研究左滑块受墙冲量时只选右滑块"
+        },
+        {
+          "id": "C",
+          "text": "研究碰撞阶段时把时间区间选为实验全天"
+        },
+        {
+          "id": "D",
+          "text": "研究两滑块交换动量时选两滑块系统"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b2-4-b2-4-boundary-01",
+      "node_id": "B2.4",
+      "node_title": "撞墙、摩擦和现实边界",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n规定向右为正，4 kg 滑块撞墙时速度由 -1 m/s 变为 +0.5 m/s。填写碰前动量、碰后动量和墙对滑块的冲量，单位为 kg·m/s 或 N·s。",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "direction",
+      "explanation": "p前=-4，p后=+2，墙对滑块的冲量 I=Δp=+2-(-4)=+6 N·s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "calculation_fixture_id": "CAL-B1-MI-04",
+      "blanks": [
+        {
+          "id": "p0",
+          "accepted_answers": [
+            "-4"
+          ]
+        },
+        {
+          "id": "p1",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        },
+        {
+          "id": "i",
+          "accepted_answers": [
+            "6",
+            "+6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-4-b2-4-boundary-02",
+      "node_id": "B2.4",
+      "node_title": "撞墙、摩擦和现实边界",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n把固定墙改成可在水平轨道上自由后退的可移动重挡板。选取滑块和挡板组成的系统，研究从接触开始到分离结束的阶段，水平外冲量可忽略。与只选滑块相比，哪项判断正确？",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "system_boundary",
+      "explanation": "可移动挡板会反冲并取得动量；把滑块和挡板都纳入系统后，两者间冲量属于内交换，只有在所述短时段内水平外冲量可忽略时系统总动量才可守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "只要挡板较重，就可把研究时段任意延长而不检查外冲量"
+        },
+        {
+          "id": "B",
+          "text": "挡板反冲被纳入系统，总动量可在该阶段守恒"
+        },
+        {
+          "id": "C",
+          "text": "挡板可移动，所以不会对滑块传递冲量"
+        },
+        {
+          "id": "D",
+          "text": "只需保留滑块动量，因为挡板动量始终为零"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b2-4-b2-4-boundary-03",
+      "node_id": "B2.4",
+      "node_title": "撞墙、摩擦和现实边界",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n选取滑块—墙—地球组成的系统，研究从墙接触开始到离墙结束的阶段。哪些判断合理？",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "conservation",
+      "explanation": "扩大系统可把墙的冲量交换纳入内部；守恒的是扩大后系统总动量，不是滑块单体动量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "墙与滑块的作用成为系统内相互作用"
+        },
+        {
+          "id": "B",
+          "text": "足够忽略系统外冲量时总动量可守恒"
+        },
+        {
+          "id": "C",
+          "text": "滑块自身动量因此保持不变"
+        },
+        {
+          "id": "D",
+          "text": "固定墙完全不接收任何动量"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b2-4-b2-4-boundary-04",
+      "node_id": "B2.4",
+      "node_title": "撞墙、摩擦和现实边界",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两滑块在水平轨道上先彼此碰撞，随后左侧滑块撞上固定墙。规定向右为正。研究员可选取两滑块组成的系统，也可扩大为滑块—墙—地球系统；每次研究时段都明确为从接触开始到接触结束的阶段。\n\n若把研究时段延长到碰撞后滑块在粗糙轨道上滑行并停下，两滑块系统最需要新增考虑什么？",
+      "event_stage": "terminal",
+      "variant_axis": "friction",
+      "explanation": "长时段内摩擦不可忽略，它给滑块系统外冲量并把机械能转化为内能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-BOUNDARY",
+      "source_refs": [
+        "video-main",
+        "openstax-impulse",
+        "openstax-conservation"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "把所有速度符号改为正"
+        },
+        {
+          "id": "B",
+          "text": "动量和动能始终同时守恒"
+        },
+        {
+          "id": "C",
+          "text": "只保留碰撞瞬间的初态"
+        },
+        {
+          "id": "D",
+          "text": "轨道摩擦的外冲量和机械能耗散"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-conserve-01",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。\n\n选取两滑块组成的系统，研究从接触开始到分离结束的阶段。水平外冲量可忽略时，哪一关系成立？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "外冲量可忽略给出系统总动量守恒；内部交换仍可改变每辆车动量，也不能单独推出动能条件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-CONSERVE",
+      "source_refs": [
+        "openstax-impulse",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "两车碰后速度必定相同"
+        },
+        {
+          "id": "B",
+          "text": "系统总动能必定不变"
+        },
+        {
+          "id": "C",
+          "text": "两车碰前总动量等于碰后总动量"
+        },
+        {
+          "id": "D",
+          "text": "每辆车的动量各自不变"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-conserve-02",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。\n\n两车相互作用期间，哪些冲量关系解释了系统总动量不因内力改变？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "impulse",
+      "explanation": "成对内力在同一作用时间内给出等大反向冲量，所以 Δp_A+Δp_B=0，而单车冲量一般不为零。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-CONSERVE",
+      "source_refs": [
+        "openstax-impulse",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "两车动量变化量方向必定相同"
+        },
+        {
+          "id": "B",
+          "text": "A 对 B 的冲量与 B 对 A 的冲量等大反向"
+        },
+        {
+          "id": "C",
+          "text": "两车动量变化量之和为零"
+        },
+        {
+          "id": "D",
+          "text": "每辆车受到的冲量都为零"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-conserve-03",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。\n\n选取两个 1 kg 滑块组成的系统，研究从接触开始到分离结束的阶段，水平外冲量可忽略。速度由 (+3,-1) m/s 变为 (-1,+3) m/s。填写碰前、碰后总动能，单位为 J。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "两状态总动能均为 ½×1×3²+½×1×1²=5 J；本组数据同时与总动量守恒和完全弹性相容。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-CONSERVE",
+      "source_refs": [
+        "openstax-impulse",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B1-EA-02",
+      "blanks": [
+        {
+          "id": "k0",
+          "accepted_answers": [
+            "5"
+          ]
+        },
+        {
+          "id": "k1",
+          "accepted_answers": [
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-conserve-04",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。\n\n选取两个 2 kg 滑块组成的系统，研究从接触开始到分离结束的阶段，水平外冲量可忽略。速度由 (+2,0) m/s 变为 (+1,+1) m/s。填写碰前、碰后总动能及变化量，单位为 J。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "总动量碰前后均为 +4 kg·m/s，但总动能从 4 J 降至 2 J；动量守恒不能推出动能守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-CONSERVE",
+      "source_refs": [
+        "openstax-impulse",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B1-EA-03",
+      "blanks": [
+        {
+          "id": "k0",
+          "accepted_answers": [
+            "4"
+          ]
+        },
+        {
+          "id": "k1",
+          "accepted_answers": [
+            "2"
+          ]
+        },
+        {
+          "id": "dk",
+          "accepted_answers": [
+            "-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-conserve-05",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。\n\n选取两滑块组成的系统，研究从接触开始到分离结束的阶段。若系统所受水平外冲量为 J外，则总动量变化 ΔP系统=____；当 J外可忽略时，ΔP系统≈____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "冲量—动量定理用于整个系统时给出 ΔP系统=J外；外冲量可忽略才得到总动量近似不变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-CONSERVE",
+      "source_refs": [
+        "openstax-impulse",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "relation",
+          "accepted_answers": [
+            "J外",
+            "外冲量"
+          ]
+        },
+        {
+          "id": "zero",
+          "accepted_answers": [
+            "0",
+            "零"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-conserve-06",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。\n\n若改为只选 A 车作为系统，B 车对 A 车的作用在碰撞阶段属于什么？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "system_boundary",
+      "explanation": "B 车在单 A 车系统之外，因此 B 对 A 的碰撞力是外力，可使 A 的动量改变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-CONSERVE",
+      "source_refs": [
+        "openstax-impulse",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "只改变 A 车动能而不改变动量"
+        },
+        {
+          "id": "B",
+          "text": "外力作用，其冲量可改变 A 车动量"
+        },
+        {
+          "id": "C",
+          "text": "内力作用，A 车动量必定不变"
+        },
+        {
+          "id": "D",
+          "text": "不属于任何力，因为 B 车也在运动"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-conserve-07",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。\n\n选取两滑块组成的系统，研究从接触开始到分离结束的阶段。哪些变化会使“总动量守恒”需要重新检查？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "守恒条件取决于系统外冲量；内力即使变力也成对抵消，质量不等不破坏总动量守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-CONSERVE",
+      "source_refs": [
+        "openstax-impulse",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "轨道在碰撞时给出不可忽略的水平摩擦冲量"
+        },
+        {
+          "id": "B",
+          "text": "一辆车碰撞期间同时受到外部推杆冲量"
+        },
+        {
+          "id": "C",
+          "text": "两车之间内力随时间变化"
+        },
+        {
+          "id": "D",
+          "text": "两车质量不相等"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-conserve-08",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "气垫轨道实验选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段。该短时段内水平外冲量可忽略，规定向右为正；两车相互作用力大小相等、方向相反且作用时间相同。\n\n选取两滑块组成的系统，研究从接触开始到分离结束的阶段。测得碰前总动量 +4 kg·m/s、碰后 +3.6 kg·m/s，最直接的结论是什么？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "ΔP=3.6-4.0=-0.4 kg·m/s，对应系统外冲量或实验误差；不能用内力破坏系统总动量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-CONSERVE",
+      "source_refs": [
+        "openstax-impulse",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "两车间内冲量没有成对出现"
+        },
+        {
+          "id": "B",
+          "text": "系统总动能一定增加 0.4 J"
+        },
+        {
+          "id": "C",
+          "text": "只要碰撞短暂就可忽略这项差异"
+        },
+        {
+          "id": "D",
+          "text": "该时段存在 -0.4 N·s 的系统外冲量或测量误差需查明"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b2-3-b2-3-elasticity-01",
+      "node_id": "B2.3",
+      "node_title": "弹性、非弹性与动能条件",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "实验员选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段，水平外冲量可忽略。一次记录中质量为 1 kg 和 3 kg 的滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s；另有橡皮泥滑块碰后粘在一起。\n\n质量为 1 kg 和 3 kg 的两滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s。填写碰前、碰后系统总动能和变化量，单位为 J。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "energy",
+      "explanation": "K前=½×1×4²=8 J，K后=½×1×(-2)²+½×3×2²=8 J，故总动能变化为 0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-ELASTICITY",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B1-EA-04",
+      "blanks": [
+        {
+          "id": "k0",
+          "accepted_answers": [
+            "8"
+          ]
+        },
+        {
+          "id": "k1",
+          "accepted_answers": [
+            "8"
+          ]
+        },
+        {
+          "id": "dk",
+          "accepted_answers": [
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-3-b2-3-elasticity-02",
+      "node_id": "B2.3",
+      "node_title": "弹性、非弹性与动能条件",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "实验员选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段，水平外冲量可忽略。一次记录中质量为 1 kg 和 3 kg 的滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s；另有橡皮泥滑块碰后粘在一起。\n\n要把这次两滑块碰撞判为完全弹性，记录应同时支持哪些条件？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "elasticity",
+      "explanation": "完全弹性碰撞在适用的封闭系统内同时保持总动量和总动能；单车动量一般改变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-ELASTICITY",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "碰后两车必须粘在一起"
+        },
+        {
+          "id": "B",
+          "text": "两滑块系统总动量碰前后相等"
+        },
+        {
+          "id": "C",
+          "text": "两滑块系统总动能碰前后相等"
+        },
+        {
+          "id": "D",
+          "text": "每辆滑块动量各自不变"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b2-3-b2-3-elasticity-03",
+      "node_id": "B2.3",
+      "node_title": "弹性、非弹性与动能条件",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "实验员选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段，水平外冲量可忽略。一次记录中质量为 1 kg 和 3 kg 的滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s；另有橡皮泥滑块碰后粘在一起。\n\n橡皮泥滑块碰后粘在一起，且两滑块系统水平外冲量可忽略。哪项判断正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "elasticity",
+      "explanation": "完全非弹性碰撞仍可满足系统总动量守恒，但部分平动动能转化为形变和内能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-ELASTICITY",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "总动量守恒，但平动动能通常减少"
+        },
+        {
+          "id": "B",
+          "text": "总动量和总动能都必定守恒"
+        },
+        {
+          "id": "C",
+          "text": "总动量不守恒，因为两者同速"
+        },
+        {
+          "id": "D",
+          "text": "减少的动能变成负动量"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b2-3-b2-3-elasticity-04",
+      "node_id": "B2.3",
+      "node_title": "弹性、非弹性与动能条件",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "实验员选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段，水平外冲量可忽略。一次记录中质量为 1 kg 和 3 kg 的滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s；另有橡皮泥滑块碰后粘在一起。\n\n选取两滑块及传递声音的周围环境组成的系统，研究碰撞开始到声音衰减的阶段，且系统与更外界的能量传递可忽略。减少的平动动能可转化为物体的____能、声能和形变相关能量；系统总能量仍____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "energy",
+      "explanation": "把接收声能的环境纳入系统并说明与更外界的能量传递可忽略后，平动动能可转入内能、声能和形变相关能量，而扩大系统的总能量守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-ELASTICITY",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "internal",
+          "accepted_answers": [
+            "内",
+            "内能"
+          ]
+        },
+        {
+          "id": "total",
+          "accepted_answers": [
+            "守恒",
+            "保持守恒"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-3-b2-3-elasticity-05",
+      "node_id": "B2.3",
+      "node_title": "弹性、非弹性与动能条件",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "实验员选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段，水平外冲量可忽略。一次记录中质量为 1 kg 和 3 kg 的滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s；另有橡皮泥滑块碰后粘在一起。\n\n选取两滑块组成的系统，研究从接触开始到分离结束的阶段。仅验证总动量守恒，能否据此断定碰撞完全弹性？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "动量条件与弹性程度是两条独立约束；完全弹性还要求系统总动能守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-ELASTICITY",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "能，只要两车碰后分开"
+        },
+        {
+          "id": "B",
+          "text": "不能，因为完全弹性时动量反而不守恒"
+        },
+        {
+          "id": "C",
+          "text": "不能，还需检验系统总动能是否保持"
+        },
+        {
+          "id": "D",
+          "text": "能，总动量守恒就是完全弹性的定义"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b2-3-b2-3-elasticity-06",
+      "node_id": "B2.3",
+      "node_title": "弹性、非弹性与动能条件",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "实验员选取两滑块组成的系统，研究从两车接触开始到两车分离结束的阶段，水平外冲量可忽略。一次记录中质量为 1 kg 和 3 kg 的滑块速度由 (+4,0) m/s 变为 (-2,+2) m/s；另有橡皮泥滑块碰后粘在一起。\n\n真实钢制小车碰撞被近似为完全弹性模型时，哪些做法合理？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "model_assumption",
+      "explanation": "近似模型要由装置条件和数据误差范围支持；动量与能量不能互相转化来掩盖不一致。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B2-ELASTICITY",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "把任何测量差异都解释成动量转化为能量"
+        },
+        {
+          "id": "B",
+          "text": "比较碰前后总动能，确认损失相对很小"
+        },
+        {
+          "id": "C",
+          "text": "说明空气轨道和弹簧碰头使耗散可近似忽略"
+        },
+        {
+          "id": "D",
+          "text": "因为模型叫弹性就省略实验条件"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-1-b3-1-equations-01",
+      "node_id": "B3.1",
+      "node_title": "碰前碰后变量与符号",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n给一维碰撞变量表补全含义：u1、u2 是两车____速度，v1、v2 是两车____速度；所有速度都按同一正方向带符号记录。",
+      "event_stage": "initial",
+      "variant_axis": "equation_setup",
+      "explanation": "统一用 u 表示碰前速度、v 表示碰后速度，可避免在同一方程中混淆阶段。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "before",
+          "accepted_answers": [
+            "碰前",
+            "碰撞前"
+          ]
+        },
+        {
+          "id": "after",
+          "accepted_answers": [
+            "碰后",
+            "碰撞后"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-1-b3-1-equations-02",
+      "node_id": "B3.1",
+      "node_title": "碰前碰后变量与符号",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n1 号车向右运动并撞上初始静止的 2 号车，规定向右为正。碰前速度应怎样记录？",
+      "event_stage": "initial",
+      "variant_axis": "initial_velocity",
+      "explanation": "运动中的 1 号车向正方向，故 u1>0；静止目标的速度 u2=0。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "u1<0，u2=0"
+        },
+        {
+          "id": "B",
+          "text": "u1=0，u2>0"
+        },
+        {
+          "id": "C",
+          "text": "u1、u2 都必须大于零"
+        },
+        {
+          "id": "D",
+          "text": "u1>0，u2=0"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b3-1-b3-1-equations-03",
+      "node_id": "B3.1",
+      "node_title": "碰前碰后变量与符号",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n两车相向运动，规定向右为正：左侧 1 号车向右，右侧 2 号车向左。哪组符号正确？",
+      "event_stage": "initial",
+      "variant_axis": "direction",
+      "explanation": "相向不等于两个速度都取正；按统一坐标，向右为正、向左为负。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "u1>0，u2>0"
+        },
+        {
+          "id": "B",
+          "text": "u1<0，u2<0"
+        },
+        {
+          "id": "C",
+          "text": "u1>0，u2<0"
+        },
+        {
+          "id": "D",
+          "text": "u1<0，u2>0"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-1-b3-1-equations-04",
+      "node_id": "B3.1",
+      "node_title": "碰前碰后变量与符号",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n1 号车位于 2 号车后方且都向右。哪些状态属于同向追赶，哪些状态不会相碰？",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "先用相对位置和相对速度确认接触；后车更快才会闭合间距，否则不存在所设碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "是否相碰只由质量比决定"
+        },
+        {
+          "id": "B",
+          "text": "u1>u2 时属于同向追赶，轨道足够长会相碰"
+        },
+        {
+          "id": "C",
+          "text": "u1≤u2 时两车不会相碰，不能套用碰后方程求实际碰撞"
+        },
+        {
+          "id": "D",
+          "text": "只要两车同向就一定相碰"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-2-b3-2-equations-01",
+      "node_id": "B3.2",
+      "node_title": "两物体动量守恒式",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n质量 m1 的 1 号车以 u1>0 撞上静止的质量 m2 的 2 号车，哪条是两车系统的动量守恒式？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "u2=0，带入 m1u1+m2u2=m1v1+m2v2 得 m1u1=m1v1+m2v2。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "m1u1=m1v1+m2v2"
+        },
+        {
+          "id": "B",
+          "text": "m1u1=m1v1-m2v2"
+        },
+        {
+          "id": "C",
+          "text": "m1u1²=m1v1²+m2v2²"
+        },
+        {
+          "id": "D",
+          "text": "m1u1=(m1+m2)v1 且 v1=v2"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b3-2-b3-2-equations-02",
+      "node_id": "B3.2",
+      "node_title": "两物体动量守恒式",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n两车相向，规定向右为正，u1=+3 m/s、u2=-2 m/s。动量守恒式左端应写成 m1×____+m2×____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "动量方程代入的是带符号速度，因此相向运动的 2 号车速度必须保留 -2。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "u1",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        },
+        {
+          "id": "u2",
+          "accepted_answers": [
+            "-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-2-b3-2-equations-03",
+      "node_id": "B3.2",
+      "node_title": "两物体动量守恒式",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n1 号车在后方以 +5 m/s 同向追赶速度 +1 m/s 的 2 号车。两车确会相碰时，动量方程的碰前总动量是哪一式？",
+      "event_stage": "initial",
+      "variant_axis": "equation_setup",
+      "explanation": "两车都向正方向，碰前动量分别为 +5m1 与 +1m2；相对速度用于判定接触，不替代总动量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "(5-1)(m1+m2)"
+        },
+        {
+          "id": "B",
+          "text": "25m1+1m2"
+        },
+        {
+          "id": "C",
+          "text": "5m1+1m2"
+        },
+        {
+          "id": "D",
+          "text": "5m1-1m2"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-2-b3-2-equations-04",
+      "node_id": "B3.2",
+      "node_title": "两物体动量守恒式",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n若后方 1 号车速度 +1 m/s、前方 2 号车速度 +3 m/s，题目又说明轨道上没有别的作用，哪些判断正确？",
+      "event_stage": "initial",
+      "variant_axis": "model_assumption",
+      "explanation": "后车更慢使间距增大；守恒方程不能创造没有发生的接触事件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "质量相等就会自动发生碰撞"
+        },
+        {
+          "id": "B",
+          "text": "两车间距增大，不会相碰"
+        },
+        {
+          "id": "C",
+          "text": "不能把假想碰后根当作这段运动的实际结果"
+        },
+        {
+          "id": "D",
+          "text": "仍应强制联立碰撞方程得到一次碰撞"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-2-b3-2-equations-05",
+      "node_id": "B3.2",
+      "node_title": "两物体动量守恒式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n两个 1 kg 滑块完全弹性碰撞，规定向右为正，u1=+3 m/s、u2=0。联立约束后，填写 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "等质量且目标静止的完全弹性碰撞交换速度，结果为 v1=0、v2=+3 m/s，并满足总动量 +3 kg·m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B3-EL-01",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "0"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-2-b3-2-equations-06",
+      "node_id": "B3.2",
+      "node_title": "两物体动量守恒式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n质量分别为 1 kg、3 kg 的两车同向追赶并完全弹性碰撞，规定向右为正，u1=+5 m/s、u2=+1 m/s。填写 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "代入一维弹性碰撞关系得 v1=-1、v2=+3 m/s；回代动量得 5+3= -1+9=8 kg·m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B3-EL-03",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "-1"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-3-b3-3-equations-01",
+      "node_id": "B3.3",
+      "node_title": "两物体动能守恒式",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n完全弹性碰撞中，2 号车碰前静止。两车系统总动能守恒式应写成哪一式？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "u2=0 使其碰前动能项为零；完全弹性条件下两车碰前后总动能相等。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "½m1u1²=½(m1+m2)(v1+v2)²"
+        },
+        {
+          "id": "B",
+          "text": "m1u1²=m1v1+m2v2"
+        },
+        {
+          "id": "C",
+          "text": "½m1u1²=½m1v1²+½m2v2²"
+        },
+        {
+          "id": "D",
+          "text": "m1u1=m1v1+m2v2"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-3-b3-3-equations-02",
+      "node_id": "B3.3",
+      "node_title": "两物体动能守恒式",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n两车相向，规定向右为正，u1>0、u2<0。写总动能式时哪些处理正确？",
+      "event_stage": "initial",
+      "variant_axis": "direction",
+      "explanation": "速度符号用于动量，动能使用各自速度平方；向左运动仍有正动能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "用 u1+u2 代替两车各自速率平方"
+        },
+        {
+          "id": "B",
+          "text": "u2 保留负值再平方，u2²为正"
+        },
+        {
+          "id": "C",
+          "text": "每辆车的动能项均为 ½mu²"
+        },
+        {
+          "id": "D",
+          "text": "把向左车的动能项写成负值"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-3-b3-3-equations-03",
+      "node_id": "B3.3",
+      "node_title": "两物体动能守恒式",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n哪一种信息足以允许把“两车碰前后总动能相等”作为碰撞方程？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "model_assumption",
+      "explanation": "总动能守恒来自完全弹性条件；短时和外冲量条件只支持总动量守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "题目明确碰撞完全弹性且研究两车系统"
+        },
+        {
+          "id": "B",
+          "text": "题目只说总动量守恒"
+        },
+        {
+          "id": "C",
+          "text": "题目只说碰撞时间很短"
+        },
+        {
+          "id": "D",
+          "text": "题目只说两车碰后分开"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b3-3-b3-3-equations-04",
+      "node_id": "B3.3",
+      "node_title": "两物体动能守恒式",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n求完全弹性碰撞的两个未知碰后速度，通常联立系统总____守恒式与系统总____守恒式。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "两个未知速度需要两条独立约束：带符号的总动量守恒和速度平方构成的总动能守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "momentum",
+          "accepted_answers": [
+            "动量"
+          ]
+        },
+        {
+          "id": "energy",
+          "accepted_answers": [
+            "动能",
+            "平动动能"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-3-b3-3-equations-05",
+      "node_id": "B3.3",
+      "node_title": "两物体动能守恒式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n两个 1 kg 滑块相向完全弹性碰撞，规定向右为正，u1=+2 m/s、u2=-2 m/s。填写 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "energy",
+      "explanation": "等质量完全弹性碰撞交换速度，v1=-2、v2=+2 m/s；总动量仍为 0，总动能仍为 4 J。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B3-EL-02",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "-2"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-3-b3-3-equations-06",
+      "node_id": "B3.3",
+      "node_title": "两物体动能守恒式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n质量分别为 3 kg、1 kg 的两车相向完全弹性碰撞，规定向右为正，u1=+2 m/s、u2=-2 m/s。填写 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "energy",
+      "explanation": "联立动量和动能约束得 v1=0、v2=+4 m/s；碰前后总动量均为 +4 kg·m/s，总动能均为 8 J。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-EQUATIONS",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B3-EL-04",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "0"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "4",
+            "+4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-relative-01",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。碰前 1 号车在左、2 号车在右，且 u1>u2，所以接近速度大小写作 u1-u2；碰后若两车已分离，分离速度大小写作 v2-v1。完全弹性时两者相等。\n\n在给定的位置顺序和正方向下，完全弹性碰撞的相对速度关系是哪一式？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "接近速度大小为 u1-u2，分离速度大小为 v2-v1；完全弹性时两者相等。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RELATIVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "v2-v1=u1-u2"
+        },
+        {
+          "id": "B",
+          "text": "v1-v2=u1-u2"
+        },
+        {
+          "id": "C",
+          "text": "v2+v1=u1+u2"
+        },
+        {
+          "id": "D",
+          "text": "v2-v1=u2-u1"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-relative-02",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。碰前 1 号车在左、2 号车在右，且 u1>u2，所以接近速度大小写作 u1-u2；碰后若两车已分离，分离速度大小写作 v2-v1。完全弹性时两者相等。\n\n规定向右为正，理解“相对速度反向”时哪些说法正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "direction",
+      "explanation": "反向指两车之间的相对运动由接近变为分离，不要求每辆车都改变运动方向。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RELATIVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "碰后 v2-v1>0 表示两车分离"
+        },
+        {
+          "id": "B",
+          "text": "两车各自速度都必须反向"
+        },
+        {
+          "id": "C",
+          "text": "只需把每个速度的正负号同时翻转"
+        },
+        {
+          "id": "D",
+          "text": "碰前相对速度 u1-u2>0 表示间距减小"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-relative-03",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。碰前 1 号车在左、2 号车在右，且 u1>u2，所以接近速度大小写作 u1-u2；碰后若两车已分离，分离速度大小写作 v2-v1。完全弹性时两者相等。\n\n两个 1 kg 滑块碰撞，规定向右为正，u1=+4 m/s、u2=0，e=1。填写 v1、v2 和碰后分离速度 v2-v1，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "restitution",
+      "explanation": "e=1 时等质量滑块交换速度，v1=0、v2=+4 m/s，分离速度 4 m/s 等于碰前接近速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RELATIVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B3-RE-01",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "0"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "4",
+            "+4"
+          ]
+        },
+        {
+          "id": "relative",
+          "accepted_answers": [
+            "4",
+            "+4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-relative-04",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两车在同一直线上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。碰前 1 号车在左、2 号车在右，且 u1>u2，所以接近速度大小写作 u1-u2；碰后若两车已分离，分离速度大小写作 v2-v1。完全弹性时两者相等。\n\n两个 1 kg 滑块碰撞，规定向右为正，u1=+4 m/s、u2=0，e=0.5。填写 v1、v2 和碰后分离速度 v2-v1，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "restitution",
+      "explanation": "动量守恒与 v2-v1=0.5(u1-u2)=2 联立，得到 v1=+1、v2=+3 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RELATIVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B3-RE-02",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "1",
+            "+1"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        },
+        {
+          "id": "relative",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-relative-05",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。碰前 1 号车在左、2 号车在右，且 u1>u2，所以接近速度大小写作 u1-u2；碰后若两车已分离，分离速度大小写作 v2-v1。完全弹性时两者相等。\n\n规定向右为正，某推导写成 v1-v2=u1-u2，并称两边都是正的速率。问题在哪里？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "direction",
+      "explanation": "位置顺序固定后，分离对应 v2-v1>0；把它写反会把分离错记成继续接近。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RELATIVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "碰后分离速度应按右车相对左车写成 v2-v1"
+        },
+        {
+          "id": "B",
+          "text": "质量没有出现在相对速度式中，所以式子必错"
+        },
+        {
+          "id": "C",
+          "text": "完全弹性时相对速度必须为零"
+        },
+        {
+          "id": "D",
+          "text": "碰前接近速度应写成 u1+u2，无论符号如何"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-relative-06",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两车在同一直线上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。碰前 1 号车在左、2 号车在右，且 u1>u2，所以接近速度大小写作 u1-u2；碰后若两车已分离，分离速度大小写作 v2-v1。完全弹性时两者相等。\n\n1 号车在左、2 号车在右。哪些速度状态满足真实接触前后的几何条件？",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "接触前需要闭合速度，接触后需要分离或至少不再闭合；这两条筛掉非物理解。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RELATIVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "碰后 v2-v1≥0，两车不再相互穿入"
+        },
+        {
+          "id": "B",
+          "text": "碰前 u1-u2<0 仍必定立刻相碰"
+        },
+        {
+          "id": "C",
+          "text": "碰后 v2-v1<0 可作为最终分离状态"
+        },
+        {
+          "id": "D",
+          "text": "碰前 u1-u2>0，间距可减小到零"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-relative-07",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。碰前 1 号车在左、2 号车在右，且 u1>u2，所以接近速度大小写作 u1-u2；碰后若两车已分离，分离速度大小写作 v2-v1。完全弹性时两者相等。\n\n完全弹性碰撞可把相对速度关系写成 v2-v1=____；等价地，v1-v2=____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "两个等价式分别突出速度大小相等和带符号相对速度反向。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RELATIVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "separation",
+          "accepted_answers": [
+            "u1-u2",
+            "u1 - u2"
+          ]
+        },
+        {
+          "id": "signed",
+          "accepted_answers": [
+            "u2-u1",
+            "u2 - u1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-relative-08",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在同一直线上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。碰前 1 号车在左、2 号车在右，且 u1>u2，所以接近速度大小写作 u1-u2；碰后若两车已分离，分离速度大小写作 v2-v1。完全弹性时两者相等。\n\n若 u1=+3 m/s、u2=-1 m/s，碰前“接近速度大小”是多少？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "observation",
+      "explanation": "接近速度大小为 u1-u2=3-(-1)=4 m/s；负速度的负号必须保留在差式中。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RELATIVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "3 m/s"
+        },
+        {
+          "id": "B",
+          "text": "4 m/s"
+        },
+        {
+          "id": "C",
+          "text": "2 m/s"
+        },
+        {
+          "id": "D",
+          "text": "-4 m/s"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b3-5-b3-5-restitution-01",
+      "node_id": "B3.5",
+      "node_title": "恢复系数 e 与弹性程度",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在一维轨道上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。恢复系数定义为 e=(v2-v1)/(u1-u2)，适用于碰前左车追上右车且 u1-u2>0 的情形。\n\n两个 1 kg 滑块碰撞，u1=+4 m/s、u2=0，e=0。填写 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "restitution",
+      "explanation": "e=0 给出 v2-v1=0，两车碰后同速；再由总动量 4 kg·m/s 得 v1=v2=+2 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RESTITUTION",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B3-RE-03",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-5-b3-5-restitution-02",
+      "node_id": "B3.5",
+      "node_title": "恢复系数 e 与弹性程度",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两车在一维轨道上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。恢复系数定义为 e=(v2-v1)/(u1-u2)，适用于碰前左车追上右车且 u1-u2>0 的情形。\n\n质量为 2 kg、1 kg 的滑块碰撞，规定向右为正，u1=+3 m/s、u2=0，且 0<e<1、e=0.5。填写 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "restitution",
+      "explanation": "联立 2v1+v2=6 与 v2-v1=1.5，得到 v1=1.5、v2=3 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RESTITUTION",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B3-RE-04",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "1.5",
+            "+1.5",
+            "3/2"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-5-b3-5-restitution-03",
+      "node_id": "B3.5",
+      "node_title": "恢复系数 e 与弹性程度",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "两车在一维轨道上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。恢复系数定义为 e=(v2-v1)/(u1-u2)，适用于碰前左车追上右车且 u1-u2>0 的情形。\n\n用恢复系数比较弹性程度时，哪些对应关系正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "restitution",
+      "explanation": "e 从 1 降到 0 表示相对分离速度占接近速度的比例降低；中间值对应非完全弹性。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RESTITUTION",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "0<e<1 表示系统总动能仍必定完全不变"
+        },
+        {
+          "id": "B",
+          "text": "e 越小表示分离速度一定越大"
+        },
+        {
+          "id": "C",
+          "text": "e=1 表示完全弹性，分离与接近速度大小相等"
+        },
+        {
+          "id": "D",
+          "text": "e=0 表示碰后相对分离速度为零"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b3-5-b3-5-restitution-04",
+      "node_id": "B3.5",
+      "node_title": "恢复系数 e 与弹性程度",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "两车在一维轨道上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。恢复系数定义为 e=(v2-v1)/(u1-u2)，适用于碰前左车追上右车且 u1-u2>0 的情形。\n\n选取两车组成的系统，研究从接触开始到分离结束的阶段。已知总动量守恒，能否只凭这一条确定恢复系数 e？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "一个总动量方程不足以确定两个碰后速度及 e；还需要恢复关系、动能条件或测量数据。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B3-RESTITUTION",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "不能，因为恢复系数与速度无关"
+        },
+        {
+          "id": "B",
+          "text": "不能，还需碰后速度关系或弹性程度信息"
+        },
+        {
+          "id": "C",
+          "text": "能，总动量守恒必然给出 e=1"
+        },
+        {
+          "id": "D",
+          "text": "能，两车质量相等必然给出 e=0"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-01",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n用动量守恒式 m1u1+m2u2=m1v1+m2v2 消元时，哪一整理正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "把同一物体的碰前、碰后项移到一侧，得到 m1(u1-v1)=m2(v2-u2)。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "m1(u1-v1)=m2(v2-u2)"
+        },
+        {
+          "id": "B",
+          "text": "m1(u1+v1)=m2(v2+u2)"
+        },
+        {
+          "id": "C",
+          "text": "m1(u1-v1)=m2(u2-v2)"
+        },
+        {
+          "id": "D",
+          "text": "m1(u1²-v1²)=m2(v2-u2)"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-02",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n把动能守恒式移项后，怎样利用平方差？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "由 a²-b²=(a-b)(a+b)，两侧速度平方差可分解为差与和的乘积。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "m1(u1-v1)²=m2(v2-u2)²"
+        },
+        {
+          "id": "B",
+          "text": "m1(u1+v1)=m2(v2+u2)"
+        },
+        {
+          "id": "C",
+          "text": "m1u1v1=m2u2v2"
+        },
+        {
+          "id": "D",
+          "text": "m1(u1-v1)(u1+v1)=m2(v2-u2)(v2+u2)"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-03",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n动量式给出 m1(u1-v1)=m2(v2-u2)。将它代入平方差分解式并约去非零公共因子，可得 u1+v1=____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "非平凡碰撞中公共因子不为零，约去后得到 u1+v1=v2+u2，等价于 v2-v1=u1-u2。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "sum",
+          "accepted_answers": [
+            "v2+u2",
+            "u2+v2",
+            "v2 + u2",
+            "u2 + v2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-04",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n在平方差消元中直接约去 u1-v1 前，哪些检查是必要的？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "约去可能为零的因子会丢失一支代数解；必须先识别其物理含义，再选择实际碰撞后的分支。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "把 u1-v1=0 自动当作完全非弹性解"
+        },
+        {
+          "id": "B",
+          "text": "确认 u1-v1=0 对应的平凡解是否只是未发生速度交换"
+        },
+        {
+          "id": "C",
+          "text": "确认研究的是接触碰撞后的物理解"
+        },
+        {
+          "id": "D",
+          "text": "只要式子两边都有该因子就永远可约"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-05",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n得到 v2-v1=u1-u2 后，下一步怎样与动量式联立最直接？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "相对速度式给出一个速度对另一个速度的一次表达式，代回动量式即可解出 v1，再求 v2。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "用 v2=v1+u1-u2 代回动量式"
+        },
+        {
+          "id": "B",
+          "text": "把所有速度先平方再相加"
+        },
+        {
+          "id": "C",
+          "text": "令 v1=v2 以减少未知数"
+        },
+        {
+          "id": "D",
+          "text": "删除质量项，只比较相对速度"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-06",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n质量比 m1:m2=1:3，u1=+4 m/s、u2=0。用消元法求完全弹性碰撞后的 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "联立 v2-v1=4 与 v1+3v2=4，得 v1=-2、v2=+2 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-01",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "-2"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-07",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n质量比 m1:m2=3:1，u1=+4 m/s、u2=0。用消元法求完全弹性碰撞后的 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "联立 v2-v1=4 与 3v1+v2=12，得 v1=+2、v2=+6 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-02",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "6",
+            "+6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-08",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n两个 2 kg 滑块相向，u1=+3 m/s、u2=-1 m/s。利用平方差关系求完全弹性碰撞后的 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "等质量碰撞由动量式与相对速度式得到速度交换，故 v1=-1、v2=+3 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-03",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "-1"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-solve-09",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n比较“直接联立两个二次式”和“先作平方差消元”时，哪些评价合理？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "平方差法降低代数复杂度，但仍需动量式求具体速度，并需审查被约去的零因子分支。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "平方差消元把问题化为一次相对速度关系"
+        },
+        {
+          "id": "B",
+          "text": "保留平凡解检查可避免误删代数分支"
+        },
+        {
+          "id": "C",
+          "text": "直接联立必定没有平凡解"
+        },
+        {
+          "id": "D",
+          "text": "消元后不再需要动量方程"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-01",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n一维弹性碰撞通式中，v1 的正确表达式是哪一项？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "v1=[(m1-m2)u1+2m2u2]/(m1+m2)；最后一种只是质心速度，不是一般碰后速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "[(m1+m2)u1+2m2u2]/(m1-m2)"
+        },
+        {
+          "id": "B",
+          "text": "[(m2-m1)u1+2m1u2]/(m1+m2)"
+        },
+        {
+          "id": "C",
+          "text": "[m1u1+m2u2]/(m1+m2)"
+        },
+        {
+          "id": "D",
+          "text": "[(m1-m2)u1+2m2u2]/(m1+m2)"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-02",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n一维弹性碰撞通式中，v2 的正确表达式是哪一项？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "v2=[2m1u1+(m2-m1)u2]/(m1+m2)，质量与初速度的下标必须对应。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "[m1u1-m2u2]/(m1-m2)"
+        },
+        {
+          "id": "B",
+          "text": "u1-u2"
+        },
+        {
+          "id": "C",
+          "text": "[2m1u1+(m2-m1)u2]/(m1+m2)"
+        },
+        {
+          "id": "D",
+          "text": "[2m2u1+(m1-m2)u2]/(m1+m2)"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-03",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n直接使用这组一维弹性碰撞通式时，哪些前提必须成立？",
+      "event_stage": "initial",
+      "variant_axis": "model_assumption",
+      "explanation": "通式允许任意正质量和任意带符号初速度，但要求真实的一维完全弹性碰撞及适用的系统条件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "两物体质量必须相等"
+        },
+        {
+          "id": "B",
+          "text": "两物体沿同一直线发生接触碰撞"
+        },
+        {
+          "id": "C",
+          "text": "所选系统在碰撞短时段内动量守恒且碰撞完全弹性"
+        },
+        {
+          "id": "D",
+          "text": "第二个物体必须初始静止"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-04",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\nm1=2 kg、m2=1 kg，u1=+5 m/s、u2=+1 m/s。代入通式求 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "initial_velocity",
+      "explanation": "v1=(5+2)/3=7/3 m/s，v2=(20-1)/3=19/3 m/s；两车碰后均向右且分离。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-04",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "7/3",
+            "2.3333333333333335",
+            "2.33"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "19/3",
+            "6.333333333333333",
+            "6.33"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-05",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\nm1=1 kg、m2=2 kg，u1=+6 m/s、u2=0。代入通式求 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "mass_ratio",
+      "explanation": "v1=(1-2)×6/3=-2 m/s，v2=2×1×6/3=+4 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-05",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "-2"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "4",
+            "+4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-06",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\nm1=4 kg、m2=1 kg，u1=+3 m/s、u2=0。代入通式求 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "mass_ratio",
+      "explanation": "v1=3×3/5=1.8 m/s，v2=2×4×3/5=4.8 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-06",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "1.8",
+            "+1.8",
+            "9/5"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "4.8",
+            "+4.8",
+            "24/5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-07",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\nm1=1 kg、m2=4 kg，u1=+5 m/s、u2=0。代入通式求 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "mass_ratio",
+      "explanation": "轻车撞重车后 v1=(1-4)×5/5=-3 m/s，重车 v2=2×1×5/5=+2 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-07",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "-3"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-08",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\nm1=4 kg、m2=1 kg，两车相向且 u1=+2 m/s、u2=-2 m/s。代入通式求 v1、v2，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "initial_velocity",
+      "explanation": "v1=[3×2+2×1×(-2)]/5=0.4 m/s，v2=[8×2-3×(-2)]/5=4.4 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-08",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "0.4",
+            "+0.4",
+            "2/5"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "4.4",
+            "+4.4",
+            "22/5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-09",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n若 2 号车初始静止，把 u2=0 代入通式可得 v1=____u1，v2=____u1。",
+      "event_stage": "special_case",
+      "variant_axis": "equation_setup",
+      "explanation": "静止目标特例直接消去所有 u2 项，得到常用的动撞静公式。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "v1factor",
+          "accepted_answers": [
+            "(m1-m2)/(m1+m2)",
+            "(m1 - m2)/(m1 + m2)"
+          ]
+        },
+        {
+          "id": "v2factor",
+          "accepted_answers": [
+            "2m1/(m1+m2)",
+            "2m1/(m1 + m2)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-10",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n通式分母为什么写 m1+m2 而不会在正常两车问题中为零？",
+      "event_stage": "special_case",
+      "variant_axis": "model_assumption",
+      "explanation": "经典质点模型中 m1>0、m2>0，因此 m1+m2>0，通式分母有定义。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "因为完全弹性使质量相互抵消"
+        },
+        {
+          "id": "B",
+          "text": "因为分母实际是动量"
+        },
+        {
+          "id": "C",
+          "text": "两物体质量均为正，所以质量和大于零"
+        },
+        {
+          "id": "D",
+          "text": "因为两车速度方向相反"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-solve-11",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "在一维光滑轨道上，规定向右为正。选取两车组成的系统，研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略且碰撞完全弹性。质量为 m1、m2，碰前速度为 u1、u2，碰后速度为 v1、v2。\n\n交换物体下标 1↔2 时，通式应如何保持对称？",
+      "event_stage": "special_case",
+      "variant_axis": "equation_setup",
+      "explanation": "物理标签整体交换不会改变碰撞规律；质量、初速度和末速度下标必须成组交换。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-SOLVE",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "交换后相对速度关系改变正负规则"
+        },
+        {
+          "id": "B",
+          "text": "v1 与 v2 的表达式随下标一同交换"
+        },
+        {
+          "id": "C",
+          "text": "m1、m2 和 u1、u2 都必须对应交换"
+        },
+        {
+          "id": "D",
+          "text": "只交换质量而保留初速度下标"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-01",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n等质量两车完全弹性碰撞，2 号车初始静止时，最典型的结果是什么？",
+      "event_stage": "special_case",
+      "variant_axis": "mass_ratio",
+      "explanation": "等质量完全弹性动撞静时速度交换，既满足总动量也满足总动能守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "1 号车停下，2 号车取得 1 号车原速度"
+        },
+        {
+          "id": "B",
+          "text": "两车粘在一起以一半速度运动"
+        },
+        {
+          "id": "C",
+          "text": "1 号车原速反弹，2 号车仍静止"
+        },
+        {
+          "id": "D",
+          "text": "两车都以原速度向右"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-02",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n两车质量均为 5 kg，1 号车在左、2 号车在右，规定向右为正，u1=+3 m/s、u2=-2 m/s。求完全弹性碰撞后的 v1、v2。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "mass_ratio",
+      "explanation": "两车相向且等质量，完全弹性碰撞交换速度，因此 v1=-2、v2=+3 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-09",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "-2"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "3",
+            "+3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-03",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n质量比 m1:m2=1:3，轻车以 +4 m/s 撞静止重车。碰后方向的正确描述是什么？",
+      "event_stage": "special_case",
+      "variant_axis": "mass_ratio",
+      "explanation": "轻撞重的通式结果为 v1=-2、v2=+2 m/s，轻车反弹而重车获得向右速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "两车都向左"
+        },
+        {
+          "id": "B",
+          "text": "两车粘在一起"
+        },
+        {
+          "id": "C",
+          "text": "轻车反弹，重车向右运动"
+        },
+        {
+          "id": "D",
+          "text": "轻车继续原速，重车静止"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-04",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n质量比 m1:m2=3:1，重车撞静止轻车时，哪一特点常见？",
+      "event_stage": "special_case",
+      "variant_axis": "mass_ratio",
+      "explanation": "重撞轻时重车只减速而继续向前，轻车可获得更大的速度，但系统总动量和总动能仍守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "两车碰后必同速"
+        },
+        {
+          "id": "B",
+          "text": "重车仍向前，轻车速度可大于重车初速度"
+        },
+        {
+          "id": "C",
+          "text": "重车必以原速反弹"
+        },
+        {
+          "id": "D",
+          "text": "轻车始终静止"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-05",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n质量比 m1:m2=3:1，两车同向且 u1=+3 m/s、u2=+1 m/s。求完全弹性碰撞后的 v1、v2。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "mass_ratio",
+      "explanation": "代入通式得 v1=+2、v2=+4 m/s；碰后前车更快，满足分离条件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-10",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "4",
+            "+4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-06",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n当静止目标质量远大于来车质量，即 m2≫m1 时，哪些极限趋势正确？",
+      "event_stage": "special_case",
+      "variant_axis": "limit",
+      "explanation": "令 m2/m1 很大，v1≈-u1、v2≈0，这就是固定墙反射的质量极限。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "重目标速度趋近 0"
+        },
+        {
+          "id": "B",
+          "text": "来车速度趋近 +u1 且方向不变"
+        },
+        {
+          "id": "C",
+          "text": "重目标获得无限大速度"
+        },
+        {
+          "id": "D",
+          "text": "来车速度趋近 -u1，近似原速反弹"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-07",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n把固定墙视为质量极大的碰撞对象时，哪一近似最关键？",
+      "event_stage": "special_case",
+      "variant_axis": "limit",
+      "explanation": "墙和地球仍接收反冲动量，只是因质量巨大速度变化不可测；滑块近似等速反弹。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "滑块与墙粘在一起"
+        },
+        {
+          "id": "B",
+          "text": "滑块质量必须取零"
+        },
+        {
+          "id": "C",
+          "text": "墙的速度变化可忽略，而滑块法向速度反向"
+        },
+        {
+          "id": "D",
+          "text": "墙不接收动量，所以滑块动量不变"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-08",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n目标车并非静止时，哪些典型结论仍可安全使用？",
+      "event_stage": "special_case",
+      "variant_axis": "initial_velocity",
+      "explanation": "非静止目标需要完整初速度信息；等质量速度交换是任意初速度下的特例。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "只看质量比即可确定碰后方向"
+        },
+        {
+          "id": "B",
+          "text": "等质量完全弹性碰撞仍交换两车速度"
+        },
+        {
+          "id": "C",
+          "text": "应把 u2 的带符号数值代入完整通式"
+        },
+        {
+          "id": "D",
+          "text": "轻撞重一定反弹，与 u2 无关"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-ratio-09",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n动撞静时，若 m1=m2，v1=____；若 m1<m2，v1 的系数 (m1-m2)/(m1+m2) 为____。",
+      "event_stage": "special_case",
+      "variant_axis": "mass_ratio",
+      "explanation": "等质量时入射车停下；入射车更轻时系数为负，所以它反弹。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-RATIO",
+      "source_refs": [
+        "video-main",
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "equal",
+          "accepted_answers": [
+            "0",
+            "零"
+          ]
+        },
+        {
+          "id": "sign",
+          "accepted_answers": [
+            "负",
+            "负数"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-4-b4-4-check-01",
+      "node_id": "B4.4",
+      "node_title": "方向、极限与解的筛选",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n规定向右为正，u1=+4 m/s、u2=-1 m/s。某解把碰前总动量写成 4m1+m2，最可能的错误是什么？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "direction",
+      "explanation": "2 号车向左，动量项应为 m2(-1)=-m2；动量式使用带符号速度而非速度平方。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "把质量单位写成 kg"
+        },
+        {
+          "id": "B",
+          "text": "没有把两车速度都平方"
+        },
+        {
+          "id": "C",
+          "text": "没有令两车质量相等"
+        },
+        {
+          "id": "D",
+          "text": "漏掉了 u2 的负号"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-4-b4-4-check-02",
+      "node_id": "B4.4",
+      "node_title": "方向、极限与解的筛选",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n1 号车在左、2 号车在右。筛选实际碰撞解时，哪些条件应同时满足？",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "相对位置和相对速度给出接近、分离条件，能排除代数上成立但几何上不可能的根。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "碰前 u1-u2<0 也必定碰撞"
+        },
+        {
+          "id": "B",
+          "text": "碰后 v2-v1<0 可作为最终接触后状态"
+        },
+        {
+          "id": "C",
+          "text": "碰前 u1-u2>0，二者正在接近"
+        },
+        {
+          "id": "D",
+          "text": "碰后 v2-v1≥0，二者分离或不再压入"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-4-b4-4-check-03",
+      "node_id": "B4.4",
+      "node_title": "方向、极限与解的筛选",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n联立守恒式出现 v1=u1、v2=u2 的平凡解。若题目明确两车已接触并完成弹性碰撞，应如何处理？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "平凡解表示状态未改变；真实接触碰撞应选择满足接触后分离条件的非平凡分支。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "令两车碰后同速"
+        },
+        {
+          "id": "B",
+          "text": "结合接近与分离条件，通常排除未交换冲量的平凡分支"
+        },
+        {
+          "id": "C",
+          "text": "无条件把它作为唯一答案"
+        },
+        {
+          "id": "D",
+          "text": "把两个速度都改成相反数"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b4-4-b4-4-check-04",
+      "node_id": "B4.4",
+      "node_title": "方向、极限与解的筛选",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n规定向右为正，1 号车碰前在左且 u1-u2>0。一个候选碰后根若给出 v2-v1<0，说明两车仍在____，不能作为已结束碰撞的____状态。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "direction",
+      "explanation": "碰后相对速度仍闭合会使物体继续重叠，违反刚体接触结束后的分离条件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "motion",
+          "accepted_answers": [
+            "接近",
+            "相互接近",
+            "压入"
+          ]
+        },
+        {
+          "id": "state",
+          "accepted_answers": [
+            "分离",
+            "碰后分离"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-4-b4-4-check-05",
+      "node_id": "B4.4",
+      "node_title": "方向、极限与解的筛选",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\nm1=10 kg、m2=1 kg，u1=+1 m/s、u2=0。求 v1、v2，并据此检查 m1≫m2 的趋势。",
+      "event_stage": "special_case",
+      "variant_axis": "limit",
+      "explanation": "通式给 v1=9/11、v2=20/11 m/s；重车仍接近原速度，轻车获得接近 2u1 的速度，符合大质量比极限。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-11",
+      "blanks": [
+        {
+          "id": "v1",
+          "accepted_answers": [
+            "9/11",
+            "0.8181818181818182",
+            "0.818"
+          ]
+        },
+        {
+          "id": "v2",
+          "accepted_answers": [
+            "20/11",
+            "1.8181818181818181",
+            "1.818"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-4-b4-4-check-06",
+      "node_id": "B4.4",
+      "node_title": "方向、极限与解的筛选",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n用质量极限检查通式时，哪些结果会暴露明显错误？",
+      "event_stage": "special_case",
+      "variant_axis": "limit",
+      "explanation": "等质量交换与大质量墙极限是可靠的特例检查；违背它们通常说明符号或下标代错。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "m1≫m2 时重车略减速、轻车快速前进"
+        },
+        {
+          "id": "B",
+          "text": "m2≫m1 时来车近似反弹、目标速度很小"
+        },
+        {
+          "id": "C",
+          "text": "m2≫m1 且 u2=0 时算出来车仍以 +u1 原向穿过重目标"
+        },
+        {
+          "id": "D",
+          "text": "m1=m2、u2=0 且 u1≠0 时算出两车速度没有交换"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-4-b4-4-check-07",
+      "node_id": "B4.4",
+      "node_title": "方向、极限与解的筛选",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n某候选根同时满足两个代数守恒式，却对应碰前两车远离。最合适的结论是什么？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "observation",
+      "explanation": "守恒式约束可能的状态转换，不能替代相对位置和接触条件；远离初态没有碰撞事件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "把时间取负即可作为实际过程"
+        },
+        {
+          "id": "B",
+          "text": "代数关系不保证该初态会发生碰撞，应按事件几何排除"
+        },
+        {
+          "id": "C",
+          "text": "守恒式会自动把两车拉回相碰"
+        },
+        {
+          "id": "D",
+          "text": "只要动能相等就可忽略位置"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b4-5-b4-5-check-01",
+      "node_id": "B4.5",
+      "node_title": "守恒回代与结果检验",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n选取两车组成的系统，研究碰撞开始至碰撞结束的阶段。m1=1 kg、m2=10 kg，u1=+2 m/s、u2=0；候选解 v1=-18/11 m/s、v2=4/11 m/s。填写碰前和碰后总动量，单位为 kg·m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "碰前 P=2；碰后 P=-18/11+10×4/11=22/11=2 kg·m/s，动量回代通过。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B4-EL-12",
+      "blanks": [
+        {
+          "id": "p0",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        },
+        {
+          "id": "p1",
+          "accepted_answers": [
+            "2",
+            "+2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-5-b4-5-check-02",
+      "node_id": "B4.5",
+      "node_title": "守恒回代与结果检验",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n选取两车组成的系统，研究碰撞开始至碰撞结束的阶段。回代动量式时，最能发现哪类错误？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "conservation",
+      "explanation": "总动量回代对速度符号和质量—速度配对错误最敏感；分离条件、总动能和恢复系数应分别用事件几何、能量式和相对速度式检查。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "候选速度是否满足碰后分离条件"
+        },
+        {
+          "id": "B",
+          "text": "碰前后系统总动能是否相等"
+        },
+        {
+          "id": "C",
+          "text": "恢复系数是否处在给定范围内"
+        },
+        {
+          "id": "D",
+          "text": "速度方向漏负号或质量下标代错"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-5-b4-5-check-03",
+      "node_id": "B4.5",
+      "node_title": "守恒回代与结果检验",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n回代系统总动能时，哪些处理正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "energy",
+      "explanation": "系统总动能是各物体非负动能之和；单车动能可重新分配，不能由总动量平方替代。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "向左速度对应负动能"
+        },
+        {
+          "id": "B",
+          "text": "用两车总动量的平方直接替代总动能"
+        },
+        {
+          "id": "C",
+          "text": "分别计算每辆车的 ½mv² 后求和"
+        },
+        {
+          "id": "D",
+          "text": "比较碰前后总动能而不是单车动能"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-5-b4-5-check-04",
+      "node_id": "B4.5",
+      "node_title": "守恒回代与结果检验",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n完全弹性碰撞的相对速度回代应检查 v2-v1=____；这条等式两边的量纲都是____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "分离速度应等于接近速度；两边都是速度差，量纲为速度。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "relation",
+          "accepted_answers": [
+            "u1-u2",
+            "u1 - u2"
+          ]
+        },
+        {
+          "id": "dimension",
+          "accepted_answers": [
+            "速度",
+            "m/s",
+            "L/T"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-5-b4-5-check-05",
+      "node_id": "B4.5",
+      "node_title": "守恒回代与结果检验",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n对速度通式做量纲检查时，哪一描述正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "model_assumption",
+      "explanation": "通式每个分子项量纲为 M·L/T，除以质量 M 后得到 L/T，符合速度量纲。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B4-CHECK",
+      "source_refs": [
+        "openstax-conservation",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "分子是质量×速度，除以质量和后得到速度"
+        },
+        {
+          "id": "B",
+          "text": "分子是能量，除以质量后得到速度"
+        },
+        {
+          "id": "C",
+          "text": "分母无量纲，所以结果是动量"
+        },
+        {
+          "id": "D",
+          "text": "只有速度平方才能得到速度量纲"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b5-1-b5-1-chain-01",
+      "node_id": "B5.1",
+      "node_title": "碰撞、撞墙与自由运动更新",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n该初态发生第一次碰撞，即 M 与 m 的弹性碰撞。填写碰后 v_M、v_m，单位为 m/s。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "event_sequence",
+      "explanation": "代入 M:m=3:1、u_M=-1、u_m=0，得到 v_M=-0.5、v_m=-1.5 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B5-CH-01",
+      "blanks": [
+        {
+          "id": "vM",
+          "accepted_answers": [
+            "-0.5",
+            "-1/2"
+          ]
+        },
+        {
+          "id": "vm",
+          "accepted_answers": [
+            "-1.5",
+            "-3/2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-1-b5-1-chain-02",
+      "node_id": "B5.1",
+      "node_title": "碰撞、撞墙与自由运动更新",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n把第一次物块碰撞写成状态更新时，哪些量在碰撞瞬间按弹性碰撞规则更新？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "event_sequence",
+      "explanation": "物块接触时用两体弹性映射更新速度；接触位置连续，固定墙状态不因这次物块碰撞改变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "固定墙的位置"
+        },
+        {
+          "id": "B",
+          "text": "碰撞瞬间把两物块位置任意交换"
+        },
+        {
+          "id": "C",
+          "text": "M 与 m 的速度"
+        },
+        {
+          "id": "D",
+          "text": "两物块系统的动量和动能约束"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b5-1-b5-1-chain-03",
+      "node_id": "B5.1",
+      "node_title": "碰撞、撞墙与自由运动更新",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n小滑块以 -1.5 m/s 撞固定墙并完全弹性反射，规定向右为正。墙碰撞后的 v_m 是多少？",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "event_sequence",
+      "explanation": "固定墙弹性反射只把小滑块速度反向，速率保持 1.5 m/s。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "+1.5 m/s"
+        },
+        {
+          "id": "C",
+          "text": "-1.5 m/s"
+        },
+        {
+          "id": "D",
+          "text": "+0.5 m/s"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b5-1-b5-1-chain-04",
+      "node_id": "B5.1",
+      "node_title": "碰撞、撞墙与自由运动更新",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n两次接触之间物块做匀速运动。若某段持续 Δt，位置更新为 x_M'=x_M+____，x_m'=x_m+____。",
+      "event_stage": "initial",
+      "variant_axis": "event_sequence",
+      "explanation": "自由运动阶段速度保持，位置按 x'=x+vΔt 更新；速度符号自动决定向左或向右。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "M",
+          "accepted_answers": [
+            "v_MΔt",
+            "vMΔt",
+            "v_M×Δt"
+          ]
+        },
+        {
+          "id": "m",
+          "accepted_answers": [
+            "v_mΔt",
+            "vmΔt",
+            "v_m×Δt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-1-b5-1-chain-05",
+      "node_id": "B5.1",
+      "node_title": "碰撞、撞墙与自由运动更新",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n为完整记录连续碰撞状态，状态表至少应保留哪些信息？",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "速度决定运动趋势，位置决定谁先接触，事件与计数用于递推；仅有守恒总量不能确定下一事件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "已经发生的事件类型和碰撞次数"
+        },
+        {
+          "id": "B",
+          "text": "只保留系统总动能一个数"
+        },
+        {
+          "id": "C",
+          "text": "只保留两物块质量比而删除位置"
+        },
+        {
+          "id": "D",
+          "text": "两物块当前位置与带符号速度"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b5-1-b5-1-chain-06",
+      "node_id": "B5.1",
+      "node_title": "碰撞、撞墙与自由运动更新",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n第一次物块碰撞后 M、m 速度分别为 -0.5、-1.5 m/s。直到 m 撞墙前，哪一更新正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "system_boundary",
+      "explanation": "物块分离后到下一次接触前没有水平合力，状态只按自由运动更新。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "先把 M 的速度反向"
+        },
+        {
+          "id": "B",
+          "text": "令两物块在空隙中交换速度"
+        },
+        {
+          "id": "C",
+          "text": "两物块各自保持速度做匀速运动"
+        },
+        {
+          "id": "D",
+          "text": "立即再次套用物块碰撞通式"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b5-1-b5-1-chain-07",
+      "node_id": "B5.1",
+      "node_title": "碰撞、撞墙与自由运动更新",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n第二次物块碰撞指 m 撞墙反弹后再次与 M 相碰。该次碰撞后 v_M=+0.5 m/s、v_m=-1.5 m/s；随后应先对____应用固定墙反射规则。",
+      "event_stage": "after_second_collision",
+      "variant_axis": "event_sequence",
+      "explanation": "第二次物块碰撞后小滑块向左驶向墙，大物块向右远离墙；下一条速度更新属于小滑块撞墙。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "object",
+          "accepted_answers": [
+            "m",
+            "小滑块",
+            "质量为1 kg的小滑块"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-1-b5-1-chain-08",
+      "node_id": "B5.1",
+      "node_title": "碰撞、撞墙与自由运动更新",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n把连续过程拆成三类更新时，哪些配对正确？",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "model_assumption",
+      "explanation": "三类规则各自只处理对应事件；自由运动更新位置，墙碰撞只更新实际撞墙的物体。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "物块—物块接触：两体弹性碰撞映射"
+        },
+        {
+          "id": "B",
+          "text": "小滑块—固定墙接触：小滑块速度取反"
+        },
+        {
+          "id": "C",
+          "text": "自由运动：每一步重新分配动量"
+        },
+        {
+          "id": "D",
+          "text": "撞墙：大物块速度也同时取反"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b5-2-b5-2-chain-01",
+      "node_id": "B5.2",
+      "node_title": "下一事件判断与状态递推",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n第一次碰撞后 v_M=-0.5 m/s、v_m=-1.5 m/s，且 m 在 M 左侧、墙在 m 左侧。下一事件是什么？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "event_sequence",
+      "explanation": "左侧小滑块向左更快并朝墙运动，右侧大物块也向左但追不上小滑块，因此先发生墙碰撞。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "M 先撞固定墙"
+        },
+        {
+          "id": "B",
+          "text": "M 与 m 立刻再次相碰"
+        },
+        {
+          "id": "C",
+          "text": "两物块同时停止"
+        },
+        {
+          "id": "D",
+          "text": "m 撞固定墙"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b5-2-b5-2-chain-02",
+      "node_id": "B5.2",
+      "node_title": "下一事件判断与状态递推",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n该初态依次经历第一次物块碰撞和小滑块撞墙。填写墙反射后 v_M、v_m，并判断两物块下一事件，速度单位为 m/s。",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "event_sequence",
+      "explanation": "墙只使 v_m 从 -1.5 变为 +1.5 m/s，M 仍为 -0.5 m/s；两物块相向，下一事件是再次相碰。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B5-CH-02",
+      "blanks": [
+        {
+          "id": "vM",
+          "accepted_answers": [
+            "-0.5",
+            "-1/2"
+          ]
+        },
+        {
+          "id": "vm",
+          "accepted_answers": [
+            "1.5",
+            "+1.5",
+            "3/2"
+          ]
+        },
+        {
+          "id": "next",
+          "accepted_answers": [
+            "第二次物块碰撞",
+            "M与m再次碰撞",
+            "两物块再次碰撞"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-2-b5-2-chain-03",
+      "node_id": "B5.2",
+      "node_title": "下一事件判断与状态递推",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n某状态下既可能撞墙又可能发生物块碰撞。确定下一事件的可靠方法是什么？",
+      "event_stage": "initial",
+      "variant_axis": "event_sequence",
+      "explanation": "事件顺序由几何距离与相对速度共同给出的最早非负接触时间决定。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "只比较两物块速率大小"
+        },
+        {
+          "id": "B",
+          "text": "分别算到墙时间和物块接触时间，取最小的非负值"
+        },
+        {
+          "id": "C",
+          "text": "总是先处理墙碰撞"
+        },
+        {
+          "id": "D",
+          "text": "总是先处理质量较大的物块"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b5-2-b5-2-chain-04",
+      "node_id": "B5.2",
+      "node_title": "下一事件判断与状态递推",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\nm 在 M 左侧。判断两物块是否会成为下一事件时，哪些信息缺一不可？",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "间距给出需要闭合的距离，闭合速度决定间距是否减小及接触时间；守恒总量和奇偶性不能单独定序。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "当前间距 x_M-x_m"
+        },
+        {
+          "id": "B",
+          "text": "闭合速度 v_m-v_M"
+        },
+        {
+          "id": "C",
+          "text": "系统总动能的数值"
+        },
+        {
+          "id": "D",
+          "text": "已发生碰撞次数的奇偶性"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b5-2-b5-2-chain-05",
+      "node_id": "B5.2",
+      "node_title": "下一事件判断与状态递推",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n该初态依次经历第一次物块碰撞、墙反射和第二次物块碰撞。填写第二次物块碰撞后 v_M、v_m，并写出下一事件，速度单位为 m/s。",
+      "event_stage": "after_second_collision",
+      "variant_axis": "event_sequence",
+      "explanation": "第二次物块碰撞后 v_M=+0.5、v_m=-1.5 m/s；小滑块位于墙右侧且向左，下一事件是再次撞墙。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B5-CH-03",
+      "blanks": [
+        {
+          "id": "vM",
+          "accepted_answers": [
+            "0.5",
+            "+0.5",
+            "1/2"
+          ]
+        },
+        {
+          "id": "vm",
+          "accepted_answers": [
+            "-1.5",
+            "-3/2"
+          ]
+        },
+        {
+          "id": "next",
+          "accepted_answers": [
+            "小滑块第二次撞墙",
+            "m第二次撞墙",
+            "m撞墙"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-2-b5-2-chain-06",
+      "node_id": "B5.2",
+      "node_title": "下一事件判断与状态递推",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n状态递推的一轮可写成：先由位置和速度求____，自由运动到接触时刻，再按事件类型更新____并把碰撞计数加一。",
+      "event_stage": "initial",
+      "variant_axis": "event_sequence",
+      "explanation": "事件驱动递推先定序、再推进位置、最后应用局部速度映射并计数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "event",
+          "accepted_answers": [
+            "下一事件",
+            "最早事件",
+            "下一接触事件"
+          ]
+        },
+        {
+          "id": "velocity",
+          "accepted_answers": [
+            "速度",
+            "相关物体速度"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-2-b5-2-chain-07",
+      "node_id": "B5.2",
+      "node_title": "下一事件判断与状态递推",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n若两个候选接触时间在误差范围内相同，哪些处理比任意先后更新更稳妥？",
+      "event_stage": "special_case",
+      "variant_axis": "event_sequence",
+      "explanation": "同时接触超出简单二体顺序映射的默认条件，应显式识别并复核模型或数值误差。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "把其中一次碰撞从计数中删除"
+        },
+        {
+          "id": "B",
+          "text": "标记为同时事件并检查模型是否需要三体接触规则"
+        },
+        {
+          "id": "C",
+          "text": "缩小时间步或提高数值精度复核"
+        },
+        {
+          "id": "D",
+          "text": "固定先处理墙事件而不说明"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b5-2-b5-2-chain-08",
+      "node_id": "B5.2",
+      "node_title": "下一事件判断与状态递推",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "固定墙在轨道左端，小滑块 m=1 kg 位于墙与大物块 M=3 kg 之间。规定向右为正，初始时 M 以 -1 m/s 向墙运动，m 静止；轨道光滑，物块间及小滑块与墙的碰撞都完全弹性。每次接触计一次碰撞。\n\n第二次物块碰撞后，为什么不能只看 M 已向右就宣布过程结束？",
+      "event_stage": "after_second_collision",
+      "variant_axis": "observation",
+      "explanation": "下一次墙反射会改变小滑块方向；终止判断必须基于未来所有可能接触，而非当前一辆车的方向。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-CHAIN",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "m 仍会撞墙反射，之后可能从后方追上 M"
+        },
+        {
+          "id": "B",
+          "text": "M 向右意味着总动量不守恒"
+        },
+        {
+          "id": "C",
+          "text": "只要 m 向左，m 就永远不会反向"
+        },
+        {
+          "id": "D",
+          "text": "碰撞次数达到三次必定终止"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b5-3-b5-3-terminal-01",
+      "node_id": "B5.3",
+      "node_title": "终止判据、计数与极限状态",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "自洽初态如下：墙在左，小滑块 m=1 kg 位于墙与 M=3 kg 之间，M 初速度 -1 m/s、m 静止，规定向右为正，所有碰撞完全弹性且每次物块接触或撞墙都计一次。事件链依次为物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞。\n\n判断连续碰撞链终止时，哪些无后续接触条件必须检查？",
+      "event_stage": "terminal",
+      "variant_axis": "observation",
+      "explanation": "终止意味着墙接触和物块接触都不会再发生；系统仍可带着非零动能自由运动。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-TERMINAL",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "左侧小滑块不能以更大向右速度追上右侧大物块"
+        },
+        {
+          "id": "B",
+          "text": "系统总动能已经变为零"
+        },
+        {
+          "id": "C",
+          "text": "两物块速度必须完全相同"
+        },
+        {
+          "id": "D",
+          "text": "没有物体再向左到达固定墙"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b5-3-b5-3-terminal-02",
+      "node_id": "B5.3",
+      "node_title": "终止判据、计数与极限状态",
+      "question_type": "multi_blank",
+      "question_style": "calculation",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "自洽初态如下：墙在左，小滑块 m=1 kg 位于墙与 M=3 kg 之间，M 初速度 -1 m/s、m 静止，规定向右为正，所有碰撞完全弹性且每次物块接触或撞墙都计一次。事件链依次为物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞。\n\n从该初态递推到终止，填写最终 v_M、v_m 和总碰撞次数。速度单位为 m/s，物块接触和撞墙都计数。",
+      "event_stage": "terminal",
+      "variant_axis": "counting",
+      "explanation": "五次事件依次更新后速度为 v_M=+1、v_m=0；事件表含三次物块碰撞和两次撞墙，共 5 次。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-TERMINAL",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "calculation_fixture_id": "CAL-B5-CH-04",
+      "blanks": [
+        {
+          "id": "vM",
+          "accepted_answers": [
+            "1",
+            "+1"
+          ]
+        },
+        {
+          "id": "vm",
+          "accepted_answers": [
+            "0"
+          ]
+        },
+        {
+          "id": "count",
+          "accepted_answers": [
+            "5",
+            "五"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-3-b5-3-terminal-03",
+      "node_id": "B5.3",
+      "node_title": "终止判据、计数与极限状态",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "自洽初态如下：墙在左，小滑块 m=1 kg 位于墙与 M=3 kg 之间，M 初速度 -1 m/s、m 静止，规定向右为正，所有碰撞完全弹性且每次物块接触或撞墙都计一次。事件链依次为物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞。\n\n该事件链的碰撞次数为何是 5 而不是 3？",
+      "event_stage": "terminal",
+      "variant_axis": "counting",
+      "explanation": "计数口径把每次接触事件记一次：三次物块接触加两次墙接触等于五次。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-TERMINAL",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "终止状态本身再计一次"
+        },
+        {
+          "id": "B",
+          "text": "两次小滑块撞墙也各计一次碰撞"
+        },
+        {
+          "id": "C",
+          "text": "每次物块碰撞按两个物体计两次"
+        },
+        {
+          "id": "D",
+          "text": "自由运动阶段各计一次"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b5-3-b5-3-terminal-04",
+      "node_id": "B5.3",
+      "node_title": "终止判据、计数与极限状态",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "自洽初态如下：墙在左，小滑块 m=1 kg 位于墙与 M=3 kg 之间，M 初速度 -1 m/s、m 静止，规定向右为正，所有碰撞完全弹性且每次物块接触或撞墙都计一次。事件链依次为物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞。\n\n参数特例取 M=m 时，原来标作“大物块”的 M 以 -V 撞上静止 m。大物块停下后，第一次物块碰撞的另一结果是什么？",
+      "event_stage": "special_case",
+      "variant_axis": "mass_ratio",
+      "explanation": "等质量完全弹性动撞静时速度交换，M 停下，m 取得 M 的原速度 -V。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-TERMINAL",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "m 取得 -V 并驶向墙"
+        },
+        {
+          "id": "B",
+          "text": "m 仍静止，动能消失"
+        },
+        {
+          "id": "C",
+          "text": "M 与 m 都以 -V/2 粘在一起"
+        },
+        {
+          "id": "D",
+          "text": "M 以 +V 原速反弹"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b5-3-b5-3-terminal-05",
+      "node_id": "B5.3",
+      "node_title": "终止判据、计数与极限状态",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "自洽初态如下：墙在左，小滑块 m=1 kg 位于墙与 M=3 kg 之间，M 初速度 -1 m/s、m 静止，规定向右为正，所有碰撞完全弹性且每次物块接触或撞墙都计一次。事件链依次为物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞。\n\n终态中 m 位于 M 左侧，v_m=0、v_M=+1 m/s。两物块间距将____，m 也不会再____，所以链条终止。",
+      "event_stage": "terminal",
+      "variant_axis": "observation",
+      "explanation": "右侧 M 向右远离，左侧 m 静止；物块不再接近，m 也无向左运动，两个接触通道都关闭。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-TERMINAL",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "gap",
+          "accepted_answers": [
+            "增大",
+            "变大"
+          ]
+        },
+        {
+          "id": "wall",
+          "accepted_answers": [
+            "撞墙",
+            "到达左墙"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-3-b5-3-terminal-06",
+      "node_id": "B5.3",
+      "node_title": "终止判据、计数与极限状态",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "自洽初态如下：墙在左，小滑块 m=1 kg 位于墙与 M=3 kg 之间，M 初速度 -1 m/s、m 静止，规定向右为正，所有碰撞完全弹性且每次物块接触或撞墙都计一次。事件链依次为物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞。\n\n记录碰撞次数时，哪些事件不应额外计数？",
+      "event_stage": "terminal",
+      "variant_axis": "counting",
+      "explanation": "一次连续接触过程只计一次；无接触的自由运动和同次接触内部的受力变化不另增计数。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-TERMINAL",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "小滑块每次独立撞墙"
+        },
+        {
+          "id": "B",
+          "text": "两物块每次独立接触"
+        },
+        {
+          "id": "C",
+          "text": "碰撞之间的匀速自由运动"
+        },
+        {
+          "id": "D",
+          "text": "同一次接触中的力先增大后减小"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b5-3-b5-3-terminal-07",
+      "node_id": "B5.3",
+      "node_title": "终止判据、计数与极限状态",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "自洽初态如下：墙在左，小滑块 m=1 kg 位于墙与 M=3 kg 之间，M 初速度 -1 m/s、m 静止，规定向右为正，所有碰撞完全弹性且每次物块接触或撞墙都计一次。事件链依次为物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞。\n\n某状态下 m 在 M 左侧且两者都向右，v_m=v_M。是否满足物块间无后续接触条件？",
+      "event_stage": "terminal",
+      "variant_axis": "observation",
+      "explanation": "后方小滑块只有在 v_m>v_M 时才闭合间距；等速保持间距，物块间不会再接触。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-TERMINAL",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "只有两者都静止才满足"
+        },
+        {
+          "id": "B",
+          "text": "满足，间距保持不变，不会追上"
+        },
+        {
+          "id": "C",
+          "text": "不满足，同向必定相碰"
+        },
+        {
+          "id": "D",
+          "text": "不满足，质量不同会自动改变速度"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b5-3-b5-3-terminal-08",
+      "node_id": "B5.3",
+      "node_title": "终止判据、计数与极限状态",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "自洽初态如下：墙在左，小滑块 m=1 kg 位于墙与 M=3 kg 之间，M 初速度 -1 m/s、m 静止，规定向右为正，所有碰撞完全弹性且每次物块接触或撞墙都计一次。事件链依次为物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞。\n\n哪些做法会导致错误的终止判断？",
+      "event_stage": "terminal",
+      "variant_axis": "model_assumption",
+      "explanation": "墙会改变小滑块方向，位置决定追赶者与被追赶者；终止必须在完整状态上判断。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-TERMINAL",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "只看当前速度方向而忽略下一次墙反射"
+        },
+        {
+          "id": "B",
+          "text": "只比较速度而不确认左右位置"
+        },
+        {
+          "id": "C",
+          "text": "同时检查到墙时间和物块闭合条件"
+        },
+        {
+          "id": "D",
+          "text": "在每次事件后重新计算候选接触时间"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b5-4-b5-4-geometry-01",
+      "node_id": "B5.4",
+      "node_title": "直线—椭圆状态图，衔接 C",
+      "question_type": "multi_blank",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "把一次完全弹性碰撞的速度状态记为点 (v_M,v_m)。在质量 M、m 和系统总量固定时，动量约束 Mv_M+mv_m=P 是速度平面中的直线，动能约束 Mv_M²+mv_m²=2E 是椭圆；一次物块碰撞的碰前、碰后状态对应两条曲线的交点。\n\n在 (v_M,v_m) 平面中，动量守恒画成____，动能守恒画成____。",
+      "event_stage": "extension_stage",
+      "variant_axis": "state_geometry",
+      "explanation": "动量式对两个速度是一次方程，动能式含速度平方且质量为正，分别对应直线和椭圆。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-GEOMETRY",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "blanks": [
+        {
+          "id": "momentum",
+          "accepted_answers": [
+            "直线",
+            "一条直线"
+          ]
+        },
+        {
+          "id": "energy",
+          "accepted_answers": [
+            "椭圆",
+            "一个椭圆"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b5-4-b5-4-geometry-02",
+      "node_id": "B5.4",
+      "node_title": "直线—椭圆状态图，衔接 C",
+      "question_type": "single_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "把一次完全弹性碰撞的速度状态记为点 (v_M,v_m)。在质量 M、m 和系统总量固定时，动量约束 Mv_M+mv_m=P 是速度平面中的直线，动能约束 Mv_M²+mv_m²=2E 是椭圆；一次物块碰撞的碰前、碰后状态对应两条曲线的交点。\n\n直线与椭圆通常有两个交点。它们在一次物块碰撞中代表什么？",
+      "event_stage": "extension_stage",
+      "variant_axis": "state_geometry",
+      "explanation": "交点坐标是两物块速度组合；一个是原状态，另一个是满足两守恒条件的碰后状态。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-GEOMETRY",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "碰撞持续时间的起点和终点"
+        },
+        {
+          "id": "B",
+          "text": "系统动量的最大值与最小值"
+        },
+        {
+          "id": "C",
+          "text": "同一总动量、总动能下的碰前状态与非平凡碰后状态"
+        },
+        {
+          "id": "D",
+          "text": "两个物块在轨道上的空间位置"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b5-4-b5-4-geometry-03",
+      "node_id": "B5.4",
+      "node_title": "直线—椭圆状态图，衔接 C",
+      "question_type": "multiple_choice",
+      "question_style": "scenario",
+      "assessment_kind": "objective",
+      "difficulty": 3,
+      "prompt": "把一次完全弹性碰撞的速度状态记为点 (v_M,v_m)。在质量 M、m 和系统总量固定时，动量约束 Mv_M+mv_m=P 是速度平面中的直线，动能约束 Mv_M²+mv_m²=2E 是椭圆；一次物块碰撞的碰前、碰后状态对应两条曲线的交点。\n\n小滑块撞固定墙并等速反射时，速度状态点怎样变化？",
+      "event_stage": "extension_stage",
+      "variant_axis": "state_geometry",
+      "explanation": "墙事件只更新小滑块速度，所以 (v_M,v_m) 变为 (v_M,-v_m)，对应关于横轴反射。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "scenario_id": "SC-B5-GEOMETRY",
+      "source_refs": [
+        "video-main",
+        "openstax-elastic"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "状态点沿动量守恒直线连续滑动"
+        },
+        {
+          "id": "B",
+          "text": "v_m 变号而 v_M 不变"
+        },
+        {
+          "id": "C",
+          "text": "状态点关于 v_M 轴反射"
+        },
+        {
+          "id": "D",
+          "text": "v_M、v_m 同时变号"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b1-1-b1-1-concise-01",
+      "node_id": "B1.1",
+      "node_title": "动量 p=mv 与正负方向",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "规定向右为正，同一小车速度从 +v 变为 -v，质量和速率不变。它的动量怎样变化？",
+      "event_stage": "initial",
+      "variant_axis": "direction",
+      "explanation": "p=mv，质量和速率不变使动量大小不变；速度从正变负使动量方向随之反转。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "大小不变，方向反转"
+        },
+        {
+          "id": "B",
+          "text": "质量未变，所以动量完全不变"
+        },
+        {
+          "id": "C",
+          "text": "方向反转使动量变为零"
+        },
+        {
+          "id": "D",
+          "text": "大小加倍，方向不变"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b1-1-b1-1-concise-02",
+      "node_id": "B1.1",
+      "node_title": "动量 p=mv 与正负方向",
+      "question_type": "multi_blank",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "动量定义式为 p=____，国际单位可写成____。",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "动量等于质量与速度的乘积，单位 kg·m/s 与 N·s 等价。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "blanks": [
+        {
+          "id": "formula",
+          "accepted_answers": [
+            "mv",
+            "m v",
+            "m×v"
+          ]
+        },
+        {
+          "id": "unit",
+          "accepted_answers": [
+            "kg·m/s",
+            "N·s"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b1-2-b1-2-concise-01",
+      "node_id": "B1.2",
+      "node_title": "冲量与动量变化 Δp",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "某物体在一段作用时间内受到的合力冲量为 I。它的动量变化满足哪一关系？",
+      "event_stage": "initial",
+      "variant_axis": "impulse",
+      "explanation": "冲量—动量定理给出 I=Δp=p后-p前，二者方向相同。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "Δp=I²"
+        },
+        {
+          "id": "B",
+          "text": "Δp 与 I 方向相反"
+        },
+        {
+          "id": "C",
+          "text": "Δp=I"
+        },
+        {
+          "id": "D",
+          "text": "p后=I，无需初态"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b1-2-b1-2-concise-02",
+      "node_id": "B1.2",
+      "node_title": "冲量与动量变化 Δp",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "保持动量变化量不变而延长受力时间，哪些结论正确？",
+      "event_stage": "initial",
+      "variant_axis": "impulse",
+      "explanation": "Δp 固定意味着冲量固定；由 I=F平均Δt，时间延长可减小平均力大小。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "冲量方向自动反转"
+        },
+        {
+          "id": "B",
+          "text": "合力冲量保持不变"
+        },
+        {
+          "id": "C",
+          "text": "平均合力大小可减小"
+        },
+        {
+          "id": "D",
+          "text": "末动量必定变为零"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b1-3-b1-3-concise-01",
+      "node_id": "B1.3",
+      "node_title": "动能 ½mv² 与能量转化",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "同一物体只改变运动方向而速率不变，它的平动动能怎样变化？",
+      "event_stage": "initial",
+      "variant_axis": "energy",
+      "explanation": "K=½mv² 由速率平方决定，方向反转不改变动能。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "不变"
+        },
+        {
+          "id": "B",
+          "text": "变为相反数"
+        },
+        {
+          "id": "C",
+          "text": "变为零"
+        },
+        {
+          "id": "D",
+          "text": "加倍"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b1-3-b1-3-concise-02",
+      "node_id": "B1.3",
+      "node_title": "动能 ½mv² 与能量转化",
+      "question_type": "multi_blank",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "质量不变时，速率扩大为 2 倍，动能扩大为____倍；动能是有无方向的量？____。",
+      "event_stage": "initial",
+      "variant_axis": "energy",
+      "explanation": "动能与速率平方成正比，是没有方向的标量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "blanks": [
+        {
+          "id": "ratio",
+          "accepted_answers": [
+            "4",
+            "四"
+          ]
+        },
+        {
+          "id": "scalar",
+          "accepted_answers": [
+            "无方向",
+            "没有方向",
+            "标量"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b1-4-b1-4-concise-01",
+      "node_id": "B1.4",
+      "node_title": "单体量与系统总量",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "两个物体组成系统时，系统总动量怎样得到？",
+      "event_stage": "initial",
+      "variant_axis": "system_boundary",
+      "explanation": "一维总动量是系统内各物体动量的代数和，方向符号不能丢。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "把各动量大小相加"
+        },
+        {
+          "id": "B",
+          "text": "把两物体动能相减"
+        },
+        {
+          "id": "C",
+          "text": "把各物体带符号动量相加"
+        },
+        {
+          "id": "D",
+          "text": "只取质量较大者的动量"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b1-4-b1-4-concise-02",
+      "node_id": "B1.4",
+      "node_title": "单体量与系统总量",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "一次两车碰撞中系统总动量不变。哪些现象仍可能发生？",
+      "event_stage": "initial",
+      "variant_axis": "system_boundary",
+      "explanation": "总量守恒允许系统内部重新分配；单车动量通常因内力冲量而改变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "两车速度必定相等"
+        },
+        {
+          "id": "B",
+          "text": "单车动量改变"
+        },
+        {
+          "id": "C",
+          "text": "两车之间交换等大反向冲量"
+        },
+        {
+          "id": "D",
+          "text": "每辆车动量都必须不变"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b2-1-b2-1-concise-01",
+      "node_id": "B2.1",
+      "node_title": "研究系统与时间区间",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "开始守恒分析前，哪些信息必须先确定？",
+      "event_stage": "initial",
+      "variant_axis": "system_boundary",
+      "explanation": "系统边界和研究时段共同决定外界作用；单车是否变向不能替代系统分析，碰撞短暂也不自动保证外冲量可忽略。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "研究系统包含哪些物体"
+        },
+        {
+          "id": "B",
+          "text": "研究哪一时间区间"
+        },
+        {
+          "id": "C",
+          "text": "只看某辆车的速度是否变号"
+        },
+        {
+          "id": "D",
+          "text": "因碰撞时间短便预设系统外冲量为零"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b2-1-b2-1-concise-02",
+      "node_id": "B2.1",
+      "node_title": "研究系统与时间区间",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "把墙从系统外移入系统内后，墙与滑块之间的作用力如何分类？",
+      "event_stage": "initial",
+      "variant_axis": "system_boundary",
+      "explanation": "力的内外分类取决于相互作用双方是否都在所选系统内。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "由内力变为外力"
+        },
+        {
+          "id": "B",
+          "text": "不再是力"
+        },
+        {
+          "id": "C",
+          "text": "只在墙静止时才存在"
+        },
+        {
+          "id": "D",
+          "text": "由外力变为系统内力"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-concise-01",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "选取两车组成的系统，研究从接触开始到分离结束的阶段。系统总动量守恒的直接条件是什么？",
+      "event_stage": "initial",
+      "variant_axis": "conservation",
+      "explanation": "所选系统在研究时段内外冲量为零或可忽略，才有总动量守恒；弹性不是动量守恒的必要条件。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "两车质量必须相等"
+        },
+        {
+          "id": "B",
+          "text": "碰撞必须完全弹性"
+        },
+        {
+          "id": "C",
+          "text": "该阶段系统外冲量可忽略"
+        },
+        {
+          "id": "D",
+          "text": "每辆车所受冲量都为零"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b2-2-b2-2-concise-02",
+      "node_id": "B2.2",
+      "node_title": "外冲量与动量守恒条件",
+      "question_type": "multi_blank",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "选取两车组成的系统，研究从碰撞开始到碰撞结束的阶段，规定向右为正。若该阶段系统受到 -0.3 N·s 的水平外冲量，则系统总动量变化为____kg·m/s，变化方向为____。",
+      "event_stage": "initial",
+      "variant_axis": "conservation",
+      "explanation": "系统总动量变化等于系统外冲量，所以 ΔP系统=-0.3 kg·m/s，负号表示向左；不能因碰撞短暂而把已知非零外冲量删去。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "blanks": [
+        {
+          "id": "change",
+          "accepted_answers": [
+            "-0.3"
+          ]
+        },
+        {
+          "id": "direction",
+          "accepted_answers": [
+            "向左",
+            "负方向"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b2-3-b2-3-concise-01",
+      "node_id": "B2.3",
+      "node_title": "弹性、非弹性与动能条件",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "完全弹性碰撞的两车系统在适用条件下保持哪些总量？",
+      "event_stage": "initial",
+      "variant_axis": "elasticity",
+      "explanation": "完全弹性碰撞同时满足系统总动量和总平动动能守恒，单体量可改变。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "总动量"
+        },
+        {
+          "id": "B",
+          "text": "总平动动能"
+        },
+        {
+          "id": "C",
+          "text": "每辆车的动量"
+        },
+        {
+          "id": "D",
+          "text": "每辆车的速度"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b2-3-b2-3-concise-02",
+      "node_id": "B2.3",
+      "node_title": "弹性、非弹性与动能条件",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "某两物体系统碰前后总动量相等，但总平动动能减少。该碰撞应怎样分类？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "elasticity",
+      "explanation": "总动量相等只满足动量条件；总平动动能减少说明碰撞不是完全弹性，减少部分转入其他能量形式。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "完全弹性碰撞"
+        },
+        {
+          "id": "B",
+          "text": "仅凭动量守恒即可判为完全弹性"
+        },
+        {
+          "id": "C",
+          "text": "总动量必定也减少"
+        },
+        {
+          "id": "D",
+          "text": "非弹性碰撞"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b2-4-b2-4-concise-01",
+      "node_id": "B2.4",
+      "node_title": "撞墙、摩擦和现实边界",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "只把滑块选作系统来研究撞固定墙的短暂阶段，滑块动量为何改变？",
+      "event_stage": "after_wall_collision",
+      "variant_axis": "system_boundary",
+      "explanation": "墙在单滑块系统外，其作用冲量直接改变滑块动量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "动能带有方向"
+        },
+        {
+          "id": "B",
+          "text": "固定墙不能传递冲量"
+        },
+        {
+          "id": "C",
+          "text": "墙对滑块有外冲量"
+        },
+        {
+          "id": "D",
+          "text": "滑块质量突然改变"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b2-4-b2-4-concise-02",
+      "node_id": "B2.4",
+      "node_title": "撞墙、摩擦和现实边界",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "把研究时间延长到物体在粗糙地面上滑行时，哪些影响可能不可忽略？",
+      "event_stage": "terminal",
+      "variant_axis": "friction",
+      "explanation": "摩擦既改变物体系统动量，也耗散机械能；它不会由速度平方保证守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "摩擦使质量自动减小"
+        },
+        {
+          "id": "B",
+          "text": "摩擦给物体系统的外冲量"
+        },
+        {
+          "id": "C",
+          "text": "机械能向内能转化"
+        },
+        {
+          "id": "D",
+          "text": "动量因速度平方而守恒"
+        }
+      ],
+      "correct_answers": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-1-b3-1-concise-01",
+      "node_id": "B3.1",
+      "node_title": "碰前碰后变量与符号",
+      "question_type": "multi_blank",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "碰撞变量中，u 通常表示____速度，v 通常表示____速度。",
+      "event_stage": "initial",
+      "variant_axis": "equation_setup",
+      "explanation": "统一阶段符号可避免把初态与末态速度混写。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "blanks": [
+        {
+          "id": "before",
+          "accepted_answers": [
+            "碰前",
+            "碰撞前"
+          ]
+        },
+        {
+          "id": "after",
+          "accepted_answers": [
+            "碰后",
+            "碰撞后"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-1-b3-1-concise-02",
+      "node_id": "B3.1",
+      "node_title": "碰前碰后变量与符号",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "后车与前车同向运动时，什么条件支持后车最终追上前车？",
+      "event_stage": "initial",
+      "variant_axis": "observation",
+      "explanation": "相对位置确定追赶关系，后车更快使间距持续减小。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "后车质量大于前车即可"
+        },
+        {
+          "id": "B",
+          "text": "两车速度相等即可"
+        },
+        {
+          "id": "C",
+          "text": "后车速度较小即可"
+        },
+        {
+          "id": "D",
+          "text": "后车在后方且速度大于前车"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b3-2-b3-2-concise-01",
+      "node_id": "B3.2",
+      "node_title": "两物体动量守恒式",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "选取两物体组成的系统，在碰撞短时段内水平外冲量可忽略。动量守恒式是哪一式？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "所选系统总动量是质量与带符号速度乘积之和，外冲量可忽略时碰前后相等。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "u1+u2=v1+v2 对任意质量都成立"
+        },
+        {
+          "id": "B",
+          "text": "m1u1=m2v2"
+        },
+        {
+          "id": "C",
+          "text": "m1u1+m2u2=m1v1+m2v2"
+        },
+        {
+          "id": "D",
+          "text": "m1u1²+m2u2²=m1v1+m2v2"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b3-2-b3-2-concise-02",
+      "node_id": "B3.2",
+      "node_title": "两物体动量守恒式",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "规定向右为正，两车相向且 2 号车向左。把 u2 代入动量式时应怎样处理？",
+      "event_stage": "initial",
+      "variant_axis": "direction",
+      "explanation": "动量是矢量，一维计算用速度正负表示方向。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "把 u2 平方后代入"
+        },
+        {
+          "id": "B",
+          "text": "保留 u2 的负号"
+        },
+        {
+          "id": "C",
+          "text": "一律改成速率正值"
+        },
+        {
+          "id": "D",
+          "text": "把质量 m2 记负"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b3-3-b3-3-concise-01",
+      "node_id": "B3.3",
+      "node_title": "两物体动能守恒式",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "为简化完全弹性碰撞的总动能方程，把等式两边同时乘 2。这样处理会怎样？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "等式两边同乘同一非零常数不改变解；它只约去各动能项中的 ½，不改变速度平方或物理约束。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "约去所有 ½，方程的解不变"
+        },
+        {
+          "id": "B",
+          "text": "把动能守恒式变成动量守恒式"
+        },
+        {
+          "id": "C",
+          "text": "使每个速度都必须乘 2"
+        },
+        {
+          "id": "D",
+          "text": "使向左速度对应负动能"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b3-3-b3-3-concise-02",
+      "node_id": "B3.3",
+      "node_title": "两物体动能守恒式",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "题目只说明非弹性碰撞且系统外冲量可忽略，哪条方程不能直接使用？",
+      "event_stage": "initial",
+      "variant_axis": "model_assumption",
+      "explanation": "非弹性碰撞不保持系统总平动动能；外冲量条件仍可支持总动量守恒。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "碰前后总动量相等"
+        },
+        {
+          "id": "B",
+          "text": "总动量是各物体动量之和"
+        },
+        {
+          "id": "C",
+          "text": "动量变化等于外冲量"
+        },
+        {
+          "id": "D",
+          "text": "碰前后总动能相等"
+        }
+      ],
+      "correct_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-concise-01",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "multi_blank",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "1 号车碰前在左且追上 2 号车。完全弹性时，接近与分离速度关系可写成 v2-v1=____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "完全弹性碰撞使分离速度大小等于接近速度大小。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "blanks": [
+        {
+          "id": "relation",
+          "accepted_answers": [
+            "u1-u2",
+            "u1 - u2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b3-4-b3-4-concise-02",
+      "node_id": "B3.4",
+      "node_title": "相对速度反向关系",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "“相对速度反向”必然意味着什么？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "observation",
+      "explanation": "相对运动反向描述两物体间距的变化，不要求两个绝对速度都变号。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "系统总动量反向"
+        },
+        {
+          "id": "B",
+          "text": "两物体由相互接近变为相互分离"
+        },
+        {
+          "id": "C",
+          "text": "每个物体都必须反向"
+        },
+        {
+          "id": "D",
+          "text": "两物体碰后都静止"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "cp-b3-5-b3-5-concise-01",
+      "node_id": "B3.5",
+      "node_title": "恢复系数 e 与弹性程度",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "恢复系数 e=1 对应哪类碰撞？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "restitution",
+      "explanation": "e=1 表示分离速度等于接近速度，是完全弹性的一维恢复关系。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "完全弹性碰撞"
+        },
+        {
+          "id": "B",
+          "text": "完全非弹性碰撞"
+        },
+        {
+          "id": "C",
+          "text": "没有发生接触"
+        },
+        {
+          "id": "D",
+          "text": "总动量不守恒的碰撞"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b3-5-b3-5-concise-02",
+      "node_id": "B3.5",
+      "node_title": "恢复系数 e 与弹性程度",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在普通被动碰撞模型的 0≤e≤1 范围内，哪些对应正确？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "restitution",
+      "explanation": "e 量化相对分离速度占接近速度的比例；还需额外信息才能从动量条件确定它。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "e=0 表示碰后相对分离速度为零"
+        },
+        {
+          "id": "B",
+          "text": "e=1 表示两物体碰后必同速"
+        },
+        {
+          "id": "C",
+          "text": "动量守恒单独决定 e 的数值"
+        },
+        {
+          "id": "D",
+          "text": "0<e<1 表示非完全弹性且仍有分离速度"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-1-b4-1-concise-01",
+      "node_id": "B4.1",
+      "node_title": "消元与平方差分解",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "把 u²-v² 作平方差分解，正确结果是什么？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "solution_method",
+      "explanation": "平方差公式 a²-b²=(a-b)(a+b) 是弹性碰撞消元的关键一步。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "(u+v)²"
+        },
+        {
+          "id": "B",
+          "text": "u-v²"
+        },
+        {
+          "id": "C",
+          "text": "(u-v)(u+v)"
+        },
+        {
+          "id": "D",
+          "text": "(u-v)²"
+        }
+      ],
+      "correct_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "cp-b4-2-b4-2-concise-01",
+      "node_id": "B4.2",
+      "node_title": "一维弹性碰撞速度通式",
+      "question_type": "multi_blank",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "一维完全弹性碰撞中，v1 通式的分母是____，u1 项系数的分子是____。",
+      "event_stage": "after_first_collision",
+      "variant_axis": "equation_setup",
+      "explanation": "v1=[(m1-m2)u1+2m2u2]/(m1+m2)。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "blanks": [
+        {
+          "id": "denominator",
+          "accepted_answers": [
+            "m1+m2",
+            "m1 + m2"
+          ]
+        },
+        {
+          "id": "coefficient",
+          "accepted_answers": [
+            "m1-m2",
+            "m1 - m2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cp-b4-3-b4-3-concise-01",
+      "node_id": "B4.3",
+      "node_title": "等质量与典型质量比",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 1,
+      "prompt": "等质量物体发生一维完全弹性碰撞时，速度关系有何典型特点？",
+      "event_stage": "special_case",
+      "variant_axis": "mass_ratio",
+      "explanation": "把 m1=m2 代入通式得到 v1=u2、v2=u1。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "两物体交换速度"
+        },
+        {
+          "id": "B",
+          "text": "两物体必粘在一起"
+        },
+        {
+          "id": "C",
+          "text": "两物体速度都变为零"
+        },
+        {
+          "id": "D",
+          "text": "入射物体必以两倍速率反弹"
+        }
+      ],
+      "correct_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cp-b4-4-b4-4-concise-01",
+      "node_id": "B4.4",
+      "node_title": "方向、极限与解的筛选",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "从代数根中筛选真实接触后的物理解时，哪些信息有用？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "observation",
+      "explanation": "物理解必须兼顾位置顺序、接近和分离条件，不能只凭代数形式。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "碰后是否分离或不再压入"
+        },
+        {
+          "id": "B",
+          "text": "只看根是否为整数"
+        },
+        {
+          "id": "C",
+          "text": "只看两个速度的绝对值是否相等"
+        },
+        {
+          "id": "D",
+          "text": "碰前是否正在接近"
+        }
+      ],
+      "correct_answers": [
+        "A",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b4-5-b4-5-concise-01",
+      "node_id": "B4.5",
+      "node_title": "守恒回代与结果检验",
+      "question_type": "multiple_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "检验一维完全弹性碰撞结果时，哪些回代最直接？",
+      "event_stage": "after_first_collision",
+      "variant_axis": "model_assumption",
+      "explanation": "三条物理约束和量纲共同检查答案；单车动量、绝对方向不是通用不变量。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "检查每辆车动量是否各自不变"
+        },
+        {
+          "id": "B",
+          "text": "要求两个碰后速度都为正"
+        },
+        {
+          "id": "C",
+          "text": "比较碰前后系统总动量与总动能"
+        },
+        {
+          "id": "D",
+          "text": "检查分离速度是否等于接近速度"
+        }
+      ],
+      "correct_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "cp-b5-4-b5-4-concise-01",
+      "node_id": "B5.4",
+      "node_title": "直线—椭圆状态图，衔接 C",
+      "question_type": "single_choice",
+      "question_style": "concise",
+      "assessment_kind": "objective",
+      "difficulty": 2,
+      "prompt": "在两物体速度平面中，固定系统总动量和总动能分别对应什么曲线？",
+      "event_stage": "extension_stage",
+      "variant_axis": "state_geometry",
+      "explanation": "动量约束对速度是一阶直线，动能约束含正质量加权的速度平方，是椭圆。",
+      "enabled": true,
+      "revision": 0,
+      "author_notes": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "两个空间轨迹圆"
+        },
+        {
+          "id": "B",
+          "text": "直线与椭圆"
+        },
+        {
+          "id": "C",
+          "text": "两条平行直线"
+        },
+        {
+          "id": "D",
+          "text": "圆与抛物线"
+        }
+      ],
+      "correct_answers": [
+        "B"
+      ]
+    }
+  ]
+}

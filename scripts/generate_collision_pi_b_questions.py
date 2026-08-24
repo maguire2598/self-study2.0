@@ -1,4 +1,4 @@
-"""Generate the formal Collision & Pi section A question bank."""
+"""Generate the formal Collision & Pi section B question bank."""
 
 from __future__ import annotations
 
@@ -11,17 +11,17 @@ else:
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "content" / "courses" / "collision-pi" / "question-source-a.json"
+SOURCE = ROOT / "content" / "courses" / "collision-pi" / "question-source-b.json"
 PUZZLE = ROOT / "content" / "courses" / "collision-pi" / "knowledge-puzzle.json"
-OUTPUT = ROOT / "content" / "courses" / "collision-pi" / "question-bank-a.json"
+OUTPUT = ROOT / "content" / "courses" / "collision-pi" / "question-bank-b.json"
 
 
 def build_bank() -> dict:
     return build_bank_from_paths(
         SOURCE,
         PUZZLE,
-        section_id="A",
-        title="碰撞与π · A板块客观题库",
+        section_id="B",
+        title="碰撞与π · B板块客观题库",
     )
 
 

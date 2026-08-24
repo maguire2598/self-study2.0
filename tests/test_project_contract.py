@@ -57,6 +57,7 @@ class ProjectContractTests(unittest.TestCase):
             "docs/product/error-followup-agent.md",
             "content/courses/collision-pi/knowledge-puzzle.json",
             "content/courses/collision-pi/question-bank-a.json",
+            "content/courses/collision-pi/question-bank-b.json",
             "authoring/collision-pi-question-editor.html",
             "schemas/objective_question_bank.schema.json",
         ]
@@ -80,6 +81,16 @@ class ProjectContractTests(unittest.TestCase):
         self.assertFalse(bank["status_assessment"]["enabled"])
         self.assertFalse(bank["delivery_policy"]["reveal_answer_after_wrong"])
         self.assertEqual(bank["delivery_policy"]["wrong_answer_action"], "error_followup_agent")
+
+    def test_b_question_bank_contract(self):
+        bank = json.loads(
+            (ROOT / "content/courses/collision-pi/question-bank-b.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(bank["section_id"], "B")
+        self.assertEqual(len(bank["questions"]), 168)
+        self.assertEqual(len(bank["question_count_by_node"]), 22)
+        self.assertFalse(bank["status_assessment"]["enabled"])
+        self.assertFalse(bank["delivery_policy"]["reveal_answer_after_wrong"])
 
 
 if __name__ == "__main__":

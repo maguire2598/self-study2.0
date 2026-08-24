@@ -5,8 +5,9 @@ import unittest
 from copy import deepcopy
 from collections import Counter, defaultdict
 from pathlib import Path
-from unittest.mock import patch
+from tempfile import TemporaryDirectory
 
+from scripts import collision_pi_question_bank as question_bank
 from scripts import generate_collision_pi_a_questions as generator
 
 
@@ -61,6 +62,10 @@ class QuestionBankTests(unittest.TestCase):
 
     def test_checked_in_bank_matches_generator(self):
         self.assertEqual(generator.build_bank(), self.bank)
+
+    def test_a_wrapper_preserves_checked_in_bank_bytes(self):
+        rendered = json.dumps(generator.build_bank(), ensure_ascii=False, indent=2) + "\n"
+        self.assertEqual(rendered, BANK_PATH.read_text(encoding="utf-8"))
 
     def test_bank_nodes_equal_assessed_a_nodes(self):
         puzzle = json.loads(PUZZLE_PATH.read_text(encoding="utf-8"))
@@ -127,7 +132,6 @@ class QuestionBankTests(unittest.TestCase):
         self.assertEqual(policy["correct_answer_actions"], ["next_question", "error_followup_agent"])
 
     def test_source_expansion_preserves_order_prompts_and_answers(self):
-        self.assertTrue(hasattr(generator, "expand_questions"), "generator must expose expand_questions")
         source = json.loads(SOURCE_PATH.read_text(encoding="utf-8"))
         puzzle = json.loads(PUZZLE_PATH.read_text(encoding="utf-8"))
         authored = [
@@ -135,7 +139,7 @@ class QuestionBankTests(unittest.TestCase):
             for scenario in source["scenarios"]
             for question in scenario["questions"]
         ] + [(None, question) for question in source["standalone_questions"]]
-        expanded = generator.expand_questions(source, puzzle)
+        expanded = question_bank.expand_questions(source, puzzle, "A")
 
         expected_ids = [
             f"cp-{question['node_id'].lower().replace('.', '-')}-{question['key']}"
@@ -159,24 +163,30 @@ class QuestionBankTests(unittest.TestCase):
                 self.assertEqual(item["blanks"], question["blanks"])
 
     def test_expansion_rejects_non_assessed_node(self):
-        self.assertTrue(hasattr(generator, "expand_questions"), "generator must expose expand_questions")
         puzzle = json.loads(PUZZLE_PATH.read_text(encoding="utf-8"))
         source = {
             "scenarios": [],
             "standalone_questions": [{"node_id": "A1", "key": "invalid-node"}],
         }
         with self.assertRaisesRegex(ValueError, "question references non-assessed node: A1"):
-            generator.expand_questions(source, puzzle)
+            question_bank.expand_questions(source, puzzle, "A")
 
     def test_build_bank_rejects_quota_mismatch(self):
-        self.assertTrue(hasattr(generator, "load_inputs"), "generator must expose load_inputs")
         source = json.loads(SOURCE_PATH.read_text(encoding="utf-8"))
-        puzzle = json.loads(PUZZLE_PATH.read_text(encoding="utf-8"))
         invalid_source = deepcopy(source)
         invalid_source["node_quotas"]["A1.1"] += 1
-        with patch.object(generator, "load_inputs", return_value=(invalid_source, puzzle)):
+        with TemporaryDirectory() as temporary_directory:
+            invalid_source_path = Path(temporary_directory) / "invalid-source.json"
+            invalid_source_path.write_text(
+                json.dumps(invalid_source, ensure_ascii=False), encoding="utf-8"
+            )
             with self.assertRaisesRegex(ValueError, "question quota mismatch"):
-                generator.build_bank()
+                question_bank.build_bank_from_paths(
+                    invalid_source_path,
+                    PUZZLE_PATH,
+                    section_id="A",
+                    title="test",
+                )
 
     def test_formal_schema_requires_question_style(self):
         candidate = generator.build_bank()
