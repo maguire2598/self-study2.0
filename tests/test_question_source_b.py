@@ -262,11 +262,15 @@ class QuestionSourceBTests(unittest.TestCase):
             if question["question_type"] in {"single_choice", "multiple_choice"}:
                 self.assertTrue(has_options, question["key"])
                 self.assertEqual(len(question["options"]), 4, question["key"])
+                option_texts = [option["text"] for option in question["options"]]
+                self.assertEqual(len(option_texts), len(set(option_texts)), question["key"])
                 correct = sum(option["correct"] for option in question["options"])
                 expected = 1 if question["question_type"] == "single_choice" else 2
                 self.assertEqual(correct, expected, question["key"])
             else:
                 self.assertTrue(has_blanks, question["key"])
+                blank_ids = [blank["id"] for blank in question["blanks"]]
+                self.assertEqual(len(blank_ids), len(set(blank_ids)), question["key"])
                 self.assertTrue(all(blank["accepted_answers"] for blank in question["blanks"]), question["key"])
             if question["question_style"] == "calculation":
                 self.assertIn(question.get("calculation_fixture_id"), fixture_ids, question["key"])
@@ -477,7 +481,7 @@ class QuestionSourceBTests(unittest.TestCase):
         self.assertEqual(len(questions), 27)
         self.assertEqual(sum(q["question_style"] == "calculation" for q in questions), 4)
         joined = " ".join(q["ask"] for q in questions)
-        for phrase in ("第一次碰撞", "墙", "第二次碰撞", "下一事件", "终止", "碰撞次数", "大物块停下"):
+        for phrase in ("第一次碰撞", "墙", "第二次物块碰撞", "下一事件", "终止", "碰撞次数", "大物块停下"):
             self.assertIn(phrase, joined)
         self.assert_checkpoint_questions(selected)
         self.assert_checkpoint_fixture_physics(questions)
