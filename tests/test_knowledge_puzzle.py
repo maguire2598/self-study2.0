@@ -6,6 +6,53 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PUZZLE_PATH = ROOT / "content" / "courses" / "collision-pi" / "knowledge-puzzle.json"
+PUZZLE_SCHEMA_PATH = ROOT / "schemas" / "knowledge_puzzle.schema.json"
+
+EXPECTED_B_IDS = (
+    "B1", "B1.1", "B1.2", "B1.3", "B1.4",
+    "B2", "B2.1", "B2.2", "B2.3", "B2.4",
+    "B3", "B3.1", "B3.2", "B3.3", "B3.4", "B3.5",
+    "B4", "B4.1", "B4.2", "B4.3", "B4.4", "B4.5",
+    "B5", "B5.1", "B5.2", "B5.3", "B5.4",
+)
+
+EXPECTED_B_QUOTAS = {
+    "B1.1": 6, "B1.2": 6, "B1.3": 6, "B1.4": 6,
+    "B2.1": 8, "B2.2": 10, "B2.3": 8, "B2.4": 6,
+    "B3.1": 6, "B3.2": 8, "B3.3": 8, "B3.4": 10, "B3.5": 6,
+    "B4.1": 10, "B4.2": 12, "B4.3": 10, "B4.4": 8, "B4.5": 6,
+    "B5.1": 8, "B5.2": 8, "B5.3": 8, "B5.4": 4,
+}
+
+EXPECTED_B_RECORDS = (
+    {"id": "B1", "parent": None, "depth": 1, "title": "先把物理量记清", "role": "核心", "summary": "用有方向的动量、冲量和无方向的动能准确记录状态与变化。"},
+    {"id": "B1.1", "parent": "B1", "depth": 2, "title": "动量 p=mv 与正负方向", "role": "核心", "summary": "规定正方向后，用 p=mv 记录带符号的动量。"},
+    {"id": "B1.2", "parent": "B1", "depth": 2, "title": "冲量与动量变化 Δp", "role": "核心", "summary": "用 I=Δp 连接作用时间内的合外力冲量和动量变化。"},
+    {"id": "B1.3", "parent": "B1", "depth": 2, "title": "动能 ½mv² 与能量转化", "role": "核心", "summary": "动能由速率平方决定；碰撞中可在动能、内能、声能和形变能之间转化。"},
+    {"id": "B1.4", "parent": "B1", "depth": 2, "title": "单体量与系统总量", "role": "核心", "summary": "区分单个物体的量与所选系统的总量，避免把局部不变误当总量守恒。"},
+    {"id": "B2", "parent": None, "depth": 1, "title": "先选系统，再谈守恒", "role": "核心", "summary": "研究任何守恒前先确定系统、时段和外界作用。"},
+    {"id": "B2.1", "parent": "B2", "depth": 2, "title": "研究系统与时间区间", "role": "核心", "summary": "先明确研究对象和时间区间，系统边界可随事件改变。"},
+    {"id": "B2.2", "parent": "B2", "depth": 2, "title": "外冲量与动量守恒条件", "role": "核心", "summary": "所选系统在研究时段内外部总冲量可忽略时，总动量守恒。"},
+    {"id": "B2.3", "parent": "B2", "depth": 2, "title": "弹性、非弹性与动能条件", "role": "核心", "summary": "弹性碰撞保持系统总动能；非弹性碰撞只在满足外冲量条件时保留总动量守恒。"},
+    {"id": "B2.4", "parent": "B2", "depth": 2, "title": "撞墙、摩擦和现实边界", "role": "边界", "summary": "撞墙、摩擦、可动墙和耗散会改变外冲量或能量条件，需重新选择系统与规律。"},
+    {"id": "B3", "parent": None, "depth": 1, "title": "建立一次碰撞的约束", "role": "核心", "summary": "把一维碰撞的物理条件翻译成可联立的方程关系。"},
+    {"id": "B3.1", "parent": "B3", "depth": 2, "title": "碰前碰后变量与符号", "role": "核心", "summary": "统一质量、位置、碰前和碰后速度及正方向，并确认两物体确会相碰。"},
+    {"id": "B3.2", "parent": "B3", "depth": 2, "title": "两物体动量守恒式", "role": "核心", "summary": "对短碰阶段的两物体系统写带符号的总动量守恒式。"},
+    {"id": "B3.3", "parent": "B3", "depth": 2, "title": "两物体动能守恒式", "role": "核心", "summary": "完全弹性条件下写两物体碰前后总动能相等式。"},
+    {"id": "B3.4", "parent": "B3", "depth": 2, "title": "相对速度反向关系", "role": "核心", "summary": "由两守恒式得到分离相对速度等于接近相对速度，方向反向。"},
+    {"id": "B3.5", "parent": "B3", "depth": 2, "title": "恢复系数 e 与弹性程度", "role": "拓展", "summary": "用恢复系数统一描述弹性程度；e=1 为完全弹性，0≤e<1 为非完全弹性。"},
+    {"id": "B4", "parent": None, "depth": 1, "title": "联立求解并检查物理解", "role": "核心", "summary": "从方程得到速度结果，并用特例、极限和守恒回代检验。"},
+    {"id": "B4.1", "parent": "B4", "depth": 2, "title": "消元与平方差分解", "role": "工具", "summary": "用代入消元或平方差分解，把两个守恒式化为可解的一次关系。"},
+    {"id": "B4.2", "parent": "B4", "depth": 2, "title": "一维弹性碰撞速度通式", "role": "核心", "summary": "得到任意质量和初速度的一维弹性碰撞速度通式，并明确适用条件。"},
+    {"id": "B4.3", "parent": "B4", "depth": 2, "title": "等质量与典型质量比", "role": "核心", "summary": "等质量速度交换、轻撞重反弹和重撞轻加速是通式的典型特例。"},
+    {"id": "B4.4", "parent": "B4", "depth": 2, "title": "方向、极限与解的筛选", "role": "核心", "summary": "结合方向、接近和分离条件及质量极限，排除平凡解或非物理解。"},
+    {"id": "B4.5", "parent": "B4", "depth": 2, "title": "守恒回代与结果检验", "role": "工具", "summary": "将结果回代动量、动能、相对速度和量纲，检查计算与模型一致。"},
+    {"id": "B5", "parent": None, "depth": 1, "title": "把一次碰撞接成事件链", "role": "核心", "summary": "用一次碰撞规则构造多次碰撞状态机，并进入几何表示。"},
+    {"id": "B5.1", "parent": "B5", "depth": 2, "title": "碰撞、撞墙与自由运动更新", "role": "核心", "summary": "把物块碰撞、固定墙反射和碰撞间匀速运动写成独立状态更新规则。"},
+    {"id": "B5.2", "parent": "B5", "depth": 2, "title": "下一事件判断与状态递推", "role": "核心", "summary": "根据位置和相对速度判断下一事件，并用状态表或递推记录连续更新。"},
+    {"id": "B5.3", "parent": "B5", "depth": 2, "title": "终止判据、计数与极限状态", "role": "核心", "summary": "用无后续接触条件判断碰撞链终止，处理大物块停下等极限状态和计数。"},
+    {"id": "B5.4", "parent": "B5", "depth": 2, "title": "直线—椭圆状态图，衔接 C", "role": "衔接", "summary": "将动量守恒画成直线、动能守恒画成椭圆；碰前碰后对应两个交点。"},
+)
 
 
 class KnowledgePuzzleTests(unittest.TestCase):
@@ -15,11 +62,55 @@ class KnowledgePuzzleTests(unittest.TestCase):
         cls.nodes = cls.puzzle["nodes"]
 
     def test_exact_node_and_board_counts(self):
-        self.assertEqual(len(self.nodes), 139)
+        self.assertEqual(len(self.nodes), 136)
         self.assertEqual(
             Counter(node["board"] for node in self.nodes),
-            Counter({"A": 27, "B": 30, "C": 46, "D": 36}),
+            Counter({"A": 27, "B": 27, "C": 46, "D": 36}),
         )
+
+    def test_b_has_five_stages_and_twenty_two_assessed_nodes(self):
+        b_nodes = [node for node in self.nodes if node["board"] == "B"]
+        self.assertEqual(tuple(node["id"] for node in b_nodes), EXPECTED_B_IDS)
+        self.assertEqual(sum(node["depth"] == 1 for node in b_nodes), 5)
+        self.assertEqual(sum(node["depth"] == 2 for node in b_nodes), 22)
+
+    def test_b_records_match_approved_contract(self):
+        b_nodes = [node for node in self.nodes if node["board"] == "B"]
+        actual = tuple(
+            {
+                "id": node["id"],
+                "parent": node.get("parent"),
+                "depth": node["depth"],
+                "title": node["title"],
+                "role": node["role"],
+                "summary": node["summary"],
+            }
+            for node in b_nodes
+        )
+        self.assertEqual(actual, EXPECTED_B_RECORDS)
+
+    def test_b_question_quotas_total_168(self):
+        self.assertEqual(tuple(EXPECTED_B_QUOTAS), EXPECTED_B_IDS[1:5] + EXPECTED_B_IDS[6:10] + EXPECTED_B_IDS[11:16] + EXPECTED_B_IDS[17:22] + EXPECTED_B_IDS[23:])
+        self.assertEqual(sum(EXPECTED_B_QUOTAS.values()), 168)
+
+    def test_b_question_assets_only_reference_assessed_nodes(self):
+        for pattern in ("question-bank-*.json", "question-source-*.json"):
+            for path in (ROOT / "content" / "courses").rglob(pattern):
+                data = json.loads(path.read_text(encoding="utf-8"))
+                for node_id in self._node_ids(data):
+                    if node_id.startswith("B"):
+                        self.assertIn(node_id, EXPECTED_B_QUOTAS, path)
+
+    @staticmethod
+    def _node_ids(value):
+        if isinstance(value, dict):
+            for key, nested in value.items():
+                if key == "node_id":
+                    yield nested
+                yield from KnowledgePuzzleTests._node_ids(nested)
+        elif isinstance(value, list):
+            for nested in value:
+                yield from KnowledgePuzzleTests._node_ids(nested)
 
     def test_a_has_seven_stages_and_twenty_assessed_nodes(self):
         a_nodes = [node for node in self.nodes if node["board"] == "A"]
@@ -90,13 +181,18 @@ class KnowledgePuzzleTests(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
 
     def test_roles_and_required_fields(self):
-        allowed_roles = {"核心", "工具", "选修", "边界", "拓展"}
+        allowed_roles = {"核心", "工具", "选修", "边界", "拓展", "衔接"}
         for node in self.nodes:
             self.assertIn(node["role"], allowed_roles)
             self.assertIn(node["board"], {"A", "B", "C", "D"})
             self.assertIn(node["depth"], {1, 2})
             self.assertTrue(node["title"].strip())
             self.assertTrue(node["summary"].strip())
+
+    def test_schema_accepts_handoff_role(self):
+        schema = json.loads(PUZZLE_SCHEMA_PATH.read_text(encoding="utf-8"))
+        roles = schema["properties"]["nodes"]["items"]["properties"]["role"]["enum"]
+        self.assertIn("衔接", roles)
 
     def test_light_reflection_is_elective(self):
         c9 = next(node for node in self.nodes if node["id"] == "C9")
