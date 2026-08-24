@@ -446,6 +446,7 @@ class QuestionSourceBTests(unittest.TestCase):
         for phrase in ("e=1", "0<e<1", "e=0"):
             self.assertIn(phrase, joined)
         self.assert_checkpoint_questions(selected)
+        self.assert_checkpoint_fixture_physics(questions)
 
     def test_b4_checkpoint_content(self):
         selected = [scenario for scenario in self.source["scenarios"] if scenario["id"].startswith("SC-B4-")]
@@ -458,6 +459,7 @@ class QuestionSourceBTests(unittest.TestCase):
         for phrase in ("动量", "动能", "相对速度", "量纲", "平凡解"):
             self.assertIn(phrase, joined)
         self.assert_checkpoint_questions(selected)
+        self.assert_checkpoint_fixture_physics(questions)
 
     def test_b5_checkpoint_content(self):
         selected = [scenario for scenario in self.source["scenarios"] if scenario["id"].startswith("SC-B5-")]
@@ -468,6 +470,12 @@ class QuestionSourceBTests(unittest.TestCase):
         for phrase in ("第一次碰撞", "墙", "第二次碰撞", "下一事件", "终止", "碰撞次数", "大物块停下"):
             self.assertIn(phrase, joined)
         self.assert_checkpoint_questions(selected)
+        self.assert_checkpoint_fixture_physics(questions)
+
+    def assert_checkpoint_fixture_physics(self, questions):
+        for question in questions:
+            if question["question_style"] == "calculation":
+                self.assert_fixture_physics(self.fixtures[question["calculation_fixture_id"]])
 
     def assert_checkpoint_questions(self, scenarios):
         fixture_ids = set(self.fixtures)
