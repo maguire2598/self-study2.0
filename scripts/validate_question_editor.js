@@ -35,6 +35,22 @@ if (!source.includes('collision-pi-question-editor:${sectionId}:draft-v1')) {
   throw new Error('section-qualified draft key is missing');
 }
 
+if (!source.includes("const legacyDraftKey = 'collision-pi-a-question-draft';") || !source.includes("sectionId === 'A' && qualifiedRaw === null")) {
+  throw new Error('validated legacy A draft migration is missing');
+}
+
+if (!source.includes('candidate?.section_id === original.section_id') || !source.includes('Array.isArray(candidate?.questions)')) {
+  throw new Error('draft validation must reject malformed or cross-section payloads');
+}
+
+if (!source.includes('nodeEnabled.disabled = allNodes;') || !source.includes('resetQuestion.disabled = allNodes;')) {
+  throw new Error('all-node mode must disable node-only actions');
+}
+
+if (!source.includes("if (currentNodeId() === 'all') {")) {
+  throw new Error('all-node navigation entry behavior is missing');
+}
+
 if (!source.includes('id="questionScenarioFilter"')) {
   throw new Error('scenario filter is missing');
 }

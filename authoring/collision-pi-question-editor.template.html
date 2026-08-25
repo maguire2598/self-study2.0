@@ -71,6 +71,7 @@
   const root = document.getElementById('collisionPiQuestionEditor');
   const banks = JSON.parse(root.querySelector('#embeddedQuestionBanks').textContent);
   const clone = value => JSON.parse(JSON.stringify(value));
+  const legacyDraftKey = 'collision-pi-a-question-draft';
   const query = new URLSearchParams(location.search);
   const requestedSection = query.get("section");
   let sectionId = Object.hasOwn(banks, requestedSection) ? requestedSection : 'A';
@@ -86,6 +87,9 @@
   const status = root.querySelector('#questionEditorStatus');
   const summary = root.querySelector('#questionSummary');
   const nodeEnabled = root.querySelector('#nodeEnabled');
+  const previousNode = root.querySelector('#previousNode');
+  const nextNode = root.querySelector('#nextNode');
+  const resetQuestion = root.querySelector('#resetQuestion');
   const title = root.querySelector('#questionEditorTitle');
 
   const typeNames = {
@@ -102,14 +106,39 @@
     return `collision-pi-question-editor:${sectionId}:draft-v1`;
   }
 
+  function parseStoredDraft(rawDraft) {
+    try {
+      return rawDraft === null ? null : JSON.parse(rawDraft);
+    } catch {
+      return null;
+    }
+  }
+
   function isMatchingBank(candidate, original) {
-    return candidate?.course_id === original.course_id && candidate?.version === original.version;
+    return candidate?.course_id === original.course_id &&
+      candidate?.section_id === original.section_id &&
+      candidate?.version === original.version &&
+      Array.isArray(candidate?.questions) &&
+      candidate.questions.length === original.questions.length &&
+      candidate.questions.every((question, index) => question?.id === original.questions[index]?.id) &&
+      Object.keys(original.question_count_by_node).every(nodeId =>
+        candidate?.question_count_by_node?.[nodeId] === original.question_count_by_node[nodeId]
+      );
   }
 
   function loadDraft(sectionId) {
     const original = banks[sectionId];
-    const saved = JSON.parse(localStorage.getItem(draftKey(sectionId)) || 'null');
-    return isMatchingBank(saved, original) ? saved : clone(original);
+    const qualifiedRaw = localStorage.getItem(draftKey(sectionId));
+    const saved = parseStoredDraft(qualifiedRaw);
+    if (isMatchingBank(saved, original)) return saved;
+    if (sectionId === 'A' && qualifiedRaw === null) {
+      const legacy = parseStoredDraft(localStorage.getItem(legacyDraftKey));
+      if (isMatchingBank(legacy, original)) {
+        localStorage.setItem(draftKey(sectionId), JSON.stringify(legacy));
+        return legacy;
+      }
+    }
+    return clone(original);
   }
 
   function currentBank() {
@@ -288,6 +317,14 @@
   }
 
   function updateNodeEnabled() {
+    const allNodes = currentNodeId() === 'all';
+    nodeEnabled.disabled = allNodes;
+    resetQuestion.disabled = allNodes;
+    if (allNodes) {
+      nodeEnabled.checked = false;
+      nodeEnabled.indeterminate = false;
+      return;
+    }
     const nodeQuestions = currentBank().questions.filter(question => question.node_id === currentNodeId());
     nodeEnabled.checked = nodeQuestions.every(question => question.enabled);
     nodeEnabled.indeterminate = !nodeEnabled.checked && nodeQuestions.some(question => question.enabled);
@@ -320,6 +357,11 @@
   }
 
   function moveNode(step) {
+    if (currentNodeId() === 'all') {
+      nodeSelect.value = step > 0 ? nodes[0][0] : nodes[nodes.length - 1][0];
+      render();
+      return;
+    }
     const currentIndex = nodes.findIndex(([nodeId]) => nodeId === currentNodeId());
     const nextIndex = (currentIndex + step + nodes.length) % nodes.length;
     nodeSelect.value = nodes[nextIndex][0];
@@ -334,9 +376,10 @@
   typeFilter.addEventListener('change', render);
   scenarioFilter.addEventListener('change', render);
   searchInput.addEventListener('input', render);
-  root.querySelector('#previousNode').addEventListener('click', () => moveNode(-1));
-  root.querySelector('#nextNode').addEventListener('click', () => moveNode(1));
+  previousNode.addEventListener('click', () => moveNode(-1));
+  nextNode.addEventListener('click', () => moveNode(1));
   nodeEnabled.addEventListener('change', () => {
+    if (currentNodeId() === 'all') return;
     currentBank().questions.filter(question => question.node_id === currentNodeId()).forEach(question => {
       question.enabled = nodeEnabled.checked;
       markChanged(question);
@@ -349,7 +392,8 @@
     setStatus(`草稿已保存：${new Date().toLocaleTimeString()}`);
   });
 
-  root.querySelector('#resetQuestion').addEventListener('click', () => {
+  resetQuestion.addEventListener('click', () => {
+    if (currentNodeId() === 'all') return;
     const nodeId = currentNodeId();
     currentBank().questions = currentBank().questions.map(question => question.node_id === nodeId ? clone(originalById.get(question.id)) : question);
     localStorage.setItem(draftKey(sectionId), JSON.stringify(currentBank()));

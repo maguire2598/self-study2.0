@@ -230,7 +230,7 @@
         "prompt": "两小球 A、B 可视为质点，在同一直线轨道上运动。规定向右为正方向；初始时 A 在左、B 在右，碰撞前两球均做匀速直线运动。两球间距减小到零时发生碰撞。\n\n初始时 A 位于 B 左侧且两球速度保持不变，哪些速度组合会使两球最终相碰？",
         "event_stage": "initial",
         "variant_axis": "initial_velocity",
-        "explanation": "初始为 A 左、B 右时，只有 u_A>u_B 才会闭合间距；u_A=+3>+1 和 u_A=-1>-4 时满足。u_A=u_B 时保持间距，u_A<u_B 时增大间距。",
+        "explanation": "初始为 A 左、B 右时，只有 u_A>u_B 才会闭合间距；u_A=+3>+1 和 u_A=-1>-4 时满足。u_A=u_B 时保持间距，u_A\u003cu_B 时增大间距。",
         "enabled": true,
         "revision": 0,
         "author_notes": "",
@@ -2903,11 +2903,11 @@
         "options": [
           {
             "id": "A",
-            "text": "v_M<0<v_m"
+            "text": "v_M\u003c0\u003cv_m"
           },
           {
             "id": "B",
-            "text": "v_m<v_M<0"
+            "text": "v_m\u003cv_M\u003c0"
           },
           {
             "id": "C",
@@ -3410,11 +3410,11 @@
         "options": [
           {
             "id": "A",
-            "text": "v_M<0，M 会朝墙运动"
+            "text": "v_M\u003c0，M 会朝墙运动"
           },
           {
             "id": "B",
-            "text": "v_m<0，小滑块会再次撞墙"
+            "text": "v_m\u003c0，小滑块会再次撞墙"
           },
           {
             "id": "C",
@@ -5164,7 +5164,7 @@
         "prompt": "墙在左，m 在 M 左侧。哪些速度状态不会再产生碰撞？",
         "event_stage": "terminal",
         "variant_axis": "initial_velocity",
-        "explanation": "v_m=+1<v_M=+2 与 v_m=0<v_M=+1 时，m 不撞左墙且追不上前方 M；v_m=-1 时会撞墙，v_m=+3>v_M=+1 时会追上 M。",
+        "explanation": "v_m=+1\u003cv_M=+2 与 v_m=0\u003cv_M=+1 时，m 不撞左墙且追不上前方 M；v_m=-1 时会撞墙，v_m=+3>v_M=+1 时会追上 M。",
         "enabled": true,
         "revision": 0,
         "author_notes": "",
@@ -7574,7 +7574,7 @@
         "options": [
           {
             "id": "A",
-            "text": "u1<0，u2=0"
+            "text": "u1\u003c0，u2=0"
           },
           {
             "id": "B",
@@ -7621,15 +7621,15 @@
           },
           {
             "id": "B",
-            "text": "u1<0，u2<0"
+            "text": "u1\u003c0，u2\u003c0"
           },
           {
             "id": "C",
-            "text": "u1>0，u2<0"
+            "text": "u1>0，u2\u003c0"
           },
           {
             "id": "D",
-            "text": "u1<0，u2>0"
+            "text": "u1\u003c0，u2>0"
           }
         ],
         "correct_answers": [
@@ -7974,7 +7974,7 @@
         "question_style": "scenario",
         "assessment_kind": "objective",
         "difficulty": 2,
-        "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n两车相向，规定向右为正，u1>0、u2<0。写总动能式时哪些处理正确？",
+        "prompt": "两车在同一直线上运动，规定向右为正。以两车组成的系统研究碰撞开始至碰撞结束的短暂阶段，水平外冲量可忽略；若题目说明完全弹性，还可使用系统总动能守恒。用 u1、u2 表示碰前速度，用 v1、v2 表示碰后速度。\n\n两车相向，规定向右为正，u1>0、u2\u003c0。写总动能式时哪些处理正确？",
         "event_stage": "initial",
         "variant_axis": "direction",
         "explanation": "速度符号用于动量，动能使用各自速度平方；向左运动仍有正动能。",
@@ -8415,11 +8415,11 @@
           },
           {
             "id": "B",
-            "text": "碰前 u1-u2<0 仍必定立刻相碰"
+            "text": "碰前 u1-u2\u003c0 仍必定立刻相碰"
           },
           {
             "id": "C",
-            "text": "碰后 v2-v1<0 可作为最终分离状态"
+            "text": "碰后 v2-v1\u003c0 可作为最终分离状态"
           },
           {
             "id": "D",
@@ -8558,7 +8558,7 @@
         "question_style": "calculation",
         "assessment_kind": "objective",
         "difficulty": 3,
-        "prompt": "两车在一维轨道上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。恢复系数定义为 e=(v2-v1)/(u1-u2)，适用于碰前左车追上右车且 u1-u2>0 的情形。\n\n质量为 2 kg、1 kg 的滑块碰撞，规定向右为正，u1=+3 m/s、u2=0，且 0<e<1、e=0.5。填写 v1、v2，单位为 m/s。",
+        "prompt": "两车在一维轨道上碰撞，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略。恢复系数定义为 e=(v2-v1)/(u1-u2)，适用于碰前左车追上右车且 u1-u2>0 的情形。\n\n质量为 2 kg、1 kg 的滑块碰撞，规定向右为正，u1=+3 m/s、u2=0，且 0\u003ce\u003c1、e=0.5。填写 v1、v2，单位为 m/s。",
         "event_stage": "after_first_collision",
         "variant_axis": "restitution",
         "explanation": "联立 2v1+v2=6 与 v2-v1=1.5，得到 v1=1.5、v2=3 m/s。",
@@ -8612,7 +8612,7 @@
         "options": [
           {
             "id": "A",
-            "text": "0<e<1 表示系统总动能仍必定完全不变"
+            "text": "0\u003ce\u003c1 表示系统总动能仍必定完全不变"
           },
           {
             "id": "B",
@@ -9838,7 +9838,7 @@
         "question_style": "scenario",
         "assessment_kind": "objective",
         "difficulty": 2,
-        "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n动撞静时，若 m1=m2，v1=____；若 m1<m2，v1 的系数 (m1-m2)/(m1+m2) 为____。",
+        "prompt": "一组气垫轨道实验改变两车质量比，规定向右为正。选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略，碰撞均为一维完全弹性。除特别说明外，1 号车从左侧向右运动，2 号车初始静止；实验员用通式比较等质量、轻撞重、重撞轻和大质量极限。\n\n动撞静时，若 m1=m2，v1=____；若 m1\u003cm2，v1 的系数 (m1-m2)/(m1+m2) 为____。",
         "event_stage": "special_case",
         "variant_axis": "mass_ratio",
         "explanation": "等质量时入射车停下；入射车更轻时系数为负，所以它反弹。",
@@ -9933,11 +9933,11 @@
         "options": [
           {
             "id": "A",
-            "text": "碰前 u1-u2<0 也必定碰撞"
+            "text": "碰前 u1-u2\u003c0 也必定碰撞"
           },
           {
             "id": "B",
-            "text": "碰后 v2-v1<0 可作为最终接触后状态"
+            "text": "碰后 v2-v1\u003c0 可作为最终接触后状态"
           },
           {
             "id": "C",
@@ -10003,7 +10003,7 @@
         "question_style": "scenario",
         "assessment_kind": "objective",
         "difficulty": 2,
-        "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n规定向右为正，1 号车碰前在左且 u1-u2>0。一个候选碰后根若给出 v2-v1<0，说明两车仍在____，不能作为已结束碰撞的____状态。",
+        "prompt": "学生选取两车组成的系统，研究从接触开始到分离结束的碰撞短时段，水平外冲量可忽略且碰撞完全弹性；随后用同一正方向检查答案。检查顺序包括：确认碰前确在接近、碰后确在分离，排除未发生碰撞的平凡解，再回代系统总动量、总动能、相对速度和量纲。\n\n规定向右为正，1 号车碰前在左且 u1-u2>0。一个候选碰后根若给出 v2-v1\u003c0，说明两车仍在____，不能作为已结束碰撞的____状态。",
         "event_stage": "after_first_collision",
         "variant_axis": "direction",
         "explanation": "碰后相对速度仍闭合会使物体继续重叠，违反刚体接触结束后的分离条件。",
@@ -12413,7 +12413,7 @@
           },
           {
             "id": "D",
-            "text": "0<e<1 表示非完全弹性且仍有分离速度"
+            "text": "0\u003ce\u003c1 表示非完全弹性且仍有分离速度"
           }
         ],
         "correct_answers": [
@@ -12662,6 +12662,7 @@
   const root = document.getElementById('collisionPiQuestionEditor');
   const banks = JSON.parse(root.querySelector('#embeddedQuestionBanks').textContent);
   const clone = value => JSON.parse(JSON.stringify(value));
+  const legacyDraftKey = 'collision-pi-a-question-draft';
   const query = new URLSearchParams(location.search);
   const requestedSection = query.get("section");
   let sectionId = Object.hasOwn(banks, requestedSection) ? requestedSection : 'A';
@@ -12677,6 +12678,9 @@
   const status = root.querySelector('#questionEditorStatus');
   const summary = root.querySelector('#questionSummary');
   const nodeEnabled = root.querySelector('#nodeEnabled');
+  const previousNode = root.querySelector('#previousNode');
+  const nextNode = root.querySelector('#nextNode');
+  const resetQuestion = root.querySelector('#resetQuestion');
   const title = root.querySelector('#questionEditorTitle');
 
   const typeNames = {
@@ -12693,14 +12697,39 @@
     return `collision-pi-question-editor:${sectionId}:draft-v1`;
   }
 
+  function parseStoredDraft(rawDraft) {
+    try {
+      return rawDraft === null ? null : JSON.parse(rawDraft);
+    } catch {
+      return null;
+    }
+  }
+
   function isMatchingBank(candidate, original) {
-    return candidate?.course_id === original.course_id && candidate?.version === original.version;
+    return candidate?.course_id === original.course_id &&
+      candidate?.section_id === original.section_id &&
+      candidate?.version === original.version &&
+      Array.isArray(candidate?.questions) &&
+      candidate.questions.length === original.questions.length &&
+      candidate.questions.every((question, index) => question?.id === original.questions[index]?.id) &&
+      Object.keys(original.question_count_by_node).every(nodeId =>
+        candidate?.question_count_by_node?.[nodeId] === original.question_count_by_node[nodeId]
+      );
   }
 
   function loadDraft(sectionId) {
     const original = banks[sectionId];
-    const saved = JSON.parse(localStorage.getItem(draftKey(sectionId)) || 'null');
-    return isMatchingBank(saved, original) ? saved : clone(original);
+    const qualifiedRaw = localStorage.getItem(draftKey(sectionId));
+    const saved = parseStoredDraft(qualifiedRaw);
+    if (isMatchingBank(saved, original)) return saved;
+    if (sectionId === 'A' && qualifiedRaw === null) {
+      const legacy = parseStoredDraft(localStorage.getItem(legacyDraftKey));
+      if (isMatchingBank(legacy, original)) {
+        localStorage.setItem(draftKey(sectionId), JSON.stringify(legacy));
+        return legacy;
+      }
+    }
+    return clone(original);
   }
 
   function currentBank() {
@@ -12879,6 +12908,14 @@
   }
 
   function updateNodeEnabled() {
+    const allNodes = currentNodeId() === 'all';
+    nodeEnabled.disabled = allNodes;
+    resetQuestion.disabled = allNodes;
+    if (allNodes) {
+      nodeEnabled.checked = false;
+      nodeEnabled.indeterminate = false;
+      return;
+    }
     const nodeQuestions = currentBank().questions.filter(question => question.node_id === currentNodeId());
     nodeEnabled.checked = nodeQuestions.every(question => question.enabled);
     nodeEnabled.indeterminate = !nodeEnabled.checked && nodeQuestions.some(question => question.enabled);
@@ -12911,6 +12948,11 @@
   }
 
   function moveNode(step) {
+    if (currentNodeId() === 'all') {
+      nodeSelect.value = step > 0 ? nodes[0][0] : nodes[nodes.length - 1][0];
+      render();
+      return;
+    }
     const currentIndex = nodes.findIndex(([nodeId]) => nodeId === currentNodeId());
     const nextIndex = (currentIndex + step + nodes.length) % nodes.length;
     nodeSelect.value = nodes[nextIndex][0];
@@ -12925,9 +12967,10 @@
   typeFilter.addEventListener('change', render);
   scenarioFilter.addEventListener('change', render);
   searchInput.addEventListener('input', render);
-  root.querySelector('#previousNode').addEventListener('click', () => moveNode(-1));
-  root.querySelector('#nextNode').addEventListener('click', () => moveNode(1));
+  previousNode.addEventListener('click', () => moveNode(-1));
+  nextNode.addEventListener('click', () => moveNode(1));
   nodeEnabled.addEventListener('change', () => {
+    if (currentNodeId() === 'all') return;
     currentBank().questions.filter(question => question.node_id === currentNodeId()).forEach(question => {
       question.enabled = nodeEnabled.checked;
       markChanged(question);
@@ -12940,7 +12983,8 @@
     setStatus(`草稿已保存：${new Date().toLocaleTimeString()}`);
   });
 
-  root.querySelector('#resetQuestion').addEventListener('click', () => {
+  resetQuestion.addEventListener('click', () => {
+    if (currentNodeId() === 'all') return;
     const nodeId = currentNodeId();
     currentBank().questions = currentBank().questions.map(question => question.node_id === nodeId ? clone(originalById.get(question.id)) : question);
     localStorage.setItem(draftKey(sectionId), JSON.stringify(currentBank()));

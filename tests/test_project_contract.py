@@ -2,6 +2,8 @@ import json
 import unittest
 from collections import Counter
 from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 from scripts import build_collision_pi_question_editor as editor_builder
 
@@ -58,6 +60,30 @@ class ProjectContractTests(unittest.TestCase):
         self.assertEqual(set(banks), {"A", "B"})
         self.assertEqual(len(banks["A"]["questions"]), 140)
         self.assertEqual(len(banks["B"]["questions"]), 168)
+
+    def test_editor_builder_escapes_script_terminators_in_question_data(self):
+        """A schema-valid prompt must not close the embedded JSON script element."""
+        with TemporaryDirectory() as temp_dir:
+            temp_root = Path(temp_dir)
+            template = temp_root / "editor.html"
+            bank_a = temp_root / "a.json"
+            bank_b = temp_root / "b.json"
+            template.write_text(
+                '<script type="application/json">__QUESTION_BANKS_JSON__</script>',
+                encoding="utf-8",
+            )
+            bank_a.write_text(
+                json.dumps({"questions": [{"prompt": "</script><script>sentinel()</script>"}]}),
+                encoding="utf-8",
+            )
+            bank_b.write_text(json.dumps({"questions": []}), encoding="utf-8")
+            with patch.object(editor_builder, "TEMPLATE", template), patch.object(
+                editor_builder, "BANKS", {"A": bank_a, "B": bank_b}
+            ):
+                generated = editor_builder.build()
+
+        self.assertIn(r"\u003c/script>\u003cscript>sentinel()\u003c/script>", generated)
+        self.assertNotIn("</script><script>sentinel()</script>", generated)
 
     def test_required_project_files_exist(self):
         required = [

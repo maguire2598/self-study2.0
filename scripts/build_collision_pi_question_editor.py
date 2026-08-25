@@ -21,7 +21,7 @@ def build() -> str:
         section: json.loads(path.read_text(encoding="utf-8"))
         for section, path in BANKS.items()
     }
-    data = json.dumps(payload, ensure_ascii=False, indent=2)
+    data = json.dumps(payload, ensure_ascii=False, indent=2).replace("<", "\\u003c")
     if "__QUESTION_BANKS_JSON__" not in template:
         raise ValueError("question banks placeholder is missing")
     return template.replace("__QUESTION_BANKS_JSON__", data)
