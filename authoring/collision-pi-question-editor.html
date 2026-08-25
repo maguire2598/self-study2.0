@@ -12643,6 +12643,92 @@
     ]
   }
 }</script>
+  <script>(function attachQuestionEditorState(globalScope) {
+  function clone(value) {
+    return JSON.parse(JSON.stringify(value));
+  }
+
+  function draftKey(sectionId) {
+    return `collision-pi-question-editor:${sectionId}:draft-v1`;
+  }
+
+  function parseStoredDraft(rawDraft) {
+    try {
+      return rawDraft === null ? null : JSON.parse(rawDraft);
+    } catch {
+      return null;
+    }
+  }
+
+  function isMatchingBank(candidate, original) {
+    const originalQuota = original?.question_count_by_node;
+    const candidateQuota = candidate?.question_count_by_node;
+    if (
+      candidate?.course_id !== original?.course_id ||
+      candidate?.section_id !== original?.section_id ||
+      candidate?.version !== original?.version ||
+      !Array.isArray(candidate?.questions) ||
+      !Array.isArray(original?.questions) ||
+      !candidateQuota ||
+      typeof candidateQuota !== 'object'
+    ) return false;
+
+    const originalNodeIds = Object.keys(originalQuota);
+    if (
+      Object.keys(candidateQuota).length !== originalNodeIds.length ||
+      !originalNodeIds.every(nodeId => candidateQuota[nodeId] === originalQuota[nodeId]) ||
+      candidate.questions.length !== original.questions.length
+    ) return false;
+
+    const canonicalById = new Map(original.questions.map(question => [question.id, question]));
+    const candidateIds = candidate.questions.map(question => question?.id);
+    return new Set(candidateIds).size === candidateIds.length && candidate.questions.every(question => {
+      const canonical = canonicalById.get(question?.id);
+      return canonical && question.node_id === canonical.node_id;
+    });
+  }
+
+  function loadDraft({ sectionId, banks, getItem, setItem }) {
+    const original = banks[sectionId];
+    const qualifiedRaw = getItem(draftKey(sectionId));
+    const saved = parseStoredDraft(qualifiedRaw);
+    if (isMatchingBank(saved, original)) return saved;
+    if (sectionId === 'A' && qualifiedRaw === null) {
+      const legacy = parseStoredDraft(getItem('collision-pi-a-question-draft'));
+      if (isMatchingBank(legacy, original)) {
+        setItem(draftKey(sectionId), JSON.stringify(legacy));
+        return legacy;
+      }
+    }
+    return clone(original);
+  }
+
+  function nodeActionState(nodeId) {
+    const disableNodeOnlyActions = nodeId === 'all';
+    return {
+      disableNodeOnlyActions,
+      canApplyNodeAction: !disableNodeOnlyActions
+    };
+  }
+
+  function nodeQuestionIds(nodeId, questions) {
+    if (!nodeActionState(nodeId).canApplyNodeAction) return [];
+    return questions.filter(question => question.node_id === nodeId).map(question => question.id);
+  }
+
+  function moveNodeId(currentNodeId, nodes, step) {
+    if (!nodes.length) return '';
+    if (currentNodeId === 'all') return step > 0 ? nodes[0] : nodes[nodes.length - 1];
+    const currentIndex = nodes.indexOf(currentNodeId);
+    const index = currentIndex < 0 ? 0 : currentIndex;
+    return nodes[(index + step + nodes.length) % nodes.length];
+  }
+
+  const api = { draftKey, isMatchingBank, loadDraft, nodeActionState, nodeQuestionIds, moveNodeId };
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  globalScope.CollisionPiQuestionEditorState = api;
+})(typeof window === 'undefined' ? globalThis : window);
+</script>
 </div>
 
 <style>
@@ -12662,7 +12748,7 @@
   const root = document.getElementById('collisionPiQuestionEditor');
   const banks = JSON.parse(root.querySelector('#embeddedQuestionBanks').textContent);
   const clone = value => JSON.parse(JSON.stringify(value));
-  const legacyDraftKey = 'collision-pi-a-question-draft';
+  const editorState = window.CollisionPiQuestionEditorState;
   const query = new URLSearchParams(location.search);
   const requestedSection = query.get("section");
   let sectionId = Object.hasOwn(banks, requestedSection) ? requestedSection : 'A';
@@ -12693,43 +12779,13 @@
     status.textContent = message;
   }
 
-  function draftKey(sectionId) {
-    return `collision-pi-question-editor:${sectionId}:draft-v1`;
-  }
-
-  function parseStoredDraft(rawDraft) {
-    try {
-      return rawDraft === null ? null : JSON.parse(rawDraft);
-    } catch {
-      return null;
-    }
-  }
-
-  function isMatchingBank(candidate, original) {
-    return candidate?.course_id === original.course_id &&
-      candidate?.section_id === original.section_id &&
-      candidate?.version === original.version &&
-      Array.isArray(candidate?.questions) &&
-      candidate.questions.length === original.questions.length &&
-      candidate.questions.every((question, index) => question?.id === original.questions[index]?.id) &&
-      Object.keys(original.question_count_by_node).every(nodeId =>
-        candidate?.question_count_by_node?.[nodeId] === original.question_count_by_node[nodeId]
-      );
-  }
-
   function loadDraft(sectionId) {
-    const original = banks[sectionId];
-    const qualifiedRaw = localStorage.getItem(draftKey(sectionId));
-    const saved = parseStoredDraft(qualifiedRaw);
-    if (isMatchingBank(saved, original)) return saved;
-    if (sectionId === 'A' && qualifiedRaw === null) {
-      const legacy = parseStoredDraft(localStorage.getItem(legacyDraftKey));
-      if (isMatchingBank(legacy, original)) {
-        localStorage.setItem(draftKey(sectionId), JSON.stringify(legacy));
-        return legacy;
-      }
-    }
-    return clone(original);
+    return editorState.loadDraft({
+      sectionId,
+      banks,
+      getItem: key => localStorage.getItem(key),
+      setItem: (key, value) => localStorage.setItem(key, value)
+    });
   }
 
   function currentBank() {
@@ -12769,7 +12825,7 @@
   }
 
   function activateSection(nextSection) {
-    if (bank) localStorage.setItem(draftKey(sectionId), JSON.stringify(currentBank()));
+    if (bank) localStorage.setItem(editorState.draftKey(sectionId), JSON.stringify(currentBank()));
     sectionId = nextSection;
     bank = loadDraft(sectionId);
     originalById = new Map(banks[sectionId].questions.map(question => [question.id, question]));
@@ -12908,10 +12964,10 @@
   }
 
   function updateNodeEnabled() {
-    const allNodes = currentNodeId() === 'all';
-    nodeEnabled.disabled = allNodes;
-    resetQuestion.disabled = allNodes;
-    if (allNodes) {
+    const nodeActions = editorState.nodeActionState(currentNodeId());
+    nodeEnabled.disabled = nodeActions.disableNodeOnlyActions;
+    resetQuestion.disabled = nodeActions.disableNodeOnlyActions;
+    if (!nodeActions.canApplyNodeAction) {
       nodeEnabled.checked = false;
       nodeEnabled.indeterminate = false;
       return;
@@ -12948,14 +13004,7 @@
   }
 
   function moveNode(step) {
-    if (currentNodeId() === 'all') {
-      nodeSelect.value = step > 0 ? nodes[0][0] : nodes[nodes.length - 1][0];
-      render();
-      return;
-    }
-    const currentIndex = nodes.findIndex(([nodeId]) => nodeId === currentNodeId());
-    const nextIndex = (currentIndex + step + nodes.length) % nodes.length;
-    nodeSelect.value = nodes[nextIndex][0];
+    nodeSelect.value = editorState.moveNodeId(currentNodeId(), nodes.map(([nodeId]) => nodeId), step);
     render();
   }
 
@@ -12970,8 +13019,9 @@
   previousNode.addEventListener('click', () => moveNode(-1));
   nextNode.addEventListener('click', () => moveNode(1));
   nodeEnabled.addEventListener('change', () => {
-    if (currentNodeId() === 'all') return;
-    currentBank().questions.filter(question => question.node_id === currentNodeId()).forEach(question => {
+    if (!editorState.nodeActionState(currentNodeId()).canApplyNodeAction) return;
+    const nodeQuestionIds = new Set(editorState.nodeQuestionIds(currentNodeId(), currentBank().questions));
+    currentBank().questions.filter(question => nodeQuestionIds.has(question.id)).forEach(question => {
       question.enabled = nodeEnabled.checked;
       markChanged(question);
     });
@@ -12979,15 +13029,16 @@
   });
 
   root.querySelector('#saveDraft').addEventListener('click', () => {
-    localStorage.setItem(draftKey(sectionId), JSON.stringify(currentBank()));
+    localStorage.setItem(editorState.draftKey(sectionId), JSON.stringify(currentBank()));
     setStatus(`草稿已保存：${new Date().toLocaleTimeString()}`);
   });
 
   resetQuestion.addEventListener('click', () => {
-    if (currentNodeId() === 'all') return;
+    if (!editorState.nodeActionState(currentNodeId()).canApplyNodeAction) return;
     const nodeId = currentNodeId();
-    currentBank().questions = currentBank().questions.map(question => question.node_id === nodeId ? clone(originalById.get(question.id)) : question);
-    localStorage.setItem(draftKey(sectionId), JSON.stringify(currentBank()));
+    const nodeQuestionIds = new Set(editorState.nodeQuestionIds(nodeId, currentBank().questions));
+    currentBank().questions = currentBank().questions.map(question => nodeQuestionIds.has(question.id) ? clone(originalById.get(question.id)) : question);
+    localStorage.setItem(editorState.draftKey(sectionId), JSON.stringify(currentBank()));
     setStatus(`${nodeId} 已恢复为初始题目。`);
     render();
   });

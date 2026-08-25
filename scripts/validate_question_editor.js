@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 
 const root = path.resolve(__dirname, '..');
 const editorPath = path.join(root, 'authoring', 'collision-pi-question-editor.html');
@@ -10,7 +11,7 @@ if (!source.startsWith('<meta charset="utf-8">')) {
   throw new Error('editor must declare UTF-8 before its Chinese content');
 }
 
-if (scripts.length < 2) {
+if (scripts.length < 3) {
   throw new Error(`expected embedded data and application scripts, found ${scripts.length}`);
 }
 
@@ -35,22 +36,6 @@ if (!source.includes('collision-pi-question-editor:${sectionId}:draft-v1')) {
   throw new Error('section-qualified draft key is missing');
 }
 
-if (!source.includes("const legacyDraftKey = 'collision-pi-a-question-draft';") || !source.includes("sectionId === 'A' && qualifiedRaw === null")) {
-  throw new Error('validated legacy A draft migration is missing');
-}
-
-if (!source.includes('candidate?.section_id === original.section_id') || !source.includes('Array.isArray(candidate?.questions)')) {
-  throw new Error('draft validation must reject malformed or cross-section payloads');
-}
-
-if (!source.includes('nodeEnabled.disabled = allNodes;') || !source.includes('resetQuestion.disabled = allNodes;')) {
-  throw new Error('all-node mode must disable node-only actions');
-}
-
-if (!source.includes("if (currentNodeId() === 'all') {")) {
-  throw new Error('all-node navigation entry behavior is missing');
-}
-
 if (!source.includes('id="questionScenarioFilter"')) {
   throw new Error('scenario filter is missing');
 }
@@ -59,5 +44,12 @@ if (!source.includes('question.scenario_id') || !source.includes('question.quest
   throw new Error('scenario metadata rendering is missing');
 }
 
+new Function(scripts[1][1]);
 new Function(scripts.at(-1)[1]);
+const stateValidation = spawnSync(process.execPath, [path.join(__dirname, 'validate_question_editor_state.js')], {
+  encoding: 'utf8'
+});
+if (stateValidation.status !== 0) {
+  throw new Error(`question editor state validation failed:\n${stateValidation.stdout}${stateValidation.stderr}`);
+}
 console.log(`question editor validation OK: A=${banks.A.questions.length}, B=${banks.B.questions.length} questions, ${scripts.length} script blocks`);

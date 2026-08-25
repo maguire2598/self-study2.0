@@ -69,7 +69,7 @@ class ProjectContractTests(unittest.TestCase):
             bank_a = temp_root / "a.json"
             bank_b = temp_root / "b.json"
             template.write_text(
-                '<script type="application/json">__QUESTION_BANKS_JSON__</script>',
+                '<script type="application/json">__QUESTION_BANKS_JSON__</script><script>__QUESTION_EDITOR_STATE_JS__</script>',
                 encoding="utf-8",
             )
             bank_a.write_text(
