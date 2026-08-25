@@ -6,9 +6,10 @@
 
 - 第一门课程：《碰撞与π》
 - 课程结构：一个视频对应一门课，阶段数量由知识点结构决定
-- 《碰撞与π》知识拼图共 139 个节点：A=27、B=30、C=46、D=36。
+- 《碰撞与π》知识拼图共 136 个节点：A=27、B=27、C=46、D=36。
 - A 板块有 20 个承载题目的二级节点，共 140 道客观题。
-- 题量按知识重要性分配，题库包含 13 个场景题组和 8 道计算题。
+- B 板块有 22 个承载题目的二级节点，共 168 道客观题。
+- B 题库包含 15 个场景题组和 32 道计算题。
 - 当前阶段：内容建模与作者工具；学生运行时、账号、支付和云部署尚未实现
 
 ## 必须遵守的题目边界
@@ -41,6 +42,7 @@
 
 ```powershell
 python scripts/generate_collision_pi_a_questions.py
+python scripts/generate_collision_pi_b_questions.py
 python scripts/build_collision_pi_question_editor.py
 python -m unittest discover -s tests -v
 node scripts/validate_question_editor.js

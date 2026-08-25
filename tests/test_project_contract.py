@@ -16,20 +16,27 @@ CURRENT_FILES = (
     ROOT / "docs/decisions/conversation-decisions.md",
 )
 CURRENT_CONTRACT = (
-    "《碰撞与π》知识拼图共 139 个节点：A=27、B=30、C=46、D=36。",
+    "《碰撞与π》知识拼图共 136 个节点：A=27、B=27、C=46、D=36。",
     "A 板块有 20 个承载题目的二级节点，共 140 道客观题。",
-    "题量按知识重要性分配，题库包含 13 个场景题组和 8 道计算题。",
+    "B 板块有 22 个承载题目的二级节点，共 168 道客观题。",
+    "B 题库包含 15 个场景题组和 32 道计算题。",
 )
 
 
 class ProjectContractTests(unittest.TestCase):
     def test_current_docs_do_not_claim_retired_a_contract(self):
         retired = [
+            "144 个节点",
             "144 个知识节点",
             "144 节点知识拼图",
+            "139 个节点",
+            "A=32",
+            "B=30",
+            "192 道",
             "A 板块 192 道",
             "A 板块 192 题",
             "A 板块 32 个节点",
+            "每节点 6 道",
             "每个知识节点 6 题",
             "32 个节点 × 6 题",
         ]
