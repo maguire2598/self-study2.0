@@ -79,6 +79,7 @@
   let bank;
   let originalById;
   let nodes = [];
+  let sectionActivationId = 0;
   const nodeSelect = root.querySelector('#questionNodeSelect');
   const sectionFilter = root.querySelector('#questionSectionFilter');
   const typeFilter = root.querySelector('#questionTypeFilter');
@@ -150,11 +151,13 @@
 
   function activateSection(nextSection) {
     if (bank) localStorage.setItem(editorState.draftKey(sectionId), JSON.stringify(currentBank()));
+    sectionActivationId += 1;
     sectionId = nextSection;
     bank = loadDraft(sectionId);
     originalById = new Map(banks[sectionId].questions.map(question => [question.id, question]));
     sectionFilter.value = sectionId;
     title.textContent = `碰撞与π · ${sectionId}板块题库筛选`;
+    setStatus('');
     rebuildDependentFilters();
   }
 
@@ -368,23 +371,33 @@
   });
 
   root.querySelector('#copyQuestionBank').addEventListener('click', async () => {
-    await navigator.clipboard.writeText(JSON.stringify(currentBank(), null, 2));
-    setStatus('完整题库 JSON 已复制。');
+    const action = editorState.sectionAction(sectionId, sectionActivationId);
+    const payload = JSON.stringify(currentBank(), null, 2);
+    await navigator.clipboard.writeText(payload);
+    if (editorState.isCurrentSectionAction(action, sectionId, sectionActivationId)) {
+      setStatus('完整题库 JSON 已复制。');
+    }
   });
 
   root.querySelector('#submitEdits').addEventListener('click', async () => {
+    const actionSection = sectionId;
+    const action = editorState.sectionAction(actionSection, sectionActivationId);
     const changes = changedQuestions();
     if (!changes.length) {
       setStatus('当前没有需要提交的修改。');
       return;
     }
-    const prompt = `这是我对《碰撞与π》${sectionId}板块题库的修改，共 ${changes.length} 道：\n\n${JSON.stringify(changes, null, 2)}\n\n请校验结构和答案后写回正式题库。`;
+    const prompt = `这是我对《碰撞与π》${actionSection}板块题库的修改，共 ${changes.length} 道：\n\n${JSON.stringify(changes, null, 2)}\n\n请校验结构和答案后写回正式题库。`;
     if (window.openai?.sendFollowUpMessage) {
-      await window.openai.sendFollowUpMessage({ title: `提交${sectionId}板块题库修改`, prompt });
-      setStatus(`已提交 ${changes.length} 道修改。`);
+      await window.openai.sendFollowUpMessage({ title: `提交${actionSection}板块题库修改`, prompt });
+      if (editorState.isCurrentSectionAction(action, sectionId, sectionActivationId)) {
+        setStatus(`已提交 ${changes.length} 道修改。`);
+      }
     } else {
       await navigator.clipboard.writeText(prompt);
-      setStatus('当前环境不能直接提交，修改内容已复制，请粘贴回对话。');
+      if (editorState.isCurrentSectionAction(action, sectionId, sectionActivationId)) {
+        setStatus('当前环境不能直接提交，修改内容已复制，请粘贴回对话。');
+      }
     }
   });
 

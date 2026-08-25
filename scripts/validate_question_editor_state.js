@@ -90,4 +90,10 @@ assert.equal(state.moveNodeId('all', nodes, -1), 'A1.3');
 assert.equal(state.moveNodeId('A1.1', nodes, -1), 'A1.3');
 assert.equal(state.moveNodeId('A1.3', nodes, 1), 'A1.1');
 
+const outgoingAction = state.sectionAction('A', 3);
+assert.deepEqual(outgoingAction, { sectionId: 'A', activationId: 3 });
+assert.equal(state.isCurrentSectionAction(outgoingAction, 'A', 3), true);
+assert.equal(state.isCurrentSectionAction(outgoingAction, 'B', 4), false);
+assert.equal(state.isCurrentSectionAction(outgoingAction, 'A', 5), false);
+
 console.log('question editor state validation OK');

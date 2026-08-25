@@ -79,7 +79,24 @@
     return nodes[(index + step + nodes.length) % nodes.length];
   }
 
-  const api = { draftKey, isMatchingBank, loadDraft, nodeActionState, nodeQuestionIds, moveNodeId };
+  function sectionAction(sectionId, activationId) {
+    return { sectionId, activationId };
+  }
+
+  function isCurrentSectionAction(action, sectionId, activationId) {
+    return action.sectionId === sectionId && action.activationId === activationId;
+  }
+
+  const api = {
+    draftKey,
+    isMatchingBank,
+    loadDraft,
+    nodeActionState,
+    nodeQuestionIds,
+    moveNodeId,
+    sectionAction,
+    isCurrentSectionAction
+  };
   if (typeof module === 'object' && module.exports) module.exports = api;
   globalScope.CollisionPiQuestionEditorState = api;
 })(typeof window === 'undefined' ? globalThis : window);

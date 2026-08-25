@@ -71,7 +71,8 @@ DEPENDENT_REFERENCE = re.compile(
 )
 OPTION_POSITION = re.compile(
     r"(?:第[一二三四](?:[、，和及与][一二三四])?项|"
-    r"[前后][一二两三四](?:项|组|种状态)|第[一二三四]个选项|第[一二三四]种会)"
+    r"[前后][一二两三四](?:项|组|种状态)|第[一二三四]个选项|第[一二三四]种会|"
+    r"(?:最前|最后)(?:一)?(?:项|个选项|种))"
 )
 IRRELEVANT_OR_META_DISTRACTOR = re.compile(
     r"(?:(?:答案.{0,3}选项|答案.{0,3}排列|选项.{0,3}排列)|颜色|字体|编号|轨道长度|"
@@ -399,6 +400,19 @@ class QuestionSourceBTests(unittest.TestCase):
         self.assertRegex(text, r"(?:选取|选择).{0,40}环境.{0,24}系统")
         self.assertRegex(text, r"(?:系统外|更外界).{0,12}能量传递.{0,8}可忽略")
 
+    def test_zero_restitution_interval_ends_with_collision_action_not_separation(self):
+        scenario = next(
+            scenario for scenario in self.source["scenarios"]
+            if scenario["id"] == "SC-B3-RESTITUTION"
+        )
+        zero_restitution = next(
+            question for question in scenario["questions"]
+            if question["key"] == "b3-5-restitution-01"
+        )
+        self.assertIn("e=0", zero_restitution["ask"])
+        self.assertIn("碰撞作用结束", scenario["context"])
+        self.assertNotIn("分离结束", scenario["context"])
+
     def test_b2_4_includes_a_movable_wall_system_boundary(self):
         questions = [q for q in self.all_questions if q["node_id"] == "B2.4"]
         movable_wall_questions = [
@@ -613,11 +627,15 @@ class QuestionSourceBTests(unittest.TestCase):
         questions = [question for scenario in selected for question in scenario["questions"]]
         self.assertEqual(len(questions), 28)
         self.assertEqual(sum(q["question_style"] == "calculation" for q in questions), 8)
-        joined = " ".join(q["ask"] for q in questions)
-        for phrase in ("静止", "相向", "同向追赶", "不会相碰"):
-            self.assertIn(phrase, joined)
-        for phrase in ("e=1", "0<e<1", "e=0"):
-            self.assertIn(phrase, joined)
+        required_by_key = {
+            "b3-1-equations-02": ("静止",),
+            "b3-1-equations-03": ("相向",),
+            "b3-1-equations-04": ("同向追赶", "不会相碰"),
+            "b3-4-relative-03": ("e=1",),
+            "b3-5-restitution-02": ("0<e<1",),
+            "b3-5-restitution-01": ("e=0",),
+        }
+        self.assert_key_scoped_phrases(questions, required_by_key)
         self.assert_checkpoint_questions(selected)
         self.assert_checkpoint_fixture_physics(questions)
 
@@ -626,11 +644,21 @@ class QuestionSourceBTests(unittest.TestCase):
         questions = [question for scenario in selected for question in scenario["questions"]]
         self.assertEqual(len(questions), 41)
         self.assertEqual(sum(q["question_style"] == "calculation" for q in questions), 12)
-        joined = " ".join(q["ask"] for q in questions)
-        for phrase in ("消元", "平方差", "通式", "等质量", "1:3", "3:1", "质量远大于"):
-            self.assertIn(phrase, joined)
-        for phrase in ("动量", "动能", "相对速度", "量纲", "平凡解"):
-            self.assertIn(phrase, joined)
+        required_by_key = {
+            "b4-1-solve-01": ("消元",),
+            "b4-1-solve-02": ("平方差",),
+            "b4-2-solve-01": ("通式",),
+            "b4-3-ratio-01": ("等质量",),
+            "b4-1-solve-06": ("1:3",),
+            "b4-1-solve-07": ("3:1",),
+            "b4-3-ratio-06": ("质量远大于",),
+            "b4-5-check-02": ("动量",),
+            "b4-5-check-03": ("动能",),
+            "b4-5-check-04": ("相对速度",),
+            "b4-5-check-05": ("量纲",),
+            "b4-4-check-03": ("平凡解",),
+        }
+        self.assert_key_scoped_phrases(questions, required_by_key)
         self.assert_checkpoint_questions(selected)
         self.assert_checkpoint_fixture_physics(questions)
 
@@ -639,9 +667,16 @@ class QuestionSourceBTests(unittest.TestCase):
         questions = [question for scenario in selected for question in scenario["questions"]]
         self.assertEqual(len(questions), 27)
         self.assertEqual(sum(q["question_style"] == "calculation" for q in questions), 4)
-        joined = " ".join(q["ask"] for q in questions)
-        for phrase in ("第一次碰撞", "墙", "第二次物块碰撞", "下一事件", "终止", "碰撞次数", "大物块停下"):
-            self.assertIn(phrase, joined)
+        required_by_key = {
+            "b5-1-chain-01": ("第一次碰撞",),
+            "b5-1-chain-03": ("墙",),
+            "b5-1-chain-07": ("第二次物块碰撞",),
+            "b5-2-chain-01": ("下一事件",),
+            "b5-3-terminal-01": ("终止",),
+            "b5-3-terminal-03": ("碰撞次数",),
+            "b5-3-terminal-04": ("大物块停下",),
+        }
+        self.assert_key_scoped_phrases(questions, required_by_key)
         self.assert_checkpoint_questions(selected)
         self.assert_checkpoint_fixture_physics(questions)
 
@@ -649,6 +684,13 @@ class QuestionSourceBTests(unittest.TestCase):
         for question in questions:
             if question["question_style"] == "calculation":
                 self.assert_fixture_physics(self.fixtures[question["calculation_fixture_id"]])
+
+    def assert_key_scoped_phrases(self, questions, required_by_key):
+        by_key = {question["key"]: question["ask"] for question in questions}
+        self.assertTrue(set(required_by_key) <= set(by_key))
+        for key, phrases in required_by_key.items():
+            for phrase in phrases:
+                self.assertIn(phrase, by_key[key], f"{key}: {phrase}")
 
     def assert_checkpoint_questions(self, scenarios):
         fixture_ids = set(self.fixtures)
