@@ -80,7 +80,7 @@
       "required": ["diagram_id", "node_id", "template_kind", "coordinate_system", "parameters", "labels", "caption", "alt_text", "source_refs"],
       "properties": {
         "diagram_id": {"type": "string", "pattern": "^cp-c-[a-z0-9]+(?:-[a-z0-9]+)+$"},
-        "node_id": {"type": "string", "pattern": "^C[1-9](?:\\.[1-9])?$"},
+        "node_id": {"$ref": "#/$defs/cNodeId"},
         "template_kind": {"enum": ["velocity_plane", "energy_ellipse", "scale_pair", "momentum_chord", "wall_reflection", "state_chain", "safe_sector", "equal_angle", "element_legend", "wedge_unfold"]},
         "coordinate_system": {"enum": ["velocity_raw", "velocity_weighted", "position_weighted"]},
         "parameters": {"type": "object"},
@@ -152,9 +152,30 @@
       "required": ["mass_large", "mass_small", "initial_velocity", "states", "events"],
       "properties": {
         "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0},
-        "initial_velocity": {"$ref": "#/$defs/rawState"}, "states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/weightedState"}},
-        "events": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        "initial_velocity": {"$ref": "#/$defs/rawState"}, "states": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/weightedState"}},
+        "events": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/stateChainEvent"}}
       }
+    },
+    "stateChainEvent": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "label"],
+      "properties": {
+        "kind": {"enum": ["block_collision", "wall_reflection"]},
+        "label": {"type": "string", "minLength": 1}
+      }
+    },
+    "cNodeId": {
+      "enum": [
+        "C1", "C1.1", "C1.2", "C1.3", "C1.4",
+        "C2", "C2.1", "C2.2", "C2.3",
+        "C3", "C3.1", "C3.2", "C3.3", "C3.4", "C3.5",
+        "C4", "C4.1", "C4.2", "C4.3", "C4.4",
+        "C5", "C5.1", "C5.2", "C5.3",
+        "C6", "C6.1", "C6.2", "C6.3", "C6.4",
+        "C7", "C7.1", "C7.2", "C7.3", "C7.4",
+        "C8", "C8.1", "C8.2", "C8.3",
+        "C9", "C9.1", "C9.2", "C9.3", "C9.4", "C9.5", "C9.6", "C9.7"
+      ]
     },
     "safeSectorParameters": {
       "type": "object", "additionalProperties": false,

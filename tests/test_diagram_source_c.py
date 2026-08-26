@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "content/courses/collision-pi/diagram-source-c.json"
 SCHEMA = ROOT / "schemas/collision_pi_diagram_source_c.schema.json"
+PUZZLE = ROOT / "content/courses/collision-pi/knowledge-puzzle.json"
 
 EXPECTED_TEMPLATE_COUNTS = Counter({
     "velocity_plane": 4,
@@ -87,14 +88,19 @@ class DiagramSourceCTests(unittest.TestCase):
     def setUpClass(cls):
         cls.source = json.loads(SOURCE.read_text(encoding="utf-8"))
         cls.diagrams = cls.source["diagrams"]
+        cls.knowledge_node_ids = {
+            node["id"] for node in json.loads(PUZZLE.read_text(encoding="utf-8"))["nodes"]
+        }
 
     def assert_raw_energy_point(self, point, mass_large, mass_small, energy):
         actual = mass_large * point["v_large"] ** 2 + mass_small * point["v_small"] ** 2
         self.assertAlmostEqual(actual, 2 * energy)
 
-    def assert_weighted_state(self, state):
-        self.assertAlmostEqual(state["x"], state["mass_large"] ** 0.5 * state["v_large"])
-        self.assertAlmostEqual(state["y"], state["mass_small"] ** 0.5 * state["v_small"])
+    def assert_weighted_state(self, state, mass_large, mass_small):
+        self.assertEqual(state["mass_large"], mass_large)
+        self.assertEqual(state["mass_small"], mass_small)
+        self.assertAlmostEqual(state["x"], mass_large ** 0.5 * state["v_large"])
+        self.assertAlmostEqual(state["y"], mass_small ** 0.5 * state["v_small"])
 
     def assert_momentum_line(self, state, mass_large, mass_small, momentum):
         value = mass_large ** 0.5 * state["x"] + mass_small ** 0.5 * state["y"]
@@ -114,6 +120,7 @@ class DiagramSourceCTests(unittest.TestCase):
         self.assertEqual(Counter(diagram["coordinate_system"] for diagram in self.diagrams), EXPECTED_COORDINATE_COUNTS)
         for diagram in self.diagrams:
             with self.subTest(diagram=diagram["diagram_id"]):
+                self.assertIn(diagram["node_id"], self.knowledge_node_ids)
                 self.assertTrue(diagram["caption"].strip())
                 self.assertTrue(diagram["alt_text"].strip())
                 self.assertTrue(diagram["source_refs"])
@@ -124,6 +131,10 @@ class DiagramSourceCTests(unittest.TestCase):
         self.assertEqual(valid.returncode, 0, valid.stdout + valid.stderr)
         mutation = json.loads(json.dumps(self.source, ensure_ascii=False))
         mutation["diagrams"][0]["parameters"]["unexpected"] = "not a renderer input"
+        invalid = validate_source_with_pwsh(mutation)
+        self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
+        mutation = json.loads(json.dumps(self.source, ensure_ascii=False))
+        mutation["diagrams"][0]["node_id"] = "C9.9"
         invalid = validate_source_with_pwsh(mutation)
         self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
 
@@ -140,8 +151,11 @@ class DiagramSourceCTests(unittest.TestCase):
                     self.assert_raw_energy_point(
                         state, parameters["mass_large"], parameters["mass_small"], parameters["energy"]
                     )
-                for state in parameters["weighted_states"]:
-                    self.assert_weighted_state(state)
+                self.assertEqual(len(parameters["raw_states"]), len(parameters["weighted_states"]))
+                for raw_state, state in zip(parameters["raw_states"], parameters["weighted_states"]):
+                    self.assertEqual(state["v_large"], raw_state["v_large"])
+                    self.assertEqual(state["v_small"], raw_state["v_small"])
+                    self.assert_weighted_state(state, parameters["mass_large"], parameters["mass_small"])
                     self.assertAlmostEqual(state["x"] ** 2 + state["y"] ** 2, 2 * parameters["energy"])
 
     def test_weighted_state_templates_obey_coordinate_and_momentum_contracts(self):
@@ -150,7 +164,9 @@ class DiagramSourceCTests(unittest.TestCase):
             kind = diagram["template_kind"]
             if kind == "momentum_chord":
                 for intersection in parameters["intersections"]:
-                    self.assert_weighted_state(intersection)
+                    self.assert_weighted_state(
+                        intersection, parameters["mass_large"], parameters["mass_small"]
+                    )
                     self.assertAlmostEqual(intersection["x"] ** 2 + intersection["y"] ** 2, 2 * parameters["energy"])
                     self.assert_momentum_line(
                         intersection,
@@ -161,7 +177,7 @@ class DiagramSourceCTests(unittest.TestCase):
                     self.assertIn(intersection["momentum"], parameters["momentum_values"])
             elif kind in {"state_chain", "equal_angle", "element_legend"}:
                 for state in parameters["states"]:
-                    self.assert_weighted_state(state)
+                    self.assert_weighted_state(state, parameters["mass_large"], parameters["mass_small"])
 
     def test_wall_reflections_preserve_x_and_reverse_y(self):
         for diagram in self.diagrams:
@@ -169,8 +185,9 @@ class DiagramSourceCTests(unittest.TestCase):
                 continue
             before = diagram["parameters"]["before"]
             after = diagram["parameters"]["after"]
-            self.assert_weighted_state(before)
-            self.assert_weighted_state(after)
+            parameters = diagram["parameters"]
+            self.assert_weighted_state(before, parameters["mass_large"], parameters["mass_small"])
+            self.assert_weighted_state(after, parameters["mass_large"], parameters["mass_small"])
             self.assertAlmostEqual(after["x"], before["x"])
             self.assertAlmostEqual(after["y"], -before["y"])
 
@@ -181,7 +198,7 @@ class DiagramSourceCTests(unittest.TestCase):
             parameters = diagram["parameters"]
             slope = math.sqrt(parameters["mass_small"] / parameters["mass_large"])
             for state in parameters["boundary_states"]:
-                self.assert_weighted_state(state)
+                self.assert_weighted_state(state, parameters["mass_large"], parameters["mass_small"])
                 self.assertGreaterEqual(state["x"], 0)
                 self.assertGreaterEqual(state["y"], 0)
                 self.assertLessEqual(state["y"], slope * state["x"])
@@ -204,6 +221,53 @@ class DiagramSourceCTests(unittest.TestCase):
             parameters = diagram["parameters"]
             expected = math.atan(math.sqrt(parameters["mass_small"] / parameters["mass_large"]))
             self.assertAlmostEqual(parameters["wedge_angle"], expected)
+
+    def test_state_chain_events_are_physical_transitions_with_conserved_energy(self):
+        for diagram in self.diagrams:
+            if diagram["template_kind"] != "state_chain":
+                continue
+            parameters = diagram["parameters"]
+            states = parameters["states"]
+            events = parameters["events"]
+            mass_large = parameters["mass_large"]
+            mass_small = parameters["mass_small"]
+            self.assertEqual(len(events), len(states) - 1, diagram["diagram_id"])
+            self.assertEqual(
+                parameters["initial_velocity"],
+                {"v_large": states[0]["v_large"], "v_small": states[0]["v_small"]},
+                diagram["diagram_id"],
+            )
+            initial_energy_twice = (
+                mass_large * states[0]["v_large"] ** 2
+                + mass_small * states[0]["v_small"] ** 2
+            )
+            for state in states:
+                self.assert_weighted_state(state, mass_large, mass_small)
+                self.assertAlmostEqual(
+                    mass_large * state["v_large"] ** 2 + mass_small * state["v_small"] ** 2,
+                    initial_energy_twice,
+                    msg=diagram["diagram_id"],
+                )
+            for before, event, after in zip(states, events, states[1:]):
+                self.assertIsInstance(event, dict, diagram["diagram_id"])
+                self.assertIn(event.get("kind"), {"block_collision", "wall_reflection"}, diagram["diagram_id"])
+                self.assertTrue(event.get("label", "").strip(), diagram["diagram_id"])
+                if event["kind"] == "block_collision":
+                    denominator = mass_large + mass_small
+                    self.assertAlmostEqual(
+                        after["v_large"],
+                        ((mass_large - mass_small) * before["v_large"] + 2 * mass_small * before["v_small"]) / denominator,
+                    )
+                    self.assertAlmostEqual(
+                        after["v_small"],
+                        (2 * mass_large * before["v_large"] + (mass_small - mass_large) * before["v_small"]) / denominator,
+                    )
+                else:
+                    self.assertAlmostEqual(after["v_large"], before["v_large"])
+                    self.assertAlmostEqual(after["v_small"], -before["v_small"])
+            if diagram["diagram_id"] == "cp-c-state-chain-terminal":
+                self.assertGreaterEqual(states[-1]["v_large"], states[-1]["v_small"])
+                self.assertGreaterEqual(states[-1]["v_small"], 0)
 
 
 if __name__ == "__main__":
