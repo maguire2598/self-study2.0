@@ -5794,7 +5794,8 @@
           "B"
         ]
       }
-    ]
+    ],
+    "content_fingerprint": "a1a8d4ee4ff35569e1f2a6ecca9760c7d1b7a5b57b5f6f6696e22c9b62b33756"
   },
   "B": {
     "$schema": "../../../schemas/objective_question_bank.schema.json",
@@ -12640,7 +12641,8 @@
           "B"
         ]
       }
-    ]
+    ],
+    "content_fingerprint": "987f844a9ab4a61eec20c4fac80a2a5a8d91909d11b475dd3b54940562aca881"
   }
 }</script>
   <script>(function attachQuestionEditorState(globalScope) {
@@ -12663,10 +12665,13 @@
   function isMatchingBank(candidate, original) {
     const originalQuota = original?.question_count_by_node;
     const candidateQuota = candidate?.question_count_by_node;
+    const fingerprintPattern = /^[0-9a-f]{64}$/;
     if (
       candidate?.course_id !== original?.course_id ||
       candidate?.section_id !== original?.section_id ||
       candidate?.version !== original?.version ||
+      !fingerprintPattern.test(original?.content_fingerprint || '') ||
+      candidate?.content_fingerprint !== original.content_fingerprint ||
       !Array.isArray(candidate?.questions) ||
       !Array.isArray(original?.questions) ||
       !candidateQuota ||

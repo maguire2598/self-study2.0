@@ -1,6 +1,7 @@
 const assert = require('assert');
 const state = require('./collision_pi_question_editor_state.js');
 const bankA = require('../content/courses/collision-pi/question-bank-a.json');
+const bankB = require('../content/courses/collision-pi/question-bank-b.json');
 
 const clone = value => JSON.parse(JSON.stringify(value));
 
@@ -25,6 +26,19 @@ function loadA(storage) {
     clone
   });
 }
+
+function loadSection(sectionId, bank, storage) {
+  return state.loadDraft({
+    sectionId,
+    banks: { [sectionId]: bank },
+    getItem: storage.getItem,
+    setItem: storage.setItem,
+    clone
+  });
+}
+
+assert.match(bankA.content_fingerprint, /^[0-9a-f]{64}$/);
+assert.match(bankB.content_fingerprint, /^[0-9a-f]{64}$/);
 
 const validLegacy = clone(bankA);
 validLegacy.questions[0].author_notes = 'legacy A migration';
@@ -71,6 +85,36 @@ for (const invalidLegacy of rejectedLegacyDrafts) {
   const storage = storageWith({ [legacyKey]: JSON.stringify(invalidLegacy) });
   assert.equal(loadA(storage).questions[0].author_notes, '');
   assert.equal(storage.getItem(scopedKey), null);
+}
+
+for (const [sectionId, bank] of [['A', bankA], ['B', bankB]]) {
+  const scopedDraftKey = state.draftKey(sectionId);
+
+  const missingFingerprint = clone(bank);
+  delete missingFingerprint.content_fingerprint;
+  missingFingerprint.questions[0].prompt = 'historical prompt must not revive';
+  const missingStorage = storageWith({
+    [scopedDraftKey]: JSON.stringify(missingFingerprint)
+  });
+  assert.equal(loadSection(sectionId, bank, missingStorage).questions[0].prompt, bank.questions[0].prompt);
+
+  const staleFingerprint = clone(bank);
+  staleFingerprint.content_fingerprint = '0'.repeat(64);
+  staleFingerprint.questions[0].prompt = 'stale repair must not revive';
+  const staleStorage = storageWith({
+    [scopedDraftKey]: JSON.stringify(staleFingerprint)
+  });
+  assert.equal(loadSection(sectionId, bank, staleStorage).questions[0].prompt, bank.questions[0].prompt);
+
+  const currentDraft = clone(bank);
+  currentDraft.questions[0].author_notes = `${sectionId} current fingerprint edit`;
+  const currentStorage = storageWith({
+    [scopedDraftKey]: JSON.stringify(currentDraft)
+  });
+  assert.equal(
+    loadSection(sectionId, bank, currentStorage).questions[0].author_notes,
+    `${sectionId} current fingerprint edit`
+  );
 }
 
 assert.deepEqual(state.nodeActionState('all'), {

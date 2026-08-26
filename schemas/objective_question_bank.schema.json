@@ -13,11 +13,12 @@
       }
     }
   },
-  "required": ["course_id", "section_id", "version", "question_count_by_node", "delivery_policy", "status_assessment", "questions"],
+  "required": ["course_id", "section_id", "version", "content_fingerprint", "question_count_by_node", "delivery_policy", "status_assessment", "questions"],
   "properties": {
     "course_id": { "type": "string" },
     "section_id": { "enum": ["A", "B"] },
     "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "content_fingerprint": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
     "question_count_by_node": {
       "type": "object",
       "additionalProperties": { "type": "integer", "minimum": 0 }

@@ -174,7 +174,11 @@ class KnowledgePuzzleTests(unittest.TestCase):
         from scripts.build_collision_pi_knowledge_puzzle import render_markdown
 
         expected = PUZZLE_PATH.with_suffix(".md").read_text(encoding="utf-8")
-        self.assertEqual(render_markdown(self.puzzle), expected)
+        rendered = render_markdown(self.puzzle)
+        self.assertEqual(rendered, expected)
+        self.assertIn("> **文档版本**：3.0.0", rendered)
+        self.assertNotIn("生成日期", rendered)
+        self.assertNotIn("2026-08-22", rendered)
 
     def test_node_ids_are_unique(self):
         ids = [node["id"] for node in self.nodes]

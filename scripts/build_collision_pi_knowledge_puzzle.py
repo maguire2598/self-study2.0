@@ -32,8 +32,7 @@ def render_markdown(puzzle: dict) -> str:
     lines.extend([
         "> C9 光线反射法为选修内容。",
         "",
-        "> **文档版本**：2.0.0",
-        "> **生成日期**：2026-08-22",
+        f"> **文档版本**：{puzzle['version']}",
         "",
     ])
     return "\n".join(lines)

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from collections import Counter
 from pathlib import Path
@@ -11,6 +12,19 @@ from typing import TypeVar
 OPTION_IDS = ["A", "B", "C", "D"]
 
 T = TypeVar("T")
+
+
+def content_fingerprint(bank: dict) -> str:
+    canonical = {
+        key: value for key, value in bank.items() if key != "content_fingerprint"
+    }
+    payload = json.dumps(
+        canonical,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
 
 
 def rotate(values: list[T], offset: int) -> list[T]:
@@ -104,7 +118,7 @@ def build_bank_from_paths(
         raise ValueError(
             f"question quota mismatch: actual={dict(actual)}, expected={dict(expected)}"
         )
-    return {
+    bank = {
         "$schema": "../../../schemas/objective_question_bank.schema.json",
         "course_id": "collision-pi",
         "section_id": section_id,
@@ -122,6 +136,8 @@ def build_bank_from_paths(
         },
         "questions": questions,
     }
+    bank["content_fingerprint"] = content_fingerprint(bank)
+    return bank
 
 
 def write_bank(bank: dict, output_path: Path) -> None:

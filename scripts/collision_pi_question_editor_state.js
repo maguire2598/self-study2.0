@@ -18,10 +18,13 @@
   function isMatchingBank(candidate, original) {
     const originalQuota = original?.question_count_by_node;
     const candidateQuota = candidate?.question_count_by_node;
+    const fingerprintPattern = /^[0-9a-f]{64}$/;
     if (
       candidate?.course_id !== original?.course_id ||
       candidate?.section_id !== original?.section_id ||
       candidate?.version !== original?.version ||
+      !fingerprintPattern.test(original?.content_fingerprint || '') ||
+      candidate?.content_fingerprint !== original.content_fingerprint ||
       !Array.isArray(candidate?.questions) ||
       !Array.isArray(original?.questions) ||
       !candidateQuota ||

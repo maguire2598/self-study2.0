@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 import subprocess
@@ -63,6 +64,19 @@ class QuestionBankBTests(unittest.TestCase):
 
     def test_checked_in_b_bank_matches_generator(self):
         self.assertEqual(generate_b.build_bank(), self.bank)
+
+    def test_content_fingerprint_matches_canonical_bank(self):
+        fingerprint = self.bank["content_fingerprint"]
+        self.assertRegex(fingerprint, r"^[0-9a-f]{64}$")
+        canonical = deepcopy(self.bank)
+        canonical.pop("content_fingerprint")
+        payload = json.dumps(
+            canonical,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        self.assertEqual(fingerprint, hashlib.sha256(payload).hexdigest())
 
     def test_node_titles_match_assessed_b_puzzle_nodes(self):
         titles = {

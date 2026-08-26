@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 import subprocess
@@ -62,6 +63,19 @@ class QuestionBankTests(unittest.TestCase):
 
     def test_checked_in_bank_matches_generator(self):
         self.assertEqual(generator.build_bank(), self.bank)
+
+    def test_content_fingerprint_matches_canonical_bank(self):
+        fingerprint = self.bank["content_fingerprint"]
+        self.assertRegex(fingerprint, r"^[0-9a-f]{64}$")
+        canonical = deepcopy(self.bank)
+        canonical.pop("content_fingerprint")
+        payload = json.dumps(
+            canonical,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        self.assertEqual(fingerprint, hashlib.sha256(payload).hexdigest())
 
     def test_a_wrapper_preserves_checked_in_bank_bytes(self):
         rendered = json.dumps(generator.build_bank(), ensure_ascii=False, indent=2) + "\n"
@@ -200,6 +214,14 @@ class QuestionBankTests(unittest.TestCase):
         candidate = deepcopy(self.bank)
         result = validate_bank_with_pwsh(candidate)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_formal_schema_requires_lowercase_sha256_content_fingerprint(self):
+        missing = deepcopy(self.bank)
+        missing.pop("content_fingerprint", None)
+        self.assert_schema_rejects(missing, "bank without content fingerprint")
+        malformed = deepcopy(self.bank)
+        malformed["content_fingerprint"] = "A" * 64
+        self.assert_schema_rejects(malformed, "bank with non-lowercase fingerprint")
 
     def assert_schema_rejects(self, candidate, label):
         result = validate_bank_with_pwsh(candidate)
