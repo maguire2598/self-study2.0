@@ -476,32 +476,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "横轴按定义记录vM，纵轴记录vm；速度的正负由向右为正的约定解释。",
-          "ask": "速度相图横轴读数vM=-2 m/s、纵轴读数vm=+1 m/s，且向右为正。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“速度平面的四个方向象限。”，它与图示ID cp-c-velocity-plane-quadrants 一一对应。",
+          "ask": "围绕有序速度分量的归属，本题要求识别唯一图注为“速度平面的四个方向象限。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：速度平面的四个方向象限。",
+              "text": "图注：“速度平面的四个方向象限。”",
               "correct": true,
               "figure_ref": "cp-c-velocity-plane-quadrants"
             },
             {
-              "text": "图示：典型碰撞链的初始速度点。",
+              "text": "图注：“典型碰撞链的初始速度点。”",
               "correct": false,
               "figure_ref": "cp-c-velocity-plane-initial"
             },
             {
-              "text": "图示：终态速度点位于右侧有序区域。",
+              "text": "图注：“终态速度点位于右侧有序区域。”",
               "correct": false,
               "figure_ref": "cp-c-velocity-plane-terminal"
             },
             {
-              "text": "图示：相图中的点是速度状态。",
+              "text": "图注：“相图中的点是速度状态。”",
               "correct": false,
               "figure_ref": "cp-c-velocity-plane-state-vs-path"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“速度平面的四个方向象限。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-velocity-plane-quadrants"
+          }
         },
         {
           "key": "c1-1-scenario-02",
@@ -512,32 +520,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "有序数对的vM分量对应横轴、vm分量对应纵轴；0表示静止，负号表示向左。",
-          "ask": "状态数对写作(vM,vm)=(0,-3 m/s)，横轴和纵轴均是速度轴。 请用题设的坐标和物理约束判断最合理的结论。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“典型碰撞链的初始速度点。”，它与图示ID cp-c-velocity-plane-initial 一一对应。",
+          "ask": "围绕有序速度分量的归属，本题要求识别唯一图注为“典型碰撞链的初始速度点。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：速度平面的四个方向象限。",
-              "correct": true,
+              "text": "图注：“速度平面的四个方向象限。”",
+              "correct": false,
               "figure_ref": "cp-c-velocity-plane-quadrants"
             },
             {
-              "text": "图示：典型碰撞链的初始速度点。",
-              "correct": false,
+              "text": "图注：“典型碰撞链的初始速度点。”",
+              "correct": true,
               "figure_ref": "cp-c-velocity-plane-initial"
             },
             {
-              "text": "图示：终态速度点位于右侧有序区域。",
+              "text": "图注：“终态速度点位于右侧有序区域。”",
               "correct": false,
               "figure_ref": "cp-c-velocity-plane-terminal"
             },
             {
-              "text": "图示：相图中的点是速度状态。",
+              "text": "图注：“相图中的点是速度状态。”",
               "correct": false,
               "figure_ref": "cp-c-velocity-plane-state-vs-path"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“典型碰撞链的初始速度点。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-velocity-plane-initial"
+          }
         },
         {
           "key": "c1-1-scenario-03",
@@ -549,22 +565,22 @@
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
           "explanation": "状态点的有序性来自坐标轴定义：第一坐标vM、第二坐标vm。",
-          "ask": "同一时刻两物块速度分别为+1 m/s和-1 m/s，图采用(vM,vm)坐标。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "同一时刻两物块速度分别为+1 m/s和-1 m/s，图采用(vM,vm)坐标。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "大物块向左2 m/s，小物块向右1 m/s。",
+              "text": "有序数对为(vM,vm)=(+1,-1)。",
               "correct": true
             },
             {
-              "text": "坐标正负必须按题目约定的正方向解释。",
+              "text": "大物块向右，小物块向左。",
               "correct": true
             },
             {
-              "text": "两个物块都在原点静止。",
+              "text": "有序数对应写为(-1,+1)。",
               "correct": false
             },
             {
-              "text": "横轴表示大物块的位置为-2 m。",
+              "text": "这两个数表示两物块相距1 m。",
               "correct": false
             }
           ],
@@ -572,7 +588,15 @@
           "figure_refs": [
             "cp-c-velocity-plane-quadrants"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "有序数对为(vM,vm)=(+1,-1)。",
+              "大物块向右，小物块向左。"
+            ],
+            "basis": "状态点的有序性来自坐标轴定义：第一坐标vM、第二坐标vm。"
+          }
         },
         {
           "key": "c1-1-scenario-04",
@@ -584,26 +608,34 @@
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
           "explanation": "横轴按定义记录vM，纵轴记录vm；速度的正负由向右为正的约定解释。",
-          "ask": "速度相图横轴读数vM=-2 m/s、纵轴读数vm=+1 m/s，且向右为正。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "速度相图横轴读数vM=-2 m/s、纵轴读数vm=+1 m/s，且向右为正。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "大物块向右3 m/s，小物块静止。",
-              "correct": false
-            },
-            {
-              "text": "两个物块相距3 m。",
-              "correct": false
-            },
-            {
-              "text": "大物块静止，小物块向左3 m/s。",
+              "text": "有序数对为(vM,vm)=(-2,+1)。",
               "correct": true
             },
             {
-              "text": "坐标正负必须按题目约定的正方向解释。",
+              "text": "大物块向左，小物块向右。",
               "correct": true
+            },
+            {
+              "text": "有序数对应写为(+1,-2)。",
+              "correct": false
+            },
+            {
+              "text": "两个分量同向为正。",
+              "correct": false
             }
           ],
-          "presentation_mode": "text_only"
+          "presentation_mode": "text_only",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "有序数对为(vM,vm)=(-2,+1)。",
+              "大物块向左，小物块向右。"
+            ],
+            "basis": "横轴按定义记录vM，纵轴记录vm；速度的正负由向右为正的约定解释。"
+          }
         },
         {
           "key": "c1-2-scenario-01",
@@ -615,22 +647,22 @@
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
           "explanation": "第二象限满足vM<0、vm>0；坐标正负直接给出各自运动方向。",
-          "ask": "在(vM,vm)速度平面中有一点位于第二象限，向右取正。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "在(vM,vm)速度平面中有一点位于第二象限，向右取正。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "大物块速度为0，小物块向右2 m/s。",
+              "text": "第二象限满足vM<0、vm>0。",
               "correct": true
             },
             {
-              "text": "坐标正负必须按题目约定的正方向解释。",
+              "text": "大物块向左，小物块向右。",
               "correct": true
             },
             {
-              "text": "大物块向右2 m/s，小物块静止。",
+              "text": "第二象限满足vM>0、vm<0。",
               "correct": false
             },
             {
-              "text": "两物块均向右2 m/s。",
+              "text": "两个物块都向右。",
               "correct": false
             }
           ],
@@ -638,7 +670,15 @@
           "figure_refs": [
             "cp-c-velocity-plane-quadrants"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "第二象限满足vM<0、vm>0。",
+              "大物块向左，小物块向右。"
+            ],
+            "basis": "第二象限满足vM<0、vm>0；坐标正负直接给出各自运动方向。"
+          }
         },
         {
           "key": "c1-2-scenario-02",
@@ -650,30 +690,38 @@
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
           "explanation": "第四象限满足vM>0、vm<0，因此两个物块方向相反。",
-          "ask": "一个状态点在第四象限，横轴为vM、纵轴为vm，向右取正。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "一个状态点在第四象限，横轴为vM、纵轴为vm，向右取正。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "两个物块速度都为正。",
-              "correct": false
-            },
-            {
-              "text": "两个物块速度都为负。",
-              "correct": false
-            },
-            {
-              "text": "大物块速度为负，小物块速度为正。",
+              "text": "第四象限满足vM>0、vm<0。",
               "correct": true
             },
             {
-              "text": "坐标正负必须按题目约定的正方向解释。",
+              "text": "大物块向右，小物块向左。",
               "correct": true
+            },
+            {
+              "text": "第四象限满足vM<0、vm>0。",
+              "correct": false
+            },
+            {
+              "text": "两个物块都向左。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-velocity-plane-quadrants"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "第四象限满足vM>0、vm<0。",
+              "大物块向右，小物块向左。"
+            ],
+            "basis": "第四象限满足vM>0、vm<0，因此两个物块方向相反。"
+          }
         },
         {
           "key": "c1-2-scenario-03",
@@ -685,22 +733,22 @@
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
           "explanation": "纵轴上的点有vM=0；纵轴正半轴表示vm>0。",
-          "ask": "状态点落在纵轴正半轴上，读数为vm=+2 m/s。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "状态点落在纵轴正半轴上，读数为vm=+2 m/s。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "大物块向右，小物块向左。",
+              "text": "该点的有序数对为(vM,vm)=(0,+2)。",
               "correct": true
             },
             {
-              "text": "坐标正负必须按题目约定的正方向解释。",
+              "text": "大物块静止，小物块向右2 m/s。",
               "correct": true
             },
             {
-              "text": "大物块向左，小物块向右。",
+              "text": "大物块向右2 m/s，小物块静止。",
               "correct": false
             },
             {
-              "text": "两物块都向右。",
+              "text": "两个物块速度都为+2 m/s。",
               "correct": false
             }
           ],
@@ -708,7 +756,15 @@
           "figure_refs": [
             "cp-c-velocity-plane-quadrants"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "该点的有序数对为(vM,vm)=(0,+2)。",
+              "大物块静止，小物块向右2 m/s。"
+            ],
+            "basis": "纵轴上的点有vM=0；纵轴正半轴表示vm>0。"
+          }
         },
         {
           "key": "c1-2-scenario-04",
@@ -719,31 +775,39 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "第二象限满足vM<0、vm>0；坐标正负直接给出各自运动方向。 这里特别核对的是正负号与方向的对应。",
-          "ask": "在(vM,vm)速度平面中有一点位于第二象限，向右取正。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦正负号与方向的对应；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "第二象限满足vM<0、vm>0；坐标正负直接给出各自运动方向。",
+          "ask": "在(vM,vm)速度平面中有一点位于第二象限，向右取正。 在这个明确的速度/几何条件下，哪个判读准确？ 把两个分量分别译成方向词，再判断物块运动方向。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "大物块向右2 m/s，小物块静止。",
-              "correct": false
-            },
-            {
-              "text": "两物块均向右2 m/s。",
-              "correct": false
-            },
-            {
-              "text": "大物块速度为0，小物块向右2 m/s。",
+              "text": "第二象限满足vM<0、vm>0。",
               "correct": true
             },
             {
-              "text": "坐标正负必须按题目约定的正方向解释。",
+              "text": "大物块向左，小物块向右。",
               "correct": true
+            },
+            {
+              "text": "第二象限满足vM>0、vm<0。",
+              "correct": false
+            },
+            {
+              "text": "两个物块都向右。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-velocity-plane-quadrants"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "第二象限满足vM<0、vm>0。",
+              "大物块向左，小物块向右。"
+            ],
+            "basis": "第二象限满足vM<0、vm>0；坐标正负直接给出各自运动方向。"
+          }
         },
         {
           "key": "c1-3-scenario-01",
@@ -778,7 +842,14 @@
           "figure_refs": [
             "cp-c-velocity-plane-state-vs-path"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "这表示一对速度改变，不表示物块在真实轨道上画出了一段折线。"
+            ],
+            "basis": "两个坐标都是速度分量；点间连线只是状态更新的可视化，不是位置轨迹。"
+          }
         },
         {
           "key": "c1-3-scenario-02",
@@ -813,7 +884,14 @@
           "figure_refs": [
             "cp-c-velocity-plane-state-vs-path"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "箭头可用来表示速度状态的先后，不给出物块在空间中的路程。"
+            ],
+            "basis": "坐标轴已经限定为速度坐标，所以箭头连接的是状态点。"
+          }
         },
         {
           "key": "c1-3-scenario-03",
@@ -848,7 +926,14 @@
           "figure_refs": [
             "cp-c-velocity-plane-state-vs-path"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "可判断两物块的瞬时运动方向，不能由此单独确定它们在轨道上的位置。"
+            ],
+            "basis": "vM、vm提供的是带符号速度；没有位置初值和时间，位置轨迹不确定。"
+          }
         },
         {
           "key": "c1-4-scenario-01",
@@ -883,7 +968,14 @@
           "figure_refs": [
             "cp-c-velocity-plane-initial"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "它表示大物块向左运动，小物块静止。"
+            ],
+            "basis": "vM=-V<0而vm=0，分别对应大物块左行和小物块静止。"
+          }
         },
         {
           "key": "c1-4-scenario-02",
@@ -918,7 +1010,14 @@
           "figure_refs": [
             "cp-c-velocity-plane-initial"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "该点位于右侧有序安全区域，记录为无后续碰撞状态。"
+            ],
+            "basis": "终止区由两个不等式vM>=vm和vm>=0界定，体现两速度同向且有序。"
+          }
         },
         {
           "key": "c1-4-scenario-03",
@@ -930,7 +1029,7 @@
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
           "explanation": "初态给出碰前速度；弹性碰撞通过动量和动能约束产生碰后速度。",
-          "ask": "某状态为(vM,vm)=(-1,0)，随后先发生物块碰撞。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "某状态为(vM,vm)=(-1,0)，随后先发生物块碰撞。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 图序固定展示：初态、速度轴判读、状态与位置轨迹的边界。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "只按终态不等式把点移到右上即可得到终态。",
@@ -952,10 +1051,17 @@
           "presentation_mode": "figure_sequence",
           "figure_refs": [
             "cp-c-velocity-plane-initial",
-            "cp-c-velocity-plane-terminal",
-            "cp-c-velocity-plane-quadrants"
+            "cp-c-velocity-plane-quadrants",
+            "cp-c-velocity-plane-state-vs-path"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "初态、速度轴判读、状态与位置轨迹的边界",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "初始点是速度状态的起点，事件后应按碰撞公式更新到另一个速度点。"
+            ],
+            "basis": "初态给出碰前速度；弹性碰撞通过动量和动能约束产生碰后速度。"
+          }
         }
       ]
     },
@@ -977,32 +1083,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "由E=(MvM^2+mvm^2)/2得到二次方程；没有一次项，中心在原点。",
-          "ask": "两物块质量为M、m，总动能E保持不变，使用原始速度坐标(vM,vm)。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“等质量时的等能圆。”，它与图示ID cp-c-energy-ellipse-equal-mass 一一对应。",
+          "ask": "围绕能量二次式的代入，本题要求识别唯一图注为“等质量时的等能圆。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：等质量时的等能圆。",
+              "text": "图注：“等质量时的等能圆。”",
               "correct": true,
               "figure_ref": "cp-c-energy-ellipse-equal-mass"
             },
             {
-              "text": "图示：质量比四时的能量椭圆。",
+              "text": "图注：“质量比四时的能量椭圆。”",
               "correct": false,
               "figure_ref": "cp-c-energy-ellipse-ratio-4"
             },
             {
-              "text": "图示：质量比十六时的能量椭圆。",
+              "text": "图注：“质量比十六时的能量椭圆。”",
               "correct": false,
               "figure_ref": "cp-c-energy-ellipse-ratio-16"
             },
             {
-              "text": "图示：同一椭圆上的状态共享总动能。",
+              "text": "图注：“同一椭圆上的状态共享总动能。”",
               "correct": false,
               "figure_ref": "cp-c-energy-ellipse-same-energy"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“等质量时的等能圆。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-energy-ellipse-equal-mass"
+          }
         },
         {
           "key": "c2-1-scenario-02",
@@ -1013,32 +1127,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "把M、m、2E代入MvM^2+mvm^2=2E即可得到4vM^2+vm^2=4。",
-          "ask": "固定M=4、m=1且总动能E=2 J。 请用题设的坐标和物理约束判断最合理的结论。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“质量比四时的能量椭圆。”，它与图示ID cp-c-energy-ellipse-ratio-4 一一对应。",
+          "ask": "围绕能量二次式的代入，本题要求识别唯一图注为“质量比四时的能量椭圆。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：等质量时的等能圆。",
-              "correct": true,
+              "text": "图注：“等质量时的等能圆。”",
+              "correct": false,
               "figure_ref": "cp-c-energy-ellipse-equal-mass"
             },
             {
-              "text": "图示：质量比四时的能量椭圆。",
-              "correct": false,
+              "text": "图注：“质量比四时的能量椭圆。”",
+              "correct": true,
               "figure_ref": "cp-c-energy-ellipse-ratio-4"
             },
             {
-              "text": "图示：质量比十六时的能量椭圆。",
+              "text": "图注：“质量比十六时的能量椭圆。”",
               "correct": false,
               "figure_ref": "cp-c-energy-ellipse-ratio-16"
             },
             {
-              "text": "图示：同一椭圆上的状态共享总动能。",
+              "text": "图注：“同一椭圆上的状态共享总动能。”",
               "correct": false,
               "figure_ref": "cp-c-energy-ellipse-same-energy"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量比四时的能量椭圆。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-energy-ellipse-ratio-4"
+          }
         },
         {
           "key": "c2-1-scenario-03",
@@ -1049,32 +1171,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "同一椭圆只固定二次和MvM^2+mvm^2，因此允许不同的速度分配。",
-          "ask": "一对速度状态位于同一条等能曲线上，系统外做功可忽略。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“质量比十六时的能量椭圆。”，它与图示ID cp-c-energy-ellipse-ratio-16 一一对应。",
+          "ask": "围绕能量二次式的代入，本题要求识别唯一图注为“质量比十六时的能量椭圆。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：等质量时的等能圆。",
-              "correct": true,
+              "text": "图注：“等质量时的等能圆。”",
+              "correct": false,
               "figure_ref": "cp-c-energy-ellipse-equal-mass"
             },
             {
-              "text": "图示：质量比四时的能量椭圆。",
+              "text": "图注：“质量比四时的能量椭圆。”",
               "correct": false,
               "figure_ref": "cp-c-energy-ellipse-ratio-4"
             },
             {
-              "text": "图示：质量比十六时的能量椭圆。",
-              "correct": false,
+              "text": "图注：“质量比十六时的能量椭圆。”",
+              "correct": true,
               "figure_ref": "cp-c-energy-ellipse-ratio-16"
             },
             {
-              "text": "图示：同一椭圆上的状态共享总动能。",
+              "text": "图注：“同一椭圆上的状态共享总动能。”",
               "correct": false,
               "figure_ref": "cp-c-energy-ellipse-same-energy"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量比十六时的能量椭圆。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-energy-ellipse-ratio-16"
+          }
         },
         {
           "key": "c2-1-scenario-04",
@@ -1086,22 +1216,22 @@
           "variant_axis": "energy",
           "curriculum_scope": "core",
           "explanation": "由E=(MvM^2+mvm^2)/2得到二次方程；没有一次项，中心在原点。",
-          "ask": "两物块质量为M、m，总动能E保持不变，使用原始速度坐标(vM,vm)。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "两物块质量为M、m，总动能E保持不变，使用原始速度坐标(vM,vm)。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "允许状态满足MvM^2+mvm^2=2E，图形是以原点为中心的椭圆。",
+              "text": "能量曲线满足MvM^2+mvm^2=2E。",
               "correct": true
             },
             {
-              "text": "该关系约束速度组合的总动能。",
+              "text": "方程没有一次项，曲线中心在原点。",
               "correct": true
             },
             {
-              "text": "允许状态满足MvM+mvm=2E且图形必是直线。",
+              "text": "能量曲线由MvM+mvm=2E给出。",
               "correct": false
             },
             {
-              "text": "每个状态都必须位于第一象限。",
+              "text": "曲线中心由两物块初始距离确定。",
               "correct": false
             }
           ],
@@ -1109,7 +1239,15 @@
           "figure_refs": [
             "cp-c-energy-ellipse-equal-mass"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "能量曲线满足MvM^2+mvm^2=2E。",
+              "方程没有一次项，曲线中心在原点。"
+            ],
+            "basis": "由E=(MvM^2+mvm^2)/2得到二次方程；没有一次项，中心在原点。"
+          }
         },
         {
           "key": "c2-2-scenario-01",
@@ -1121,30 +1259,38 @@
           "variant_axis": "energy",
           "curriculum_scope": "core",
           "explanation": "半轴分别为sqrt(2E/M)和sqrt(2E/m)；M>m使vM方向半轴较短。",
-          "ask": "总动能固定，M=4m，在(vM,vm)平面画能量曲线。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "总动能固定，M=4m，在(vM,vm)平面画能量曲线。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "vm方向半轴按同样倍数缩小。",
-              "correct": false
-            },
-            {
-              "text": "两个半轴都增大四倍。",
-              "correct": false
-            },
-            {
-              "text": "vM方向半轴会缩小，vm方向半轴保持由m和E决定的值。",
+              "text": "vM方向半轴为sqrt(2E/M)。",
               "correct": true
             },
             {
-              "text": "该关系约束速度组合的总动能。",
+              "text": "M=4m时vM方向半轴比vm方向短。",
               "correct": true
+            },
+            {
+              "text": "vM方向半轴由两物块间距离决定。",
+              "correct": false
+            },
+            {
+              "text": "大物块质量较大必使vM方向半轴更长。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-energy-ellipse-ratio-4"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "vM方向半轴为sqrt(2E/M)。",
+              "M=4m时vM方向半轴比vm方向短。"
+            ],
+            "basis": "半轴分别为sqrt(2E/M)和sqrt(2E/m)；M>m使vM方向半轴较短。"
+          }
         },
         {
           "key": "c2-2-scenario-02",
@@ -1156,22 +1302,22 @@
           "variant_axis": "energy",
           "curriculum_scope": "core",
           "explanation": "vM半轴为sqrt(2E/M)，只随M增大而减小；vm半轴不含M。",
-          "ask": "将质量比由M/m=4增至16，同时保持m和E不变。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "将质量比由M/m=4增至16，同时保持m和E不变。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "两条速度轴的刻度对称，等能曲线是圆。",
+              "text": "M从4m增至16m时，vM方向半轴缩小为原来的一半。",
               "correct": true
             },
             {
-              "text": "该关系约束速度组合的总动能。",
+              "text": "vm方向半轴保持由m和E决定的值。",
               "correct": true
             },
             {
-              "text": "质量相等会使能量曲线成为直线。",
+              "text": "vm方向半轴也缩小为原来的一半。",
               "correct": false
             },
             {
-              "text": "只有vM轴有半径。",
+              "text": "两个半轴都增大四倍。",
               "correct": false
             }
           ],
@@ -1179,7 +1325,15 @@
           "figure_refs": [
             "cp-c-energy-ellipse-ratio-4"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "M从4m增至16m时，vM方向半轴缩小为原来的一半。",
+              "vm方向半轴保持由m和E决定的值。"
+            ],
+            "basis": "vM半轴为sqrt(2E/M)，只随M增大而减小；vm半轴不含M。"
+          }
         },
         {
           "key": "c2-2-scenario-03",
@@ -1191,30 +1345,38 @@
           "variant_axis": "energy",
           "curriculum_scope": "core",
           "explanation": "两个平方项系数相同，归一化后为vM^2+vm^2=常数。",
-          "ask": "等质量M=m的能量方程为M(vM^2+vm^2)=2E。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "等质量M=m的能量方程为M(vM^2+vm^2)=2E。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "vM方向必更长，因为大物块质量大。",
-              "correct": false
-            },
-            {
-              "text": "两半轴必相等，与质量无关。",
-              "correct": false
-            },
-            {
-              "text": "vM方向半轴比vm方向半轴短，因为vM^2的质量系数更大。",
+              "text": "等质量时两个平方项的系数相同。",
               "correct": true
             },
             {
-              "text": "该关系约束速度组合的总动能。",
+              "text": "除以M后能量曲线写成vM^2+vm^2=常数。",
               "correct": true
+            },
+            {
+              "text": "等质量时vM方向半轴必更短。",
+              "correct": false
+            },
+            {
+              "text": "等质量时曲线由物块间距离决定。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-energy-ellipse-ratio-4"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "等质量时两个平方项的系数相同。",
+              "除以M后能量曲线写成vM^2+vm^2=常数。"
+            ],
+            "basis": "两个平方项系数相同，归一化后为vM^2+vm^2=常数。"
+          }
         },
         {
           "key": "c2-2-scenario-04",
@@ -1225,8 +1387,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "半轴分别为sqrt(2E/M)和sqrt(2E/m)；M>m使vM方向半轴较短。 这里特别核对的是质量系数和半轴的比较。",
-          "ask": "总动能固定，M=4m，在(vM,vm)平面画能量曲线。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦质量系数和半轴的比较；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "半轴分别为sqrt(2E/M)和sqrt(2E/m)；M>m使vM方向半轴较短。",
+          "ask": "总动能固定，M=4m，在(vM,vm)平面画能量曲线。 在这个明确的速度/几何条件下，哪个判读准确？ 比较半轴时分别保留M、m和E的依赖关系。",
           "options": [
             {
               "text": "半轴由两物块间距离决定。",
@@ -1249,7 +1411,14 @@
           "figure_refs": [
             "cp-c-energy-ellipse-ratio-4"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "vM方向半轴比vm方向半轴短，因为vM^2的质量系数更大。"
+            ],
+            "basis": "半轴分别为sqrt(2E/M)和sqrt(2E/m)；M>m使vM方向半轴较短。"
+          }
         },
         {
           "key": "c2-3-scenario-01",
@@ -1284,7 +1453,14 @@
           "figure_refs": [
             "cp-c-energy-ellipse-same-energy"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "两点都满足4vM^2+vm^2=16，因而总动能相同。"
+            ],
+            "basis": "代入可得4×2^2+0=16及0+4^2=16；同一二次和对应同一总动能。"
+          }
         },
         {
           "key": "c2-3-scenario-02",
@@ -1319,7 +1495,14 @@
           "figure_refs": [
             "cp-c-energy-ellipse-same-energy"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "它们可以有相同总动能而有不同总动量。"
+            ],
+            "basis": "能量椭圆约束MvM^2+mvm^2，动量还需要独立的一次约束。"
+          }
         },
         {
           "key": "c2-3-scenario-03",
@@ -1354,7 +1537,14 @@
           "figure_refs": [
             "cp-c-energy-ellipse-same-energy"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "该速度组合的总动能变小。"
+            ],
+            "basis": "椭圆边界满足MvM^2+mvm^2=2E；内侧的二次和更小。"
+          }
         },
         {
           "key": "c2-3-scenario-04",
@@ -1365,8 +1555,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "代入可得4×2^2+0=16及0+4^2=16；同一二次和对应同一总动能。 这里特别核对的是同能量与同动量的区别。",
-          "ask": "质量为M=4、m=1的系统有两个状态(2,0)和(0,4)。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦同能量与同动量的区别；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "代入可得4×2^2+0=16及0+4^2=16；同一二次和对应同一总动能。",
+          "ask": "质量为M=4、m=1的系统有两个状态(2,0)和(0,4)。 在这个明确的速度/几何条件下，哪个判读准确？ 对每个状态分别代入能量式和动量式，不能以一个守恒量替代另一个。 图序固定展示：质量比增大时能量椭圆半轴的比较。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "两点必须发生在同一瞬间。",
@@ -1387,11 +1577,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-energy-ellipse-same-energy",
             "cp-c-energy-ellipse-equal-mass",
-            "cp-c-energy-ellipse-ratio-4"
+            "cp-c-energy-ellipse-ratio-4",
+            "cp-c-energy-ellipse-ratio-16"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "质量比增大时能量椭圆半轴的比较",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "两点都满足4vM^2+vm^2=16，因而总动能相同。"
+            ],
+            "basis": "代入可得4×2^2+0=16及0+4^2=16；同一二次和对应同一总动能。"
+          }
         }
       ]
     },
@@ -1413,32 +1610,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "sqrt(4)=2、sqrt(1)=1，逐项代入x=sqrt(M)vM、y=sqrt(m)vm。",
-          "ask": "定义质量加权速度坐标x=sqrt(M)vM、y=sqrt(m)vm，M=4、m=1、vM=-1、vm=2。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“质量比四的椭圆缩放为圆。”，它与图示ID cp-c-scale-pair-ratio-4 一一对应。",
+          "ask": "围绕正变换和逆变换，本题要求识别唯一图注为“质量比四的椭圆缩放为圆。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四的椭圆缩放为圆。",
+              "text": "图注：“质量比四的椭圆缩放为圆。”",
               "correct": true,
               "figure_ref": "cp-c-scale-pair-ratio-4"
             },
             {
-              "text": "图示：等质量下两种坐标的对应。",
+              "text": "图注：“等质量下两种坐标的对应。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-equal-mass"
             },
             {
-              "text": "图示：平方根质量缩放吸收质量系数。",
+              "text": "图注：“平方根质量缩放吸收质量系数。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-16"
             },
             {
-              "text": "图示：质量比一百时的标准化。",
+              "text": "图注：“质量比一百时的标准化。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-100"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量比四的椭圆缩放为圆。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-scale-pair-ratio-4"
+          }
         },
         {
           "key": "c3-1-scenario-02",
@@ -1449,32 +1654,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "x=4×(-1)=-4，y=1×4=4。",
-          "ask": "M=16、m=1，状态(vM,vm)=(-1,4)。 请用题设的坐标和物理约束判断最合理的结论。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“等质量下两种坐标的对应。”，它与图示ID cp-c-scale-pair-equal-mass 一一对应。",
+          "ask": "围绕正变换和逆变换，本题要求识别唯一图注为“等质量下两种坐标的对应。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四的椭圆缩放为圆。",
-              "correct": true,
+              "text": "图注：“质量比四的椭圆缩放为圆。”",
+              "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-4"
             },
             {
-              "text": "图示：等质量下两种坐标的对应。",
-              "correct": false,
+              "text": "图注：“等质量下两种坐标的对应。”",
+              "correct": true,
               "figure_ref": "cp-c-scale-pair-equal-mass"
             },
             {
-              "text": "图示：平方根质量缩放吸收质量系数。",
+              "text": "图注：“平方根质量缩放吸收质量系数。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-16"
             },
             {
-              "text": "图示：质量比一百时的标准化。",
+              "text": "图注：“质量比一百时的标准化。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-100"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“等质量下两种坐标的对应。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-scale-pair-equal-mass"
+          }
         },
         {
           "key": "c3-1-scenario-03",
@@ -1485,32 +1698,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "坐标变换可逆：vM=x/sqrt(M)，sqrt(9)=3。",
-          "ask": "加权图上一个点的x=-3，且M=9。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“平方根质量缩放吸收质量系数。”，它与图示ID cp-c-scale-pair-ratio-16 一一对应。",
+          "ask": "围绕正变换和逆变换，本题要求识别唯一图注为“平方根质量缩放吸收质量系数。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四的椭圆缩放为圆。",
-              "correct": true,
+              "text": "图注：“质量比四的椭圆缩放为圆。”",
+              "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-4"
             },
             {
-              "text": "图示：等质量下两种坐标的对应。",
+              "text": "图注：“等质量下两种坐标的对应。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-equal-mass"
             },
             {
-              "text": "图示：平方根质量缩放吸收质量系数。",
-              "correct": false,
+              "text": "图注：“平方根质量缩放吸收质量系数。”",
+              "correct": true,
               "figure_ref": "cp-c-scale-pair-ratio-16"
             },
             {
-              "text": "图示：质量比一百时的标准化。",
+              "text": "图注：“质量比一百时的标准化。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-100"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“平方根质量缩放吸收质量系数。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-scale-pair-ratio-16"
+          }
         },
         {
           "key": "c3-1-scenario-04",
@@ -1521,32 +1742,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "sqrt(4)=2、sqrt(1)=1，逐项代入x=sqrt(M)vM、y=sqrt(m)vm。 这里特别核对的是正变换和逆变换。",
-          "ask": "定义质量加权速度坐标x=sqrt(M)vM、y=sqrt(m)vm，M=4、m=1、vM=-1、vm=2。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。 本题额外聚焦正变换和逆变换；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "题干给出的唯一目标图注是“质量比一百时的标准化。”，它与图示ID cp-c-scale-pair-ratio-100 一一对应。",
+          "ask": "围绕正变换和逆变换，本题要求识别唯一图注为“质量比一百时的标准化。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四的椭圆缩放为圆。",
-              "correct": true,
+              "text": "图注：“质量比四的椭圆缩放为圆。”",
+              "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-4"
             },
             {
-              "text": "图示：等质量下两种坐标的对应。",
+              "text": "图注：“等质量下两种坐标的对应。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-equal-mass"
             },
             {
-              "text": "图示：平方根质量缩放吸收质量系数。",
+              "text": "图注：“平方根质量缩放吸收质量系数。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-16"
             },
             {
-              "text": "图示：质量比一百时的标准化。",
-              "correct": false,
+              "text": "图注：“质量比一百时的标准化。”",
+              "correct": true,
               "figure_ref": "cp-c-scale-pair-ratio-100"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量比一百时的标准化。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-scale-pair-ratio-100"
+          }
         },
         {
           "key": "c3-2-scenario-01",
@@ -1558,22 +1787,22 @@
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
           "explanation": "平方根是关键： (sqrt(M)vM)^2=MvM^2，两个二次项同时变为平方和。",
-          "ask": "原始能量式为MvM^2+mvm^2=2E，令x=sqrt(M)vM、y=sqrt(m)vm。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "原始能量式为MvM^2+mvm^2=2E，令x=sqrt(M)vM、y=sqrt(m)vm。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "平方后恰有x^2=MvM^2、y^2=mvm^2，质量系数被吸收。",
+              "text": "(sqrt(M)vM)^2=MvM^2。",
               "correct": true
             },
             {
-              "text": "需要用逆变换才能从加权坐标还原速度。",
+              "text": "正确变换给出x^2+y^2=2E。",
               "correct": true
             },
             {
-              "text": "应令x=MvM才会得到x^2=MvM^2。",
+              "text": "正确变换应取x=MvM。",
               "correct": false
             },
             {
-              "text": "只缩放vM而不缩放vm即可保证圆。",
+              "text": "该变换会把能量约束变成一条直线。",
               "correct": false
             }
           ],
@@ -1581,7 +1810,15 @@
           "figure_refs": [
             "cp-c-scale-pair-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "(sqrt(M)vM)^2=MvM^2。",
+              "正确变换给出x^2+y^2=2E。"
+            ],
+            "basis": "平方根是关键： (sqrt(M)vM)^2=MvM^2，两个二次项同时变为平方和。"
+          }
         },
         {
           "key": "c3-2-scenario-02",
@@ -1593,30 +1830,38 @@
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
           "explanation": "质量乘法在平方后多出一因子M；正确系数必须是sqrt(M)。",
-          "ask": "尝试错误变换x=MvM、y=mvm。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "尝试错误变换x=MvM、y=mvm。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "仍会精确得到x^2+y^2=2E。",
-              "correct": false
-            },
-            {
-              "text": "会把椭圆变成动量直线。",
-              "correct": false
-            },
-            {
-              "text": "得到x^2=M^2vM^2，不能直接替换能量式中的MvM^2。",
+              "text": "若x=MvM，则x^2=M^2vM^2，不能直接代替MvM^2。",
               "correct": true
             },
             {
-              "text": "需要用逆变换才能从加权坐标还原速度。",
+              "text": "要标准化二次项，系数应为sqrt(M)。",
               "correct": true
+            },
+            {
+              "text": "x=MvM仍会精确给出x^2+y^2=2E。",
+              "correct": false
+            },
+            {
+              "text": "质量系数应完全省略。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-scale-pair-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "若x=MvM，则x^2=M^2vM^2，不能直接代替MvM^2。",
+              "要标准化二次项，系数应为sqrt(M)。"
+            ],
+            "basis": "质量乘法在平方后多出一因子M；正确系数必须是sqrt(M)。"
+          }
         },
         {
           "key": "c3-2-scenario-03",
@@ -1628,22 +1873,22 @@
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
           "explanation": "x和y分别对应不同质量系数，必须分别用sqrt(M)、sqrt(m)标准化。",
-          "ask": "两物块质量不相等，想把等能椭圆变成圆。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "两物块质量不相等，想把等能椭圆变成圆。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "两条坐标轴都要分别乘各自质量的平方根。",
+              "text": "x、y必须分别乘sqrt(M)、sqrt(m)。",
               "correct": true
             },
             {
-              "text": "需要用逆变换才能从加权坐标还原速度。",
+              "text": "这样才有x^2+y^2=2E。",
               "correct": true
             },
             {
-              "text": "两条轴都乘较大质量M。",
+              "text": "两个坐标都应乘同一个M。",
               "correct": false
             },
             {
-              "text": "只需把坐标原点平移。",
+              "text": "标准化会把能量椭圆变成动量直线。",
               "correct": false
             }
           ],
@@ -1651,7 +1896,15 @@
           "figure_refs": [
             "cp-c-scale-pair-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "x、y必须分别乘sqrt(M)、sqrt(m)。",
+              "这样才有x^2+y^2=2E。"
+            ],
+            "basis": "x和y分别对应不同质量系数，必须分别用sqrt(M)、sqrt(m)标准化。"
+          }
         },
         {
           "key": "c3-2-scenario-04",
@@ -1662,31 +1915,39 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "平方根是关键： (sqrt(M)vM)^2=MvM^2，两个二次项同时变为平方和。 这里特别核对的是平方根质量的必要性。",
-          "ask": "原始能量式为MvM^2+mvm^2=2E，令x=sqrt(M)vM、y=sqrt(m)vm。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦平方根质量的必要性；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "平方根是关键： (sqrt(M)vM)^2=MvM^2，两个二次项同时变为平方和。",
+          "ask": "原始能量式为MvM^2+mvm^2=2E，令x=sqrt(M)vM、y=sqrt(m)vm。 在这个明确的速度/几何条件下，哪个判读准确？ 把变换后的坐标平方展开，核对每个质量系数。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "应令x=MvM才会得到x^2=MvM^2。",
-              "correct": false
-            },
-            {
-              "text": "只缩放vM而不缩放vm即可保证圆。",
-              "correct": false
-            },
-            {
-              "text": "平方后恰有x^2=MvM^2、y^2=mvm^2，质量系数被吸收。",
+              "text": "(sqrt(M)vM)^2=MvM^2。",
               "correct": true
             },
             {
-              "text": "需要用逆变换才能从加权坐标还原速度。",
+              "text": "正确变换给出x^2+y^2=2E。",
               "correct": true
+            },
+            {
+              "text": "正确变换应取x=MvM。",
+              "correct": false
+            },
+            {
+              "text": "该变换会把能量约束变成一条直线。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-scale-pair-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "(sqrt(M)vM)^2=MvM^2。",
+              "正确变换给出x^2+y^2=2E。"
+            ],
+            "basis": "平方根是关键： (sqrt(M)vM)^2=MvM^2，两个二次项同时变为平方和。"
+          }
         },
         {
           "key": "c3-3-scenario-01",
@@ -1698,22 +1959,22 @@
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
           "explanation": "代入加权定义后，二次和就是x^2+y^2；圆半径平方为2E。",
-          "ask": "质量加权后总动能仍为E。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "质量加权后总动能仍为E。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "能量圆半径从2增至4。",
+              "text": "能量圆半径平方为2E。",
               "correct": true
             },
             {
-              "text": "需要用逆变换才能从加权坐标还原速度。",
+              "text": "能量圆半径为sqrt(2E)。",
               "correct": true
             },
             {
-              "text": "半径从2增至8。",
+              "text": "能量圆半径等于2E。",
               "correct": false
             },
             {
-              "text": "半径保持2，因为质量未变。",
+              "text": "质量加权后圆半径由两物块距离决定。",
               "correct": false
             }
           ],
@@ -1721,7 +1982,15 @@
           "figure_refs": [
             "cp-c-scale-pair-ratio-100"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "能量圆半径平方为2E。",
+              "能量圆半径为sqrt(2E)。"
+            ],
+            "basis": "代入加权定义后，二次和就是x^2+y^2；圆半径平方为2E。"
+          }
         },
         {
           "key": "c3-3-scenario-02",
@@ -1733,30 +2002,38 @@
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
           "explanation": "半径sqrt(2E)分别为sqrt(4)=2和sqrt(16)=4。",
-          "ask": "E从2 J变为8 J，坐标仍使用质量加权速度。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "E从2 J变为8 J，坐标仍使用质量加权速度。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "总动能为18 J。",
-              "correct": false
-            },
-            {
-              "text": "总动能只能由x决定。",
-              "correct": false
-            },
-            {
-              "text": "它对应的总动能为E=9 J。",
+              "text": "E从2 J变为8 J时，半径从2变为4。",
               "correct": true
             },
             {
-              "text": "需要用逆变换才能从加权坐标还原速度。",
+              "text": "半径平方从4变为16。",
               "correct": true
+            },
+            {
+              "text": "半径从2变为8。",
+              "correct": false
+            },
+            {
+              "text": "能量增加不改变圆半径。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-scale-pair-ratio-100"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "E从2 J变为8 J时，半径从2变为4。",
+              "半径平方从4变为16。"
+            ],
+            "basis": "半径sqrt(2E)分别为sqrt(4)=2和sqrt(16)=4。"
+          }
         },
         {
           "key": "c3-3-scenario-03",
@@ -1768,22 +2045,22 @@
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
           "explanation": "质量加权坐标满足x^2+y^2=2E，因此E=18/2。",
-          "ask": "一个加权状态点满足x^2+y^2=18。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "一个加权状态点满足x^2+y^2=18。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "等能关系变为x^2+y^2=2E，半径为sqrt(2E)。",
+              "text": "x^2+y^2=18对应E=9 J。",
               "correct": true
             },
             {
-              "text": "需要用逆变换才能从加权坐标还原速度。",
+              "text": "该能量圆半径为sqrt(18)。",
               "correct": true
             },
             {
-              "text": "变为x+y=2E，半径为2E。",
+              "text": "该状态对应E=18 J。",
               "correct": false
             },
             {
-              "text": "半径为E且圆心在(E,0)。",
+              "text": "该能量圆半径为18。",
               "correct": false
             }
           ],
@@ -1791,7 +2068,15 @@
           "figure_refs": [
             "cp-c-scale-pair-ratio-100"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "x^2+y^2=18对应E=9 J。",
+              "该能量圆半径为sqrt(18)。"
+            ],
+            "basis": "质量加权坐标满足x^2+y^2=2E，因此E=18/2。"
+          }
         },
         {
           "key": "c3-3-scenario-04",
@@ -1802,31 +2087,39 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "代入加权定义后，二次和就是x^2+y^2；圆半径平方为2E。 这里特别核对的是半径平方与总动能。",
-          "ask": "质量加权后总动能仍为E。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦半径平方与总动能；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "代入加权定义后，二次和就是x^2+y^2；圆半径平方为2E。",
+          "ask": "质量加权后总动能仍为E。 在这个明确的速度/几何条件下，哪个判读准确？ 由x^2+y^2=2E先确定半径平方，再判断半径。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "半径从2增至8。",
-              "correct": false
-            },
-            {
-              "text": "半径保持2，因为质量未变。",
-              "correct": false
-            },
-            {
-              "text": "能量圆半径从2增至4。",
+              "text": "能量圆半径平方为2E。",
               "correct": true
             },
             {
-              "text": "需要用逆变换才能从加权坐标还原速度。",
+              "text": "能量圆半径为sqrt(2E)。",
               "correct": true
+            },
+            {
+              "text": "能量圆半径等于2E。",
+              "correct": false
+            },
+            {
+              "text": "质量加权后圆半径由两物块距离决定。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-scale-pair-ratio-100"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "能量圆半径平方为2E。",
+              "能量圆半径为sqrt(2E)。"
+            ],
+            "basis": "代入加权定义后，二次和就是x^2+y^2；圆半径平方为2E。"
+          }
         },
         {
           "key": "c3-3-scenario-05",
@@ -1837,8 +2130,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "半径sqrt(2E)分别为sqrt(4)=2和sqrt(16)=4。 这里特别核对的是半径平方与总动能。",
-          "ask": "E从2 J变为8 J，坐标仍使用质量加权速度。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦半径平方与总动能；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "半径sqrt(2E)分别为sqrt(4)=2和sqrt(16)=4。",
+          "ask": "E从2 J变为8 J，坐标仍使用质量加权速度。 请用题设的坐标和物理约束判断最合理的结论。 由x^2+y^2=2E先确定半径平方，再判断半径。",
           "options": [
             {
               "text": "能量圆半径从2增至4。",
@@ -1857,7 +2150,14 @@
               "correct": false
             }
           ],
-          "presentation_mode": "text_only"
+          "presentation_mode": "text_only",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "能量圆半径从2增至4。"
+            ],
+            "basis": "半径sqrt(2E)分别为sqrt(4)=2和sqrt(16)=4。"
+          }
         },
         {
           "key": "c3-4-scenario-01",
@@ -1892,7 +2192,14 @@
           "figure_refs": [
             "cp-c-scale-pair-error-check"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "物块速度和碰撞事件不变，只是坐标刻度改变。"
+            ],
+            "basis": "x、y是由同一对vM、vm计算出的表示；坐标变换不改变物理状态。"
+          }
         },
         {
           "key": "c3-4-scenario-02",
@@ -1927,7 +2234,14 @@
           "figure_refs": [
             "cp-c-scale-pair-error-check"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "x变为2来自缩放，不表示大物块速度从1变到2 m/s。"
+            ],
+            "basis": "x=sqrt(M)vM=2×1；变量的数值刻度变化不能当作速度演化。"
+          }
         },
         {
           "key": "c3-5-scenario-01",
@@ -1939,7 +2253,7 @@
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
           "explanation": "平方根对角矩阵的转置乘自身正好给出diag(M,m)。",
-          "ask": "向量速度v的能量二次型为v^T diag(M,m) v。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "向量速度v的能量二次型为v^T diag(M,m) v。 在这个明确的速度/几何条件下，哪个判读准确？ 图序固定展示：从原始速度到质量加权圆的坐标缩放。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "取z=diag(sqrt(M),sqrt(m))v后，二次型成为z^Tz。",
@@ -1960,11 +2274,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-scale-pair-ratio-16",
             "cp-c-scale-pair-equal-mass",
-            "cp-c-scale-pair-ratio-4"
+            "cp-c-scale-pair-ratio-4",
+            "cp-c-scale-pair-ratio-16"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "从原始速度到质量加权圆的坐标缩放",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "取z=diag(sqrt(M),sqrt(m))v后，二次型成为z^Tz。"
+            ],
+            "basis": "平方根对角矩阵的转置乘自身正好给出diag(M,m)。"
+          }
         }
       ]
     },
@@ -1987,32 +2308,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "P=MvM+mvm=sqrt(M)x+sqrt(m)y，代入逆变换即可得到。",
-          "ask": "在x=sqrt(M)vM、y=sqrt(m)vm下，总动量为P。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“质量比四决定动量线的方向。”，它与图示ID cp-c-momentum-chord-ratio-4 一一对应。",
+          "ask": "围绕加权动量直线，本题要求识别唯一图注为“质量比四决定动量线的方向。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四决定动量线的方向。",
+              "text": "图注：“质量比四决定动量线的方向。”",
               "correct": true,
               "figure_ref": "cp-c-momentum-chord-ratio-4"
             },
             {
-              "text": "图示：等质量动量线截取能量圆的弦。",
+              "text": "图注：“等质量动量线截取能量圆的弦。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-1"
             },
             {
-              "text": "图示：质量比十六的动量弦。",
+              "text": "图注：“质量比十六的动量弦。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-16"
             },
             {
-              "text": "图示：不同动量值给出平行的动量线。",
+              "text": "图注：“不同动量值给出平行的动量线。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-parallel"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量比四决定动量线的方向。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-momentum-chord-ratio-4"
+          }
         },
         {
           "key": "c4-1-scenario-02",
@@ -2023,32 +2352,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "用sqrt(M)x+sqrt(m)y=2x+y计算，得到P=-4。",
-          "ask": "M=4、m=1，某加权状态为(x,y)=(-2,0)。 请用题设的坐标和物理约束判断最合理的结论。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“等质量动量线截取能量圆的弦。”，它与图示ID cp-c-momentum-chord-ratio-1 一一对应。",
+          "ask": "围绕加权动量直线，本题要求识别唯一图注为“等质量动量线截取能量圆的弦。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四决定动量线的方向。",
-              "correct": true,
+              "text": "图注：“质量比四决定动量线的方向。”",
+              "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-4"
             },
             {
-              "text": "图示：等质量动量线截取能量圆的弦。",
-              "correct": false,
+              "text": "图注：“等质量动量线截取能量圆的弦。”",
+              "correct": true,
               "figure_ref": "cp-c-momentum-chord-ratio-1"
             },
             {
-              "text": "图示：质量比十六的动量弦。",
+              "text": "图注：“质量比十六的动量弦。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-16"
             },
             {
-              "text": "图示：不同动量值给出平行的动量线。",
+              "text": "图注：“不同动量值给出平行的动量线。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-parallel"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“等质量动量线截取能量圆的弦。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-momentum-chord-ratio-1"
+          }
         },
         {
           "key": "c4-1-scenario-03",
@@ -2059,32 +2396,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "sqrt(M)x+sqrt(m)y=P是x、y的一次线性方程。",
-          "ask": "动量P固定且质量不变。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“质量比十六的动量弦。”，它与图示ID cp-c-momentum-chord-ratio-16 一一对应。",
+          "ask": "围绕加权动量直线，本题要求识别唯一图注为“质量比十六的动量弦。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四决定动量线的方向。",
-              "correct": true,
+              "text": "图注：“质量比四决定动量线的方向。”",
+              "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-4"
             },
             {
-              "text": "图示：等质量动量线截取能量圆的弦。",
+              "text": "图注：“等质量动量线截取能量圆的弦。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-1"
             },
             {
-              "text": "图示：质量比十六的动量弦。",
-              "correct": false,
+              "text": "图注：“质量比十六的动量弦。”",
+              "correct": true,
               "figure_ref": "cp-c-momentum-chord-ratio-16"
             },
             {
-              "text": "图示：不同动量值给出平行的动量线。",
+              "text": "图注：“不同动量值给出平行的动量线。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-parallel"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量比十六的动量弦。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-momentum-chord-ratio-16"
+          }
         },
         {
           "key": "c4-1-scenario-04",
@@ -2095,32 +2440,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "P=MvM+mvm=sqrt(M)x+sqrt(m)y，代入逆变换即可得到。 这里特别核对的是加权动量直线。",
-          "ask": "在x=sqrt(M)vM、y=sqrt(m)vm下，总动量为P。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。 本题额外聚焦加权动量直线；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "题干给出的唯一目标图注是“不同动量值给出平行的动量线。”，它与图示ID cp-c-momentum-chord-parallel 一一对应。",
+          "ask": "围绕加权动量直线，本题要求识别唯一图注为“不同动量值给出平行的动量线。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四决定动量线的方向。",
-              "correct": true,
+              "text": "图注：“质量比四决定动量线的方向。”",
+              "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-4"
             },
             {
-              "text": "图示：等质量动量线截取能量圆的弦。",
+              "text": "图注：“等质量动量线截取能量圆的弦。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-1"
             },
             {
-              "text": "图示：质量比十六的动量弦。",
+              "text": "图注：“质量比十六的动量弦。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-16"
             },
             {
-              "text": "图示：不同动量值给出平行的动量线。",
-              "correct": false,
+              "text": "图注：“不同动量值给出平行的动量线。”",
+              "correct": true,
               "figure_ref": "cp-c-momentum-chord-parallel"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“不同动量值给出平行的动量线。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-momentum-chord-parallel"
+          }
         },
         {
           "key": "c4-2-scenario-01",
@@ -2132,22 +2485,22 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "移项得y=P/sqrt(m)-sqrt(M/m)x，x的系数即斜率。",
-          "ask": "动量直线sqrt(M)x+sqrt(m)y=P写成y对x的形式。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "动量直线sqrt(M)x+sqrt(m)y=P写成y对x的形式。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "斜率为-sqrt(M/m)。",
+              "text": "动量直线斜率为-sqrt(M/m)。",
               "correct": true
             },
             {
-              "text": "动量直线与能量圆是两条独立的约束。",
+              "text": "动量直线截距为P/sqrt(m)。",
               "correct": true
             },
             {
-              "text": "斜率为+sqrt(M/m)。",
+              "text": "动量直线斜率为+sqrt(M/m)。",
               "correct": false
             },
             {
-              "text": "斜率为-M/m。",
+              "text": "动量直线斜率由总动能单独决定。",
               "correct": false
             }
           ],
@@ -2155,7 +2508,15 @@
           "figure_refs": [
             "cp-c-momentum-chord-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "动量直线斜率为-sqrt(M/m)。",
+              "动量直线截距为P/sqrt(m)。"
+            ],
+            "basis": "移项得y=P/sqrt(m)-sqrt(M/m)x，x的系数即斜率。"
+          }
         },
         {
           "key": "c4-2-scenario-02",
@@ -2167,30 +2528,38 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "sqrt(M/m)=sqrt(4)=2，因此斜率为-2。",
-          "ask": "质量比M/m=4。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "质量比M/m=4。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "斜率为-4。",
-              "correct": false
-            },
-            {
-              "text": "斜率为+2。",
-              "correct": false
-            },
-            {
-              "text": "动量直线斜率为-2。",
+              "text": "M/m=4时动量直线斜率为-2。",
               "correct": true
             },
             {
-              "text": "动量直线与能量圆是两条独立的约束。",
+              "text": "sqrt(M/m)=2。",
               "correct": true
+            },
+            {
+              "text": "M/m=4时动量直线斜率为-4。",
+              "correct": false
+            },
+            {
+              "text": "M/m=4时动量直线斜率为+2。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-momentum-chord-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "M/m=4时动量直线斜率为-2。",
+              "sqrt(M/m)=2。"
+            ],
+            "basis": "sqrt(M/m)=sqrt(4)=2，因此斜率为-2。"
+          }
         },
         {
           "key": "c4-2-scenario-03",
@@ -2202,22 +2571,22 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "斜率绝对值sqrt(M/m)随质量比增大而增大。",
-          "ask": "质量比由4增至16且坐标仍为质量加权速度。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "质量比由4增至16且坐标仍为质量加权速度。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线会变得更陡，斜率从-2变为-4。",
+              "text": "质量比从4变16时斜率从-2变为-4。",
               "correct": true
             },
             {
-              "text": "动量直线与能量圆是两条独立的约束。",
+              "text": "斜率绝对值随质量比增大而增大。",
               "correct": true
             },
             {
-              "text": "直线变为正斜率。",
+              "text": "斜率绝对值保持2。",
               "correct": false
             },
             {
-              "text": "斜率保持-2。",
+              "text": "斜率变为+4。",
               "correct": false
             }
           ],
@@ -2225,7 +2594,15 @@
           "figure_refs": [
             "cp-c-momentum-chord-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "质量比从4变16时斜率从-2变为-4。",
+              "斜率绝对值随质量比增大而增大。"
+            ],
+            "basis": "斜率绝对值sqrt(M/m)随质量比增大而增大。"
+          }
         },
         {
           "key": "c4-2-scenario-04",
@@ -2236,31 +2613,39 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "移项得y=P/sqrt(m)-sqrt(M/m)x，x的系数即斜率。 这里特别核对的是斜率的质量比来源。",
-          "ask": "动量直线sqrt(M)x+sqrt(m)y=P写成y对x的形式。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦斜率的质量比来源；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "移项得y=P/sqrt(m)-sqrt(M/m)x，x的系数即斜率。",
+          "ask": "动量直线sqrt(M)x+sqrt(m)y=P写成y对x的形式。 在这个明确的速度/几何条件下，哪个判读准确？ 把直线改写为y对x的形式后再读取斜率。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "斜率为+sqrt(M/m)。",
-              "correct": false
-            },
-            {
-              "text": "斜率为-M/m。",
-              "correct": false
-            },
-            {
-              "text": "斜率为-sqrt(M/m)。",
+              "text": "动量直线斜率为-sqrt(M/m)。",
               "correct": true
             },
             {
-              "text": "动量直线与能量圆是两条独立的约束。",
+              "text": "动量直线截距为P/sqrt(m)。",
               "correct": true
+            },
+            {
+              "text": "动量直线斜率为+sqrt(M/m)。",
+              "correct": false
+            },
+            {
+              "text": "动量直线斜率由总动能单独决定。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-momentum-chord-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "动量直线斜率为-sqrt(M/m)。",
+              "动量直线截距为P/sqrt(m)。"
+            ],
+            "basis": "移项得y=P/sqrt(m)-sqrt(M/m)x，x的系数即斜率。"
+          }
         },
         {
           "key": "c4-3-scenario-01",
@@ -2272,22 +2657,22 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "P只改变截距P/sqrt(m)，质量比决定的斜率没有改变。",
-          "ask": "质量M、m固定，但撞墙后总动量值P改变。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "质量M、m固定，但撞墙后总动量值P改变。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "它们斜率都为-2、截距不同。",
+              "text": "质量不变而P改变时，新旧动量直线平行。",
               "correct": true
             },
             {
-              "text": "动量直线与能量圆是两条独立的约束。",
+              "text": "P改变只会改变截距P/sqrt(m)。",
               "correct": true
             },
             {
-              "text": "斜率分别为-4和+2。",
+              "text": "每条动量线都会变成圆。",
               "correct": false
             },
             {
-              "text": "两条线都穿过同一非原点。",
+              "text": "P改变必使两线垂直。",
               "correct": false
             }
           ],
@@ -2295,7 +2680,15 @@
           "figure_refs": [
             "cp-c-momentum-chord-parallel"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "质量不变而P改变时，新旧动量直线平行。",
+              "P改变只会改变截距P/sqrt(m)。"
+            ],
+            "basis": "P只改变截距P/sqrt(m)，质量比决定的斜率没有改变。"
+          }
         },
         {
           "key": "c4-3-scenario-02",
@@ -2307,30 +2700,38 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "把式子写成y=P-2x即可直接比较斜率和截距。",
-          "ask": "两条直线都满足2x+y=P，但P分别为-4和+2。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "两条直线都满足2x+y=P，但P分别为-4和+2。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "碰前碰后必在两条垂直直线上。",
-              "correct": false
-            },
-            {
-              "text": "动量守恒要求两个点在x轴。",
-              "correct": false
-            },
-            {
-              "text": "这一对状态必须在同一条动量直线上。",
+              "text": "两条直线的斜率都为-2。",
               "correct": true
             },
             {
-              "text": "动量直线与能量圆是两条独立的约束。",
+              "text": "两条直线的y截距分别为-4和+2。",
               "correct": true
+            },
+            {
+              "text": "两条直线的斜率分别为-4和+2。",
+              "correct": false
+            },
+            {
+              "text": "两条线都必须通过同一非原点。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-momentum-chord-parallel"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "两条直线的斜率都为-2。",
+              "两条直线的y截距分别为-4和+2。"
+            ],
+            "basis": "把式子写成y=P-2x即可直接比较斜率和截距。"
+          }
         },
         {
           "key": "c4-3-scenario-03",
@@ -2342,22 +2743,22 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "碰撞前后共享同一个P，均满足sqrt(M)x+sqrt(m)y=P。",
-          "ask": "同一物块碰撞前后，总动量不变。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "同一物块碰撞前后，总动量不变。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "新旧动量直线平行，因为斜率-sqrt(M/m)不变。",
+              "text": "同一次物块碰撞前后的状态满足同一个P。",
               "correct": true
             },
             {
-              "text": "动量直线与能量圆是两条独立的约束。",
+              "text": "两状态都位于sqrt(M)x+sqrt(m)y=P这条直线上。",
               "correct": true
             },
             {
-              "text": "两线必垂直，因为P改变。",
+              "text": "物块碰撞会自动把动量线变为能量圆。",
               "correct": false
             },
             {
-              "text": "两线重合，因为质量不变。",
+              "text": "每次物块碰撞必改变P。",
               "correct": false
             }
           ],
@@ -2365,7 +2766,15 @@
           "figure_refs": [
             "cp-c-momentum-chord-parallel"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "同一次物块碰撞前后的状态满足同一个P。",
+              "两状态都位于sqrt(M)x+sqrt(m)y=P这条直线上。"
+            ],
+            "basis": "碰撞前后共享同一个P，均满足sqrt(M)x+sqrt(m)y=P。"
+          }
         },
         {
           "key": "c4-3-scenario-04",
@@ -2376,8 +2785,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "P只改变截距P/sqrt(m)，质量比决定的斜率没有改变。 这里特别核对的是平行直线的截距变化。",
-          "ask": "质量M、m固定，但撞墙后总动量值P改变。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦平行直线的截距变化；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "P只改变截距P/sqrt(m)，质量比决定的斜率没有改变。",
+          "ask": "质量M、m固定，但撞墙后总动量值P改变。 在这个明确的速度/几何条件下，哪个判读准确？ 同时比较斜率和截距，区分质量比与总动量的作用。",
           "options": [
             {
               "text": "每条动量线都会变成圆。",
@@ -2400,7 +2809,14 @@
           "figure_refs": [
             "cp-c-momentum-chord-parallel"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "新旧动量直线平行，因为斜率-sqrt(M/m)不变。"
+            ],
+            "basis": "P只改变截距P/sqrt(m)，质量比决定的斜率没有改变。"
+          }
         },
         {
           "key": "c4-4-scenario-01",
@@ -2435,7 +2851,14 @@
           "figure_refs": [
             "cp-c-momentum-chord-intersections"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "碰前、碰后速度状态是该圆与直线的两个交点。"
+            ],
+            "basis": "两个独立守恒约束联立通常给出两个交点，分别对应碰撞前后。"
+          }
         },
         {
           "key": "c4-4-scenario-02",
@@ -2470,7 +2893,14 @@
           "figure_refs": [
             "cp-c-momentum-chord-intersections"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "两交点是(2,0)和(0,2)。"
+            ],
+            "basis": "代入y=2-x得2x^2-4x=0，解为x=0、2并得到对应y。"
+          }
         },
         {
           "key": "c4-4-scenario-03",
@@ -2482,7 +2912,7 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "碰撞是瞬时速度更新；弦只把两个满足同一守恒量的离散状态连起来。",
-          "ask": "给定能量圆与一条动量直线相交于两点A、B。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "给定能量圆与一条动量直线相交于两点A、B。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 图序固定展示：动量弦、平行动量线和两个交点的碰撞含义。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "A、B是墙的两个位置。",
@@ -2503,11 +2933,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-momentum-chord-intersections",
             "cp-c-momentum-chord-ratio-1",
-            "cp-c-momentum-chord-ratio-4"
+            "cp-c-momentum-chord-parallel",
+            "cp-c-momentum-chord-intersections"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "动量弦、平行动量线和两个交点的碰撞含义",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "从A跳到B是一次物块碰撞的状态更新，而非沿弦连续滑动。"
+            ],
+            "basis": "碰撞是瞬时速度更新；弦只把两个满足同一守恒量的离散状态连起来。"
+          }
         },
         {
           "key": "c4-4-scenario-04",
@@ -2518,8 +2955,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "两个独立守恒约束联立通常给出两个交点，分别对应碰撞前后。 这里特别核对的是圆线两个交点的物理含义。",
-          "ask": "完全弹性物块碰撞保持能量圆和同一条动量直线。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦圆线两个交点的物理含义；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "两个独立守恒约束联立通常给出两个交点，分别对应碰撞前后。",
+          "ask": "完全弹性物块碰撞保持能量圆和同一条动量直线。 在这个明确的速度/几何条件下，哪个判读准确？ 把圆和直线共同满足的条件逐项代入两个交点。 图序固定展示：动量弦、平行动量线和两个交点的碰撞含义。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "直线中点就是真实空间碰撞点。",
@@ -2540,11 +2977,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-momentum-chord-intersections",
             "cp-c-momentum-chord-ratio-1",
-            "cp-c-momentum-chord-ratio-4"
+            "cp-c-momentum-chord-parallel",
+            "cp-c-momentum-chord-intersections"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "动量弦、平行动量线和两个交点的碰撞含义",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "碰前、碰后速度状态是该圆与直线的两个交点。"
+            ],
+            "basis": "两个独立守恒约束联立通常给出两个交点，分别对应碰撞前后。"
+          }
         }
       ]
     },
@@ -2566,32 +3010,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "x=sqrt(M)vM不变，y=sqrt(m)vm随小物块速度反号而反号。",
-          "ask": "小物块撞固定墙前后，vM不变而vm由-2 m/s变为+2 m/s。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“小物块撞墙对应关于x轴反射。”，它与图示ID cp-c-wall-reflection-basic 一一对应。",
+          "ask": "围绕y反号的墙反射，本题要求识别唯一图注为“小物块撞墙对应关于x轴反射。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：小物块撞墙对应关于x轴反射。",
+              "text": "图注：“小物块撞墙对应关于x轴反射。”",
               "correct": true,
               "figure_ref": "cp-c-wall-reflection-basic"
             },
             {
-              "text": "图示：墙反射只改变小物块速度符号。",
+              "text": "图注：“墙反射只改变小物块速度符号。”",
               "correct": false,
               "figure_ref": "cp-c-wall-reflection-axis-check"
             },
             {
-              "text": "图示：反射后的状态仍在同一能量圆上。",
+              "text": "图注：“反射后的状态仍在同一能量圆上。”",
               "correct": false,
               "figure_ref": "cp-c-wall-reflection-radius"
             },
             {
-              "text": "图示：一条弦的两个端点代表一次碰撞前后。",
+              "text": "图注：“一条弦的两个端点代表一次碰撞前后。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-intersections"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“小物块撞墙对应关于x轴反射。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-wall-reflection-basic"
+          }
         },
         {
           "key": "c5-1-scenario-02",
@@ -2602,32 +3054,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "固定墙只反转vm，所以保持x并令y的符号反转。",
-          "ask": "墙碰撞前的加权点为(x,y)=(2,-2)。 请用题设的坐标和物理约束判断最合理的结论。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“墙反射只改变小物块速度符号。”，它与图示ID cp-c-wall-reflection-axis-check 一一对应。",
+          "ask": "围绕y反号的墙反射，本题要求识别唯一图注为“墙反射只改变小物块速度符号。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：小物块撞墙对应关于x轴反射。",
-              "correct": true,
+              "text": "图注：“小物块撞墙对应关于x轴反射。”",
+              "correct": false,
               "figure_ref": "cp-c-wall-reflection-basic"
             },
             {
-              "text": "图示：墙反射只改变小物块速度符号。",
-              "correct": false,
+              "text": "图注：“墙反射只改变小物块速度符号。”",
+              "correct": true,
               "figure_ref": "cp-c-wall-reflection-axis-check"
             },
             {
-              "text": "图示：反射后的状态仍在同一能量圆上。",
+              "text": "图注：“反射后的状态仍在同一能量圆上。”",
               "correct": false,
               "figure_ref": "cp-c-wall-reflection-radius"
             },
             {
-              "text": "图示：一条弦的两个端点代表一次碰撞前后。",
+              "text": "图注：“一条弦的两个端点代表一次碰撞前后。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-intersections"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“墙反射只改变小物块速度符号。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-wall-reflection-axis-check"
+          }
         },
         {
           "key": "c5-1-scenario-03",
@@ -2639,22 +3099,22 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "固定墙的弹性反射给出vm'=-vm；大物块未受该墙冲量。",
-          "ask": "小物块与固定墙完全弹性碰撞，向右为正。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "小物块与固定墙完全弹性碰撞，向右为正。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "加权坐标更新为(x,y)到(x,-y)。",
+              "text": "固定墙反射使vm'=-vm。",
               "correct": true
             },
             {
-              "text": "固定墙反射保持小物块速率并反转其方向。",
+              "text": "该墙反射不改变vM。",
               "correct": true
             },
             {
-              "text": "更新为(-x,y)。",
+              "text": "墙反射使vM'=-vM。",
               "correct": false
             },
             {
-              "text": "x、y都取反。",
+              "text": "墙反射使两个速度分量都变号。",
               "correct": false
             }
           ],
@@ -2662,7 +3122,15 @@
           "figure_refs": [
             "cp-c-wall-reflection-basic"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "固定墙反射使vm'=-vm。",
+              "该墙反射不改变vM。"
+            ],
+            "basis": "固定墙的弹性反射给出vm'=-vm；大物块未受该墙冲量。"
+          }
         },
         {
           "key": "c5-1-scenario-04",
@@ -2674,30 +3142,38 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "x=sqrt(M)vM不变，y=sqrt(m)vm随小物块速度反号而反号。",
-          "ask": "小物块撞固定墙前后，vM不变而vm由-2 m/s变为+2 m/s。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "小物块撞固定墙前后，vM不变而vm由-2 m/s变为+2 m/s。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "为(-2,-2)。",
-              "correct": false
-            },
-            {
-              "text": "为(-2,2)。",
-              "correct": false
-            },
-            {
-              "text": "碰撞后的点为(2,2)，即关于x轴反射。",
+              "text": "反射前后x不变、y变为-y。",
               "correct": true
             },
             {
-              "text": "固定墙反射保持小物块速率并反转其方向。",
+              "text": "该变化是关于x轴的反射。",
               "correct": true
+            },
+            {
+              "text": "反射后x也变号。",
+              "correct": false
+            },
+            {
+              "text": "反射后点与原点重合。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-wall-reflection-basic"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "反射前后x不变、y变为-y。",
+              "该变化是关于x轴的反射。"
+            ],
+            "basis": "x=sqrt(M)vM不变，y=sqrt(m)vm随小物块速度反号而反号。"
+          }
         },
         {
           "key": "c5-2-scenario-01",
@@ -2709,22 +3185,22 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "反射前后平方和均为x^2+y^2，对应2E不变。",
-          "ask": "墙反射把(x,y)变为(x,-y)。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "墙反射把(x,y)变为(x,-y)。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "墙可改变两物块系统的总动量，但不改变两物块总动能。",
+              "text": "(x,y)变为(x,-y)后x^2+y^2不变。",
               "correct": true
             },
             {
-              "text": "固定墙反射保持小物块速率并反转其方向。",
+              "text": "反射前后状态在同一能量圆上。",
               "correct": true
             },
             {
-              "text": "墙既不改变动量也不改变速度。",
+              "text": "反射后能量圆半径变为两倍。",
               "correct": false
             },
             {
-              "text": "墙必使总动能增加。",
+              "text": "反射使x^2+y^2变为0。",
               "correct": false
             }
           ],
@@ -2732,7 +3208,15 @@
           "figure_refs": [
             "cp-c-wall-reflection-radius"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "(x,y)变为(x,-y)后x^2+y^2不变。",
+              "反射前后状态在同一能量圆上。"
+            ],
+            "basis": "反射前后平方和均为x^2+y^2，对应2E不变。"
+          }
         },
         {
           "key": "c5-2-scenario-02",
@@ -2744,49 +3228,14 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "2^2+(-2)^2=2^2+2^2=8，半径没有改变。",
-          "ask": "反射前点(2,-2)位于半径sqrt(8)的能量圆上。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "反射前点(2,-2)位于半径sqrt(8)的能量圆上。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "半径变为原来的两倍。",
-              "correct": false
-            },
-            {
-              "text": "圆心移到(x,-y)。",
-              "correct": false
-            },
-            {
-              "text": "x^2+y^2不变，因此点仍在同一能量圆上。",
+              "text": "反射后点为(2,2)。",
               "correct": true
             },
             {
-              "text": "固定墙反射保持小物块速率并反转其方向。",
-              "correct": true
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-wall-reflection-radius"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
-        },
-        {
-          "key": "c5-2-scenario-03",
-          "node_id": "C5.2",
-          "question_type": "multiple_choice",
-          "question_style": "scenario",
-          "difficulty": 3,
-          "event_stage": "state_analysis",
-          "variant_axis": "wall_reflection",
-          "curriculum_scope": "core",
-          "explanation": "墙提供外冲量，P可变；弹性反射保持每个受撞物块的速率，从而保持动能。",
-          "ask": "墙是固定且完全弹性的，研究系统只含两物块。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
-          "options": [
-            {
-              "text": "反射后点(2,2)仍满足x^2+y^2=8。",
-              "correct": true
-            },
-            {
-              "text": "固定墙反射保持小物块速率并反转其方向。",
+              "text": "反射后仍满足x^2+y^2=8。",
               "correct": true
             },
             {
@@ -2802,7 +3251,58 @@
           "figure_refs": [
             "cp-c-wall-reflection-radius"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "反射后点为(2,2)。",
+              "反射后仍满足x^2+y^2=8。"
+            ],
+            "basis": "2^2+(-2)^2=2^2+2^2=8，半径没有改变。"
+          }
+        },
+        {
+          "key": "c5-2-scenario-03",
+          "node_id": "C5.2",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "state_analysis",
+          "variant_axis": "wall_reflection",
+          "curriculum_scope": "core",
+          "explanation": "墙提供外冲量，P可变；弹性反射保持每个受撞物块的速率，从而保持动能。",
+          "ask": "墙是固定且完全弹性的，研究系统只含两物块。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
+          "options": [
+            {
+              "text": "固定墙对两物块系统提供外冲量，因此P可变。",
+              "correct": true
+            },
+            {
+              "text": "完全弹性墙反射保持小物块速率和总动能。",
+              "correct": true
+            },
+            {
+              "text": "墙反射必保持两物块总动量。",
+              "correct": false
+            },
+            {
+              "text": "墙反射使总动能翻倍。",
+              "correct": false
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-wall-reflection-radius"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "固定墙对两物块系统提供外冲量，因此P可变。",
+              "完全弹性墙反射保持小物块速率和总动能。"
+            ],
+            "basis": "墙提供外冲量，P可变；弹性反射保持每个受撞物块的速率，从而保持动能。"
+          }
         },
         {
           "key": "c5-2-scenario-04",
@@ -2813,8 +3313,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "反射前后平方和均为x^2+y^2，对应2E不变。 这里特别核对的是反射前后的能量圆。",
-          "ask": "墙反射把(x,y)变为(x,-y)。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦反射前后的能量圆；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "反射前后平方和均为x^2+y^2，对应2E不变。",
+          "ask": "墙反射把(x,y)变为(x,-y)。 在这个明确的速度/几何条件下，哪个判读准确？ 反射前后分别计算平方和，不把动量守恒误加到墙反射上。",
           "options": [
             {
               "text": "只有动量圆保持不变。",
@@ -2837,7 +3337,14 @@
           "figure_refs": [
             "cp-c-wall-reflection-radius"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "x^2+y^2不变，因此点仍在同一能量圆上。"
+            ],
+            "basis": "反射前后平方和均为x^2+y^2，对应2E不变。"
+          }
         },
         {
           "key": "c5-3-scenario-01",
@@ -2872,7 +3379,14 @@
           "figure_refs": [
             "cp-c-wall-reflection-basic"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "撞墙步骤应把当前点关于x轴反射。"
+            ],
+            "basis": "物块碰撞受圆与动量线约束；墙碰撞只执行y到-y的镜像更新。"
+          }
         },
         {
           "key": "c5-3-scenario-02",
@@ -2884,7 +3398,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "弦跳编码物块碰撞，x轴反射编码撞墙；两类更新各自是一次事件。",
-          "ask": "状态链交替出现“弦跳”和“x轴反射”。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "状态链交替出现“弦跳”和“x轴反射”。 请用题设的坐标和物理约束判断最合理的结论。 图序固定展示：墙反射、坐标分量检查和能量保持。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "弦跳是物块的空间位移而非事件。",
@@ -2909,7 +3423,14 @@
             "cp-c-wall-reflection-axis-check",
             "cp-c-wall-reflection-radius"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "墙反射、坐标分量检查和能量保持",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "每一个已核实的几何更新都对应一个真实的碰撞事件。"
+            ],
+            "basis": "弦跳编码物块碰撞，x轴反射编码撞墙；两类更新各自是一次事件。"
+          }
         },
         {
           "key": "c5-3-scenario-03",
@@ -2921,7 +3442,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "墙反射保持x^2+y^2，却通常改变sqrt(M)x+sqrt(m)y的值。",
-          "ask": "反射后的点仍在能量圆上，但落在新的动量直线。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "反射后的点仍在能量圆上，但落在新的动量直线。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 图序固定展示：墙反射、坐标分量检查和能量保持。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "说明质量比被墙改变。",
@@ -2946,7 +3467,14 @@
             "cp-c-wall-reflection-axis-check",
             "cp-c-wall-reflection-radius"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "墙反射、坐标分量检查和能量保持",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "这是因为墙冲量改变P而能量保持不变。"
+            ],
+            "basis": "墙反射保持x^2+y^2，却通常改变sqrt(M)x+sqrt(m)y的值。"
+          }
         },
         {
           "key": "c5-3-scenario-04",
@@ -2957,8 +3485,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "物块碰撞受圆与动量线约束；墙碰撞只执行y到-y的镜像更新。 这里特别核对的是弦跳和反射的交替。",
-          "ask": "相图中一次物块碰撞是同一动量弦两端的跳转，随后小物块撞墙。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦弦跳和反射的交替；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "物块碰撞受圆与动量线约束；墙碰撞只执行y到-y的镜像更新。",
+          "ask": "相图中一次物块碰撞是同一动量弦两端的跳转，随后小物块撞墙。 在这个明确的速度/几何条件下，哪个判读准确？ 逐步标出弦跳与x轴反射各自代表的接触事件。 图序固定展示：墙反射、坐标分量检查和能量保持。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "撞墙步骤不改变任何坐标。",
@@ -2983,7 +3511,14 @@
             "cp-c-wall-reflection-axis-check",
             "cp-c-wall-reflection-radius"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "墙反射、坐标分量检查和能量保持",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "撞墙步骤应把当前点关于x轴反射。"
+            ],
+            "basis": "物块碰撞受圆与动量线约束；墙碰撞只执行y到-y的镜像更新。"
+          }
         }
       ]
     },
@@ -3005,32 +3540,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "x=sqrt(M)vM=-sqrt(M)V，y=sqrt(m)vm=0。",
-          "ask": "初态为vM=-V、vm=0，V>0，向右取正。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“质量比四的早期状态链。”，它与图示ID cp-c-state-chain-ratio-4 一一对应。",
+          "ask": "围绕初始状态点定位，本题要求识别唯一图注为“质量比四的早期状态链。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四的早期状态链。",
+              "text": "图注：“质量比四的早期状态链。”",
               "correct": true,
               "figure_ref": "cp-c-state-chain-ratio-4"
             },
             {
-              "text": "图示：质量比十六的状态链。",
+              "text": "图注：“质量比十六的状态链。”",
               "correct": false,
               "figure_ref": "cp-c-state-chain-ratio-16"
             },
             {
-              "text": "图示：状态链最终进入无后续碰撞区域。",
+              "text": "图注：“状态链最终进入无后续碰撞区域。”",
               "correct": false,
               "figure_ref": "cp-c-state-chain-terminal"
             },
             {
-              "text": "图示：质量比四的安全扇区。",
+              "text": "图注：“质量比四的安全扇区。”",
               "correct": false,
               "figure_ref": "cp-c-safe-sector-ratio-4"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量比四的早期状态链。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-state-chain-ratio-4"
+          }
         },
         {
           "key": "c6-1-scenario-02",
@@ -3041,32 +3584,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "x=sqrt(4)×(-1)=-2，y=sqrt(1)×0=0。",
-          "ask": "M=4、m=1、初态(vM,vm)=(-1,0)。 请用题设的坐标和物理约束判断最合理的结论。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“质量比十六的状态链。”，它与图示ID cp-c-state-chain-ratio-16 一一对应。",
+          "ask": "围绕初始状态点定位，本题要求识别唯一图注为“质量比十六的状态链。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四的早期状态链。",
-              "correct": true,
+              "text": "图注：“质量比四的早期状态链。”",
+              "correct": false,
               "figure_ref": "cp-c-state-chain-ratio-4"
             },
             {
-              "text": "图示：质量比十六的状态链。",
-              "correct": false,
+              "text": "图注：“质量比十六的状态链。”",
+              "correct": true,
               "figure_ref": "cp-c-state-chain-ratio-16"
             },
             {
-              "text": "图示：状态链最终进入无后续碰撞区域。",
+              "text": "图注：“状态链最终进入无后续碰撞区域。”",
               "correct": false,
               "figure_ref": "cp-c-state-chain-terminal"
             },
             {
-              "text": "图示：质量比四的安全扇区。",
+              "text": "图注：“质量比四的安全扇区。”",
               "correct": false,
               "figure_ref": "cp-c-safe-sector-ratio-4"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量比十六的状态链。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-state-chain-ratio-16"
+          }
         },
         {
           "key": "c6-1-scenario-03",
@@ -3077,32 +3628,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "y=sqrt(m)vm；小物块静止直接给出y=0。",
-          "ask": "大物块左行而小物块静止，状态点在质量加权平面x轴负半轴。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“状态链最终进入无后续碰撞区域。”，它与图示ID cp-c-state-chain-terminal 一一对应。",
+          "ask": "围绕初始状态点定位，本题要求识别唯一图注为“状态链最终进入无后续碰撞区域。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量比四的早期状态链。",
-              "correct": true,
+              "text": "图注：“质量比四的早期状态链。”",
+              "correct": false,
               "figure_ref": "cp-c-state-chain-ratio-4"
             },
             {
-              "text": "图示：质量比十六的状态链。",
+              "text": "图注：“质量比十六的状态链。”",
               "correct": false,
               "figure_ref": "cp-c-state-chain-ratio-16"
             },
             {
-              "text": "图示：状态链最终进入无后续碰撞区域。",
-              "correct": false,
+              "text": "图注：“状态链最终进入无后续碰撞区域。”",
+              "correct": true,
               "figure_ref": "cp-c-state-chain-terminal"
             },
             {
-              "text": "图示：质量比四的安全扇区。",
+              "text": "图注：“质量比四的安全扇区。”",
               "correct": false,
               "figure_ref": "cp-c-safe-sector-ratio-4"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“状态链最终进入无后续碰撞区域。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-state-chain-terminal"
+          }
         },
         {
           "key": "c6-2-scenario-01",
@@ -3114,22 +3673,22 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "一维弹性碰撞公式给出(-0.6,-1.6)；vm<0表示小物块朝左墙运动。",
-          "ask": "从M=4、m=1、(-1,0)出发，第一次物块碰撞后速度为(-0.6,-1.6)。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "从M=4、m=1、(-1,0)出发，第一次物块碰撞后速度为(-0.6,-1.6)。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "该更新是一场物块碰撞，下一步小物块会向左撞墙。",
+              "text": "第一次物块碰撞后速度为(-0.6,-1.6)。",
               "correct": true
             },
             {
-              "text": "每次计数前都要确认几何更新对应真实事件。",
+              "text": "vm<0表示小物块正朝左墙运动。",
               "correct": true
             },
             {
-              "text": "该更新是一场撞墙，vM必须不变。",
+              "text": "碰撞后vm=+1.6，正朝右。",
               "correct": false
             },
             {
-              "text": "小物块会继续向右远离墙。",
+              "text": "该状态不需要再考虑墙。",
               "correct": false
             }
           ],
@@ -3137,7 +3696,15 @@
           "figure_refs": [
             "cp-c-state-chain-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "第一次物块碰撞后速度为(-0.6,-1.6)。",
+              "vm<0表示小物块正朝左墙运动。"
+            ],
+            "basis": "一维弹性碰撞公式给出(-0.6,-1.6)；vm<0表示小物块朝左墙运动。"
+          }
         },
         {
           "key": "c6-2-scenario-02",
@@ -3149,30 +3716,38 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "每个真实碰撞使速度发生一次瞬时更新，必须保留其因果顺序。",
-          "ask": "状态链记录“物块碰撞、撞墙、物块碰撞”三个事件。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "状态链记录“物块碰撞、撞墙、物块碰撞”三个事件。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "只需记录第一次和最后一次，因中间不算碰撞。",
-              "correct": false
-            },
-            {
-              "text": "三事件对应一个连续圆弧。",
-              "correct": false
-            },
-            {
-              "text": "几何记录应有三个按时间排序的状态更新。",
+              "text": "这三个真实事件应按给定顺序逐一记录。",
               "correct": true
             },
             {
-              "text": "每次计数前都要确认几何更新对应真实事件。",
+              "text": "三个事件对应三次速度状态更新。",
               "correct": true
+            },
+            {
+              "text": "中间撞墙不应计入事件。",
+              "correct": false
+            },
+            {
+              "text": "三事件应合并为一段连续圆弧。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-state-chain-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "这三个真实事件应按给定顺序逐一记录。",
+              "三个事件对应三次速度状态更新。"
+            ],
+            "basis": "每个真实碰撞使速度发生一次瞬时更新，必须保留其因果顺序。"
+          }
         },
         {
           "key": "c6-2-scenario-03",
@@ -3184,22 +3759,22 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "vm<0表示小物块朝左；固定墙的接触将把vm反号。",
-          "ask": "某事件后速度满足vm<0而vM为有限值，左边有固定墙。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "某事件后速度满足vm<0而vM为有限值，左边有固定墙。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "在无其他先发生接触的前提下，下一事件是小物块撞墙。",
+              "text": "vm<0表示小物块朝左。",
               "correct": true
             },
             {
-              "text": "每次计数前都要确认几何更新对应真实事件。",
+              "text": "与固定左墙接触后vm会反号。",
               "correct": true
             },
             {
-              "text": "下一事件必是能量圆扩大。",
+              "text": "vm<0表示小物块已经静止。",
               "correct": false
             },
             {
-              "text": "小物块会穿过固定墙。",
+              "text": "墙反射会使vM必然反号。",
               "correct": false
             }
           ],
@@ -3207,7 +3782,15 @@
           "figure_refs": [
             "cp-c-state-chain-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "vm<0表示小物块朝左。",
+              "与固定左墙接触后vm会反号。"
+            ],
+            "basis": "vm<0表示小物块朝左；固定墙的接触将把vm反号。"
+          }
         },
         {
           "key": "c6-2-scenario-04",
@@ -3218,31 +3801,39 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "一维弹性碰撞公式给出(-0.6,-1.6)；vm<0表示小物块朝左墙运动。 这里特别核对的是逐事件更新的顺序。",
-          "ask": "从M=4、m=1、(-1,0)出发，第一次物块碰撞后速度为(-0.6,-1.6)。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦逐事件更新的顺序；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "一维弹性碰撞公式给出(-0.6,-1.6)；vm<0表示小物块朝左墙运动。",
+          "ask": "从M=4、m=1、(-1,0)出发，第一次物块碰撞后速度为(-0.6,-1.6)。 在这个明确的速度/几何条件下，哪个判读准确？ 按事件发生的时间顺序更新速度，不省略中间的墙反射。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "该更新是一场撞墙，vM必须不变。",
-              "correct": false
-            },
-            {
-              "text": "小物块会继续向右远离墙。",
-              "correct": false
-            },
-            {
-              "text": "该更新是一场物块碰撞，下一步小物块会向左撞墙。",
+              "text": "第一次物块碰撞后速度为(-0.6,-1.6)。",
               "correct": true
             },
             {
-              "text": "每次计数前都要确认几何更新对应真实事件。",
+              "text": "vm<0表示小物块正朝左墙运动。",
               "correct": true
+            },
+            {
+              "text": "碰撞后vm=+1.6，正朝右。",
+              "correct": false
+            },
+            {
+              "text": "该状态不需要再考虑墙。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-state-chain-ratio-16"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "第一次物块碰撞后速度为(-0.6,-1.6)。",
+              "vm<0表示小物块正朝左墙运动。"
+            ],
+            "basis": "一维弹性碰撞公式给出(-0.6,-1.6)；vm<0表示小物块朝左墙运动。"
+          }
         },
         {
           "key": "c6-4-scenario-01",
@@ -3254,22 +3845,22 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "弦的两端是同一次物块碰撞前后的两个状态，因此一跳对应一事件。",
-          "ask": "状态链中一次弦跳已经由两物块弹性碰撞公式核实。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "状态链中一次弦跳已经由两物块弹性碰撞公式核实。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "这一次反射应计为一次墙碰撞。",
+              "text": "这一次弦跳应计为一次物块碰撞。",
               "correct": true
             },
             {
-              "text": "每次计数前都要确认几何更新对应真实事件。",
+              "text": "弦的两端是该物块碰撞前后的状态。",
               "correct": true
             },
             {
-              "text": "反射不应进入碰撞数。",
+              "text": "一次弦跳必表示两次碰撞。",
               "correct": false
             },
             {
-              "text": "反射等于两次物块碰撞。",
+              "text": "弦跳必须和下一次墙反射合并才计数。",
               "correct": false
             }
           ],
@@ -3277,7 +3868,15 @@
           "figure_refs": [
             "cp-c-state-chain-terminal"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "这一次弦跳应计为一次物块碰撞。",
+              "弦的两端是该物块碰撞前后的状态。"
+            ],
+            "basis": "弦的两端是同一次物块碰撞前后的两个状态，因此一跳对应一事件。"
+          }
         },
         {
           "key": "c6-4-scenario-02",
@@ -3289,30 +3888,38 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "y到-y正是vm到-vm；这是固定墙弹性碰撞的速度更新。",
-          "ask": "一次x轴反射已对应小物块撞固定墙。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "一次x轴反射已对应小物块撞固定墙。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "总数应为4，因为只数弦。",
-              "correct": false
-            },
-            {
-              "text": "总数应为3，因为只数反射。",
-              "correct": false
-            },
-            {
-              "text": "物理碰撞总数应为7。",
+              "text": "这一次x轴反射应计为一次墙碰撞。",
               "correct": true
             },
             {
-              "text": "每次计数前都要确认几何更新对应真实事件。",
+              "text": "y到-y对应小物块速度反号。",
               "correct": true
+            },
+            {
+              "text": "x轴反射不应进入碰撞数。",
+              "correct": false
+            },
+            {
+              "text": "一次反射等于两次物块碰撞。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-state-chain-terminal"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "这一次x轴反射应计为一次墙碰撞。",
+              "y到-y对应小物块速度反号。"
+            ],
+            "basis": "y到-y正是vm到-vm；这是固定墙弹性碰撞的速度更新。"
+          }
         },
         {
           "key": "c6-4-scenario-03",
@@ -3324,22 +3931,22 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "计数前提是每次更新均已建立物理对应；4+3=7个碰撞事件。",
-          "ask": "几何路径含4次弦跳和3次x轴反射，且每次都已核实为事件。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "几何路径含4次弦跳和3次x轴反射，且每次都已核实为事件。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "这一次弦跳应计为一次物块碰撞。",
+              "text": "物理碰撞总数为4+3=7。",
               "correct": true
             },
             {
-              "text": "每次计数前都要确认几何更新对应真实事件。",
+              "text": "其中4次弦跳和3次反射都应计数。",
               "correct": true
             },
             {
-              "text": "弦跳要和下一次反射合并才计数。",
+              "text": "总数只应为4。",
               "correct": false
             },
             {
-              "text": "弦跳只表示坐标单位变化。",
+              "text": "总数只应为3。",
               "correct": false
             }
           ],
@@ -3347,7 +3954,15 @@
           "figure_refs": [
             "cp-c-state-chain-terminal"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "物理碰撞总数为4+3=7。",
+              "其中4次弦跳和3次反射都应计数。"
+            ],
+            "basis": "计数前提是每次更新均已建立物理对应；4+3=7个碰撞事件。"
+          }
         }
       ]
     },
@@ -3393,7 +4008,14 @@
           "figure_refs": [
             "cp-c-state-chain-ratio-4"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "加权初始点为(-sqrt(M)V,0)。"
+            ],
+            "basis": "x=sqrt(M)vM=-sqrt(M)V，y=sqrt(m)vm=0。"
+          }
         },
         {
           "key": "c6-2-scenario-05",
@@ -3404,8 +4026,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "每个真实碰撞使速度发生一次瞬时更新，必须保留其因果顺序。 这里特别核对的是逐事件更新的顺序。",
-          "ask": "状态链记录“物块碰撞、撞墙、物块碰撞”三个事件。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦逐事件更新的顺序；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "每个真实碰撞使速度发生一次瞬时更新，必须保留其因果顺序。",
+          "ask": "状态链记录“物块碰撞、撞墙、物块碰撞”三个事件。 请用题设的坐标和物理约束判断最合理的结论。 按事件发生的时间顺序更新速度，不省略中间的墙反射。",
           "options": [
             {
               "text": "几何记录应有三个按时间排序的状态更新。",
@@ -3424,7 +4046,14 @@
               "correct": false
             }
           ],
-          "presentation_mode": "text_only"
+          "presentation_mode": "text_only",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "几何记录应有三个按时间排序的状态更新。"
+            ],
+            "basis": "每个真实碰撞使速度发生一次瞬时更新，必须保留其因果顺序。"
+          }
         },
         {
           "key": "c6-3-scenario-01",
@@ -3459,7 +4088,14 @@
           "figure_refs": [
             "cp-c-safe-sector-ratio-4"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "两速度同向且有序，状态被标记为无后续碰撞。"
+            ],
+            "basis": "不等式同时限制方向和相对速度：vM、vm非负且vM不小于vm。"
+          }
         },
         {
           "key": "c6-3-scenario-02",
@@ -3471,7 +4107,7 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "0.704<=1.872/2=0.936且两坐标非负，满足扇区不等式。",
-          "ask": "M=4、m=1时安全区边界在加权图中满足0<=y<=x/2、x>=0。 请用题设的坐标和物理约束判断最合理的结论。",
+          "ask": "M=4、m=1时安全区边界在加权图中满足0<=y<=x/2、x>=0。 请用题设的坐标和物理约束判断最合理的结论。 图序固定展示：早期状态链、终态和安全边界。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "该点因y为正而一定在区外。",
@@ -3492,11 +4128,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-safe-sector-ratio-4",
-            "cp-c-safe-sector-boundary",
-            "cp-c-state-chain-ratio-4"
+            "cp-c-state-chain-ratio-4",
+            "cp-c-state-chain-terminal",
+            "cp-c-safe-sector-boundary"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "早期状态链、终态和安全边界",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "点(x,y)=(1.872,0.704)位于该安全区。"
+            ],
+            "basis": "0.704<=1.872/2=0.936且两坐标非负，满足扇区不等式。"
+          }
         },
         {
           "key": "c6-3-scenario-03",
@@ -3508,7 +4151,7 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "圆和扇区是不同约束：前者固定x^2+y^2，后者固定速度方向和有序关系。",
-          "ask": "终态点在安全扇区内，仍位于原来的能量圆上。 下列解释中，哪一项没有混淆坐标表示与物理对象？",
+          "ask": "终态点在安全扇区内，仍位于原来的能量圆上。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 图序固定展示：早期状态链、终态和安全边界。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "安全扇区表示物块空间位置相同。",
@@ -3529,11 +4172,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-safe-sector-ratio-4",
-            "cp-c-safe-sector-boundary",
-            "cp-c-state-chain-ratio-4"
+            "cp-c-state-chain-ratio-4",
+            "cp-c-state-chain-terminal",
+            "cp-c-safe-sector-boundary"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "早期状态链、终态和安全边界",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "能量圆说明总动能，安全扇区额外说明不会再触发课程模型中的碰撞。"
+            ],
+            "basis": "圆和扇区是不同约束：前者固定x^2+y^2，后者固定速度方向和有序关系。"
+          }
         },
         {
           "key": "c6-3-scenario-04",
@@ -3544,8 +4194,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "不等式同时限制方向和相对速度：vM、vm非负且vM不小于vm。 这里特别核对的是安全扇区的不等式。",
-          "ask": "按本课安全区判据，终态要求vM>=vm>=0。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦安全扇区的不等式；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "不等式同时限制方向和相对速度：vM、vm非负且vM不小于vm。",
+          "ask": "按本课安全区判据，终态要求vM>=vm>=0。 在这个明确的速度/几何条件下，哪个判读准确？ 把候选状态代入vM>=vm>=0的安全条件。 图序固定展示：早期状态链、终态和安全边界。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "安全区由能量圆内外决定。",
@@ -3566,11 +4216,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-safe-sector-ratio-4",
-            "cp-c-safe-sector-boundary",
-            "cp-c-state-chain-ratio-4"
+            "cp-c-state-chain-ratio-4",
+            "cp-c-state-chain-terminal",
+            "cp-c-safe-sector-boundary"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "早期状态链、终态和安全边界",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "两速度同向且有序，状态被标记为无后续碰撞。"
+            ],
+            "basis": "不等式同时限制方向和相对速度：vM、vm非负且vM不小于vm。"
+          }
         },
         {
           "key": "c6-3-scenario-05",
@@ -3581,8 +4238,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "0.704<=1.872/2=0.936且两坐标非负，满足扇区不等式。 这里特别核对的是安全扇区的不等式。",
-          "ask": "M=4、m=1时安全区边界在加权图中满足0<=y<=x/2、x>=0。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦安全扇区的不等式；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "0.704<=1.872/2=0.936且两坐标非负，满足扇区不等式。",
+          "ask": "M=4、m=1时安全区边界在加权图中满足0<=y<=x/2、x>=0。 请用题设的坐标和物理约束判断最合理的结论。 把候选状态代入vM>=vm>=0的安全条件。 图序固定展示：早期状态链、终态和安全边界。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "点(x,y)=(1.872,0.704)位于该安全区。",
@@ -3603,11 +4260,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-safe-sector-ratio-4",
-            "cp-c-safe-sector-boundary",
-            "cp-c-state-chain-ratio-4"
+            "cp-c-state-chain-ratio-4",
+            "cp-c-state-chain-terminal",
+            "cp-c-safe-sector-boundary"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "早期状态链、终态和安全边界",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "点(x,y)=(1.872,0.704)位于该安全区。"
+            ],
+            "basis": "0.704<=1.872/2=0.936且两坐标非负，满足扇区不等式。"
+          }
         },
         {
           "key": "c6-4-scenario-04",
@@ -3618,8 +4282,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "弦的两端是同一次物块碰撞前后的两个状态，因此一跳对应一事件。 这里特别核对的是几何更新和物理计数的映射。",
-          "ask": "状态链中一次弦跳已经由两物块弹性碰撞公式核实。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦几何更新和物理计数的映射；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "弦的两端是同一次物块碰撞前后的两个状态，因此一跳对应一事件。",
+          "ask": "状态链中一次弦跳已经由两物块弹性碰撞公式核实。 在这个明确的速度/几何条件下，哪个判读准确？ 只有已经对应真实接触的几何更新才能计入碰撞数。 图序固定展示：早期状态链、终态和安全边界。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "弦跳必表示两次碰撞。",
@@ -3640,11 +4304,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-state-chain-terminal",
             "cp-c-state-chain-ratio-4",
-            "cp-c-state-chain-ratio-16"
+            "cp-c-state-chain-terminal",
+            "cp-c-safe-sector-boundary"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "早期状态链、终态和安全边界",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "这一次弦跳应计为一次物块碰撞。"
+            ],
+            "basis": "弦的两端是同一次物块碰撞前后的两个状态，因此一跳对应一事件。"
+          }
         }
       ]
     },
@@ -3667,32 +4338,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "sqrt(m/M)=sqrt(1/4)=1/2，按定义取反正切。",
-          "ask": "在等角模型中M/m=4，定义theta=arctan(sqrt(m/M))。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“一次几何更新对应固定的圆心角。”，它与图示ID cp-c-equal-angle-step 一一对应。",
+          "ask": "围绕theta的质量比定义，本题要求识别唯一图注为“一次几何更新对应固定的圆心角。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：一次几何更新对应固定的圆心角。",
+              "text": "图注：“一次几何更新对应固定的圆心角。”",
               "correct": true,
               "figure_ref": "cp-c-equal-angle-step"
             },
             {
-              "text": "图示：平行弦使状态点以固定角度推进。",
+              "text": "图注：“平行弦使状态点以固定角度推进。”",
               "correct": false,
               "figure_ref": "cp-c-equal-angle-chord"
             },
             {
-              "text": "图示：固定角步长将碰撞链转成圆弧计数。",
+              "text": "图注：“固定角步长将碰撞链转成圆弧计数。”",
               "correct": false,
               "figure_ref": "cp-c-equal-angle-count"
             },
             {
-              "text": "图示：质量比四决定动量线的方向。",
+              "text": "图注：“质量比四决定动量线的方向。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-4"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“一次几何更新对应固定的圆心角。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-equal-angle-step"
+          }
         },
         {
           "key": "c7-1-scenario-02",
@@ -3703,32 +4382,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "arctan在正数范围单调；质量比增大使sqrt(m/M)减小。",
-          "ask": "质量比M/m从4增至16，theta仍定义为arctan(sqrt(m/M))。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“平行弦使状态点以固定角度推进。”，它与图示ID cp-c-equal-angle-chord 一一对应。",
+          "ask": "围绕theta的质量比定义，本题要求识别唯一图注为“平行弦使状态点以固定角度推进。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：一次几何更新对应固定的圆心角。",
-              "correct": true,
+              "text": "图注：“一次几何更新对应固定的圆心角。”",
+              "correct": false,
               "figure_ref": "cp-c-equal-angle-step"
             },
             {
-              "text": "图示：平行弦使状态点以固定角度推进。",
-              "correct": false,
+              "text": "图注：“平行弦使状态点以固定角度推进。”",
+              "correct": true,
               "figure_ref": "cp-c-equal-angle-chord"
             },
             {
-              "text": "图示：固定角步长将碰撞链转成圆弧计数。",
+              "text": "图注：“固定角步长将碰撞链转成圆弧计数。”",
               "correct": false,
               "figure_ref": "cp-c-equal-angle-count"
             },
             {
-              "text": "图示：质量比四决定动量线的方向。",
+              "text": "图注：“质量比四决定动量线的方向。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-4"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“平行弦使状态点以固定角度推进。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-equal-angle-chord"
+          }
         },
         {
           "key": "c7-1-scenario-03",
@@ -3739,32 +4426,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "基础角theta由arctan(sqrt(m/M))定义；一次更新另有2theta的圆心角。",
-          "ask": "动量直线斜率是-sqrt(M/m)，theta取自正的互余斜率sqrt(m/M)。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请明确区分theta与一次2theta圆心角。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“固定角步长将碰撞链转成圆弧计数。”，它与图示ID cp-c-equal-angle-count 一一对应。",
+          "ask": "围绕theta的质量比定义，本题要求识别唯一图注为“固定角步长将碰撞链转成圆弧计数。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：一次几何更新对应固定的圆心角。",
-              "correct": true,
+              "text": "图注：“一次几何更新对应固定的圆心角。”",
+              "correct": false,
               "figure_ref": "cp-c-equal-angle-step"
             },
             {
-              "text": "图示：平行弦使状态点以固定角度推进。",
+              "text": "图注：“平行弦使状态点以固定角度推进。”",
               "correct": false,
               "figure_ref": "cp-c-equal-angle-chord"
             },
             {
-              "text": "图示：固定角步长将碰撞链转成圆弧计数。",
-              "correct": false,
+              "text": "图注：“固定角步长将碰撞链转成圆弧计数。”",
+              "correct": true,
               "figure_ref": "cp-c-equal-angle-count"
             },
             {
-              "text": "图示：质量比四决定动量线的方向。",
+              "text": "图注：“质量比四决定动量线的方向。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-4"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“固定角步长将碰撞链转成圆弧计数。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-equal-angle-count"
+          }
         },
         {
           "key": "c7-2-scenario-01",
@@ -3775,32 +4470,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向由同一质量比决定；圆周角定理把该平行关系转化为等角关系。",
-          "ask": "在等角模型中，两条动量弦彼此平行。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“平行弦使状态点以固定角度推进。”，它与图示ID cp-c-equal-angle-chord 一一对应。",
+          "ask": "围绕弦方向角、圆周角与圆心角的区分，本题要求识别唯一图注为“平行弦使状态点以固定角度推进。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：平行弦使状态点以固定角度推进。",
+              "text": "图注：“平行弦使状态点以固定角度推进。”",
               "correct": true,
               "figure_ref": "cp-c-equal-angle-chord"
             },
             {
-              "text": "图示：一次几何更新对应固定的圆心角。",
+              "text": "图注：“一次几何更新对应固定的圆心角。”",
               "correct": false,
               "figure_ref": "cp-c-equal-angle-step"
             },
             {
-              "text": "图示：固定角步长将碰撞链转成圆弧计数。",
+              "text": "图注：“固定角步长将碰撞链转成圆弧计数。”",
               "correct": false,
               "figure_ref": "cp-c-equal-angle-count"
             },
             {
-              "text": "图示：质量比四决定动量线的方向。",
+              "text": "图注：“质量比四决定动量线的方向。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-ratio-4"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“平行弦使状态点以固定角度推进。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-equal-angle-chord"
+          }
         },
         {
           "key": "c7-2-scenario-02",
@@ -3811,23 +4514,23 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦属于速度状态图；圆周角是几何量，物理距离不在该坐标中。",
-          "ask": "同一能量圆上两段平行弦的方向不变。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。",
+          "explanation": "弦方向角alpha来自动量直线斜率；圆周角由圆周顶点定义；模型中一次状态更新的圆心角为2theta。",
+          "ask": "在质量加权速度圆上，把动量弦相对+x轴的夹角称为弦方向角alpha。质量比固定时，alpha由动量直线斜率决定；圆周角是在圆周顶点看到弦的夹角。以下两项同时正确的是哪两项？",
           "options": [
             {
-              "text": "它们截得的相等圆周角关系支持固定的2theta圆心角更新。",
+              "text": "弦方向角alpha由动量直线的方向描述。",
               "correct": true
             },
             {
-              "text": "一次状态更新的圆心角应明确写作2theta。",
+              "text": "一次状态更新的圆心角写作2theta。",
               "correct": true
             },
             {
-              "text": "平行弦必使圆半径改变。",
+              "text": "圆周角就是弦方向角alpha。",
               "correct": false
             },
             {
-              "text": "平行弦说明所有状态点重合。",
+              "text": "圆心角应写作theta而不是2theta。",
               "correct": false
             }
           ],
@@ -3835,7 +4538,15 @@
           "figure_refs": [
             "cp-c-equal-angle-chord"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "弦方向角alpha由动量直线的方向描述。",
+              "一次状态更新的圆心角写作2theta。"
+            ],
+            "basis": "弦方向角alpha来自动量直线斜率；圆周角由圆周顶点定义；模型中一次状态更新的圆心角为2theta。"
+          }
         },
         {
           "key": "c7-2-scenario-03",
@@ -3846,31 +4557,39 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "斜率-sqrt(M/m)只由质量比决定；P改变时直线平移而仍平行。",
-          "ask": "固定M/m使每条动量直线斜率相同。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请明确区分theta与一次2theta圆心角。",
+          "explanation": "弦方向角alpha描述弦（动量直线）的方向；圆周角与圆心角按顶点位置定义。theta由质量比给出，而一次更新用2theta。",
+          "ask": "两条平行动量弦在同一能量圆上。请区分弦方向角alpha、圆周角、圆心角与theta：哪一项判读正确？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "弦长就是两物块实时距离。",
-              "correct": false
-            },
-            {
-              "text": "圆周角等于theta且无需定义。",
-              "correct": false
-            },
-            {
-              "text": "应比较它们所对的圆周角，而不是把弦长当作物块间距离。",
+              "text": "弦方向角由弦的方向给出。",
               "correct": true
             },
             {
-              "text": "一次状态更新的圆心角应明确写作2theta。",
+              "text": "圆周角与圆心角按顶点位置定义，不能互换。",
               "correct": true
+            },
+            {
+              "text": "弦方向角alpha就是圆周角。",
+              "correct": false
+            },
+            {
+              "text": "一次状态更新的圆心角为theta。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-equal-angle-chord"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "弦方向角由弦的方向给出。",
+              "圆周角与圆心角按顶点位置定义，不能互换。"
+            ],
+            "basis": "弦方向角alpha描述弦（动量直线）的方向；圆周角与圆心角按顶点位置定义。theta由质量比给出，而一次更新用2theta。"
+          }
         },
         {
           "key": "c7-3-scenario-01",
@@ -3882,22 +4601,22 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "模型把一次已核实的状态更新对应到固定的圆心角2theta。",
-          "ask": "在等角模型中theta已经由质量比定义。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。",
+          "ask": "在等角模型中theta已经由质量比定义。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "从第一个到第四个状态的总圆心角为6theta。",
+              "text": "相邻状态的一次更新圆心角为2theta。",
               "correct": true
             },
             {
-              "text": "一次状态更新的圆心角应明确写作2theta。",
+              "text": "theta是定义更新角的基础角，不是一次更新的圆心角。",
               "correct": true
             },
             {
-              "text": "总圆心角为3theta。",
+              "text": "一次更新与theta无关。",
               "correct": false
             },
             {
-              "text": "总圆心角为2theta。",
+              "text": "一次更新圆心角为theta。",
               "correct": false
             }
           ],
@@ -3905,7 +4624,15 @@
           "figure_refs": [
             "cp-c-equal-angle-step"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "相邻状态的一次更新圆心角为2theta。",
+              "theta是定义更新角的基础角，不是一次更新的圆心角。"
+            ],
+            "basis": "模型把一次已核实的状态更新对应到固定的圆心角2theta。"
+          }
         },
         {
           "key": "c7-3-scenario-02",
@@ -3917,30 +4644,38 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "先由theta=arctan(1/2)求基础角，再计算2theta。",
-          "ask": "M/m=4，theta约0.464 rad。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。",
+          "ask": "M/m=4，theta约0.464 rad。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "一次更新圆心角为theta。",
-              "correct": false
-            },
-            {
-              "text": "一次更新圆心角为theta/2。",
-              "correct": false
-            },
-            {
-              "text": "相邻状态的一次更新圆心角为2theta。",
+              "text": "theta约为0.464 rad。",
               "correct": true
             },
             {
-              "text": "一次状态更新的圆心角应明确写作2theta。",
+              "text": "一次更新的圆心角2theta约为0.927 rad。",
               "correct": true
+            },
+            {
+              "text": "圆心角约为0.464 rad。",
+              "correct": false
+            },
+            {
+              "text": "圆心角约为1.854 rad。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-equal-angle-step"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "theta约为0.464 rad。",
+              "一次更新的圆心角2theta约为0.927 rad。"
+            ],
+            "basis": "先由theta=arctan(1/2)求基础角，再计算2theta。"
+          }
         }
       ]
     },
@@ -3964,22 +4699,22 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "sqrt(m/M)=sqrt(1/4)=1/2，按定义取反正切。",
-          "ask": "在等角模型中M/m=4，定义theta=arctan(sqrt(m/M))。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。",
+          "ask": "在等角模型中M/m=4，定义theta=arctan(sqrt(m/M))。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "theta变小，因为sqrt(m/M)从1/2变为1/4。",
+              "text": "sqrt(m/M)=1/2。",
               "correct": true
             },
             {
-              "text": "一次状态更新的圆心角应明确写作2theta。",
+              "text": "theta=arctan(1/2)。",
               "correct": true
             },
             {
-              "text": "theta变大到四倍。",
+              "text": "theta=arctan(2)。",
               "correct": false
             },
             {
-              "text": "theta保持不变，因为圆半径不变。",
+              "text": "一次更新圆心角等于theta。",
               "correct": false
             }
           ],
@@ -3987,7 +4722,15 @@
           "figure_refs": [
             "cp-c-equal-angle-step"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "sqrt(m/M)=1/2。",
+              "theta=arctan(1/2)。"
+            ],
+            "basis": "sqrt(m/M)=sqrt(1/4)=1/2，按定义取反正切。"
+          }
         },
         {
           "key": "c7-2-scenario-04",
@@ -3999,30 +4742,38 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "弦方向由同一质量比决定；圆周角定理把该平行关系转化为等角关系。",
-          "ask": "在等角模型中，两条动量弦彼此平行。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。",
+          "ask": "在等角模型中，两条动量弦彼此平行。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "固定质量比会让动量P固定。",
-              "correct": false
-            },
-            {
-              "text": "斜率固定意味着所有弦重合。",
-              "correct": false
-            },
-            {
-              "text": "对应的弦方向固定，因此连续物块碰撞可获得相同的角度结构。",
+              "text": "平行动量弦具有相同的弦方向角。",
               "correct": true
             },
             {
-              "text": "一次状态更新的圆心角应明确写作2theta。",
+              "text": "弦方向角不等同于圆周角或圆心角。",
               "correct": true
+            },
+            {
+              "text": "弦方向角alpha就是圆周角。",
+              "correct": false
+            },
+            {
+              "text": "一次状态更新的圆心角为theta。",
+              "correct": false
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
             "cp-c-equal-angle-chord"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "平行动量弦具有相同的弦方向角。",
+              "弦方向角不等同于圆周角或圆心角。"
+            ],
+            "basis": "弦方向由同一质量比决定；圆周角定理把该平行关系转化为等角关系。"
+          }
         },
         {
           "key": "c7-3-scenario-03",
@@ -4034,22 +4785,22 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "三段相同更新相加为3×(2theta)=6theta。",
-          "ask": "圆上连续三次已核实更新的每步圆心角都是2theta。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请明确区分theta与一次2theta圆心角。",
+          "ask": "圆上连续三次已核实更新的每步圆心角都是2theta。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请明确区分theta与一次2theta圆心角。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "相邻状态的一次更新圆心角为2theta。",
+              "text": "三次更新总圆心角为6theta。",
               "correct": true
             },
             {
-              "text": "一次状态更新的圆心角应明确写作2theta。",
+              "text": "每一次更新的圆心角为2theta。",
               "correct": true
             },
             {
-              "text": "一次更新圆心角为theta。",
+              "text": "三次更新总圆心角为3theta。",
               "correct": false
             },
             {
-              "text": "一次更新圆心角为theta/2。",
+              "text": "一次更新圆心角为theta。",
               "correct": false
             }
           ],
@@ -4057,7 +4808,15 @@
           "figure_refs": [
             "cp-c-equal-angle-step"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "三次更新总圆心角为6theta。",
+              "每一次更新的圆心角为2theta。"
+            ],
+            "basis": "三段相同更新相加为3×(2theta)=6theta。"
+          }
         },
         {
           "key": "c7-3-scenario-04",
@@ -4068,8 +4827,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "模型把一次已核实的状态更新对应到固定的圆心角2theta。 这里特别核对的是一次更新的2theta圆心角。",
-          "ask": "在等角模型中theta已经由质量比定义。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 本题额外聚焦一次更新的2theta圆心角；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "模型把一次已核实的状态更新对应到固定的圆心角2theta。",
+          "ask": "在等角模型中theta已经由质量比定义。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 先写基础角theta，再把一次更新写成2theta。",
           "options": [
             {
               "text": "一次更新与theta无关。",
@@ -4092,7 +4851,14 @@
           "figure_refs": [
             "cp-c-equal-angle-step"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "相邻状态的一次更新圆心角为2theta。"
+            ],
+            "basis": "模型把一次已核实的状态更新对应到固定的圆心角2theta。"
+          }
         },
         {
           "key": "c7-4-scenario-01",
@@ -4127,7 +4893,14 @@
           "figure_refs": [
             "cp-c-equal-angle-count"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "pi出现于可用总圆弧的角度范围，而不是来自状态点横坐标的名称。"
+            ],
+            "basis": "半周的弧度量为pi；用2theta步长铺满该范围时自然出现pi。"
+          }
         },
         {
           "key": "c7-4-scenario-02",
@@ -4162,7 +4935,14 @@
           "figure_refs": [
             "cp-c-equal-angle-count"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "粗略可比较pi/(2theta)来估计能容纳的完整更新数。"
+            ],
+            "basis": "总角度除以每步角度给出步数尺度，严格端点另需不等式判断。"
+          }
         },
         {
           "key": "c7-4-scenario-03",
@@ -4174,7 +4954,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "步长2theta变小，固定总角度pi可分成更多离散更新。",
-          "ask": "当质量比变大时theta变小，而每次更新仍为2theta。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请明确区分theta与一次2theta圆心角。",
+          "ask": "当质量比变大时theta变小，而每次更新仍为2theta。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 请明确区分theta与一次2theta圆心角。 图序固定展示：弦方向、2theta步长和圆弧计数。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "每次更新自动改为theta。",
@@ -4195,11 +4975,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-equal-angle-count",
             "cp-c-equal-angle-chord",
-            "cp-c-equal-angle-step"
+            "cp-c-equal-angle-step",
+            "cp-c-equal-angle-count"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "弦方向、2theta步长和圆弧计数",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "在相同pi范围内可容纳更多更新，因而碰撞计数会增加。"
+            ],
+            "basis": "步长2theta变小，固定总角度pi可分成更多离散更新。"
+          }
         },
         {
           "key": "c7-4-scenario-04",
@@ -4210,8 +4997,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "半周的弧度量为pi；用2theta步长铺满该范围时自然出现pi。 这里特别核对的是pi范围内的步数估计。",
-          "ask": "几何计数可用从起始方向到终止边界的角度范围pi。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 本题额外聚焦pi范围内的步数估计；复核时先写出题设中的关键量，再判断它的物理含义。",
+          "explanation": "半周的弧度量为pi；用2theta步长铺满该范围时自然出现pi。",
+          "ask": "几何计数可用从起始方向到终止边界的角度范围pi。 在这个明确的速度/几何条件下，哪个判读准确？ 请明确区分theta与一次2theta圆心角。 用允许角度范围除以2theta估计整步数。 图序固定展示：弦方向、2theta步长和圆弧计数。请按数组顺序阅读，不按文件名排序。",
           "options": [
             {
               "text": "pi由任意一条动量线的截距决定。",
@@ -4232,11 +5019,18 @@
           ],
           "presentation_mode": "figure_sequence",
           "figure_refs": [
-            "cp-c-equal-angle-count",
             "cp-c-equal-angle-chord",
-            "cp-c-equal-angle-step"
+            "cp-c-equal-angle-step",
+            "cp-c-equal-angle-count"
           ],
-          "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+          "diagram_focus": "弦方向、2theta步长和圆弧计数",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "pi出现于可用总圆弧的角度范围，而不是来自状态点横坐标的名称。"
+            ],
+            "basis": "半周的弧度量为pi；用2theta步长铺满该范围时自然出现pi。"
+          }
         }
       ]
     },
@@ -4259,32 +5053,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "legend",
           "curriculum_scope": "core",
-          "explanation": "x、y由带符号速度计算，点是同一时刻速度对的图像。",
-          "ask": "质量加权速度坐标图例把横轴标为x=sqrt(M)vM、纵轴标为y=sqrt(m)vm。 在这个明确的速度/几何条件下，哪个判读准确？ 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“相空间元素与物理意义对照表。”，它与图示ID cp-c-element-legend-overview 一一对应。",
+          "ask": "围绕图例坐标轴和状态点，本题要求识别唯一图注为“相空间元素与物理意义对照表。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：相空间元素与物理意义对照表。",
+              "text": "图注：“相空间元素与物理意义对照表。”",
               "correct": true,
               "figure_ref": "cp-c-element-legend-overview"
             },
             {
-              "text": "图示：一条弦的两个端点代表一次碰撞前后。",
+              "text": "图注：“一条弦的两个端点代表一次碰撞前后。”",
               "correct": false,
               "figure_ref": "cp-c-momentum-chord-intersections"
             },
             {
-              "text": "图示：小物块撞墙对应关于x轴反射。",
+              "text": "图注：“小物块撞墙对应关于x轴反射。”",
               "correct": false,
               "figure_ref": "cp-c-wall-reflection-basic"
             },
             {
-              "text": "图示：固定角步长将碰撞链转成圆弧计数。",
+              "text": "图注：“固定角步长将碰撞链转成圆弧计数。”",
               "correct": false,
               "figure_ref": "cp-c-equal-angle-count"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“相空间元素与物理意义对照表。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-element-legend-overview"
+          }
         },
         {
           "key": "c8-2-scenario-01",
@@ -4296,22 +5098,22 @@
           "variant_axis": "legend",
           "curriculum_scope": "core",
           "explanation": "质量加权后平方和等于2E，所以同一圆上的点共享总动能。",
-          "ask": "质量加权速度坐标图例中的圆标注x^2+y^2=2E。 在这个明确的速度/几何条件下，哪个判读准确？",
+          "ask": "质量加权速度坐标图例中的圆标注x^2+y^2=2E。 在这个明确的速度/几何条件下，哪个判读准确？ 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
               "text": "圆表示总动能固定的状态集合。",
               "correct": true
             },
             {
-              "text": "图例元素的含义取决于已声明的坐标体系。",
+              "text": "同一圆上所有点满足x^2+y^2=2E。",
               "correct": true
             },
             {
-              "text": "圆表示物块在真实轨道上绕墙运动。",
+              "text": "圆的弧长就是两次碰撞的时间。",
               "correct": false
             },
             {
-              "text": "圆表示总动量固定。",
+              "text": "圆表示物块在真实空间绕墙运动。",
               "correct": false
             }
           ],
@@ -4319,7 +5121,15 @@
           "figure_refs": [
             "cp-c-element-legend-overview"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "圆表示总动能固定的状态集合。",
+              "同一圆上所有点满足x^2+y^2=2E。"
+            ],
+            "basis": "质量加权后平方和等于2E，所以同一圆上的点共享总动能。"
+          }
         }
       ]
     },
@@ -4341,32 +5151,40 @@
           "event_stage": "state_analysis",
           "variant_axis": "elective_method",
           "curriculum_scope": "elective",
-          "explanation": "此法的坐标由位置缩放而来，边界编码不可穿透的墙和接触条件。",
-          "ask": "选修位置法使用质量加权位置坐标，并把固定墙与两物块接触限制表示为楔形边界。 在这个明确的速度/几何条件下，哪个判读准确？ 本题使用质量加权位置坐标的选修表述。 请选出最能支持该结论的图示。",
+          "explanation": "题干给出的唯一目标图注是“质量加权位置坐标中的基本楔形。”，它与图示ID cp-c-wedge-unfold-basic 一一对应。",
+          "ask": "围绕位置楔形的允许区域，本题要求识别唯一图注为“质量加权位置坐标中的基本楔形。”的图示。请依据候选图下的图注选择该图；其他图注对应不同的已验证模型。",
           "options": [
             {
-              "text": "图示：质量加权位置坐标中的基本楔形。",
+              "text": "图注：“质量加权位置坐标中的基本楔形。”",
               "correct": true,
               "figure_ref": "cp-c-wedge-unfold-basic"
             },
             {
-              "text": "图示：镜面展开把折线轨迹拉直。",
+              "text": "图注：“镜面展开把折线轨迹拉直。”",
               "correct": false,
               "figure_ref": "cp-c-wedge-unfold-mirror"
             },
             {
-              "text": "图示：展开图中的边界穿越对应碰撞计数。",
+              "text": "图注：“展开图中的边界穿越对应碰撞计数。”",
               "correct": false,
               "figure_ref": "cp-c-wedge-unfold-count"
             },
             {
-              "text": "图示：质量比四的椭圆缩放为圆。",
+              "text": "图注：“质量比四的椭圆缩放为圆。”",
               "correct": false,
               "figure_ref": "cp-c-scale-pair-ratio-4"
             }
           ],
           "presentation_mode": "option_figures",
-          "diagram_focus": "把题干关系与四幅候选图的坐标和几何元素对应"
+          "diagram_focus": "依据图注识别唯一指定的坐标模型或物理关系，不把其他真命题误当成本题答案。",
+          "answer_contract": {
+            "kind": "figure_caption",
+            "expected_option_texts": [
+              "图注：“质量加权位置坐标中的基本楔形。”"
+            ],
+            "basis": "题干给出唯一目标图注，图注与manifest diagram_id一一对应。",
+            "target_figure_ref": "cp-c-wedge-unfold-basic"
+          }
         }
       ]
     },
@@ -4390,22 +5208,22 @@
           "variant_axis": "elective_method",
           "curriculum_scope": "elective",
           "explanation": "镜面展开复制并翻转空间区域，使原先的反射规律由一条直射线连续表示。",
-          "ask": "在折叠的位置空间视图中轨迹每遇楔形边界会反射；把楔形镜面展开后观察同一运动。 在这个明确的速度/几何条件下，哪个判读准确？ 本题使用质量加权位置坐标的选修表述。",
+          "ask": "在折叠的位置空间视图中轨迹每遇楔形边界会反射；把楔形镜面展开后观察同一运动。 在这个明确的速度/几何条件下，哪个判读准确？ 本题使用质量加权位置坐标的选修表述。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
           "options": [
             {
-              "text": "展开视图把折线轨迹拉成直线，反射的是楔形副本而不是把轨迹再折一次。",
+              "text": "展开后的直射线对应折叠视图中的连续反射。",
               "correct": true
             },
             {
-              "text": "该选修方法的坐标是质量加权位置而非速度。",
+              "text": "穿过副本边界的顺序保留原接触顺序。",
               "correct": true
             },
             {
-              "text": "展开后仍应把直线在每个边界反折。",
+              "text": "每个副本代表一个新物块。",
               "correct": false
             },
             {
-              "text": "展开会把速度图的动量线拉直。",
+              "text": "展开会改变质量比。",
               "correct": false
             }
           ],
@@ -4413,7 +5231,15 @@
           "figure_refs": [
             "cp-c-wedge-unfold-mirror"
           ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "physics_claim",
+            "expected_option_texts": [
+              "展开后的直射线对应折叠视图中的连续反射。",
+              "穿过副本边界的顺序保留原接触顺序。"
+            ],
+            "basis": "镜面展开复制并翻转空间区域，使原先的反射规律由一条直射线连续表示。"
+          }
         }
       ]
     }
@@ -4476,7 +5302,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "大物块静止，小物块向左3 m/s。"
+        ],
+        "basis": "有序数对的vM分量对应横轴、vm分量对应纵轴；0表示静止，负号表示向左。"
+      }
     },
     {
       "key": "c1-2-concise-05",
@@ -4487,8 +5320,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "state_geometry",
       "curriculum_scope": "core",
-      "explanation": "第四象限满足vM>0、vm<0，因此两个物块方向相反。 这里特别核对的是正负号与方向的对应。",
-      "prompt": "一个状态点在第四象限，横轴为vM、纵轴为vm，向右取正。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦正负号与方向的对应；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "第四象限满足vM>0、vm<0，因此两个物块方向相反。",
+      "prompt": "一个状态点在第四象限，横轴为vM、纵轴为vm，向右取正。 请用题设的坐标和物理约束判断最合理的结论。 把两个分量分别译成方向词，再判断物块运动方向。",
       "options": [
         {
           "text": "大物块向右，小物块向左。",
@@ -4507,7 +5340,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "大物块向右，小物块向左。"
+        ],
+        "basis": "第四象限满足vM>0、vm<0，因此两个物块方向相反。"
+      }
     },
     {
       "key": "c1-2-concise-06",
@@ -4518,8 +5358,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "state_geometry",
       "curriculum_scope": "core",
-      "explanation": "纵轴上的点有vM=0；纵轴正半轴表示vm>0。 这里特别核对的是正负号与方向的对应。",
-      "prompt": "状态点落在纵轴正半轴上，读数为vm=+2 m/s。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 本题额外聚焦正负号与方向的对应；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "纵轴上的点有vM=0；纵轴正半轴表示vm>0。",
+      "prompt": "状态点落在纵轴正半轴上，读数为vm=+2 m/s。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 把两个分量分别译成方向词，再判断物块运动方向。",
       "options": [
         {
           "text": "大物块向右2 m/s，小物块静止。",
@@ -4538,7 +5378,14 @@
           "correct": true
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "大物块速度为0，小物块向右2 m/s。"
+        ],
+        "basis": "纵轴上的点有vM=0；纵轴正半轴表示vm>0。"
+      }
     },
     {
       "key": "c1-3-concise-04",
@@ -4549,8 +5396,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "state_geometry",
       "curriculum_scope": "core",
-      "explanation": "两个坐标都是速度分量；点间连线只是状态更新的可视化，不是位置轨迹。 这里特别核对的是状态点和空间轨迹的边界。",
-      "prompt": "速度相图中的点从(-1,0)更新到(-0.6,-1.6)。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦状态点和空间轨迹的边界；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "两个坐标都是速度分量；点间连线只是状态更新的可视化，不是位置轨迹。",
+      "prompt": "速度相图中的点从(-1,0)更新到(-0.6,-1.6)。 在这个明确的速度/几何条件下，哪个判读准确？ 把有序速度状态与真实空间中的位置轨迹分开描述。",
       "options": [
         {
           "text": "相图横轴就是墙到物块的距离。",
@@ -4569,7 +5416,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "这表示一对速度改变，不表示物块在真实轨道上画出了一段折线。"
+        ],
+        "basis": "两个坐标都是速度分量；点间连线只是状态更新的可视化，不是位置轨迹。"
+      }
     },
     {
       "key": "c1-3-concise-05",
@@ -4580,8 +5434,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "state_geometry",
       "curriculum_scope": "core",
-      "explanation": "坐标轴已经限定为速度坐标，所以箭头连接的是状态点。 这里特别核对的是状态点和空间轨迹的边界。",
-      "prompt": "同一幅图的横纵轴标为vM和vm，两个点用箭头连接。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦状态点和空间轨迹的边界；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "坐标轴已经限定为速度坐标，所以箭头连接的是状态点。",
+      "prompt": "同一幅图的横纵轴标为vM和vm，两个点用箭头连接。 请用题设的坐标和物理约束判断最合理的结论。 把有序速度状态与真实空间中的位置轨迹分开描述。",
       "options": [
         {
           "text": "箭头可用来表示速度状态的先后，不给出物块在空间中的路程。",
@@ -4600,7 +5454,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "箭头可用来表示速度状态的先后，不给出物块在空间中的路程。"
+        ],
+        "basis": "坐标轴已经限定为速度坐标，所以箭头连接的是状态点。"
+      }
     },
     {
       "key": "c1-4-calculation-02",
@@ -4611,7 +5472,7 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "core",
-      "prompt": "在速度相图坐标中横轴为vM、纵轴为vm，已知(vM,vm)=(0.5,-1.5) m/s。填写横坐标x和纵坐标y的数值。",
+      "prompt": "在速度相图坐标中横轴为vM、纵轴为vm，已知(vM,vm)=(0.5,-1.5) m/s。填写横坐标x和纵坐标y的数值。 图序固定展示：初态、速度轴判读、状态与位置轨迹的边界。请按数组顺序阅读，不按文件名排序。",
       "blanks": [
         {
           "id": "x",
@@ -4631,10 +5492,10 @@
       "presentation_mode": "figure_sequence",
       "figure_refs": [
         "cp-c-velocity-plane-initial",
-        "cp-c-velocity-plane-terminal",
-        "cp-c-velocity-plane-quadrants"
+        "cp-c-velocity-plane-quadrants",
+        "cp-c-velocity-plane-state-vs-path"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "初态、速度轴判读、状态与位置轨迹的边界"
     },
     {
       "key": "c1-4-concise-04",
@@ -4645,8 +5506,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "state_geometry",
       "curriculum_scope": "core",
-      "explanation": "vM=-V<0而vm=0，分别对应大物块左行和小物块静止。 这里特别核对的是初态与终态不等式。",
-      "prompt": "典型链的初态标为(-V,0)，其中V>0，向右取正。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦初态与终态不等式；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "vM=-V<0而vm=0，分别对应大物块左行和小物块静止。",
+      "prompt": "典型链的初态标为(-V,0)，其中V>0，向右取正。 在这个明确的速度/几何条件下，哪个判读准确？ 先把初态的两个速度分量写出，再检查终态不等式。",
       "options": [
         {
           "text": "初态点是轨道上的墙。",
@@ -4665,7 +5526,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "它表示大物块向左运动，小物块静止。"
+        ],
+        "basis": "vM=-V<0而vm=0，分别对应大物块左行和小物块静止。"
+      }
     },
     {
       "key": "c2-1-calculation-03",
@@ -4724,7 +5592,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "速度状态应满足4vM^2+vm^2=4。"
+        ],
+        "basis": "把M、m、2E代入MvM^2+mvm^2=2E即可得到4vM^2+vm^2=4。"
+      }
     },
     {
       "key": "c2-2-calculation-04",
@@ -4763,8 +5638,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "energy",
       "curriculum_scope": "core",
-      "explanation": "vM半轴为sqrt(2E/M)，只随M增大而减小；vm半轴不含M。 这里特别核对的是质量系数和半轴的比较。",
-      "prompt": "将质量比由M/m=4增至16，同时保持m和E不变。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦质量系数和半轴的比较；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "vM半轴为sqrt(2E/M)，只随M增大而减小；vm半轴不含M。",
+      "prompt": "将质量比由M/m=4增至16，同时保持m和E不变。 请用题设的坐标和物理约束判断最合理的结论。 比较半轴时分别保留M、m和E的依赖关系。",
       "options": [
         {
           "text": "vM方向半轴会缩小，vm方向半轴保持由m和E决定的值。",
@@ -4783,7 +5658,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "vM方向半轴会缩小，vm方向半轴保持由m和E决定的值。"
+        ],
+        "basis": "vM半轴为sqrt(2E/M)，只随M增大而减小；vm半轴不含M。"
+      }
     },
     {
       "key": "c2-3-calculation-05",
@@ -4822,8 +5704,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "energy",
       "curriculum_scope": "core",
-      "explanation": "能量椭圆约束MvM^2+mvm^2，动量还需要独立的一次约束。 这里特别核对的是同能量与同动量的区别。",
-      "prompt": "两个速度点落在同一能量椭圆但不在同一动量直线。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦同能量与同动量的区别；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "能量椭圆约束MvM^2+mvm^2，动量还需要独立的一次约束。",
+      "prompt": "两个速度点落在同一能量椭圆但不在同一动量直线。 请用题设的坐标和物理约束判断最合理的结论。 对每个状态分别代入能量式和动量式，不能以一个守恒量替代另一个。",
       "options": [
         {
           "text": "它们可以有相同总动能而有不同总动量。",
@@ -4842,7 +5724,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "它们可以有相同总动能而有不同总动量。"
+        ],
+        "basis": "能量椭圆约束MvM^2+mvm^2，动量还需要独立的一次约束。"
+      }
     },
     {
       "key": "c3-1-calculation-06",
@@ -4907,7 +5796,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "质量加权坐标为(x,y)=(-4,4)。"
+        ],
+        "basis": "x=4×(-1)=-4，y=1×4=4。"
+      }
     },
     {
       "key": "c3-2-calculation-07",
@@ -4952,8 +5848,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "coordinate_transform",
       "curriculum_scope": "core",
-      "explanation": "质量乘法在平方后多出一因子M；正确系数必须是sqrt(M)。 这里特别核对的是平方根质量的必要性。",
-      "prompt": "尝试错误变换x=MvM、y=mvm。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦平方根质量的必要性；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "质量乘法在平方后多出一因子M；正确系数必须是sqrt(M)。",
+      "prompt": "尝试错误变换x=MvM、y=mvm。 请用题设的坐标和物理约束判断最合理的结论。 把变换后的坐标平方展开，核对每个质量系数。",
       "options": [
         {
           "text": "得到x^2=M^2vM^2，不能直接替换能量式中的MvM^2。",
@@ -4972,7 +5868,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "得到x^2=M^2vM^2，不能直接替换能量式中的MvM^2。"
+        ],
+        "basis": "质量乘法在平方后多出一因子M；正确系数必须是sqrt(M)。"
+      }
     },
     {
       "key": "c3-3-calculation-08",
@@ -5045,7 +5948,7 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "core",
-      "prompt": "质量加权速度图中总动能E=8 J。填写能量圆半径r及其平方r2。",
+      "prompt": "质量加权速度图中总动能E=8 J。填写能量圆半径r及其平方r2。 图序固定展示：从原始速度到质量加权圆的坐标缩放。请按数组顺序阅读，不按文件名排序。",
       "blanks": [
         {
           "id": "r",
@@ -5064,11 +5967,11 @@
       "explanation": "能量圆满足r^2=2E，所以r=4，r2=16。",
       "presentation_mode": "figure_sequence",
       "figure_refs": [
-        "cp-c-scale-pair-error-check",
         "cp-c-scale-pair-equal-mass",
-        "cp-c-scale-pair-ratio-4"
+        "cp-c-scale-pair-ratio-4",
+        "cp-c-scale-pair-ratio-16"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "从原始速度到质量加权圆的坐标缩放"
     },
     {
       "key": "c3-4-concise-03",
@@ -5099,7 +6002,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "要恢复物理速度，应分别除以sqrt(M)、sqrt(m)。"
+        ],
+        "basis": "逆变换为vM=x/sqrt(M)、vm=y/sqrt(m)，保留一一对应。"
+      }
     },
     {
       "key": "c3-5-concise-02",
@@ -5111,7 +6021,7 @@
       "variant_axis": "coordinate_transform",
       "curriculum_scope": "core",
       "explanation": "M>0、m>0使sqrt(M)、sqrt(m)为实数，变换可逆。",
-      "prompt": "二维例中M、m都为正。 请用题设的坐标和物理约束判断最合理的结论。",
+      "prompt": "二维例中M、m都为正。 请用题设的坐标和物理约束判断最合理的结论。 图序固定展示：从原始速度到质量加权圆的坐标缩放。请按数组顺序阅读，不按文件名排序。",
       "options": [
         {
           "text": "质量为正会让动量直线消失。",
@@ -5132,11 +6042,18 @@
       ],
       "presentation_mode": "figure_sequence",
       "figure_refs": [
-        "cp-c-scale-pair-ratio-16",
         "cp-c-scale-pair-equal-mass",
-        "cp-c-scale-pair-ratio-4"
+        "cp-c-scale-pair-ratio-4",
+        "cp-c-scale-pair-ratio-16"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "从原始速度到质量加权圆的坐标缩放",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "正的质量系数允许用实数平方根进行坐标标准化。"
+        ],
+        "basis": "M>0、m>0使sqrt(M)、sqrt(m)为实数，变换可逆。"
+      }
     },
     {
       "key": "c3-5-concise-03",
@@ -5167,7 +6084,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "z的欧氏长度平方x^2+y^2对应原速度的质量加权二次和。"
+        ],
+        "basis": "x^2+y^2=MvM^2+mvm^2，正是两倍总动能。"
+      }
     },
     {
       "key": "c4-1-calculation-11",
@@ -5226,7 +6150,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "该状态总动量P=2×(-2)+1×0=-4。"
+        ],
+        "basis": "用sqrt(M)x+sqrt(m)y=2x+y计算，得到P=-4。"
+      }
     },
     {
       "key": "c4-2-calculation-12",
@@ -5265,8 +6196,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "momentum",
       "curriculum_scope": "core",
-      "explanation": "sqrt(M/m)=sqrt(4)=2，因此斜率为-2。 这里特别核对的是斜率的质量比来源。",
-      "prompt": "质量比M/m=4。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦斜率的质量比来源；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "sqrt(M/m)=sqrt(4)=2，因此斜率为-2。",
+      "prompt": "质量比M/m=4。 请用题设的坐标和物理约束判断最合理的结论。 把直线改写为y对x的形式后再读取斜率。",
       "options": [
         {
           "text": "动量直线斜率为-2。",
@@ -5285,7 +6216,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "动量直线斜率为-2。"
+        ],
+        "basis": "sqrt(M/m)=sqrt(4)=2，因此斜率为-2。"
+      }
     },
     {
       "key": "c4-3-calculation-13",
@@ -5296,7 +6234,7 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "core",
-      "prompt": "在质量加权速度坐标平面中，M=1、m=1、E=2 J、P=2。联立能量圆与动量线，按x从小到大填写两交点(x1,y1,x2,y2)。",
+      "prompt": "在质量加权速度坐标平面中，M=1、m=1、E=2 J、P=2。联立能量圆与动量线，按x从小到大填写两交点(x1,y1,x2,y2)。 图序固定展示：动量弦、平行动量线和两个交点的碰撞含义。请按数组顺序阅读，不按文件名排序。",
       "blanks": [
         {
           "id": "x1",
@@ -5327,11 +6265,11 @@
       "explanation": "将sqrt(M)x+sqrt(m)y=P代入x^2+y^2=2E后解二次方程，所以x1=0，y1=2，x2=2，y2=0。",
       "presentation_mode": "figure_sequence",
       "figure_refs": [
-        "cp-c-momentum-chord-parallel",
         "cp-c-momentum-chord-ratio-1",
-        "cp-c-momentum-chord-ratio-4"
+        "cp-c-momentum-chord-parallel",
+        "cp-c-momentum-chord-intersections"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "动量弦、平行动量线和两个交点的碰撞含义"
     },
     {
       "key": "c4-3-concise-05",
@@ -5342,8 +6280,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "momentum",
       "curriculum_scope": "core",
-      "explanation": "把式子写成y=P-2x即可直接比较斜率和截距。 这里特别核对的是平行直线的截距变化。",
-      "prompt": "两条直线都满足2x+y=P，但P分别为-4和+2。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦平行直线的截距变化；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "把式子写成y=P-2x即可直接比较斜率和截距。",
+      "prompt": "两条直线都满足2x+y=P，但P分别为-4和+2。 请用题设的坐标和物理约束判断最合理的结论。 同时比较斜率和截距，区分质量比与总动量的作用。",
       "options": [
         {
           "text": "它们斜率都为-2、截距不同。",
@@ -5362,7 +6300,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "它们斜率都为-2、截距不同。"
+        ],
+        "basis": "把式子写成y=P-2x即可直接比较斜率和截距。"
+      }
     },
     {
       "key": "c4-4-calculation-14",
@@ -5373,7 +6318,7 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "core",
-      "prompt": "在质量加权速度坐标平面中，M=4、m=1、E=2 J、P=2。联立能量圆与动量线，按x从小到大填写两交点(x1,y1,x2,y2)。",
+      "prompt": "在质量加权速度坐标平面中，M=4、m=1、E=2 J、P=2。联立能量圆与动量线，按x从小到大填写两交点(x1,y1,x2,y2)。 图序固定展示：动量弦、平行动量线和两个交点的碰撞含义。请按数组顺序阅读，不按文件名排序。",
       "blanks": [
         {
           "id": "x1",
@@ -5404,11 +6349,11 @@
       "explanation": "将sqrt(M)x+sqrt(m)y=P代入x^2+y^2=2E后解二次方程，所以x1=0，y1=2，x2=1.6，y2=-1.2。",
       "presentation_mode": "figure_sequence",
       "figure_refs": [
-        "cp-c-momentum-chord-intersections",
         "cp-c-momentum-chord-ratio-1",
-        "cp-c-momentum-chord-ratio-4"
+        "cp-c-momentum-chord-parallel",
+        "cp-c-momentum-chord-intersections"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "动量弦、平行动量线和两个交点的碰撞含义"
     },
     {
       "key": "c4-4-concise-05",
@@ -5419,8 +6364,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "momentum",
       "curriculum_scope": "core",
-      "explanation": "代入y=2-x得2x^2-4x=0，解为x=0、2并得到对应y。 这里特别核对的是圆线两个交点的物理含义。",
-      "prompt": "质量相等、x^2+y^2=4、x+y=2。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦圆线两个交点的物理含义；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "代入y=2-x得2x^2-4x=0，解为x=0、2并得到对应y。",
+      "prompt": "质量相等、x^2+y^2=4、x+y=2。 请用题设的坐标和物理约束判断最合理的结论。 把圆和直线共同满足的条件逐项代入两个交点。",
       "options": [
         {
           "text": "两交点是(2,0)和(0,2)。",
@@ -5439,7 +6384,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "两交点是(2,0)和(0,2)。"
+        ],
+        "basis": "代入y=2-x得2x^2-4x=0，解为x=0、2并得到对应y。"
+      }
     },
     {
       "key": "c5-1-calculation-15",
@@ -5498,7 +6450,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "碰撞后的点为(2,2)，即关于x轴反射。"
+        ],
+        "basis": "固定墙只反转vm，所以保持x并令y的符号反转。"
+      }
     },
     {
       "key": "c5-2-calculation-16",
@@ -5537,8 +6496,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "wall_reflection",
       "curriculum_scope": "core",
-      "explanation": "2^2+(-2)^2=2^2+2^2=8，半径没有改变。 这里特别核对的是反射前后的能量圆。",
-      "prompt": "反射前点(2,-2)位于半径sqrt(8)的能量圆上。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦反射前后的能量圆；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "2^2+(-2)^2=2^2+2^2=8，半径没有改变。",
+      "prompt": "反射前点(2,-2)位于半径sqrt(8)的能量圆上。 请用题设的坐标和物理约束判断最合理的结论。 反射前后分别计算平方和，不把动量守恒误加到墙反射上。",
       "options": [
         {
           "text": "反射后点(2,2)仍满足x^2+y^2=8。",
@@ -5557,7 +6516,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "反射后点(2,2)仍满足x^2+y^2=8。"
+        ],
+        "basis": "2^2+(-2)^2=2^2+2^2=8，半径没有改变。"
+      }
     },
     {
       "key": "c5-3-concise-05",
@@ -5568,8 +6534,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "wall_reflection",
       "curriculum_scope": "core",
-      "explanation": "弦跳编码物块碰撞，x轴反射编码撞墙；两类更新各自是一次事件。 这里特别核对的是弦跳和反射的交替。",
-      "prompt": "状态链交替出现“弦跳”和“x轴反射”。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦弦跳和反射的交替；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "弦跳编码物块碰撞，x轴反射编码撞墙；两类更新各自是一次事件。",
+      "prompt": "状态链交替出现“弦跳”和“x轴反射”。 请用题设的坐标和物理约束判断最合理的结论。 逐步标出弦跳与x轴反射各自代表的接触事件。",
       "options": [
         {
           "text": "每一个已核实的几何更新都对应一个真实的碰撞事件。",
@@ -5588,7 +6554,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "每一个已核实的几何更新都对应一个真实的碰撞事件。"
+        ],
+        "basis": "弦跳编码物块碰撞，x轴反射编码撞墙；两类更新各自是一次事件。"
+      }
     },
     {
       "key": "c5-3-concise-06",
@@ -5599,8 +6572,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "wall_reflection",
       "curriculum_scope": "core",
-      "explanation": "墙反射保持x^2+y^2，却通常改变sqrt(M)x+sqrt(m)y的值。 这里特别核对的是弦跳和反射的交替。",
-      "prompt": "反射后的点仍在能量圆上，但落在新的动量直线。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 本题额外聚焦弦跳和反射的交替；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "墙反射保持x^2+y^2，却通常改变sqrt(M)x+sqrt(m)y的值。",
+      "prompt": "反射后的点仍在能量圆上，但落在新的动量直线。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 逐步标出弦跳与x轴反射各自代表的接触事件。",
       "options": [
         {
           "text": "说明总动量和总动能都不变。",
@@ -5619,7 +6592,14 @@
           "correct": true
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "这是因为墙冲量改变P而能量保持不变。"
+        ],
+        "basis": "墙反射保持x^2+y^2，却通常改变sqrt(M)x+sqrt(m)y的值。"
+      }
     },
     {
       "key": "c6-1-calculation-17",
@@ -5630,7 +6610,7 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "core",
-      "prompt": "两物块质量M=4、m=1，初速度(vM,vm)=(-1,0)。按给定的2个物块碰撞/撞墙事件更新后，填写vM、vm和已发生事件数count。",
+      "prompt": "两物块质量M=4、m=1，初速度(vM,vm)=(-1,0)。事件按时间顺序为：物块碰撞、撞墙。每次物块碰撞用一维完全弹性碰撞公式，撞墙只令vm反号。填写最终vM、vm和已发生事件数count。",
       "blanks": [
         {
           "id": "vM",
@@ -5684,7 +6664,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "质量加权初始点是(-2,0)。"
+        ],
+        "basis": "x=sqrt(4)×(-1)=-2，y=sqrt(1)×0=0。"
+      }
     },
     {
       "key": "c6-2-calculation-18",
@@ -5695,7 +6682,7 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "core",
-      "prompt": "两物块质量M=4、m=1，初速度(vM,vm)=(-1,0)。按给定的6个物块碰撞/撞墙事件更新后，填写vM、vm和已发生事件数count。",
+      "prompt": "两物块质量M=4、m=1，初速度(vM,vm)=(-1,0)。事件按时间顺序为：物块碰撞、撞墙、物块碰撞、撞墙、物块碰撞、撞墙。每次物块碰撞用一维完全弹性碰撞公式，撞墙只令vm反号。填写最终vM、vm和已发生事件数count。",
       "blanks": [
         {
           "id": "vM",
@@ -5757,8 +6744,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "event_sequence",
       "curriculum_scope": "core",
-      "explanation": "y到-y正是vm到-vm；这是固定墙弹性碰撞的速度更新。 这里特别核对的是几何更新和物理计数的映射。",
-      "prompt": "一次x轴反射已对应小物块撞固定墙。 请用题设的坐标和物理约束判断最合理的结论。 本题额外聚焦几何更新和物理计数的映射；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "y到-y正是vm到-vm；这是固定墙弹性碰撞的速度更新。",
+      "prompt": "一次x轴反射已对应小物块撞固定墙。 请用题设的坐标和物理约束判断最合理的结论。 只有已经对应真实接触的几何更新才能计入碰撞数。",
       "options": [
         {
           "text": "这一次反射应计为一次墙碰撞。",
@@ -5777,7 +6764,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "这一次反射应计为一次墙碰撞。"
+        ],
+        "basis": "y到-y正是vm到-vm；这是固定墙弹性碰撞的速度更新。"
+      }
     },
     {
       "key": "c6-4-concise-06",
@@ -5788,8 +6782,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "event_sequence",
       "curriculum_scope": "core",
-      "explanation": "计数前提是每次更新均已建立物理对应；4+3=7个碰撞事件。 这里特别核对的是几何更新和物理计数的映射。",
-      "prompt": "几何路径含4次弦跳和3次x轴反射，且每次都已核实为事件。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 本题额外聚焦几何更新和物理计数的映射；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "计数前提是每次更新均已建立物理对应；4+3=7个碰撞事件。",
+      "prompt": "几何路径含4次弦跳和3次x轴反射，且每次都已核实为事件。 下列解释中，哪一项没有混淆坐标表示与物理对象？ 只有已经对应真实接触的几何更新才能计入碰撞数。",
       "options": [
         {
           "text": "总数应为4，因为只数弦。",
@@ -5808,7 +6802,14 @@
           "correct": true
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "物理碰撞总数应为7。"
+        ],
+        "basis": "计数前提是每次更新均已建立物理对应；4+3=7个碰撞事件。"
+      }
     },
     {
       "key": "c7-1-calculation-20",
@@ -5819,7 +6820,7 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "core",
-      "prompt": "等角模型中M=4、m=1，theta=arctan(sqrt(m/M))。填写theta和一次状态更新圆心角step=2theta（弧度）。",
+      "prompt": "等角模型中M=4、m=1，theta=arctan(sqrt(m/M))。填写theta和一次状态更新圆心角step=2theta（弧度）。 图序固定展示：弦方向、2theta步长和圆弧计数。请按数组顺序阅读，不按文件名排序。",
       "blanks": [
         {
           "id": "theta",
@@ -5838,11 +6839,11 @@
       "explanation": "theta=arctan(sqrt(m/M))，一次更新为2theta，所以theta=0.463647609，step=0.927295218。",
       "presentation_mode": "figure_sequence",
       "figure_refs": [
-        "cp-c-equal-angle-step",
         "cp-c-equal-angle-chord",
+        "cp-c-equal-angle-step",
         "cp-c-equal-angle-count"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "弦方向、2theta步长和圆弧计数"
     },
     {
       "key": "c7-1-concise-05",
@@ -5873,7 +6874,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "theta变小，因为sqrt(m/M)从1/2变为1/4。"
+        ],
+        "basis": "arctan在正数范围单调；质量比增大使sqrt(m/M)减小。"
+      }
     },
     {
       "key": "c7-2-calculation-21",
@@ -5884,7 +6892,7 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "core",
-      "prompt": "等角模型中M=16、m=1，theta=arctan(sqrt(m/M))。填写theta和一次状态更新圆心角step=2theta（弧度）。",
+      "prompt": "等角模型中M=16、m=1，theta=arctan(sqrt(m/M))。填写theta和一次状态更新圆心角step=2theta（弧度）。 图序固定展示：弦方向、2theta步长和圆弧计数。请按数组顺序阅读，不按文件名排序。",
       "blanks": [
         {
           "id": "theta",
@@ -5907,7 +6915,7 @@
         "cp-c-equal-angle-step",
         "cp-c-equal-angle-count"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "弦方向、2theta步长和圆弧计数"
     },
     {
       "key": "c7-2-concise-05",
@@ -5918,27 +6926,34 @@
       "event_stage": "state_analysis",
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
-      "explanation": "弦属于速度状态图；圆周角是几何量，物理距离不在该坐标中。 这里特别核对的是平行弦的等角关系。",
-      "prompt": "同一能量圆上两段平行弦的方向不变。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。 本题额外聚焦平行弦的等角关系；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "平行弦方向相同，所以弦方向角alpha相同；圆周角和圆心角按顶点位置定义，均不是物块间距离。",
+      "prompt": "在质量加权速度坐标中，同一能量圆上两段动量弦彼此平行。把弦相对+x轴的夹角称为弦方向角alpha；圆周角的顶点在圆周上，圆心角的顶点在圆心。哪一项判读正确？",
       "options": [
         {
-          "text": "应比较它们所对的圆周角，而不是把弦长当作物块间距离。",
+          "text": "两段平行弦有相同的弦方向角alpha；它不等同于圆周角。",
           "correct": true
         },
         {
-          "text": "弦长就是两物块实时距离。",
+          "text": "弦方向角alpha就是圆周角。",
           "correct": false
         },
         {
-          "text": "圆周角等于theta且无需定义。",
+          "text": "圆心角的顶点在圆周上。",
           "correct": false
         },
         {
-          "text": "只要弦平行就不需要能量圆。",
+          "text": "弦长就是两物块的实时距离。",
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "两段平行弦有相同的弦方向角alpha；它不等同于圆周角。"
+        ],
+        "basis": "平行弦方向相同，所以弦方向角alpha相同；圆周角和圆心角按顶点位置定义，均不是物块间距离。"
+      }
     },
     {
       "key": "c7-3-calculation-22",
@@ -5983,8 +6998,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
-      "explanation": "先由theta=arctan(1/2)求基础角，再计算2theta。 这里特别核对的是一次更新的2theta圆心角。",
-      "prompt": "M/m=4，theta约0.464 rad。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。 本题额外聚焦一次更新的2theta圆心角；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "先由theta=arctan(1/2)求基础角，再计算2theta。",
+      "prompt": "M/m=4，theta约0.464 rad。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。 先写基础角theta，再把一次更新写成2theta。",
       "options": [
         {
           "text": "一次状态更新的圆心角2theta约0.927 rad。",
@@ -6003,7 +7018,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "一次状态更新的圆心角2theta约0.927 rad。"
+        ],
+        "basis": "先由theta=arctan(1/2)求基础角，再计算2theta。"
+      }
     },
     {
       "key": "c7-4-calculation-23",
@@ -6048,8 +7070,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
-      "explanation": "总角度除以每步角度给出步数尺度，严格端点另需不等式判断。 这里特别核对的是pi范围内的步数估计。",
-      "prompt": "一次更新圆心角为2theta，可用范围为pi。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。 本题额外聚焦pi范围内的步数估计；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "总角度除以每步角度给出步数尺度，严格端点另需不等式判断。",
+      "prompt": "一次更新圆心角为2theta，可用范围为pi。 请用题设的坐标和物理约束判断最合理的结论。 请明确区分theta与一次2theta圆心角。 用允许角度范围除以2theta估计整步数。",
       "options": [
         {
           "text": "粗略可比较pi/(2theta)来估计能容纳的完整更新数。",
@@ -6068,7 +7090,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "粗略可比较pi/(2theta)来估计能容纳的完整更新数。"
+        ],
+        "basis": "总角度除以每步角度给出步数尺度，严格端点另需不等式判断。"
+      }
     },
     {
       "key": "c8-1-concise-02",
@@ -6080,30 +7109,38 @@
       "variant_axis": "legend",
       "curriculum_scope": "core",
       "explanation": "sqrt(M)、sqrt(m)>0，不改变速度分量的正负号。",
-      "prompt": "质量加权速度图上点位于x>0、y<0。 请用题设的坐标和物理约束判断最合理的结论。",
+      "prompt": "质量加权速度图上点位于x>0、y<0。 请用题设的坐标和物理约束判断最合理的结论。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。 请选择两项正确判读。",
       "options": [
         {
-          "text": "可判断两物块都向右。",
-          "correct": false
-        },
-        {
-          "text": "可判断两物块的空间位置一正一负。",
-          "correct": false
-        },
-        {
-          "text": "可判断vM>0、vm<0，因为质量平方根为正。",
+          "text": "x>0、y<0对应vM>0、vm<0。",
           "correct": true
         },
         {
-          "text": "图例元素的含义取决于已声明的坐标体系。",
+          "text": "正的sqrt(M)、sqrt(m)不改变速度分量正负号。",
           "correct": true
+        },
+        {
+          "text": "它对应两物块速度都为0。",
+          "correct": false
+        },
+        {
+          "text": "它必是发生碰撞的位置。",
+          "correct": false
         }
       ],
       "presentation_mode": "stem_figure",
       "figure_refs": [
         "cp-c-element-legend-overview"
       ],
-      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "x>0、y<0对应vM>0、vm<0。",
+          "正的sqrt(M)、sqrt(m)不改变速度分量正负号。"
+        ],
+        "basis": "sqrt(M)、sqrt(m)>0，不改变速度分量的正负号。"
+      }
     },
     {
       "key": "c8-1-concise-03",
@@ -6138,7 +7175,14 @@
       "figure_refs": [
         "cp-c-element-legend-overview"
       ],
-      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "它对应两物块速度都为0的速度状态。"
+        ],
+        "basis": "x=y=0反推vM=vm=0；这是速度平面的原点。"
+      }
     },
     {
       "key": "c8-1-concise-04",
@@ -6169,7 +7213,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "一个状态点编码两物块的加权速度，而不是两物块的空间位置。"
+        ],
+        "basis": "x、y由带符号速度计算，点是同一时刻速度对的图像。"
+      }
     },
     {
       "key": "c8-2-concise-02",
@@ -6204,7 +7255,14 @@
       "figure_refs": [
         "cp-c-element-legend-overview"
       ],
-      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "它表示总动量固定的状态集合。"
+        ],
+        "basis": "直线来自P=MvM+mvm的线性约束，和能量圆承担不同角色。"
+      }
     },
     {
       "key": "c8-2-concise-03",
@@ -6235,7 +7293,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "弦端点对应物块碰撞前后状态，反射箭头对应小物块撞墙。"
+        ],
+        "basis": "物块碰撞同时守恒E、P而连接两个交点；墙反射执行y到-y。"
+      }
     },
     {
       "key": "c8-2-concise-04",
@@ -6246,8 +7311,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "质量加权后平方和等于2E，所以同一圆上的点共享总动能。 这里特别核对的是圆、弦与反射的分工。",
-      "prompt": "质量加权速度坐标图例中的圆标注x^2+y^2=2E。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦圆、弦与反射的分工；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "质量加权后平方和等于2E，所以同一圆上的点共享总动能。",
+      "prompt": "质量加权速度坐标图例中的圆标注x^2+y^2=2E。 在这个明确的速度/几何条件下，哪个判读准确？ 先确认图例采用质量加权速度坐标，再解释圆、弦和反射。",
       "options": [
         {
           "text": "圆的弧长就是碰撞间时间。",
@@ -6266,7 +7331,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "圆表示总动能固定的状态集合。"
+        ],
+        "basis": "质量加权后平方和等于2E，所以同一圆上的点共享总动能。"
+      }
     },
     {
       "key": "c8-3-concise-01",
@@ -6301,7 +7373,14 @@
       "figure_refs": [
         "cp-c-element-legend-overview"
       ],
-      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "theta由质量比定义，2theta才是一次状态更新的圆心角。"
+        ],
+        "basis": "theta=arctan(sqrt(m/M))，模型把每次更新关联到2theta。"
+      }
     },
     {
       "key": "c8-3-concise-02",
@@ -6313,7 +7392,7 @@
       "variant_axis": "legend",
       "curriculum_scope": "core",
       "explanation": "几何弧段只是状态序列的计数装置；物理对应已由事件类型确认。",
-      "prompt": "图例把连续等长角步标在能量圆弧上。 请用题设的坐标和物理约束判断最合理的结论。",
+      "prompt": "图例把连续等长角步标在能量圆弧上。 请用题设的坐标和物理约束判断最合理的结论。 图序固定展示：缩放、动量交点和墙反射的图例整合。请按数组顺序阅读，不按文件名排序。",
       "options": [
         {
           "text": "每段弧都等于一次真实路程。",
@@ -6334,11 +7413,18 @@
       ],
       "presentation_mode": "figure_sequence",
       "figure_refs": [
-        "cp-c-element-legend-overview",
+        "cp-c-scale-pair-ratio-4",
         "cp-c-momentum-chord-intersections",
         "cp-c-wall-reflection-basic"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "缩放、动量交点和墙反射的图例整合",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "每段标注2theta的弧对应一次已核实的状态更新。"
+        ],
+        "basis": "几何弧段只是状态序列的计数装置；物理对应已由事件类型确认。"
+      }
     },
     {
       "key": "c8-3-concise-03",
@@ -6369,7 +7455,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "把每个2theta步对应一次事件后，角度范围可用于统计碰撞数。"
+        ],
+        "basis": "角度法依赖“几何更新—物理事件”的一一对应，再用固定步长累加。"
+      }
     },
     {
       "key": "c8-3-concise-04",
@@ -6380,8 +7473,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "theta=arctan(sqrt(m/M))，模型把每次更新关联到2theta。 这里特别核对的是theta、2theta和计数。",
-      "prompt": "图例区分基础角theta与一次更新圆心角2theta。 在这个明确的速度/几何条件下，哪个判读准确？ 本题额外聚焦theta、2theta和计数；复核时先写出题设中的关键量，再判断它的物理含义。",
+      "explanation": "theta=arctan(sqrt(m/M))，模型把每次更新关联到2theta。",
+      "prompt": "图例区分基础角theta与一次更新圆心角2theta。 在这个明确的速度/几何条件下，哪个判读准确？ 把theta、2theta和事件计数逐一对应。",
       "options": [
         {
           "text": "theta表示物块的空间转弯。",
@@ -6400,7 +7493,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "theta由质量比定义，2theta才是一次状态更新的圆心角。"
+        ],
+        "basis": "theta=arctan(sqrt(m/M))，模型把每次更新关联到2theta。"
+      }
     },
     {
       "key": "c9-2-concise-01",
@@ -6411,17 +7511,9 @@
       "event_stage": "state_analysis",
       "variant_axis": "elective_method",
       "curriculum_scope": "elective",
-      "explanation": "平方根质量缩放改变的是位置坐标刻度，使碰撞边界的反射几何标准化。",
-      "prompt": "选修法把位置qM,qm分别乘sqrt(M)、sqrt(m)得到质量加权位置坐标。 在这个明确的速度/几何条件下，哪个判读准确？ 本题使用质量加权位置坐标的选修表述。",
+      "explanation": "代入定义得Q=(sqrt(9)×2,sqrt(1)×2)=(6,2)。这里的Q是质量加权位置坐标，不是速度坐标。",
+      "prompt": "选修法定义质量加权位置Q=(sqrt(M)qM,sqrt(m)qm)。现有M=9 kg、m=1 kg，且原位置(qM,qm)=(2 m,2 m)。以下两项同时正确的是哪两项？",
       "options": [
-        {
-          "text": "可写为(12,2)。",
-          "correct": false
-        },
-        {
-          "text": "可写为(3,2)。",
-          "correct": false
-        },
         {
           "text": "加权位置坐标可写为(6,2)。",
           "correct": true
@@ -6429,13 +7521,29 @@
         {
           "text": "该选修方法的坐标是质量加权位置而非速度。",
           "correct": true
+        },
+        {
+          "text": "可写为(12,2)。",
+          "correct": false
+        },
+        {
+          "text": "可写为(3,2)。",
+          "correct": false
         }
       ],
       "presentation_mode": "stem_figure",
       "figure_refs": [
         "cp-c-wedge-unfold-basic"
       ],
-      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "加权位置坐标可写为(6,2)。",
+          "该选修方法的坐标是质量加权位置而非速度。"
+        ],
+        "basis": "代入定义得Q=(sqrt(9)×2,sqrt(1)×2)=(6,2)。这里的Q是质量加权位置坐标，不是速度坐标。"
+      }
     },
     {
       "key": "c9-3-concise-01",
@@ -6466,7 +7574,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "两类边界穿越分别代表墙碰撞和物块碰撞。"
+        ],
+        "basis": "楔形由两种不可穿透约束生成，因此各边的接触物理意义不同。"
+      }
     },
     {
       "key": "c9-3-concise-02",
@@ -6497,7 +7612,14 @@
           "correct": true
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "应按顺序记录一次墙碰撞再记录一次物块碰撞。"
+        ],
+        "basis": "折叠轨迹每次到达哪条边界决定接触类型，时间顺序不能交换。"
+      }
     },
     {
       "key": "c9-4-concise-02",
@@ -6528,7 +7650,14 @@
           "correct": true
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "直线穿过副本边界的顺序保留原折叠视图的接触顺序。"
+        ],
+        "basis": "展开是几何重表达，不改写运动的时间顺序；边界标记承接原接触类型。"
+      }
     },
     {
       "key": "c9-5-concise-01",
@@ -6559,7 +7688,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "若每条穿越均对应一次折叠接触，应计为三次碰撞。"
+        ],
+        "basis": "展开边界是折叠接触边的副本；每一次穿越与一个原反射事件一一对应。"
+      }
     },
     {
       "key": "c9-5-concise-02",
@@ -6590,7 +7726,14 @@
           "correct": true
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "不能预先把未发生的穿越计入碰撞数。"
+        ],
+        "basis": "计数依据实际已穿越的带标记边界，未到达边界没有对应接触。"
+      }
     },
     {
       "key": "c9-6-calculation-24",
@@ -6647,7 +7790,14 @@
           "correct": false
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "theta=arctan(1/3)，约0.322 rad。"
+        ],
+        "basis": "sqrt(m/M)=sqrt(1/9)=1/3，按楔形角的定义求反正切。"
+      }
     },
     {
       "key": "c9-7-concise-01",
@@ -6659,7 +7809,7 @@
       "variant_axis": "elective_method",
       "curriculum_scope": "elective",
       "explanation": "两种模型变量不同，但计数都依赖“一个几何更新—一个物理事件”的明确映射。",
-      "prompt": "速度相空间法把事件编码为圆上的弦跳和反射，位置楔形法把事件编码为边界反射和展开穿越。 在这个明确的速度/几何条件下，哪个判读准确？ 本题使用质量加权位置坐标的选修表述。",
+      "prompt": "速度相空间法把事件编码为圆上的弦跳和反射，位置楔形法把事件编码为边界反射和展开穿越。 在这个明确的速度/几何条件下，哪个判读准确？ 本题使用质量加权位置坐标的选修表述。 图序固定展示：折叠楔形、镜面展开和边界穿越计数。请按数组顺序阅读，不按文件名排序。",
       "options": [
         {
           "text": "两法都要逐次核实几何更新对应真实碰撞，不能只凭图形相似就合并计数。",
@@ -6680,11 +7830,18 @@
       ],
       "presentation_mode": "figure_sequence",
       "figure_refs": [
-        "cp-c-wedge-unfold-count",
         "cp-c-wedge-unfold-basic",
-        "cp-c-wedge-unfold-mirror"
+        "cp-c-wedge-unfold-mirror",
+        "cp-c-wedge-unfold-count"
       ],
-      "diagram_focus": "按数组给出的事件或展开顺序阅读状态变化"
+      "diagram_focus": "折叠楔形、镜面展开和边界穿越计数",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "两法都要逐次核实几何更新对应真实碰撞，不能只凭图形相似就合并计数。"
+        ],
+        "basis": "两种模型变量不同，但计数都依赖“一个几何更新—一个物理事件”的明确映射。"
+      }
     },
     {
       "key": "c9-7-concise-02",
@@ -6715,7 +7872,14 @@
           "correct": true
         }
       ],
-      "presentation_mode": "text_only"
+      "presentation_mode": "text_only",
+      "answer_contract": {
+        "kind": "physics_claim",
+        "expected_option_texts": [
+          "共享的是质量加权后的角度结构，不是把同一张图改名。"
+        ],
+        "basis": "相同平方根质量比控制几何角；速度圆与位置楔形仍是不同的配置空间。"
+      }
     }
   ]
 }

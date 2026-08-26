@@ -1112,6 +1112,9 @@
         "explanation": {
           "type": "string",
           "minLength": 1
+        },
+        "answer_contract": {
+          "$ref": "#/$defs/answerContract"
         }
       },
       "allOf": [
@@ -1125,7 +1128,13 @@
           },
           "then": {
             "required": [
-              "options"
+              "options",
+              "answer_contract",
+              "answer_contract",
+              "answer_contract",
+              "answer_contract",
+              "answer_contract",
+              "answer_contract"
             ],
             "not": {
               "required": [
@@ -1157,7 +1166,13 @@
           },
           "then": {
             "required": [
-              "options"
+              "options",
+              "answer_contract",
+              "answer_contract",
+              "answer_contract",
+              "answer_contract",
+              "answer_contract",
+              "answer_contract"
             ],
             "not": {
               "required": [
@@ -2020,6 +2035,72 @@
           "exclusiveMinimum": 0
         }
       }
+    },
+    "answerContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "expected_option_texts",
+        "basis"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "physics_claim",
+            "figure_caption"
+          ]
+        },
+        "expected_option_texts": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_figure_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "figure_caption"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "target_figure_ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "physics_claim"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "target_figure_ref"
+              ]
+            }
+          }
+        }
+      ]
     }
   }
 }

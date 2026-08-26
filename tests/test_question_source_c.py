@@ -105,6 +105,30 @@ EXPECTED_FIXTURE_KINDS = Counter({
     "wedge_angle": 1,
 })
 
+EXPECTED_SEQUENCE_BY_STAGE = {
+    "C1": ["cp-c-velocity-plane-initial", "cp-c-velocity-plane-quadrants", "cp-c-velocity-plane-state-vs-path"],
+    "C2": ["cp-c-energy-ellipse-equal-mass", "cp-c-energy-ellipse-ratio-4", "cp-c-energy-ellipse-ratio-16"],
+    "C3": ["cp-c-scale-pair-equal-mass", "cp-c-scale-pair-ratio-4", "cp-c-scale-pair-ratio-16"],
+    "C4": ["cp-c-momentum-chord-ratio-1", "cp-c-momentum-chord-parallel", "cp-c-momentum-chord-intersections"],
+    "C5": ["cp-c-wall-reflection-basic", "cp-c-wall-reflection-axis-check", "cp-c-wall-reflection-radius"],
+    "C6": ["cp-c-state-chain-ratio-4", "cp-c-state-chain-terminal", "cp-c-safe-sector-boundary"],
+    "C7": ["cp-c-equal-angle-chord", "cp-c-equal-angle-step", "cp-c-equal-angle-count"],
+    "C8": ["cp-c-scale-pair-ratio-4", "cp-c-momentum-chord-intersections", "cp-c-wall-reflection-basic"],
+    "C9": ["cp-c-wedge-unfold-basic", "cp-c-wedge-unfold-mirror", "cp-c-wedge-unfold-count"],
+}
+
+SEQUENCE_EXPLANATIONS = {
+    "C1": "初态、速度轴判读、状态与位置轨迹的边界",
+    "C2": "质量比增大时能量椭圆半轴的比较",
+    "C3": "从原始速度到质量加权圆的坐标缩放",
+    "C4": "动量弦、平行动量线和两个交点的碰撞含义",
+    "C5": "墙反射、坐标分量检查和能量保持",
+    "C6": "早期状态链、终态和安全边界",
+    "C7": "弦方向、2theta步长和圆弧计数",
+    "C8": "缩放、动量交点和墙反射的图例整合",
+    "C9": "折叠楔形、镜面展开和边界穿越计数",
+}
+
 TITLE_TEMPLATES = ("关于“", "判断“", "下列哪项最符合“")
 DEPENDENT_REFERENCE = re.compile(
     r"(?:(?:上|前)(?:一)?(?:问|题)|(?:前面|刚才)(?:的)?(?:问|题)|"
@@ -127,6 +151,13 @@ FORBIDDEN_GRAPH_CONFUSION = (
     "圆上的颜色决定碰撞次数",
 )
 ANGLE_AMBIGUITY = re.compile(r"(?<!2)θ推进|间隔θ(?!与)|圆心角就是θ")
+
+
+def normalize_semantic_prompt(text):
+    text = re.sub(r"本题额外聚焦.*$", "", text)
+    text = re.sub(r"(?:请先|请把|作答前|复核时).*$", "", text)
+    text = re.sub(r"[0-9+\-./=]+", "#", text)
+    return re.sub(r"[，。；：、？（）()\s]", "", text)
 
 
 def validate_source_with_pwsh(source):
@@ -234,6 +265,147 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         _, _, scenario_questions, standalone, _, _ = self.load_source()
         prompts = [question.get("ask", question.get("prompt")) for question in scenario_questions + standalone]
         self.assertEqual(len(prompts), len(set(prompts)))
+
+    def test_normalized_prompts_are_substantively_distinct(self):
+        """A stock suffix must not turn one semantic question into two quota entries."""
+        self.assertEqual(
+            normalize_semantic_prompt("能量E=2时，比较x^2+y^2。"),
+            normalize_semantic_prompt("能量E=8时，比较x^2+y^2。"),
+        )
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        by_node = {}
+        for question in scenario_questions + standalone:
+            text = question.get("ask", question.get("prompt"))
+            self.assertNotIn("本题额外聚焦", text, question["key"])
+            normalized = normalize_semantic_prompt(text)
+            self.assertNotIn((question["node_id"], normalized), by_node, question["key"])
+            by_node[(question["node_id"], normalized)] = question["key"]
+
+    def test_choice_answers_have_auditable_contract_for_every_record(self):
+        """Flipping a keyed choice must disagree with its reviewed answer contract."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        choices = [question for question in scenario_questions + standalone if "options" in question]
+        self.assertEqual(len(choices), 156)
+        for question in choices:
+            contract = question["answer_contract"]
+            correct_texts = [option["text"] for option in question["options"] if option["correct"]]
+            self.assertEqual(correct_texts, contract["expected_option_texts"], question["key"])
+            self.assertTrue(contract["basis"].strip(), question["key"])
+            if contract["kind"] == "figure_caption":
+                expected_ref = contract["target_figure_ref"]
+                self.assertEqual(
+                    [option["figure_ref"] for option in question["options"] if option["correct"]],
+                    [expected_ref],
+                    question["key"],
+                )
+            else:
+                self.assertEqual(contract["kind"], "physics_claim", question["key"])
+
+            for option_index in range(len(question["options"])):
+                mutation = copy.deepcopy(question)
+                mutation["options"][option_index]["correct"] = not mutation["options"][option_index]["correct"]
+                self.assertNotEqual(
+                    [option["text"] for option in mutation["options"] if option["correct"]],
+                    mutation["answer_contract"]["expected_option_texts"],
+                    f"answer contract did not detect a changed key: {question['key']} option {option_index}",
+                )
+
+    def test_option_figures_are_caption_unique_and_not_competing_physics_claims(self):
+        """A single-choice figure item must ask one uniquely keyed visual identification question."""
+        _, _, scenario_questions, standalone, _, diagram_by_id = self.load_source()
+        option_figures = [
+            question for question in scenario_questions + standalone
+            if question["presentation_mode"] == "option_figures"
+        ]
+        self.assertEqual(len(option_figures), 24)
+        for question in option_figures:
+            self.assertEqual(question["question_type"], "single_choice", question["key"])
+            contract = question["answer_contract"]
+            self.assertEqual(contract["kind"], "figure_caption", question["key"])
+            target = contract["target_figure_ref"]
+            self.assertIn(diagram_by_id[target]["caption"], question.get("ask", question.get("prompt")), question["key"])
+            for option in question["options"]:
+                self.assertEqual(option["text"], f"图注：“{diagram_by_id[option['figure_ref']]['caption']}”", question["key"])
+
+    def test_figure_sequences_follow_declared_derivations(self):
+        """A sequence is an ordered derivation, not an arbitrary list of valid diagram IDs."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        sequences = [
+            question for question in scenario_questions + standalone
+            if question["presentation_mode"] == "figure_sequence"
+        ]
+        self.assertEqual(len(sequences), 24)
+        for question in sequences:
+            stage = question["node_id"].split(".")[0]
+            self.assertEqual(question["figure_refs"], EXPECTED_SEQUENCE_BY_STAGE[stage], question["key"])
+            self.assertIn(SEQUENCE_EXPLANATIONS[stage], question["diagram_focus"], question["key"])
+
+    def test_calculation_prompts_list_each_state_chain_event(self):
+        """A chain calculation cannot require an event sequence that students cannot see."""
+        _, _, scenario_questions, standalone, fixtures, _ = self.load_source()
+        calculations = [question for question in scenario_questions + standalone if question["question_style"] == "calculation"]
+        for question in calculations:
+            fixture = fixtures[question["calculation_fixture_id"]]
+            prompt = question["prompt"]
+            if fixture["kind"] == "state_chain":
+                expected_order = "、".join(
+                    "物块碰撞" if event["kind"] == "block_collision" else "撞墙"
+                    for event in fixture["events"]
+                )
+                self.assertIn(expected_order, prompt, question["key"])
+            if fixture["kind"] == "wall_reflection":
+                self.assertIn(f"({fixture['x']},{fixture['y']})", prompt, question["key"])
+
+    def test_every_calculation_prompt_exposes_its_fixture_inputs(self):
+        """Students must see every datum used by the independent calculation oracle."""
+        _, _, scenario_questions, standalone, fixtures, _ = self.load_source()
+        calculations = [question for question in scenario_questions + standalone if question["question_style"] == "calculation"]
+        self.assertEqual(len(calculations), 24)
+        for question in calculations:
+            fixture = fixtures[question["calculation_fixture_id"]]
+            prompt = question["prompt"]
+            kind = fixture["kind"]
+            if kind == "state_coordinate":
+                expected_tokens = (str(fixture["v_large"]), str(fixture["v_small"]))
+            elif kind == "ellipse_axes":
+                expected_tokens = (str(fixture["mass_large"]), str(fixture["mass_small"]), str(fixture["energy"]))
+            elif kind == "weighted_transform":
+                expected_tokens = (str(fixture["mass_large"]), str(fixture["mass_small"]), str(fixture["v_large"]), str(fixture["v_small"]), str(fixture["energy"]))
+            elif kind == "energy_circle":
+                expected_tokens = (str(fixture["energy"]),)
+            elif kind == "momentum_line":
+                expected_tokens = (str(fixture["mass_large"]), str(fixture["mass_small"]), str(fixture["x"]), str(fixture["y"]))
+            elif kind == "line_circle_intersection":
+                expected_tokens = (str(fixture["mass_large"]), str(fixture["mass_small"]), str(fixture["energy"]), str(fixture["momentum"]))
+            elif kind == "wall_reflection":
+                expected_tokens = (str(fixture["x"]), str(fixture["y"]))
+            elif kind == "state_chain":
+                expected_tokens = (str(fixture["mass_large"]), str(fixture["mass_small"]), *(str(value) for value in fixture["initial_velocities"]))
+            elif kind == "terminal_sector":
+                expected_tokens = (str(fixture["mass_large"]), str(fixture["mass_small"]), str(fixture["x"]), str(fixture["y"]))
+            elif kind in {"equal_angle", "wedge_angle"}:
+                expected_tokens = (str(fixture["mass_large"]), str(fixture["mass_small"]))
+            elif kind == "angle_count":
+                expected_tokens = (str(fixture["mass_large"]), str(fixture["mass_small"]))
+                self.assertTrue(
+                    str(fixture["span"]) in prompt or (math.isclose(fixture["span"], math.pi) and "pi" in prompt),
+                    f"{question['key']} is missing its visible angular span",
+                )
+            else:
+                self.fail(f"unknown fixture kind: {kind}")
+            for token in expected_tokens:
+                self.assertIn(token, prompt, f"{question['key']} is missing fixture input {token}")
+
+    def test_c7_2_names_chord_direction_angle_and_distinguishes_angle_roles(self):
+        """Removing the chord-direction distinction must fail the C7.2 content contract."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        c7_2 = [question for question in scenario_questions + standalone if question["node_id"] == "C7.2"]
+        text = " ".join(
+            question.get("ask", question.get("prompt", "")) + " " + question["explanation"]
+            for question in c7_2
+        )
+        for term in ("弦方向角", "圆周角", "圆心角", "theta", "2theta"):
+            self.assertIn(term, text)
 
     def test_style_type_and_presentation_distributions(self):
         _, _, scenario_questions, standalone, _, _ = self.load_source()
