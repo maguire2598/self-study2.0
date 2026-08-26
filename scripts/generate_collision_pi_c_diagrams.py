@@ -18,7 +18,7 @@ OUTPUT_DIR = ROOT / "content" / "courses" / "collision-pi" / "diagrams" / "c"
 MANIFEST_PATH = ROOT / "content" / "courses" / "collision-pi" / "diagram-manifest-c.json"
 
 STYLE = """<style>
-.frame{fill:#fffdf8;stroke:#cbd5e1;stroke-width:1}.axis{stroke:#64748b;stroke-width:1.5}.grid{stroke:#e2e8f0;stroke-width:1}.energy{fill:none;stroke:#0f766e;stroke-width:3}.momentum{fill:none;stroke:#c2410c;stroke-width:2.5}.state{fill:#2563eb;stroke:#fff;stroke-width:1.5}.state-chain{fill:none;stroke:#2563eb;stroke-width:2.5}.reflection{fill:none;stroke:#7c3aed;stroke-width:2.5}.sector{fill:#bbf7d0;fill-opacity:.65;stroke:#15803d;stroke-width:2}.wedge{fill:#fef3c7;fill-opacity:.65;stroke:#b45309;stroke-width:2}.ray{fill:none;stroke:#db2777;stroke-width:2.5}.arrow{stroke-linecap:round}.angle{fill:none;stroke:#b45309;stroke-width:2}.label{fill:#1e293b;font-family:Arial,'Microsoft YaHei',sans-serif;font-size:14px}.small-label{fill:#475569;font-family:Arial,'Microsoft YaHei',sans-serif;font-size:12px}.event-block{fill:#eff6ff;stroke:#2563eb;stroke-width:1}.event-wall{fill:#f5f3ff;stroke:#7c3aed;stroke-width:1}
+.frame{fill:#fffdf8;stroke:#cbd5e1;stroke-width:1}.axis{stroke:#64748b;stroke-width:1.5}.grid{stroke:#e2e8f0;stroke-width:1}.energy{fill:none;stroke:#0f766e;stroke-width:3}.momentum{fill:none;stroke:#c2410c;stroke-width:2.5}.state{fill:#2563eb;stroke:#fff;stroke-width:1.5}.crossing{fill:#db2777}.state-chain{fill:none;stroke:#2563eb;stroke-width:2.5}.reflection{fill:none;stroke:#7c3aed;stroke-width:2.5}.sector{fill:#bbf7d0;fill-opacity:.65;stroke:#15803d;stroke-width:2}.wedge{fill:#fef3c7;fill-opacity:.65;stroke:#b45309;stroke-width:2}.ray{fill:none;stroke:#db2777;stroke-width:2.5}.arrow{stroke-linecap:round}.angle{fill:none;stroke:#b45309;stroke-width:2}.angle-label{fill:#b45309;font-family:Arial,'Microsoft YaHei',sans-serif;font-size:12px}.label{fill:#1e293b;font-family:Arial,'Microsoft YaHei',sans-serif;font-size:14px}.small-label{fill:#475569;font-family:Arial,'Microsoft YaHei',sans-serif;font-size:12px}.event-block{fill:#eff6ff;stroke:#2563eb;stroke-width:1}.event-wall{fill:#f5f3ff;stroke:#7c3aed;stroke-width:1}
 </style>"""
 
 
@@ -251,7 +251,7 @@ def render_safe_sector(diagram: dict) -> str:
 def render_equal_angle(diagram: dict) -> str:
     parameters, labels = diagram["parameters"], diagram["labels"]
     radius = math.sqrt(2 * parameters["energy"])
-    project, _, (cx, cy), _ = plotter([(-radius, -radius), (radius, radius)])
+    project, scale, (cx, cy), _ = plotter([(-radius, -radius), (radius, radius)])
     states = parameters["states"]
     projected = [project(state["x"], state["y"]) for state in states]
     body = axes(project, cx, cy, "x", "y") + circle_path(project, radius)
@@ -259,12 +259,22 @@ def render_equal_angle(diagram: dict) -> str:
         body += line(x1, y1, x2, y2, "momentum")
     for index, (x, y) in enumerate(projected, 1):
         body += dot(x, y) + text(x + 8, y - 8, f"S{index}", "small-label")
-    start_angle = math.atan2(states[0]["y"], states[0]["x"])
-    end_angle = math.atan2(states[1]["y"], states[1]["x"])
     arc_radius = radius * 0.28
-    sx, sy = project(arc_radius * math.cos(start_angle), arc_radius * math.sin(start_angle))
-    ex, ey = project(arc_radius * math.cos(end_angle), arc_radius * math.sin(end_angle))
-    body += path(f"M {number(sx)} {number(sy)} A {number(arc_radius * 15)} {number(arc_radius * 15)} 0 0 0 {number(ex)} {number(ey)}", "angle")
+    step_label = labels.get("step", "2θ")
+    for before, after in zip(states, states[1:]):
+        start_angle = math.atan2(before["y"], before["x"])
+        end_angle = math.atan2(after["y"], after["x"])
+        delta = (end_angle - start_angle) % (2 * math.pi)
+        sx, sy = project(arc_radius * math.cos(start_angle), arc_radius * math.sin(start_angle))
+        ex, ey = project(arc_radius * math.cos(end_angle), arc_radius * math.sin(end_angle))
+        body += path(
+            f"M {number(sx)} {number(sy)} A {number(arc_radius * scale)} {number(arc_radius * scale)} "
+            f"0 {int(delta > math.pi)} 0 {number(ex)} {number(ey)}",
+            "angle",
+        )
+        label_angle = start_angle + delta / 2
+        label_x, label_y = project(arc_radius * 1.35 * math.cos(label_angle), arc_radius * 1.35 * math.sin(label_angle))
+        body += text(label_x, label_y, step_label, "angle-label", "middle")
     if labels:
         body += text(330, 390, " · ".join(labels.values()), "label", "middle")
     return body
@@ -304,8 +314,12 @@ def render_wedge_unfold(diagram: dict) -> str:
     body += path(f"M {number(origin[0])} {number(origin[1])} L {number(lower[0])} {number(lower[1])} L {number(upper[0])} {number(upper[1])} Z", "wedge")
     body += line(*origin, *upper, "wedge") + line(*origin, *mirror, "wedge") + line(*origin, *ray, "ray", True)
     for index, crossing in enumerate(crossings, 1):
-        x, y = project(crossing["x"], crossing["y"])
-        body += dot(x, y) + text(x + 8, y - 8, str(index), "small-label")
+        # Crossings are declared in their folded wedge cells.  Their x-progress and
+        # ray_angle define one authoritative straight path in the unfolded plane.
+        unfolded_x = crossing["x"]
+        unfolded_y = unfolded_x * math.tan(ray_angle)
+        x, y = project(unfolded_x, unfolded_y)
+        body += dot(x, y, "state crossing") + text(x + 8, y - 8, str(index), "small-label")
     if labels:
         body += text(330, 390, next(iter(labels.values())), "label", "middle")
     return body

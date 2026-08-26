@@ -122,6 +122,57 @@ class CollisionPiCDiagramTests(unittest.TestCase):
                 }
                 self.assertTrue(required <= actual, (required, actual))
 
+    def test_unfolded_ray_contains_every_declared_crossing_marker(self):
+        """Plotting folded crossings away from the authoritative unfolded ray must fail."""
+        svgs, _ = build_diagrams(self.source)
+        for diagram in self.source["diagrams"]:
+            if diagram["template_kind"] != "wedge_unfold":
+                continue
+            with self.subTest(diagram_id=diagram["diagram_id"]):
+                root = ET.fromstring(svgs[diagram["diagram_id"]])
+                ray = next(
+                    element for element in root.iter()
+                    if "ray" in element.attrib.get("class", "").split()
+                )
+                markers = [
+                    element for element in root.iter()
+                    if "crossing" in element.attrib.get("class", "").split()
+                ]
+                self.assertEqual(len(markers), len(diagram["parameters"]["crossings"]))
+                x1, y1 = float(ray.attrib["x1"]), float(ray.attrib["y1"])
+                dx = float(ray.attrib["x2"]) - x1
+                dy = float(ray.attrib["y2"]) - y1
+                length_squared = dx * dx + dy * dy
+                positions = []
+                for marker in markers:
+                    mx, my = float(marker.attrib["cx"]), float(marker.attrib["cy"])
+                    distance_from_ray = abs((mx - x1) * dy - (my - y1) * dx) / length_squared ** 0.5
+                    self.assertLessEqual(distance_from_ray, 0.0001)
+                    positions.append(((mx - x1) * dx + (my - y1) * dy) / length_squared)
+                self.assertTrue(all(0.0 <= position <= 1.0 for position in positions))
+                self.assertEqual(positions, sorted(positions))
+
+    def test_each_equal_angle_interval_has_an_arc_and_marker_label(self):
+        """Rendering only the first equal-angle interval must fail this comparison contract."""
+        svgs, _ = build_diagrams(self.source)
+        for diagram in self.source["diagrams"]:
+            if diagram["template_kind"] != "equal_angle":
+                continue
+            with self.subTest(diagram_id=diagram["diagram_id"]):
+                root = ET.fromstring(svgs[diagram["diagram_id"]])
+                interval_count = len(diagram["parameters"]["states"]) - 1
+                angle_arcs = [
+                    element for element in root.iter()
+                    if "angle" in element.attrib.get("class", "").split()
+                ]
+                angle_labels = [
+                    element for element in root.iter()
+                    if "angle-label" in element.attrib.get("class", "").split()
+                ]
+                self.assertEqual(len(angle_arcs), interval_count)
+                self.assertEqual(len(angle_labels), interval_count)
+                self.assertTrue(all(element.text == diagram["labels"].get("step", "2θ") for element in angle_labels))
+
 
 if __name__ == "__main__":
     unittest.main()
