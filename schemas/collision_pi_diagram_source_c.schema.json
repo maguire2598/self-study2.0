@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "collision_pi_diagram_source_c.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["course_id", "section_id", "version", "source_catalog", "diagrams"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "course_id": {"const": "collision-pi"},
+    "section_id": {"const": "C"},
+    "version": {"const": "1.0.0"},
+    "source_catalog": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "diagrams": {
+      "type": "array",
+      "minItems": 36,
+      "maxItems": 36,
+      "items": {"$ref": "#/$defs/diagram"}
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "location"],
+      "properties": {
+        "id": {"enum": ["video-main", "openstax-ellipse", "openstax-angles", "openstax-unit-circle", "openstax-momentum", "openstax-elastic"]},
+        "location": {"type": "string", "minLength": 1}
+      }
+    },
+    "rawState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["v_large", "v_small"],
+      "properties": {
+        "v_large": {"type": "number"},
+        "v_small": {"type": "number"}
+      }
+    },
+    "weightedState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "v_large", "v_small", "x", "y"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0},
+        "mass_small": {"type": "number", "exclusiveMinimum": 0},
+        "v_large": {"type": "number"},
+        "v_small": {"type": "number"},
+        "x": {"type": "number"},
+        "y": {"type": "number"}
+      }
+    },
+    "momentumState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "v_large", "v_small", "x", "y", "momentum"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0},
+        "mass_small": {"type": "number", "exclusiveMinimum": 0},
+        "v_large": {"type": "number"},
+        "v_small": {"type": "number"},
+        "x": {"type": "number"},
+        "y": {"type": "number"},
+        "momentum": {"type": "number"}
+      }
+    },
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {"x": {"type": "number"}, "y": {"type": "number"}}
+    },
+    "diagram": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["diagram_id", "node_id", "template_kind", "coordinate_system", "parameters", "labels", "caption", "alt_text", "source_refs"],
+      "properties": {
+        "diagram_id": {"type": "string", "pattern": "^cp-c-[a-z0-9]+(?:-[a-z0-9]+)+$"},
+        "node_id": {"type": "string", "pattern": "^C[1-9](?:\\.[1-9])?$"},
+        "template_kind": {"enum": ["velocity_plane", "energy_ellipse", "scale_pair", "momentum_chord", "wall_reflection", "state_chain", "safe_sector", "equal_angle", "element_legend", "wedge_unfold"]},
+        "coordinate_system": {"enum": ["velocity_raw", "velocity_weighted", "position_weighted"]},
+        "parameters": {"type": "object"},
+        "labels": {"type": "object", "additionalProperties": {"type": "string"}},
+        "caption": {"type": "string", "minLength": 1},
+        "alt_text": {"type": "string", "minLength": 1},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"enum": ["video-main", "openstax-ellipse", "openstax-angles", "openstax-unit-circle", "openstax-momentum", "openstax-elastic"]}}
+      },
+      "allOf": [
+        {"if": {"properties": {"template_kind": {"const": "velocity_plane"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_raw"}, "parameters": {"$ref": "#/$defs/velocityPlaneParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "energy_ellipse"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_raw"}, "parameters": {"$ref": "#/$defs/energyEllipseParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "scale_pair"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_weighted"}, "parameters": {"$ref": "#/$defs/scalePairParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "momentum_chord"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_weighted"}, "parameters": {"$ref": "#/$defs/momentumChordParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "wall_reflection"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_weighted"}, "parameters": {"$ref": "#/$defs/wallReflectionParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "state_chain"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_weighted"}, "parameters": {"$ref": "#/$defs/stateChainParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "safe_sector"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_weighted"}, "parameters": {"$ref": "#/$defs/safeSectorParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "equal_angle"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_weighted"}, "parameters": {"$ref": "#/$defs/equalAngleParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "element_legend"}}}, "then": {"properties": {"coordinate_system": {"const": "velocity_weighted"}, "parameters": {"$ref": "#/$defs/elementLegendParameters"}}}},
+        {"if": {"properties": {"template_kind": {"const": "wedge_unfold"}}}, "then": {"properties": {"coordinate_system": {"const": "position_weighted"}, "parameters": {"$ref": "#/$defs/wedgeUnfoldParameters"}}}}
+      ]
+    },
+    "velocityPlaneParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["x_range", "y_range", "states", "quadrant_labels"],
+      "properties": {
+        "x_range": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "y_range": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rawState"}},
+        "quadrant_labels": {"type": "object", "additionalProperties": {"type": "string"}}
+      }
+    },
+    "energyEllipseParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "energy", "states"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0}, "energy": {"type": "number", "exclusiveMinimum": 0},
+        "states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rawState"}}
+      }
+    },
+    "scalePairParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "energy", "raw_states", "weighted_states", "source_coordinate_system", "raw_coordinate_system", "weighted_coordinate_system"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0}, "energy": {"type": "number", "exclusiveMinimum": 0},
+        "raw_states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rawState"}},
+        "weighted_states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/weightedState"}},
+        "source_coordinate_system": {"const": "velocity_raw"}, "raw_coordinate_system": {"const": "velocity_raw"}, "weighted_coordinate_system": {"const": "velocity_weighted"}
+      }
+    },
+    "momentumChordParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "energy", "momentum_values", "intersections"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0}, "energy": {"type": "number", "exclusiveMinimum": 0},
+        "momentum_values": {"type": "array", "minItems": 1, "items": {"type": "number"}},
+        "intersections": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/momentumState"}}
+      }
+    },
+    "wallReflectionParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "energy", "before", "after"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0}, "energy": {"type": "number", "exclusiveMinimum": 0},
+        "before": {"$ref": "#/$defs/weightedState"}, "after": {"$ref": "#/$defs/weightedState"}
+      }
+    },
+    "stateChainParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "initial_velocity", "states", "events"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0},
+        "initial_velocity": {"$ref": "#/$defs/rawState"}, "states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/weightedState"}},
+        "events": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "safeSectorParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "energy", "boundary_states"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0}, "energy": {"type": "number", "exclusiveMinimum": 0},
+        "boundary_states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/weightedState"}}
+      }
+    },
+    "equalAngleParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "energy", "theta", "states"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0}, "energy": {"type": "number", "exclusiveMinimum": 0}, "theta": {"type": "number", "exclusiveMinimum": 0},
+        "states": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/weightedState"}}
+      }
+    },
+    "elementLegendParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "energy", "momentum", "states"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0}, "energy": {"type": "number", "exclusiveMinimum": 0}, "momentum": {"type": "number"},
+        "states": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/weightedState"}}
+      }
+    },
+    "wedgeUnfoldParameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mass_large", "mass_small", "wedge_angle", "ray_angle", "crossings"],
+      "properties": {
+        "mass_large": {"type": "number", "exclusiveMinimum": 0}, "mass_small": {"type": "number", "exclusiveMinimum": 0}, "wedge_angle": {"type": "number", "exclusiveMinimum": 0}, "ray_angle": {"type": "number"},
+        "crossings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/point"}}
+      }
+    }
+  }
+}
