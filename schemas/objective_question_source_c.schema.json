@@ -1,0 +1,2025 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "course_id",
+    "section_id",
+    "version",
+    "node_quotas",
+    "source_catalog",
+    "calculation_fixtures",
+    "scenarios",
+    "standalone_questions"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "../../../schemas/objective_question_source_c.schema.json"
+    },
+    "course_id": {
+      "const": "collision-pi"
+    },
+    "section_id": {
+      "const": "C"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "node_quotas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "C1.1",
+        "C1.2",
+        "C1.3",
+        "C1.4",
+        "C2.1",
+        "C2.2",
+        "C2.3",
+        "C3.1",
+        "C3.2",
+        "C3.3",
+        "C3.4",
+        "C3.5",
+        "C4.1",
+        "C4.2",
+        "C4.3",
+        "C4.4",
+        "C5.1",
+        "C5.2",
+        "C5.3",
+        "C6.1",
+        "C6.2",
+        "C6.3",
+        "C6.4",
+        "C7.1",
+        "C7.2",
+        "C7.3",
+        "C7.4",
+        "C8.1",
+        "C8.2",
+        "C8.3",
+        "C9.1",
+        "C9.2",
+        "C9.3",
+        "C9.4",
+        "C9.5",
+        "C9.6",
+        "C9.7"
+      ],
+      "properties": {
+        "C1.1": {
+          "const": 6
+        },
+        "C1.2": {
+          "const": 6
+        },
+        "C1.3": {
+          "const": 5
+        },
+        "C1.4": {
+          "const": 5
+        },
+        "C2.1": {
+          "const": 6
+        },
+        "C2.2": {
+          "const": 6
+        },
+        "C2.3": {
+          "const": 6
+        },
+        "C3.1": {
+          "const": 6
+        },
+        "C3.2": {
+          "const": 6
+        },
+        "C3.3": {
+          "const": 7
+        },
+        "C3.4": {
+          "const": 4
+        },
+        "C3.5": {
+          "const": 3
+        },
+        "C4.1": {
+          "const": 6
+        },
+        "C4.2": {
+          "const": 6
+        },
+        "C4.3": {
+          "const": 6
+        },
+        "C4.4": {
+          "const": 6
+        },
+        "C5.1": {
+          "const": 6
+        },
+        "C5.2": {
+          "const": 6
+        },
+        "C5.3": {
+          "const": 6
+        },
+        "C6.1": {
+          "const": 6
+        },
+        "C6.2": {
+          "const": 6
+        },
+        "C6.3": {
+          "const": 6
+        },
+        "C6.4": {
+          "const": 6
+        },
+        "C7.1": {
+          "const": 6
+        },
+        "C7.2": {
+          "const": 6
+        },
+        "C7.3": {
+          "const": 6
+        },
+        "C7.4": {
+          "const": 6
+        },
+        "C8.1": {
+          "const": 4
+        },
+        "C8.2": {
+          "const": 4
+        },
+        "C8.3": {
+          "const": 4
+        },
+        "C9.1": {
+          "const": 1
+        },
+        "C9.2": {
+          "const": 1
+        },
+        "C9.3": {
+          "const": 2
+        },
+        "C9.4": {
+          "const": 2
+        },
+        "C9.5": {
+          "const": 2
+        },
+        "C9.6": {
+          "const": 2
+        },
+        "C9.7": {
+          "const": 2
+        }
+      }
+    },
+    "source_catalog": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/source"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "video-main"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/source"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "openstax-ellipse"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/source"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "openstax-angles"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/source"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "openstax-unit-circle"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/source"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "openstax-momentum"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/source"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "openstax-elastic"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "calculation_fixtures": {
+      "type": "array",
+      "minItems": 24,
+      "maxItems": 24,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C1-STATE-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C1-STATE-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C2-ELLIPSE-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C2-ELLIPSE-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C2-ELLIPSE-03"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C3-WEIGHT-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C3-WEIGHT-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C3-WEIGHT-03"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C3-CIRCLE-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C3-CIRCLE-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C4-LINE-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C4-LINE-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C4-INTERSECT-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C4-INTERSECT-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C5-WALL-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C5-WALL-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C6-CHAIN-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C6-CHAIN-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C6-SAFE-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C7-ANGLE-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C7-ANGLE-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C7-COUNT-01"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C7-COUNT-02"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/calculationFixture"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "CAL-C9-WEDGE-01"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C1-STATE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C2-ELLIPSE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C3-SCALE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C4-CHORD"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C5-WALL"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C6-CHAIN"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C6-SAFE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C7-ANGLE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C7-COUNT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C8-LEGEND"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C9-WEDGE"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/scenario"
+            },
+            {
+              "properties": {
+                "id": {
+                  "const": "SC-C9-UNFOLD"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "standalone_questions": {
+      "type": "array",
+      "minItems": 72,
+      "maxItems": 72,
+      "items": {
+        "$ref": "#/$defs/standaloneQuestion"
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "location"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "correct"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "correct": {
+          "type": "boolean"
+        },
+        "figure_ref": {
+          "type": "string",
+          "enum": [
+            "cp-c-velocity-plane-quadrants",
+            "cp-c-velocity-plane-initial",
+            "cp-c-velocity-plane-terminal",
+            "cp-c-velocity-plane-state-vs-path",
+            "cp-c-energy-ellipse-equal-mass",
+            "cp-c-energy-ellipse-ratio-4",
+            "cp-c-energy-ellipse-ratio-16",
+            "cp-c-energy-ellipse-same-energy",
+            "cp-c-scale-pair-equal-mass",
+            "cp-c-scale-pair-ratio-4",
+            "cp-c-scale-pair-ratio-16",
+            "cp-c-scale-pair-ratio-100",
+            "cp-c-scale-pair-error-check",
+            "cp-c-momentum-chord-ratio-1",
+            "cp-c-momentum-chord-ratio-4",
+            "cp-c-momentum-chord-ratio-16",
+            "cp-c-momentum-chord-parallel",
+            "cp-c-momentum-chord-intersections",
+            "cp-c-wall-reflection-basic",
+            "cp-c-wall-reflection-axis-check",
+            "cp-c-wall-reflection-radius",
+            "cp-c-state-chain-ratio-4",
+            "cp-c-state-chain-ratio-9",
+            "cp-c-state-chain-ratio-16",
+            "cp-c-state-chain-ratio-100",
+            "cp-c-state-chain-terminal",
+            "cp-c-safe-sector-ratio-4",
+            "cp-c-safe-sector-ratio-16",
+            "cp-c-safe-sector-boundary",
+            "cp-c-equal-angle-chord",
+            "cp-c-equal-angle-step",
+            "cp-c-equal-angle-count",
+            "cp-c-element-legend-overview",
+            "cp-c-wedge-unfold-basic",
+            "cp-c-wedge-unfold-mirror",
+            "cp-c-wedge-unfold-count"
+          ]
+        }
+      }
+    },
+    "blank": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "accepted_answers"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accepted_answers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "node_id",
+        "question_type",
+        "question_style",
+        "difficulty",
+        "event_stage",
+        "variant_axis",
+        "curriculum_scope",
+        "presentation_mode",
+        "explanation"
+      ],
+      "properties": {
+        "key": {
+          "type": "string",
+          "pattern": "^c[1-9]-[1-9]-(?:scenario|concise|calculation)-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "enum": [
+            "C1.1",
+            "C1.2",
+            "C1.3",
+            "C1.4",
+            "C2.1",
+            "C2.2",
+            "C2.3",
+            "C3.1",
+            "C3.2",
+            "C3.3",
+            "C3.4",
+            "C3.5",
+            "C4.1",
+            "C4.2",
+            "C4.3",
+            "C4.4",
+            "C5.1",
+            "C5.2",
+            "C5.3",
+            "C6.1",
+            "C6.2",
+            "C6.3",
+            "C6.4",
+            "C7.1",
+            "C7.2",
+            "C7.3",
+            "C7.4",
+            "C8.1",
+            "C8.2",
+            "C8.3",
+            "C9.1",
+            "C9.2",
+            "C9.3",
+            "C9.4",
+            "C9.5",
+            "C9.6",
+            "C9.7"
+          ]
+        },
+        "question_type": {
+          "enum": [
+            "single_choice",
+            "multiple_choice",
+            "multi_blank"
+          ]
+        },
+        "question_style": {
+          "enum": [
+            "scenario",
+            "calculation",
+            "concise"
+          ]
+        },
+        "difficulty": {
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "event_stage": {
+          "type": "string",
+          "minLength": 1
+        },
+        "variant_axis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "curriculum_scope": {
+          "enum": [
+            "core",
+            "elective"
+          ]
+        },
+        "presentation_mode": {
+          "enum": [
+            "text_only",
+            "stem_figure",
+            "option_figures",
+            "figure_sequence"
+          ]
+        },
+        "ask": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "options": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "blanks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/blank"
+          }
+        },
+        "calculation_fixture_id": {
+          "type": "string",
+          "enum": [
+            "CAL-C1-STATE-01",
+            "CAL-C1-STATE-02",
+            "CAL-C2-ELLIPSE-01",
+            "CAL-C2-ELLIPSE-02",
+            "CAL-C2-ELLIPSE-03",
+            "CAL-C3-WEIGHT-01",
+            "CAL-C3-WEIGHT-02",
+            "CAL-C3-WEIGHT-03",
+            "CAL-C3-CIRCLE-01",
+            "CAL-C3-CIRCLE-02",
+            "CAL-C4-LINE-01",
+            "CAL-C4-LINE-02",
+            "CAL-C4-INTERSECT-01",
+            "CAL-C4-INTERSECT-02",
+            "CAL-C5-WALL-01",
+            "CAL-C5-WALL-02",
+            "CAL-C6-CHAIN-01",
+            "CAL-C6-CHAIN-02",
+            "CAL-C6-SAFE-01",
+            "CAL-C7-ANGLE-01",
+            "CAL-C7-ANGLE-02",
+            "CAL-C7-COUNT-01",
+            "CAL-C7-COUNT-02",
+            "CAL-C9-WEDGE-01"
+          ]
+        },
+        "figure_refs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "cp-c-velocity-plane-quadrants",
+              "cp-c-velocity-plane-initial",
+              "cp-c-velocity-plane-terminal",
+              "cp-c-velocity-plane-state-vs-path",
+              "cp-c-energy-ellipse-equal-mass",
+              "cp-c-energy-ellipse-ratio-4",
+              "cp-c-energy-ellipse-ratio-16",
+              "cp-c-energy-ellipse-same-energy",
+              "cp-c-scale-pair-equal-mass",
+              "cp-c-scale-pair-ratio-4",
+              "cp-c-scale-pair-ratio-16",
+              "cp-c-scale-pair-ratio-100",
+              "cp-c-scale-pair-error-check",
+              "cp-c-momentum-chord-ratio-1",
+              "cp-c-momentum-chord-ratio-4",
+              "cp-c-momentum-chord-ratio-16",
+              "cp-c-momentum-chord-parallel",
+              "cp-c-momentum-chord-intersections",
+              "cp-c-wall-reflection-basic",
+              "cp-c-wall-reflection-axis-check",
+              "cp-c-wall-reflection-radius",
+              "cp-c-state-chain-ratio-4",
+              "cp-c-state-chain-ratio-9",
+              "cp-c-state-chain-ratio-16",
+              "cp-c-state-chain-ratio-100",
+              "cp-c-state-chain-terminal",
+              "cp-c-safe-sector-ratio-4",
+              "cp-c-safe-sector-ratio-16",
+              "cp-c-safe-sector-boundary",
+              "cp-c-equal-angle-chord",
+              "cp-c-equal-angle-step",
+              "cp-c-equal-angle-count",
+              "cp-c-element-legend-overview",
+              "cp-c-wedge-unfold-basic",
+              "cp-c-wedge-unfold-mirror",
+              "cp-c-wedge-unfold-count"
+            ]
+          }
+        },
+        "diagram_focus": {
+          "type": "string",
+          "minLength": 1
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "question_type": {
+                "const": "single_choice"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "options"
+            ],
+            "not": {
+              "required": [
+                "blanks"
+              ]
+            },
+            "properties": {
+              "options": {
+                "contains": {
+                  "properties": {
+                    "correct": {
+                      "const": true
+                    }
+                  }
+                },
+                "minContains": 1,
+                "maxContains": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "question_type": {
+                "const": "multiple_choice"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "options"
+            ],
+            "not": {
+              "required": [
+                "blanks"
+              ]
+            },
+            "properties": {
+              "options": {
+                "contains": {
+                  "properties": {
+                    "correct": {
+                      "const": true
+                    }
+                  }
+                },
+                "minContains": 2,
+                "maxContains": 2
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "question_type": {
+                "const": "multi_blank"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "blanks"
+            ],
+            "not": {
+              "required": [
+                "options"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "question_style": {
+                "const": "calculation"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "question_type": {
+                "const": "multi_blank"
+              }
+            },
+            "required": [
+              "calculation_fixture_id"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "calculation_fixture_id"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "presentation_mode": {
+                "const": "text_only"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "figure_refs"
+              ]
+            },
+            "properties": {
+              "options": {
+                "items": {
+                  "not": {
+                    "required": [
+                      "figure_ref"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "presentation_mode": {
+                "const": "stem_figure"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "figure_refs",
+              "diagram_focus"
+            ],
+            "properties": {
+              "figure_refs": {
+                "minItems": 1,
+                "maxItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "presentation_mode": {
+                "const": "option_figures"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "options",
+              "diagram_focus"
+            ],
+            "not": {
+              "required": [
+                "figure_refs"
+              ]
+            },
+            "properties": {
+              "options": {
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/option"
+                    },
+                    {
+                      "required": [
+                        "figure_ref"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "presentation_mode": {
+                "const": "figure_sequence"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "figure_refs",
+              "diagram_focus"
+            ],
+            "properties": {
+              "figure_refs": {
+                "minItems": 2,
+                "maxItems": 4
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "node_id": {
+                "pattern": "^C9\\."
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "curriculum_scope": {
+                "const": "elective"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "curriculum_scope": {
+                "const": "core"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "scenarioQuestion": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/question"
+        },
+        {
+          "type": "object",
+          "required": [
+            "ask"
+          ],
+          "not": {
+            "required": [
+              "prompt"
+            ]
+          },
+          "properties": {
+            "question_style": {
+              "const": "scenario"
+            }
+          }
+        }
+      ]
+    },
+    "standaloneQuestion": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/question"
+        },
+        {
+          "type": "object",
+          "required": [
+            "prompt"
+          ],
+          "not": {
+            "required": [
+              "ask"
+            ]
+          },
+          "properties": {
+            "question_style": {
+              "enum": [
+                "calculation",
+                "concise"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "context",
+        "source_refs",
+        "author_notes",
+        "questions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^SC-C[1-9]-[A-Z]+$"
+        },
+        "context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "video-main",
+              "openstax-ellipse",
+              "openstax-angles",
+              "openstax-unit-circle",
+              "openstax-momentum",
+              "openstax-elastic"
+            ]
+          }
+        },
+        "author_notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "questions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/scenarioQuestion"
+          }
+        }
+      }
+    },
+    "calculationFixture": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/stateCoordinateFixture"
+        },
+        {
+          "$ref": "#/$defs/ellipseAxesFixture"
+        },
+        {
+          "$ref": "#/$defs/weightedTransformFixture"
+        },
+        {
+          "$ref": "#/$defs/energyCircleFixture"
+        },
+        {
+          "$ref": "#/$defs/momentumLineFixture"
+        },
+        {
+          "$ref": "#/$defs/lineCircleFixture"
+        },
+        {
+          "$ref": "#/$defs/wallReflectionFixture"
+        },
+        {
+          "$ref": "#/$defs/stateChainFixture"
+        },
+        {
+          "$ref": "#/$defs/terminalSectorFixture"
+        },
+        {
+          "$ref": "#/$defs/equalAngleFixture"
+        },
+        {
+          "$ref": "#/$defs/angleCountFixture"
+        },
+        {
+          "$ref": "#/$defs/wedgeAngleFixture"
+        }
+      ]
+    },
+    "stateCoordinateFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "v_large",
+        "v_small"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "state_coordinate"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "v_large": {
+          "type": "number"
+        },
+        "v_small": {
+          "type": "number"
+        }
+      }
+    },
+    "ellipseAxesFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small",
+        "energy"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "ellipse_axes"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "energy": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "weightedTransformFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small",
+        "energy",
+        "v_large",
+        "v_small"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "weighted_transform"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "energy": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "v_large": {
+          "type": "number"
+        },
+        "v_small": {
+          "type": "number"
+        }
+      }
+    },
+    "energyCircleFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "energy"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "energy_circle"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "energy": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "momentumLineFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small",
+        "x",
+        "y"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "momentum_line"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      }
+    },
+    "lineCircleFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small",
+        "energy",
+        "momentum"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "line_circle_intersection"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "energy": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "momentum": {
+          "type": "number"
+        }
+      }
+    },
+    "wallReflectionFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small",
+        "x",
+        "y"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "wall_reflection"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      }
+    },
+    "stateChainFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small",
+        "initial_velocities",
+        "events"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "state_chain"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "initial_velocities": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "expected_velocities"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "block_collision",
+                  "wall_reflection"
+                ]
+              },
+              "expected_velocities": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "terminalSectorFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small",
+        "x",
+        "y"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "terminal_sector"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      }
+    },
+    "equalAngleFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "equal_angle"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "angleCountFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small",
+        "span"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "angle_count"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "span": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "wedgeAngleFixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "node_id",
+        "kind",
+        "expected",
+        "mass_large",
+        "mass_small"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^CAL-C[1-9]-[A-Z]+(?:-[A-Z]+)*-[0-9]{2}$"
+        },
+        "node_id": {
+          "type": "string",
+          "pattern": "^C[1-9]\\.[1-9]$"
+        },
+        "kind": {
+          "const": "wedge_angle"
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    }
+  }
+}
