@@ -167,6 +167,131 @@ def normalize_choice_semantics(question):
     return normalize_semantic_prompt(text + " " + correct + " " + question["explanation"])
 
 
+def evaluate_typed_claim(claim):
+    """Compute an option's truth solely from its physical assertion parameters."""
+    params = claim["parameters"]
+    kind = claim["kind"]
+    if kind == "velocity_state":
+        return (params["asserted_v_large"], params["asserted_v_small"]) == (params["v_large"], params["v_small"])
+    if kind == "velocity_direction":
+        return (params["asserted_large_direction"], params["asserted_small_direction"]) == (
+            "向右" if params["v_large"] > 0 else "向左",
+            "向右" if params["v_small"] > 0 else "向左",
+        )
+    if kind == "velocity_quadrant":
+        return params["asserted_quadrant"] == (
+            "第一象限" if params["v_large"] > 0 and params["v_small"] > 0 else
+            "第二象限" if params["v_large"] < 0 and params["v_small"] > 0 else
+            "第三象限" if params["v_large"] < 0 and params["v_small"] < 0 else "第四象限"
+        )
+    if kind == "raw_energy_ellipse":
+        return math.isclose(params["asserted_rhs"], 2 * params["energy"])
+    if kind == "ellipse_axes":
+        return math.isclose(params["asserted_a2"], 2 * params["energy"] / params["mass_large"]) and math.isclose(params["asserted_b2"], 2 * params["energy"] / params["mass_small"])
+    if kind == "energy_radius":
+        return math.isclose(params["asserted_r2"], 2 * params["energy"])
+    if kind == "weighted_point":
+        return math.isclose(params["asserted_x"], math.sqrt(params["mass_large"]) * params["v_large"]) and math.isclose(params["asserted_y"], math.sqrt(params["mass_small"]) * params["v_small"])
+    if kind == "momentum_slope":
+        return math.isclose(params["asserted_slope"], -math.sqrt(params["mass_large"] / params["mass_small"]))
+    if kind == "momentum_parallel":
+        return math.isclose(params["asserted_slope"], -math.sqrt(params["mass_large"] / params["mass_small"]))
+    if kind == "momentum_intersection":
+        return math.isclose(params["asserted_x"], 0) and math.isclose(params["asserted_y"], 0)
+    if kind == "wall_reflection":
+        return params["asserted_after"] == [params["before"][0], -params["before"][1]]
+    if kind == "wall_radius":
+        before = params["before"]
+        after = params["after"]
+        return math.isclose(params["asserted_before_r2"], before[0] ** 2 + before[1] ** 2) and math.isclose(params["asserted_after_r2"], after[0] ** 2 + after[1] ** 2)
+    if kind == "event_count":
+        return params["asserted_count"] == len(params["events"])
+    if kind == "safe_sector":
+        return math.isclose(params["asserted_upper"], params["boundary"] * params["point"][0]) and params["point"][1] <= params["asserted_upper"]
+    if kind == "angle_pair_count":
+        theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
+        pairs = math.floor(params["span"] / (2 * theta))
+        return params["asserted_pairs"] == pairs and params["asserted_collisions"] == 2 * pairs
+    if kind == "angle_relation":
+        theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
+        return math.isclose(params["asserted_step"], 2 * theta)
+    if kind == "legend_mapping":
+        return params["asserted_mapping"] == params["mapping"][params["symbol"]]
+    if kind == "wedge_angle":
+        return math.isclose(params["asserted_theta"], math.atan(math.sqrt(params["mass_small"] / params["mass_large"])))
+    if kind == "folded_unfolded":
+        theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
+        return math.isclose(params["asserted_unfolded_turn"], 2 * theta)
+    raise AssertionError(f"unsupported typed claim: {kind}")
+
+
+def render_typed_claim(claim):
+    """The displayed option is rendered from the same data that is evaluated."""
+    params = claim["parameters"]
+    kind = claim["kind"]
+    if kind == "velocity_state":
+        return f"速度状态为(vM,vm)=({params['asserted_v_large']},{params['asserted_v_small']})。"
+    if kind == "velocity_direction":
+        return f"大物块{params['asserted_large_direction']}、小物块{params['asserted_small_direction']}。"
+    if kind == "velocity_quadrant":
+        return f"状态点位于{params['asserted_quadrant']}。"
+    if kind == "raw_energy_ellipse":
+        return f"原始速度约束为{params['mass_large']}vM²+{params['mass_small']}vm²={params['asserted_rhs']}。"
+    if kind == "ellipse_axes":
+        return f"椭圆两半轴平方依次为{params['asserted_a2']}和{params['asserted_b2']}。"
+    if kind == "energy_radius":
+        return f"质量加权能量圆半径平方为{params['asserted_r2']}。"
+    if kind == "weighted_point":
+        return f"质量加权点为({params['asserted_x']},{params['asserted_y']})。"
+    if kind == "momentum_slope":
+        return f"动量直线斜率为{params['asserted_slope']}。"
+    if kind == "momentum_parallel":
+        return f"同一总动量的直线斜率应为{params['asserted_slope']}。"
+    if kind == "momentum_intersection":
+        return f"零总动量直线与坐标轴的交点为({params['asserted_x']},{params['asserted_y']})。"
+    if kind == "wall_reflection":
+        return f"墙反射后的点为({params['asserted_after'][0]},{params['asserted_after'][1]})。"
+    if kind == "wall_radius":
+        return f"反射前、后到原点的半径平方依次为{params['asserted_before_r2']}和{params['asserted_after_r2']}。"
+    if kind == "event_count":
+        return f"已发生的物理碰撞数为{params['asserted_count']}。"
+    if kind == "safe_sector":
+        return f"当x={params['point'][0]}时，安全扇区允许的最大y为{params['asserted_upper']}。"
+    if kind == "angle_pair_count":
+        return f"完整事件对数为{params['asserted_pairs']}，物理碰撞数为{params['asserted_collisions']}。"
+    if kind == "angle_relation":
+        return f"一次完整事件对在圆上推进{params['asserted_step']:.6f} rad。"
+    if kind == "legend_mapping":
+        return f"图例中{params['symbol']}表示{params['asserted_mapping']}。"
+    if kind == "wedge_angle":
+        return f"楔形角theta约为{params['asserted_theta']:.6f} rad。"
+    if kind == "folded_unfolded":
+        return f"展开图中相邻镜像边界的转角为{params['asserted_unfolded_turn']:.6f} rad。"
+    raise AssertionError(f"unsupported typed claim: {kind}")
+
+
+def evaluate_diagram_claim(claim, diagram, query):
+    """Evaluate a neutral figure candidate against manifest-source properties."""
+    assert claim["kind"] == "diagram_matches_query"
+    assert claim["parameters"]["figure_ref"] == diagram["diagram_id"]
+    return (
+        diagram["template_kind"] == query["template_kind"]
+        and diagram["coordinate_system"] == query["coordinate_system"]
+        and all(diagram["parameters"].get(key) == value for key, value in query["parameters"].items())
+        and diagram["labels"] == query["labels"]
+    )
+
+
+def contains_boolean(value):
+    if isinstance(value, bool):
+        return True
+    if isinstance(value, dict):
+        return any(contains_boolean(item) for item in value.values())
+    if isinstance(value, list):
+        return any(contains_boolean(item) for item in value)
+    return False
+
+
 def validate_source_with_pwsh(source):
     env = os.environ.copy()
     env["QUESTION_SOURCE_C_SCHEMA"] = str(SCHEMA)
@@ -239,6 +364,11 @@ class QuestionSourceCSchemaTests(SourceLoadMixin, unittest.TestCase):
         self.assertEqual(modes, {"text_only", "stem_figure", "option_figures", "figure_sequence"})
         scope = set(defs["question"]["properties"]["curriculum_scope"]["enum"])
         self.assertEqual(scope, {"core", "elective"})
+        typed_claim = defs["typedClaim"]
+        self.assertFalse(typed_claim["additionalProperties"])
+        self.assertEqual(set(typed_claim["required"]), {"kind", "parameters"})
+        claim_item = defs["answerContract"]["properties"]["claims"]["items"]
+        self.assertEqual(set(claim_item["required"]), {"option_id", "family", "claim"})
 
 
 class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
@@ -293,6 +423,7 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         _, _, scenario_questions, standalone, _, _ = self.load_source()
         choices = [question for question in scenario_questions + standalone if "options" in question]
         self.assertEqual(len(choices), 156)
+        claim_kinds = set()
         for question in choices:
             contract = question["answer_contract"]
             self.assertEqual(contract["kind"], "structured_claims", question["key"])
@@ -306,8 +437,39 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             )
             self.assertTrue(all(claim["family"] in {"physics", "diagram"} for claim in contract["claims"]), question["key"])
             if question["presentation_mode"] != "option_figures":
-                evaluated = [claim["predicate"]["value"] for claim in contract["claims"]]
+                self.assertTrue(all("claim" in claim and "predicate" not in claim for claim in contract["claims"]), question["key"])
+                self.assertTrue(all(not contains_boolean(claim["claim"]) for claim in contract["claims"]), question["key"])
+                evaluated = [evaluate_typed_claim(claim["claim"]) for claim in contract["claims"]]
                 self.assertEqual(evaluated, [option["correct"] for option in question["options"]], question["key"])
+                self.assertEqual([render_typed_claim(claim["claim"]) for claim in contract["claims"]], [option["text"] for option in question["options"]], question["key"])
+                claim_kinds.update(claim["claim"]["kind"] for claim in contract["claims"])
+            else:
+                self.assertTrue(all(claim["family"] == "diagram" and claim.get("claim", {}).get("kind") == "diagram_matches_query" and "predicate" not in claim for claim in contract["claims"]), question["key"])
+                self.assertEqual(
+                    [f"图{claim['option_id']}" for claim in contract["claims"]],
+                    [option["text"] for option in question["options"]],
+                    question["key"],
+                )
+
+        velocity = {"kind": "velocity_state", "parameters": {"v_large": -2, "v_small": 1, "asserted_v_large": -2, "asserted_v_small": 1}}
+        self.assertTrue(evaluate_typed_claim(velocity))
+        velocity["parameters"]["v_large"] = -1
+        self.assertFalse(evaluate_typed_claim(velocity))
+        angle = {"kind": "angle_pair_count", "parameters": {"mass_large": 4, "mass_small": 1, "span": math.pi, "asserted_pairs": 3, "asserted_collisions": 6}}
+        self.assertTrue(evaluate_typed_claim(angle))
+        angle["parameters"]["mass_large"] = 16
+        self.assertFalse(evaluate_typed_claim(angle))
+        weighted = {"kind": "weighted_point", "parameters": {"mass_large": 4, "mass_small": 1, "v_large": -2, "v_small": 1, "asserted_x": -4, "asserted_y": 1}}
+        self.assertTrue(evaluate_typed_claim(weighted))
+        weighted["parameters"]["mass_large"] = 9
+        self.assertFalse(evaluate_typed_claim(weighted))
+        self.assertTrue({
+            "velocity_state", "velocity_direction", "velocity_quadrant",
+            "raw_energy_ellipse", "ellipse_axes", "weighted_point", "energy_radius",
+            "momentum_slope", "momentum_parallel", "momentum_intersection",
+            "wall_reflection", "wall_radius", "event_count", "safe_sector",
+            "angle_pair_count", "angle_relation", "legend_mapping", "wedge_angle", "folded_unfolded",
+        }.issubset(claim_kinds))
 
     def test_multi_choice_prompts_are_distinct_and_instruct_once(self):
         """No multi-choice quota entry may be a directive-padded duplicate."""
@@ -322,7 +484,7 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             self.assertNotIn(fingerprint, seen, question["key"])
             seen.add(fingerprint)
 
-    def test_option_figure_stems_do_not_leak_caption_or_id_and_use_predicates(self):
+    def test_option_figure_stems_do_not_leak_caption_or_id_and_use_typed_queries(self):
         """The visual task must be solved from physics criteria, not a copied caption."""
         source, _, scenario_questions, standalone, _, diagram_by_id = self.load_source()
         diagram_source = json.loads((ROOT / "content" / "courses" / "collision-pi" / "diagram-source-c.json").read_text(encoding="utf-8"))
@@ -339,14 +501,19 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
                 self.assertNotIn(option["figure_ref"], stem, question["key"])
             predicate = contract["diagram_predicate"]
             matching = [
-                option for option in question["options"]
-                if all(source_by_id[option["figure_ref"]]["parameters"].get(key) == value for key, value in predicate["parameters"].items())
-                and source_by_id[option["figure_ref"]]["template_kind"] == predicate["template_kind"]
-                and source_by_id[option["figure_ref"]]["coordinate_system"] == predicate["coordinate_system"]
-                and source_by_id[option["figure_ref"]]["labels"] == predicate["labels"]
+                option for option, claim in zip(question["options"], contract["claims"])
+                if evaluate_diagram_claim(claim["claim"], source_by_id[option["figure_ref"]], predicate)
             ]
             self.assertEqual(len(matching), 1, question["key"])
             self.assertTrue(matching[0]["correct"], question["key"])
+
+        sample = option_figures[0]
+        query = sample["answer_contract"]["diagram_predicate"]
+        option, claim = next((option, claim) for option, claim in zip(sample["options"], sample["answer_contract"]["claims"]) if option["correct"])
+        candidate = copy.deepcopy(source_by_id[option["figure_ref"]])
+        self.assertTrue(evaluate_diagram_claim(claim["claim"], candidate, query))
+        candidate["template_kind"] = "mutated-template"
+        self.assertFalse(evaluate_diagram_claim(claim["claim"], candidate, query))
 
     def test_c7_pair_steps_map_to_two_physical_collisions(self):
         """A 2theta step is one block+wall pair, never a single physical collision."""

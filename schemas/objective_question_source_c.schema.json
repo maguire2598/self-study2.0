@@ -2056,7 +2056,7 @@
             "required": [
               "option_id",
               "family",
-              "predicate"
+              "claim"
             ],
             "properties": {
               "option_id": {
@@ -2073,8 +2073,8 @@
                   "diagram"
                 ]
               },
-              "predicate": {
-                "type": "object"
+              "claim": {
+                "$ref": "#/$defs/typedClaim"
               }
             }
           }
@@ -2102,6 +2102,44 @@
               "type": "object"
             }
           }
+        }
+      }
+    },
+    "typedClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "parameters"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "velocity_state",
+            "velocity_direction",
+            "velocity_quadrant",
+            "raw_energy_ellipse",
+            "ellipse_axes",
+            "weighted_point",
+            "energy_radius",
+            "momentum_slope",
+            "momentum_parallel",
+            "momentum_intersection",
+            "wall_reflection",
+            "wall_radius",
+            "event_count",
+            "safe_sector",
+            "angle_pair_count",
+            "angle_relation",
+            "legend_mapping",
+            "wedge_angle",
+            "folded_unfolded",
+            "diagram_matches_query"
+          ]
+        },
+        "parameters": {
+          "type": "object",
+          "minProperties": 1
         }
       }
     }
