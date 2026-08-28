@@ -825,6 +825,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "id",
         "text",
         "correct"
       ],
@@ -875,6 +876,14 @@
             "cp-c-wedge-unfold-basic",
             "cp-c-wedge-unfold-mirror",
             "cp-c-wedge-unfold-count"
+          ]
+        },
+        "id": {
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D"
           ]
         }
       }
@@ -1129,11 +1138,6 @@
           "then": {
             "required": [
               "options",
-              "answer_contract",
-              "answer_contract",
-              "answer_contract",
-              "answer_contract",
-              "answer_contract",
               "answer_contract"
             ],
             "not": {
@@ -1167,11 +1171,6 @@
           "then": {
             "required": [
               "options",
-              "answer_contract",
-              "answer_contract",
-              "answer_contract",
-              "answer_contract",
-              "answer_contract",
               "answer_contract"
             ],
             "not": {
@@ -2041,66 +2040,70 @@
       "additionalProperties": false,
       "required": [
         "kind",
-        "expected_option_texts",
-        "basis"
+        "claims"
       ],
       "properties": {
         "kind": {
-          "enum": [
-            "physics_claim",
-            "figure_caption"
-          ]
+          "const": "structured_claims"
         },
-        "expected_option_texts": {
+        "claims": {
           "type": "array",
-          "minItems": 1,
-          "maxItems": 2,
+          "minItems": 4,
+          "maxItems": 4,
           "items": {
-            "type": "string",
-            "minLength": 1
-          }
-        },
-        "basis": {
-          "type": "string",
-          "minLength": 1
-        },
-        "target_figure_ref": {
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "figure_caption"
-              }
-            }
-          },
-          "then": {
+            "type": "object",
+            "additionalProperties": false,
             "required": [
-              "target_figure_ref"
-            ]
-          }
-        },
-        {
-          "if": {
+              "option_id",
+              "family",
+              "predicate"
+            ],
             "properties": {
-              "kind": {
-                "const": "physics_claim"
+              "option_id": {
+                "enum": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "family": {
+                "enum": [
+                  "physics",
+                  "diagram"
+                ]
+              },
+              "predicate": {
+                "type": "object"
               }
             }
-          },
-          "then": {
-            "not": {
-              "required": [
-                "target_figure_ref"
-              ]
+          }
+        },
+        "diagram_predicate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "template_kind",
+            "coordinate_system",
+            "parameters",
+            "labels"
+          ],
+          "properties": {
+            "template_kind": {
+              "type": "string"
+            },
+            "coordinate_system": {
+              "type": "string"
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "labels": {
+              "type": "object"
             }
           }
         }
-      ]
+      }
     }
   }
 }

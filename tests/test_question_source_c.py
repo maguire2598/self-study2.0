@@ -160,6 +160,13 @@ def normalize_semantic_prompt(text):
     return re.sub(r"[，。；：、？（）()\s]", "", text)
 
 
+def normalize_choice_semantics(question):
+    """Ignore presentation filler while retaining the physical claim being assessed."""
+    text = question.get("ask", question.get("prompt", ""))
+    correct = "|".join(option["text"] for option in question.get("options", []) if option["correct"])
+    return normalize_semantic_prompt(text + " " + correct + " " + question["explanation"])
+
+
 def validate_source_with_pwsh(source):
     env = os.environ.copy()
     env["QUESTION_SOURCE_C_SCHEMA"] = str(SCHEMA)
@@ -281,38 +288,88 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             self.assertNotIn((question["node_id"], normalized), by_node, question["key"])
             by_node[(question["node_id"], normalized)] = question["key"]
 
-    def test_choice_answers_have_auditable_contract_for_every_record(self):
-        """Flipping a keyed choice must disagree with its reviewed answer contract."""
+    def test_choice_contracts_are_structured_and_do_not_repeat_author_answer_text(self):
+        """Flags must be derived from structured physics/diagram claims, not copied answer text."""
         _, _, scenario_questions, standalone, _, _ = self.load_source()
         choices = [question for question in scenario_questions + standalone if "options" in question]
         self.assertEqual(len(choices), 156)
         for question in choices:
             contract = question["answer_contract"]
-            correct_texts = [option["text"] for option in question["options"] if option["correct"]]
-            self.assertEqual(correct_texts, contract["expected_option_texts"], question["key"])
-            self.assertTrue(contract["basis"].strip(), question["key"])
-            if contract["kind"] == "figure_caption":
-                expected_ref = contract["target_figure_ref"]
-                self.assertEqual(
-                    [option["figure_ref"] for option in question["options"] if option["correct"]],
-                    [expected_ref],
-                    question["key"],
-                )
-            else:
-                self.assertEqual(contract["kind"], "physics_claim", question["key"])
+            self.assertEqual(contract["kind"], "structured_claims", question["key"])
+            self.assertNotIn("expected_option_texts", contract, question["key"])
+            self.assertNotIn("basis", contract, question["key"])
+            self.assertEqual(len(contract["claims"]), 4, question["key"])
+            self.assertEqual(
+                [claim["option_id"] for claim in contract["claims"]],
+                [option["id"] for option in question["options"]],
+                question["key"],
+            )
+            self.assertTrue(all(claim["family"] in {"physics", "diagram"} for claim in contract["claims"]), question["key"])
+            if question["presentation_mode"] != "option_figures":
+                evaluated = [claim["predicate"]["value"] for claim in contract["claims"]]
+                self.assertEqual(evaluated, [option["correct"] for option in question["options"]], question["key"])
 
-            for option_index in range(len(question["options"])):
-                mutation = copy.deepcopy(question)
-                mutation["options"][option_index]["correct"] = not mutation["options"][option_index]["correct"]
-                self.assertNotEqual(
-                    [option["text"] for option in mutation["options"] if option["correct"]],
-                    mutation["answer_contract"]["expected_option_texts"],
-                    f"answer contract did not detect a changed key: {question['key']} option {option_index}",
-                )
+    def test_multi_choice_prompts_are_distinct_and_instruct_once(self):
+        """No multi-choice quota entry may be a directive-padded duplicate."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        multis = [question for question in scenario_questions + standalone if question["question_type"] == "multiple_choice"]
+        self.assertEqual(len(multis), 48)
+        seen = set()
+        for question in multis:
+            prompt = question.get("ask", question.get("prompt"))
+            self.assertEqual(prompt.count("请选择两项正确判读"), 1, question["key"])
+            fingerprint = (question["node_id"], normalize_choice_semantics(question))
+            self.assertNotIn(fingerprint, seen, question["key"])
+            seen.add(fingerprint)
+
+    def test_option_figure_stems_do_not_leak_caption_or_id_and_use_predicates(self):
+        """The visual task must be solved from physics criteria, not a copied caption."""
+        source, _, scenario_questions, standalone, _, diagram_by_id = self.load_source()
+        diagram_source = json.loads((ROOT / "content" / "courses" / "collision-pi" / "diagram-source-c.json").read_text(encoding="utf-8"))
+        source_by_id = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
+        option_figures = [question for question in scenario_questions + standalone if question["presentation_mode"] == "option_figures"]
+        self.assertEqual(len(option_figures), 24)
+        for question in option_figures:
+            stem = question.get("ask", question.get("prompt"))
+            contract = question["answer_contract"]
+            self.assertEqual(contract["kind"], "structured_claims", question["key"])
+            for option in question["options"]:
+                self.assertRegex(option["text"], r"^图[ABCD]$")
+                self.assertNotIn(diagram_by_id[option["figure_ref"]]["caption"], stem, question["key"])
+                self.assertNotIn(option["figure_ref"], stem, question["key"])
+            predicate = contract["diagram_predicate"]
+            matching = [
+                option for option in question["options"]
+                if all(source_by_id[option["figure_ref"]]["parameters"].get(key) == value for key, value in predicate["parameters"].items())
+                and source_by_id[option["figure_ref"]]["template_kind"] == predicate["template_kind"]
+                and source_by_id[option["figure_ref"]]["coordinate_system"] == predicate["coordinate_system"]
+                and source_by_id[option["figure_ref"]]["labels"] == predicate["labels"]
+            ]
+            self.assertEqual(len(matching), 1, question["key"])
+            self.assertTrue(matching[0]["correct"], question["key"])
+
+    def test_c7_pair_steps_map_to_two_physical_collisions(self):
+        """A 2theta step is one block+wall pair, never a single physical collision."""
+        source, _, scenario_questions, standalone, fixtures, _ = self.load_source()
+        c6_chain = fixtures["CAL-C6-CHAIN-02"]
+        c7_count = fixtures["CAL-C7-COUNT-01"]
+        pair_steps = math.floor(c7_count["span"] / (2 * math.atan(math.sqrt(c7_count["mass_small"] / c7_count["mass_large"]))))
+        self.assertEqual(c7_count["expected"]["pair_steps"], pair_steps)
+        self.assertEqual(c7_count["expected"]["physical_collisions"], 2 * pair_steps)
+        self.assertEqual(len(c6_chain["events"]), c7_count["expected"]["physical_collisions"])
+        c7_questions = [question for question in scenario_questions + standalone if question["node_id"].startswith("C7.")]
+        self.assertTrue(all("每个物理碰撞" not in (question.get("ask", question.get("prompt", "")) + question["explanation"]) for question in c7_questions))
+
+    def test_schema_required_lists_have_no_duplicates(self):
+        """Conditional requirements must remain strict without duplicate field entries."""
+        schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
+        for branch in schema["$defs"]["question"]["allOf"]:
+            required = branch.get("then", {}).get("required", [])
+            self.assertEqual(len(required), len(set(required)))
 
     def test_option_figures_are_caption_unique_and_not_competing_physics_claims(self):
-        """A single-choice figure item must ask one uniquely keyed visual identification question."""
-        _, _, scenario_questions, standalone, _, diagram_by_id = self.load_source()
+        """A single-choice figure item must have one predicate-selected visual answer."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
         option_figures = [
             question for question in scenario_questions + standalone
             if question["presentation_mode"] == "option_figures"
@@ -321,11 +378,9 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         for question in option_figures:
             self.assertEqual(question["question_type"], "single_choice", question["key"])
             contract = question["answer_contract"]
-            self.assertEqual(contract["kind"], "figure_caption", question["key"])
-            target = contract["target_figure_ref"]
-            self.assertIn(diagram_by_id[target]["caption"], question.get("ask", question.get("prompt")), question["key"])
+            self.assertEqual(contract["kind"], "structured_claims", question["key"])
             for option in question["options"]:
-                self.assertEqual(option["text"], f"图注：“{diagram_by_id[option['figure_ref']]['caption']}”", question["key"])
+                self.assertRegex(option["text"], r"^图[ABCD]$", question["key"])
 
     def test_figure_sequences_follow_declared_derivations(self):
         """A sequence is an ordered derivation, not an arbitrary list of valid diagram IDs."""
@@ -647,7 +702,8 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             return {"theta": theta, "step": 2 * theta}
         if kind == "angle_count":
             theta = math.atan(math.sqrt(fixture["mass_small"] / fixture["mass_large"]))
-            return {"theta": theta, "step": 2 * theta, "steps": math.floor(fixture["span"] / (2 * theta))}
+            pair_steps = math.floor(fixture["span"] / (2 * theta))
+            return {"theta": theta, "step": 2 * theta, "pair_steps": pair_steps, "physical_collisions": 2 * pair_steps}
         if kind == "wedge_angle":
             return {"theta": math.atan(math.sqrt(fixture["mass_small"] / fixture["mass_large"]))}
         self.fail(f"unknown fixture kind: {kind}")
