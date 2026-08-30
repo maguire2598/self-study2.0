@@ -16,7 +16,7 @@
   "required": ["course_id", "section_id", "version", "content_fingerprint", "question_count_by_node", "delivery_policy", "status_assessment", "questions"],
   "properties": {
     "course_id": { "type": "string" },
-    "section_id": { "enum": ["A", "B"] },
+    "section_id": { "enum": ["A", "B", "C"] },
     "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
     "content_fingerprint": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
     "question_count_by_node": {
@@ -56,7 +56,7 @@
         ],
         "properties": {
           "id": { "type": "string" },
-          "node_id": { "type": "string", "pattern": "^[AB]" },
+          "node_id": { "type": "string", "pattern": "^[ABC]" },
           "node_title": { "type": "string" },
           "question_type": { "enum": ["single_choice", "multiple_choice", "multi_blank"] },
           "question_style": { "enum": ["scenario", "calculation", "concise"] },
@@ -65,7 +65,8 @@
           "event_stage": {
             "enum": [
               "initial", "after_first_collision", "after_wall_collision",
-              "after_second_collision", "terminal", "special_case", "extension_stage"
+              "after_second_collision", "terminal", "special_case", "extension_stage",
+              "state_analysis", "calculation"
             ]
           },
           "variant_axis": {
@@ -73,6 +74,7 @@
               "mass_ratio", "initial_velocity", "friction", "elasticity", "incline", "spring",
               "system_boundary", "counting", "direction", "observation", "model_assumption", "event_sequence",
               "conservation", "energy", "equation_setup", "impulse", "limit", "restitution", "solution_method", "state_geometry"
+              , "coordinate_transform", "angle_counting", "legend", "momentum", "wall_reflection", "elective_method", "calculation"
             ]
           },
           "calculation_fixture_id": { "type": "string", "minLength": 1 },
@@ -244,6 +246,41 @@
                 "B3.1", "B3.2", "B3.3", "B3.4", "B3.5",
                 "B4.1", "B4.2", "B4.3", "B4.4", "B4.5",
                 "B5.1", "B5.2", "B5.3", "B5.4"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "section_id": { "const": "C" } }, "required": ["section_id"] },
+      "then": {
+        "properties": {
+          "questions": {
+            "minItems": 180,
+            "maxItems": 180,
+            "items": {
+              "properties": {
+                "node_id": {
+                  "enum": [
+                    "C1.1", "C1.2", "C1.3", "C1.4", "C2.1", "C2.2", "C2.3",
+                    "C3.1", "C3.2", "C3.3", "C3.4", "C3.5", "C4.1", "C4.2", "C4.3", "C4.4",
+                    "C5.1", "C5.2", "C5.3", "C6.1", "C6.2", "C6.3", "C6.4", "C7.1", "C7.2", "C7.3", "C7.4",
+                    "C8.1", "C8.2", "C8.3", "C9.1", "C9.2", "C9.3", "C9.4", "C9.5", "C9.6", "C9.7"
+                  ]
+                }
+              }
+            }
+          },
+          "question_count_by_node": {
+            "minProperties": 37,
+            "maxProperties": 37,
+            "propertyNames": {
+              "enum": [
+                "C1.1", "C1.2", "C1.3", "C1.4", "C2.1", "C2.2", "C2.3",
+                "C3.1", "C3.2", "C3.3", "C3.4", "C3.5", "C4.1", "C4.2", "C4.3", "C4.4",
+                "C5.1", "C5.2", "C5.3", "C6.1", "C6.2", "C6.3", "C6.4", "C7.1", "C7.2", "C7.3", "C7.4",
+                "C8.1", "C8.2", "C8.3", "C9.1", "C9.2", "C9.3", "C9.4", "C9.5", "C9.6", "C9.7"
               ]
             }
           }

@@ -1106,15 +1106,15 @@
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
           "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：区分状态点坐标与物块实际位置。",
-          "ask": "速度正负方向：相撞后读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-2,1)，向右为正；下列围绕“区分状态点坐标与物块实际位置”，哪些判读成立？ 请选择两项正确判读。",
+          "ask": "速度正负方向：相撞后读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-1,-2)，向右为正；下列围绕“区分状态点坐标与物块实际位置”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "速度状态为(vM,vm)=(-2,1)。",
+              "text": "速度状态为(vM,vm)=(-1,-2)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "大物块向左、小物块向右。",
+              "text": "大物块向左、小物块向左。",
               "correct": true,
               "id": "B"
             },
@@ -1124,7 +1124,7 @@
               "id": "C"
             },
             {
-              "text": "速度状态为(vM,vm)=(0,1)。",
+              "text": "速度状态为(vM,vm)=(1,-2)。",
               "correct": false,
               "id": "D"
             }
@@ -1143,10 +1143,10 @@
                 "claim": {
                   "kind": "velocity_state",
                   "parameters": {
-                    "v_large": -2,
-                    "v_small": 1,
-                    "asserted_v_large": -2,
-                    "asserted_v_small": 1
+                    "v_large": -1,
+                    "v_small": -2,
+                    "asserted_v_large": -1,
+                    "asserted_v_small": -2
                   }
                 }
               },
@@ -1156,10 +1156,10 @@
                 "claim": {
                   "kind": "velocity_direction",
                   "parameters": {
-                    "v_large": -2,
-                    "v_small": 1,
+                    "v_large": -1,
+                    "v_small": -2,
                     "asserted_large_direction": "向左",
-                    "asserted_small_direction": "向右"
+                    "asserted_small_direction": "向左"
                   }
                 }
               },
@@ -1169,8 +1169,8 @@
                 "claim": {
                   "kind": "velocity_quadrant",
                   "parameters": {
-                    "v_large": -2,
-                    "v_small": 1,
+                    "v_large": -1,
+                    "v_small": -2,
                     "asserted_quadrant": "第一象限"
                   }
                 }
@@ -1181,10 +1181,10 @@
                 "claim": {
                   "kind": "velocity_state",
                   "parameters": {
-                    "v_large": -2,
-                    "v_small": 1,
-                    "asserted_v_large": 0,
-                    "asserted_v_small": 1
+                    "v_large": -1,
+                    "v_small": -2,
+                    "asserted_v_large": 1,
+                    "asserted_v_small": -2
                   }
                 }
               }
@@ -1201,15 +1201,15 @@
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
           "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：用两分量检验相对运动方向。",
-          "ask": "速度正负方向：到墙前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(-3,2)，向右为正；下列围绕“用两分量检验相对运动方向”，哪些判读成立？ 请选择两项正确判读。",
+          "ask": "速度正负方向：到墙前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(2,-1)，向右为正；下列围绕“用两分量检验相对运动方向”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "速度状态为(vM,vm)=(-3,2)。",
+              "text": "速度状态为(vM,vm)=(2,-1)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "大物块向左、小物块向右。",
+              "text": "大物块向右、小物块向左。",
               "correct": true,
               "id": "B"
             },
@@ -1219,7 +1219,7 @@
               "id": "C"
             },
             {
-              "text": "速度状态为(vM,vm)=(-1,2)。",
+              "text": "速度状态为(vM,vm)=(4,-1)。",
               "correct": false,
               "id": "D"
             }
@@ -1238,10 +1238,10 @@
                 "claim": {
                   "kind": "velocity_state",
                   "parameters": {
-                    "v_large": -3,
-                    "v_small": 2,
-                    "asserted_v_large": -3,
-                    "asserted_v_small": 2
+                    "v_large": 2,
+                    "v_small": -1,
+                    "asserted_v_large": 2,
+                    "asserted_v_small": -1
                   }
                 }
               },
@@ -1251,10 +1251,10 @@
                 "claim": {
                   "kind": "velocity_direction",
                   "parameters": {
-                    "v_large": -3,
-                    "v_small": 2,
-                    "asserted_large_direction": "向左",
-                    "asserted_small_direction": "向右"
+                    "v_large": 2,
+                    "v_small": -1,
+                    "asserted_large_direction": "向右",
+                    "asserted_small_direction": "向左"
                   }
                 }
               },
@@ -1264,8 +1264,8 @@
                 "claim": {
                   "kind": "velocity_quadrant",
                   "parameters": {
-                    "v_large": -3,
-                    "v_small": 2,
+                    "v_large": 2,
+                    "v_small": -1,
                     "asserted_quadrant": "第一象限"
                   }
                 }
@@ -1276,10 +1276,10 @@
                 "claim": {
                   "kind": "velocity_state",
                   "parameters": {
-                    "v_large": -3,
-                    "v_small": 2,
-                    "asserted_v_large": -1,
-                    "asserted_v_small": 2
+                    "v_large": 2,
+                    "v_small": -1,
+                    "asserted_v_large": 4,
+                    "asserted_v_small": -1
                   }
                 }
               }
@@ -5514,15 +5514,15 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：定位零动量线的原点交点。",
-          "ask": "动量线平行：相撞后读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“定位零动量线的原点交点”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "ask": "动量线平行：相撞后读数的质量加权平面动量线对应M/m=16/1且总动量为零；围绕“定位零动量线的原点交点”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-3.0。",
+              "text": "动量直线斜率为-4.0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-3.0。",
+              "text": "同一总动量的直线斜率应为-4.0。",
               "correct": true,
               "id": "B"
             },
@@ -5532,7 +5532,7 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为-1.0。",
+              "text": "动量直线斜率为-2.0。",
               "correct": false,
               "id": "D"
             }
@@ -5551,9 +5551,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -4.0
                   }
                 }
               },
@@ -5563,9 +5563,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -4.0
                   }
                 }
               },
@@ -5586,9 +5586,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -2.0
                   }
                 }
               }
@@ -5605,15 +5605,15 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：区分弦方向与圆周轨迹。",
-          "ask": "动量线平行：到墙前读数的质量加权平面动量线对应M/m=4/1且总动量为零；围绕“区分弦方向与圆周轨迹”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "ask": "动量线平行：到墙前读数的质量加权平面动量线对应M/m=1/1且总动量为零；围绕“区分弦方向与圆周轨迹”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-2.0。",
+              "text": "动量直线斜率为-1.0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-2.0。",
+              "text": "同一总动量的直线斜率应为-1.0。",
               "correct": true,
               "id": "B"
             },
@@ -5623,7 +5623,7 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为0.0。",
+              "text": "动量直线斜率为1.0。",
               "correct": false,
               "id": "D"
             }
@@ -5642,9 +5642,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 1,
                     "mass_small": 1,
-                    "asserted_slope": -2.0
+                    "asserted_slope": -1.0
                   }
                 }
               },
@@ -5654,9 +5654,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 1,
                     "mass_small": 1,
-                    "asserted_slope": -2.0
+                    "asserted_slope": -1.0
                   }
                 }
               },
@@ -5677,9 +5677,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 1,
                     "mass_small": 1,
-                    "asserted_slope": 0.0
+                    "asserted_slope": 1.0
                   }
                 }
               }
@@ -5878,15 +5878,15 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：定位零动量线的原点交点。",
-          "ask": "弦方向：相撞后读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“定位零动量线的原点交点”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "ask": "弦方向：相撞后读数的质量加权平面动量线对应M/m=16/1且总动量为零；围绕“定位零动量线的原点交点”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-3.0。",
+              "text": "动量直线斜率为-4.0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-3.0。",
+              "text": "同一总动量的直线斜率应为-4.0。",
               "correct": true,
               "id": "B"
             },
@@ -5896,7 +5896,7 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为-1.0。",
+              "text": "动量直线斜率为-2.0。",
               "correct": false,
               "id": "D"
             }
@@ -5915,9 +5915,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -4.0
                   }
                 }
               },
@@ -5927,9 +5927,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -4.0
                   }
                 }
               },
@@ -5950,9 +5950,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -2.0
                   }
                 }
               }
@@ -8366,8 +8366,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 2
                   }
@@ -8395,8 +8399,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -8468,10 +8476,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -8499,10 +8515,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 6
                   }
@@ -8574,12 +8598,24 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 6
                   }
@@ -8607,12 +8643,24 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 8
                   }
@@ -8684,8 +8732,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 2
                   }
@@ -8713,8 +8765,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -8786,8 +8842,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 2
                   }
@@ -8815,8 +8875,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -8888,10 +8952,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -8919,10 +8991,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 6
                   }
@@ -8994,12 +9074,24 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 6
                   }
@@ -9027,12 +9119,24 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 8
                   }
@@ -9115,8 +9219,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 2
                   }
@@ -9144,8 +9252,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -9213,10 +9325,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -9244,10 +9364,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 6
                   }
@@ -9319,8 +9447,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 2
                   }
@@ -9348,8 +9480,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -9423,10 +9559,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -9454,10 +9598,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 6
                   }
@@ -9531,12 +9683,24 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 6
                   }
@@ -9564,12 +9728,24 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 8
                   }
@@ -9643,8 +9819,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 2
                   }
@@ -9672,8 +9852,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -9747,10 +9931,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -9778,10 +9970,18 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞",
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 6
                   }
@@ -9855,8 +10055,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 2
                   }
@@ -9884,8 +10088,12 @@
                   "kind": "event_count",
                   "parameters": {
                     "events": [
-                      "块碰撞",
-                      "墙碰撞"
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      }
                     ],
                     "asserted_count": 4
                   }
@@ -10453,7 +10661,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
-          "ask": "弦方向角：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "ask": "弦方向角：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
@@ -10548,7 +10756,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：辨认完整事件对与奇数残余碰撞。",
-          "ask": "弦方向角：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "ask": "弦方向角：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -10643,7 +10851,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
-          "ask": "事件对步长：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "ask": "事件对步长：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
@@ -10738,7 +10946,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：辨认完整事件对与奇数残余碰撞。",
-          "ask": "事件对步长：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "ask": "事件对步长：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -10845,7 +11053,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
-          "ask": "等角弦方向：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "ask": "等角弦方向：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
@@ -10940,25 +11148,25 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从弦斜率求标准方向角。",
-          "ask": "弦方向角：相撞后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从弦斜率求标准方向角”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "ask": "弦方向角：相撞后读数的弦方向角题中M/m=16/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从弦斜率求标准方向角”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
+              "text": "完整事件对数为6，剩余物理碰撞为0，总物理碰撞数为12。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为1.815775 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "一次完整事件对在圆上推进0.321751 rad。",
+              "text": "一次完整事件对在圆上推进0.244979 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.015775 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10977,12 +11185,12 @@
                 "claim": {
                   "kind": "angle_pair_count",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "span": 3.141592653589793,
-                    "asserted_pairs": 4,
-                    "asserted_residual": 1,
-                    "asserted_collisions": 9
+                    "asserted_pairs": 6,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 12
                   }
                 }
               },
@@ -10992,9 +11200,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_direction": 1.8925468811915387
+                    "asserted_direction": 1.8157749899217608
                   }
                 }
               },
@@ -11004,9 +11212,9 @@
                 "claim": {
                   "kind": "angle_relation",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_step": 0.3217505543966422
+                    "asserted_step": 0.24497866312686414
                   }
                 }
               },
@@ -11016,9 +11224,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_direction": 2.092546881191539
+                    "asserted_direction": 2.015774989921761
                   }
                 }
               }
@@ -11035,25 +11243,25 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从弦斜率求标准方向角。",
-          "ask": "事件对步长：相撞后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从弦斜率求标准方向角”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "ask": "事件对步长：相撞后读数的弦方向角题中M/m=16/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从弦斜率求标准方向角”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
+              "text": "完整事件对数为6，剩余物理碰撞为0，总物理碰撞数为12。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为1.815775 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "一次完整事件对在圆上推进0.321751 rad。",
+              "text": "一次完整事件对在圆上推进0.244979 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.015775 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11072,12 +11280,12 @@
                 "claim": {
                   "kind": "angle_pair_count",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "span": 3.141592653589793,
-                    "asserted_pairs": 4,
-                    "asserted_residual": 1,
-                    "asserted_collisions": 9
+                    "asserted_pairs": 6,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 12
                   }
                 }
               },
@@ -11087,9 +11295,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_direction": 1.8925468811915387
+                    "asserted_direction": 1.8157749899217608
                   }
                 }
               },
@@ -11099,9 +11307,9 @@
                 "claim": {
                   "kind": "angle_relation",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_step": 0.3217505543966422
+                    "asserted_step": 0.24497866312686414
                   }
                 }
               },
@@ -11111,9 +11319,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_direction": 2.092546881191539
+                    "asserted_direction": 2.015774989921761
                   }
                 }
               }
@@ -11130,7 +11338,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-          "ask": "事件对步长：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "ask": "事件对步长：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -11225,7 +11433,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-          "ask": "碰撞数计数：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "ask": "碰撞数计数：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
@@ -11320,7 +11528,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-          "ask": "碰撞数计数：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "ask": "碰撞数计数：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -11415,7 +11623,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-          "ask": "碰撞数计数：相撞后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "ask": "碰撞数计数：相撞后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
@@ -11512,7 +11720,7 @@
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
           "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-          "ask": "碰撞数计数：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "ask": "碰撞数计数：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -14744,10 +14952,18 @@
               "kind": "event_count",
               "parameters": {
                 "events": [
-                  "块碰撞",
-                  "墙碰撞",
-                  "块碰撞",
-                  "墙碰撞"
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  },
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  }
                 ],
                 "asserted_count": 4
               }
@@ -14775,10 +14991,18 @@
               "kind": "event_count",
               "parameters": {
                 "events": [
-                  "块碰撞",
-                  "墙碰撞",
-                  "块碰撞",
-                  "墙碰撞"
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  },
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  }
                 ],
                 "asserted_count": 6
               }
@@ -14908,10 +15132,18 @@
               "kind": "event_count",
               "parameters": {
                 "events": [
-                  "块碰撞",
-                  "墙碰撞",
-                  "块碰撞",
-                  "墙碰撞"
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  },
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  }
                 ],
                 "asserted_count": 4
               }
@@ -14939,10 +15171,18 @@
               "kind": "event_count",
               "parameters": {
                 "events": [
-                  "块碰撞",
-                  "墙碰撞",
-                  "块碰撞",
-                  "墙碰撞"
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  },
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  }
                 ],
                 "asserted_count": 6
               }
@@ -15010,12 +15250,24 @@
               "kind": "event_count",
               "parameters": {
                 "events": [
-                  "块碰撞",
-                  "墙碰撞",
-                  "块碰撞",
-                  "墙碰撞",
-                  "块碰撞",
-                  "墙碰撞"
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  },
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  },
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  }
                 ],
                 "asserted_count": 6
               }
@@ -15043,12 +15295,24 @@
               "kind": "event_count",
               "parameters": {
                 "events": [
-                  "块碰撞",
-                  "墙碰撞",
-                  "块碰撞",
-                  "墙碰撞",
-                  "块碰撞",
-                  "墙碰撞"
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  },
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  },
+                  {
+                    "kind": "block_collision"
+                  },
+                  {
+                    "kind": "wall_collision"
+                  }
                 ],
                 "asserted_count": 8
               }
@@ -15116,7 +15380,7 @@
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
       "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-      "prompt": "等角弦方向：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+      "prompt": "等角弦方向：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
       "options": [
         {
           "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -15241,7 +15505,7 @@
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
       "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-      "prompt": "弦方向角：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+      "prompt": "弦方向角：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
       "options": [
         {
           "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -15372,7 +15636,7 @@
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
       "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-      "prompt": "事件对步长：离墙后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+      "prompt": "事件对步长：离墙后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
       "options": [
         {
           "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
@@ -15503,7 +15767,7 @@
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
       "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-      "prompt": "碰撞数计数：离墙后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+      "prompt": "碰撞数计数：离墙后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
       "options": [
         {
           "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",

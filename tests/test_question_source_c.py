@@ -9,11 +9,15 @@ from collections import Counter
 from fractions import Fraction
 from pathlib import Path
 
+from scripts import collision_pi_question_bank as question_bank
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "content" / "courses" / "collision-pi" / "question-source-c.json"
 SCHEMA = ROOT / "schemas" / "objective_question_source_c.schema.json"
+FORMAL_BANK_SCHEMA = ROOT / "schemas" / "objective_question_bank.schema.json"
 MANIFEST = ROOT / "content" / "courses" / "collision-pi" / "diagram-manifest-c.json"
+PUZZLE = ROOT / "content" / "courses" / "collision-pi" / "knowledge-puzzle.json"
 
 EXPECTED_QUOTAS = {
     "C1.1": 6, "C1.2": 6, "C1.3": 5, "C1.4": 5,
@@ -180,6 +184,20 @@ def normalize_multi_physics(question):
     return normalize_semantic_prompt(text + " " + correct_kinds + " " + question["explanation"])
 
 
+def multi_physical_signature(question):
+    """Ignore headings/focus copy; retain givens, complete claims, answer flags, and physics explanation."""
+    prompt = question.get("ask", question.get("prompt", ""))
+    prompt = re.sub(r"^[^：]{1,16}：", "", prompt)
+    prompt = re.sub(r"(?:初始|相遇前|相撞后|到墙前|离墙后|终态前|终态)读数：", "", prompt)
+    prompt = re.sub(r"围绕“[^”]+”，", "", prompt)
+    explanation = re.sub(r" 本题具体检验：[^。]+。", "", question["explanation"])
+    claims = [
+        {"claim": item["claim"], "correct": option["correct"]}
+        for option, item in zip(question["options"], question["answer_contract"]["claims"])
+    ]
+    return normalize_semantic_prompt(prompt + " " + explanation), json.dumps(claims, ensure_ascii=False, sort_keys=True)
+
+
 def evaluate_typed_claim(claim):
     """Compute an option's truth solely from its physical assertion parameters."""
     params = claim["parameters"]
@@ -218,7 +236,9 @@ def evaluate_typed_claim(claim):
         after = params["after"]
         return math.isclose(params["asserted_before_r2"], before[0] ** 2 + before[1] ** 2) and math.isclose(params["asserted_after_r2"], after[0] ** 2 + after[1] ** 2)
     if kind == "event_count":
-        return params["asserted_count"] == len(params["events"])
+        expected = ["block_collision" if index % 2 == 0 else "wall_collision" for index in range(len(params["events"]))]
+        return (params["asserted_count"] == len(params["events"])
+                and [event["kind"] for event in params["events"]] == expected)
     if kind == "safe_sector":
         return math.isclose(params["asserted_upper"], params["boundary"] * params["point"][0]) and params["point"][1] <= params["asserted_upper"]
     if kind == "angle_pair_count":
@@ -333,6 +353,21 @@ def validate_source_with_pwsh(source):
     )
 
 
+def validate_c_bank_with_pwsh(bank):
+    env = os.environ.copy()
+    env["QUESTION_SOURCE_C_SCHEMA"] = str(FORMAL_BANK_SCHEMA)
+    script = (
+        "$json = [Console]::In.ReadToEnd(); "
+        "try { $valid = $json | Test-Json -SchemaFile $env:QUESTION_SOURCE_C_SCHEMA -ErrorAction Stop; "
+        "if ($valid) { exit 0 } else { exit 1 } } "
+        "catch { [Console]::Error.WriteLine($_.Exception.Message); exit 1 }"
+    )
+    return subprocess.run(
+        ["pwsh", "-NoProfile", "-NonInteractive", "-Command", script],
+        input=json.dumps(bank, ensure_ascii=False), text=True, capture_output=True, env=env, check=False,
+    )
+
+
 class SourceLoadMixin:
     def load_source(self):
         self.assertTrue(SOURCE.is_file(), f"missing C question source: {SOURCE}")
@@ -394,6 +429,31 @@ class QuestionSourceCSchemaTests(SourceLoadMixin, unittest.TestCase):
 
 
 class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
+    def test_expansion_keeps_c_visual_contract_and_anonymizes_option_figures(self):
+        """Consumable C output must not fall back to an SVG's own accessible name."""
+        bank = question_bank.build_bank_from_paths(
+            SOURCE, PUZZLE, section_id="C", title="碰撞与π：C"
+        )
+        source, _, scenario_questions, standalone, _, diagram_by_id = self.load_source()
+        self.assertEqual(len(bank["questions"]), 180)
+        valid = validate_c_bank_with_pwsh(bank)
+        self.assertEqual(valid.returncode, 0, valid.stdout + valid.stderr)
+        option_figures = [q for q in bank["questions"] if q.get("presentation_mode") == "option_figures"]
+        self.assertEqual(len(option_figures), 24)
+        for question in option_figures:
+            contract = question["anonymous_option_rendering"]
+            self.assertTrue(contract["embedded_figure_aria_hidden"])
+            self.assertEqual(contract["accessible_name_source"], "option_accessibility_label")
+            self.assertEqual(len(question["options"]), 4)
+            for option in question["options"]:
+                self.assertIn("figure_ref", option)
+                self.assertEqual(option["accessibility_label"], f"图{option['id']}")
+                self.assertTrue(option["embedded_figure_aria_hidden"])
+                source_diagram = diagram_by_id[option["figure_ref"]]
+                self.assertNotIn(source_diagram["caption"], option["accessibility_label"])
+                self.assertNotIn(source_diagram["alt_text"], option["accessibility_label"])
+        self.assertEqual(source["section_id"], "C")
+
     def test_exact_source_contract_and_quotas(self):
         source, scenarios, scenario_questions, standalone, _, _ = self.load_source()
         all_questions = scenario_questions + standalone
@@ -543,6 +603,26 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             fingerprint = (question["node_id"], normalize_multi_physics(question))
             self.assertNotIn(fingerprint, seen, question["key"])
             seen.add(fingerprint)
+
+    def test_reviewed_multi_choice_pairs_differ_in_physical_signature(self):
+        """The seven review pairs must differ beyond phase/focus wording."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        by_key = {q["key"]: q for q in scenario_questions + standalone}
+        pairs = (
+            ("c1-2-scenario-01", "c1-2-scenario-03"),
+            ("c1-2-scenario-02", "c1-2-scenario-04"),
+            ("c4-2-scenario-01", "c4-2-scenario-03"),
+            ("c4-2-scenario-02", "c4-2-scenario-04"),
+            ("c4-3-scenario-01", "c4-3-scenario-03"),
+            ("c7-2-scenario-02", "c7-2-scenario-04"),
+            ("c7-3-scenario-01", "c7-3-scenario-03"),
+        )
+        for left, right in pairs:
+            self.assertNotEqual(multi_physical_signature(by_key[left]), multi_physical_signature(by_key[right]), (left, right))
+        cosmetic = copy.deepcopy(by_key["c1-2-scenario-01"])
+        cosmetic["ask"] = cosmetic["ask"].replace("初始读数", "终态读数").replace("读取有序速度分量与运动方向", "由速度正负判定相图象限")
+        cosmetic["explanation"] += " 本题具体检验：由速度正负判定相图象限。"
+        self.assertEqual(multi_physical_signature(by_key["c1-2-scenario-01"]), multi_physical_signature(cosmetic))
 
     def test_option_figure_stems_do_not_leak_caption_or_id_and_use_typed_queries(self):
         """The visual task must be solved from physics criteria, not a copied caption."""
@@ -937,6 +1017,39 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         typed["hidden_expected_truth"] = 1
         invalid = validate_source_with_pwsh(mutation)
         self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
+        mutation = copy.deepcopy(source)
+        typed = mutation["scenarios"][0]["questions"][2]["answer_contract"]["claims"][0]["claim"]["parameters"]
+        typed["energy"] = 2
+        invalid = validate_source_with_pwsh(mutation)
+        self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
+        mutation = copy.deepcopy(source)
+        typed = mutation["scenarios"][0]["questions"][2]["answer_contract"]["claims"][0]["claim"]["parameters"]
+        typed.pop("asserted_v_small")
+        invalid = validate_source_with_pwsh(mutation)
+        self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
+        mutation = copy.deepcopy(source)
+        event_params = next(
+            claim["claim"]["parameters"]
+            for scenario in mutation["scenarios"]
+            for question in scenario["questions"]
+            for claim in question.get("answer_contract", {}).get("claims", [])
+            if claim["claim"]["kind"] == "event_count"
+        )
+        event_params["events"][0]["hidden_expected_truth"] = True
+        invalid = validate_source_with_pwsh(mutation)
+        self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
+        mutation = copy.deepcopy(source)
+        event_params = next(
+            claim["claim"]["parameters"]
+            for scenario in mutation["scenarios"]
+            for question in scenario["questions"]
+            for claim in question.get("answer_contract", {}).get("claims", [])
+            if claim["claim"]["kind"] == "event_count"
+        )
+        event_params["events"][0]["kind"] = "wall_collision"
+        self.assertFalse(evaluate_typed_claim({"kind": "event_count", "parameters": event_params}))
+        invalid = validate_source_with_pwsh(mutation)
+        self.assertEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
 
     def assert_checkpoint(self, prefixes, expected_count):
         _, _, scenario_questions, standalone, fixtures, diagram_by_id = self.load_source()

@@ -2121,10 +2121,18 @@
             "D"
           ],
           "properties": {
-            "A": { "const": "图A" },
-            "B": { "const": "图B" },
-            "C": { "const": "图C" },
-            "D": { "const": "图D" }
+            "A": {
+              "const": "图A"
+            },
+            "B": {
+              "const": "图B"
+            },
+            "C": {
+              "const": "图C"
+            },
+            "D": {
+              "const": "图D"
+            }
           }
         }
       }
@@ -2167,15 +2175,45 @@
           "minProperties": 1,
           "propertyNames": {
             "enum": [
-              "v_large", "v_small", "asserted_v_large", "asserted_v_small",
-              "asserted_large_direction", "asserted_small_direction", "asserted_quadrant",
-              "mass_large", "mass_small", "energy", "asserted_rhs", "asserted_a2", "asserted_b2",
-              "asserted_x", "asserted_y", "asserted_r2", "asserted_slope",
-              "before", "after", "asserted_after", "asserted_before_r2", "asserted_after_r2",
-              "events", "asserted_count", "point", "boundary", "asserted_upper",
-              "span", "asserted_pairs", "asserted_residual", "asserted_collisions", "asserted_step",
-              "asserted_direction", "diagram_id", "symbol", "asserted_mapping", "asserted_theta",
-              "asserted_unfolded_turn", "figure_ref"
+              "v_large",
+              "v_small",
+              "asserted_v_large",
+              "asserted_v_small",
+              "asserted_large_direction",
+              "asserted_small_direction",
+              "asserted_quadrant",
+              "mass_large",
+              "mass_small",
+              "energy",
+              "asserted_rhs",
+              "asserted_a2",
+              "asserted_b2",
+              "asserted_x",
+              "asserted_y",
+              "asserted_r2",
+              "asserted_slope",
+              "before",
+              "after",
+              "asserted_after",
+              "asserted_before_r2",
+              "asserted_after_r2",
+              "events",
+              "asserted_count",
+              "point",
+              "boundary",
+              "asserted_upper",
+              "span",
+              "asserted_pairs",
+              "asserted_residual",
+              "asserted_collisions",
+              "asserted_step",
+              "asserted_direction",
+              "diagram_id",
+              "symbol",
+              "asserted_mapping",
+              "asserted_theta",
+              "asserted_unfolded_turn",
+              "figure_ref"
             ]
           },
           "additionalProperties": {
@@ -2183,6 +2221,911 @@
               "type": "boolean"
             }
           }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "velocity_state"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_velocity_state"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "velocity_direction"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_velocity_direction"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "velocity_quadrant"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_velocity_quadrant"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "raw_energy_ellipse"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_raw_energy_ellipse"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "ellipse_axes"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_ellipse_axes"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "weighted_point"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_weighted_point"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "energy_radius"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_energy_radius"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "momentum_slope"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_momentum_slope"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "momentum_parallel"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_momentum_parallel"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "momentum_intersection"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_momentum_intersection"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "wall_reflection"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_wall_reflection"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "wall_radius"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_wall_radius"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "event_count"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_event_count"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "safe_sector"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_safe_sector"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "angle_pair_count"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_angle_pair_count"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "angle_relation"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_angle_relation"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "chord_direction_angle"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_chord_direction_angle"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "legend_mapping"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_legend_mapping"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "wedge_angle"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_wedge_angle"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "folded_unfolded"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_folded_unfolded"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "diagram_matches_query"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_diagram_matches_query"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "claimParams_velocity_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "v_large",
+        "v_small",
+        "asserted_v_large",
+        "asserted_v_small"
+      ],
+      "properties": {
+        "v_large": {
+          "type": "number"
+        },
+        "v_small": {
+          "type": "number"
+        },
+        "asserted_v_large": {
+          "type": "number"
+        },
+        "asserted_v_small": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_velocity_direction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "v_large",
+        "v_small",
+        "asserted_large_direction",
+        "asserted_small_direction"
+      ],
+      "properties": {
+        "v_large": {
+          "type": "number"
+        },
+        "v_small": {
+          "type": "number"
+        },
+        "asserted_large_direction": {
+          "enum": [
+            "向左",
+            "向右"
+          ]
+        },
+        "asserted_small_direction": {
+          "enum": [
+            "向左",
+            "向右"
+          ]
+        }
+      }
+    },
+    "claimParams_velocity_quadrant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "v_large",
+        "v_small",
+        "asserted_quadrant"
+      ],
+      "properties": {
+        "v_large": {
+          "type": "number"
+        },
+        "v_small": {
+          "type": "number"
+        },
+        "asserted_quadrant": {
+          "enum": [
+            "第一象限",
+            "第二象限",
+            "第三象限",
+            "第四象限"
+          ]
+        }
+      }
+    },
+    "claimParams_raw_energy_ellipse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "energy",
+        "asserted_rhs"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "energy": {
+          "type": "number"
+        },
+        "asserted_rhs": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_ellipse_axes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "energy",
+        "asserted_a2",
+        "asserted_b2"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "energy": {
+          "type": "number"
+        },
+        "asserted_a2": {
+          "type": "number"
+        },
+        "asserted_b2": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_weighted_point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "v_large",
+        "v_small",
+        "asserted_x",
+        "asserted_y"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "v_large": {
+          "type": "number"
+        },
+        "v_small": {
+          "type": "number"
+        },
+        "asserted_x": {
+          "type": "number"
+        },
+        "asserted_y": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_energy_radius": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "energy",
+        "asserted_r2"
+      ],
+      "properties": {
+        "energy": {
+          "type": "number"
+        },
+        "asserted_r2": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_momentum_slope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "asserted_slope"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "asserted_slope": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_momentum_parallel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "asserted_slope"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "asserted_slope": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_momentum_intersection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asserted_x",
+        "asserted_y"
+      ],
+      "properties": {
+        "asserted_x": {
+          "type": "number"
+        },
+        "asserted_y": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_wall_reflection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "before",
+        "asserted_after"
+      ],
+      "properties": {
+        "before": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "asserted_after": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "claimParams_wall_radius": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "before",
+        "after",
+        "asserted_before_r2",
+        "asserted_after_r2"
+      ],
+      "properties": {
+        "before": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "after": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "asserted_before_r2": {
+          "type": "number"
+        },
+        "asserted_after_r2": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_event_count": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "events",
+        "asserted_count"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "block_collision",
+                  "wall_collision"
+                ]
+              }
+            }
+          }
+        },
+        "asserted_count": {
+          "type": "integer"
+        }
+      }
+    },
+    "claimParams_safe_sector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "point",
+        "boundary",
+        "asserted_upper"
+      ],
+      "properties": {
+        "point": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "boundary": {
+          "type": "number"
+        },
+        "asserted_upper": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_angle_pair_count": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "span",
+        "asserted_pairs",
+        "asserted_residual",
+        "asserted_collisions"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "span": {
+          "type": "number"
+        },
+        "asserted_pairs": {
+          "type": "integer"
+        },
+        "asserted_residual": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "asserted_collisions": {
+          "type": "integer"
+        }
+      }
+    },
+    "claimParams_angle_relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "asserted_step"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "asserted_step": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_chord_direction_angle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "asserted_direction"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "asserted_direction": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_legend_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "diagram_id",
+        "symbol",
+        "asserted_mapping"
+      ],
+      "properties": {
+        "diagram_id": {
+          "type": "string"
+        },
+        "symbol": {
+          "enum": [
+            "circle",
+            "line",
+            "chord",
+            "mirror"
+          ]
+        },
+        "asserted_mapping": {
+          "type": "string"
+        }
+      }
+    },
+    "claimParams_wedge_angle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "asserted_theta"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "asserted_theta": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_folded_unfolded": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "asserted_unfolded_turn"
+      ],
+      "properties": {
+        "mass_large": {
+          "type": "number"
+        },
+        "mass_small": {
+          "type": "number"
+        },
+        "asserted_unfolded_turn": {
+          "type": "number"
+        }
+      }
+    },
+    "claimParams_diagram_matches_query": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "figure_ref"
+      ],
+      "properties": {
+        "figure_ref": {
+          "type": "string"
         }
       }
     }

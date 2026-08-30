@@ -33,13 +33,20 @@ def rotate(values: list[T], offset: int) -> list[T]:
 
 
 def expand_choice_options(
-    options: list[dict], offset: int
+    options: list[dict], offset: int, *, anonymous_figures: bool = False
 ) -> tuple[list[dict], list[str]]:
     rotated = rotate(options, offset)
-    rendered = [
-        {"id": OPTION_IDS[index], "text": option["text"]}
-        for index, option in enumerate(rotated)
-    ]
+    rendered = []
+    for index, option in enumerate(rotated):
+        option_id = OPTION_IDS[index]
+        output = {"id": option_id, "text": option["text"]}
+        if anonymous_figures:
+            output.update({
+                "figure_ref": option["figure_ref"],
+                "accessibility_label": f"图{option_id}",
+                "embedded_figure_aria_hidden": True,
+            })
+        rendered.append(output)
     answers = [
         OPTION_IDS[index]
         for index, option in enumerate(rotated)
@@ -90,10 +97,21 @@ def expand_questions(source: dict, puzzle: dict, section_id: str) -> list[dict]:
             item["calculation_fixture_id"] = question["calculation_fixture_id"]
         if "options" in question:
             item["options"], item["correct_answers"] = expand_choice_options(
-                question["options"], index
+                question["options"], index,
+                anonymous_figures=question.get("presentation_mode") == "option_figures",
             )
         else:
             item["blanks"] = question["blanks"]
+        if "presentation_mode" in question:
+            item["presentation_mode"] = question["presentation_mode"]
+            item["diagram_focus"] = question.get("diagram_focus", "")
+            if "figure_refs" in question:
+                item["figure_refs"] = question["figure_refs"]
+            if question["presentation_mode"] == "option_figures":
+                item["anonymous_option_rendering"] = {
+                    "embedded_figure_aria_hidden": True,
+                    "accessible_name_source": "option_accessibility_label",
+                }
         expanded.append(item)
     return expanded
 
