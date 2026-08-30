@@ -167,6 +167,19 @@ def normalize_choice_semantics(question):
     return normalize_semantic_prompt(text + " " + correct + " " + question["explanation"])
 
 
+def normalize_multi_physics(question):
+    """Drop stage wrappers while retaining the asked physical relation and claim semantics."""
+    text = question.get("ask", question.get("prompt", ""))
+    text = re.sub(r"^[^：]{1,16}：", "", text)
+    text = re.sub(r"(?:初始|相遇前|相撞后|到墙前|离墙后|终态前|终态)读数：", "", text)
+    correct_kinds = ",".join(
+        claim["claim"]["kind"]
+        for option, claim in zip(question["options"], question["answer_contract"]["claims"])
+        if option["correct"]
+    )
+    return normalize_semantic_prompt(text + " " + correct_kinds + " " + question["explanation"])
+
+
 def evaluate_typed_claim(claim):
     """Compute an option's truth solely from its physical assertion parameters."""
     params = claim["parameters"]
@@ -210,13 +223,20 @@ def evaluate_typed_claim(claim):
         return math.isclose(params["asserted_upper"], params["boundary"] * params["point"][0]) and params["point"][1] <= params["asserted_upper"]
     if kind == "angle_pair_count":
         theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
-        pairs = math.floor(params["span"] / (2 * theta))
-        return params["asserted_pairs"] == pairs and params["asserted_collisions"] == 2 * pairs
+        collisions = math.ceil(math.pi / theta) - 1
+        return (params["asserted_pairs"] == collisions // 2
+                and params["asserted_residual"] == collisions % 2
+                and params["asserted_collisions"] == collisions)
     if kind == "angle_relation":
         theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
         return math.isclose(params["asserted_step"], 2 * theta)
+    if kind == "chord_direction_angle":
+        theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
+        return math.isclose(params["asserted_direction"], (theta - math.pi / 2) % math.pi)
     if kind == "legend_mapping":
-        return params["asserted_mapping"] == params["mapping"][params["symbol"]]
+        diagram_source = json.loads((ROOT / "content" / "courses" / "collision-pi" / "diagram-source-c.json").read_text(encoding="utf-8"))
+        diagram = next(item for item in diagram_source["diagrams"] if item["diagram_id"] == params["diagram_id"])
+        return params["asserted_mapping"] == diagram["labels"][params["symbol"]]
     if kind == "wedge_angle":
         return math.isclose(params["asserted_theta"], math.atan(math.sqrt(params["mass_small"] / params["mass_large"])))
     if kind == "folded_unfolded":
@@ -258,9 +278,11 @@ def render_typed_claim(claim):
     if kind == "safe_sector":
         return f"当x={params['point'][0]}时，安全扇区允许的最大y为{params['asserted_upper']}。"
     if kind == "angle_pair_count":
-        return f"完整事件对数为{params['asserted_pairs']}，物理碰撞数为{params['asserted_collisions']}。"
+        return f"完整事件对数为{params['asserted_pairs']}，剩余物理碰撞为{params['asserted_residual']}，总物理碰撞数为{params['asserted_collisions']}。"
     if kind == "angle_relation":
         return f"一次完整事件对在圆上推进{params['asserted_step']:.6f} rad。"
+    if kind == "chord_direction_angle":
+        return f"以+x轴为参照的弦方向角为{params['asserted_direction']:.6f} rad（模pi）。"
     if kind == "legend_mapping":
         return f"图例中{params['symbol']}表示{params['asserted_mapping']}。"
     if kind == "wedge_angle":
@@ -424,6 +446,29 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         choices = [question for question in scenario_questions + standalone if "options" in question]
         self.assertEqual(len(choices), 156)
         claim_kinds = set()
+        expected_parameters = {
+            "velocity_state": {"v_large", "v_small", "asserted_v_large", "asserted_v_small"},
+            "velocity_direction": {"v_large", "v_small", "asserted_large_direction", "asserted_small_direction"},
+            "velocity_quadrant": {"v_large", "v_small", "asserted_quadrant"},
+            "raw_energy_ellipse": {"mass_large", "mass_small", "energy", "asserted_rhs"},
+            "ellipse_axes": {"mass_large", "mass_small", "energy", "asserted_a2", "asserted_b2"},
+            "weighted_point": {"mass_large", "mass_small", "v_large", "v_small", "asserted_x", "asserted_y"},
+            "energy_radius": {"energy", "asserted_r2"},
+            "momentum_slope": {"mass_large", "mass_small", "asserted_slope"},
+            "momentum_parallel": {"mass_large", "mass_small", "asserted_slope"},
+            "momentum_intersection": {"asserted_x", "asserted_y"},
+            "wall_reflection": {"before", "asserted_after"},
+            "wall_radius": {"before", "after", "asserted_before_r2", "asserted_after_r2"},
+            "event_count": {"events", "asserted_count"},
+            "safe_sector": {"point", "boundary", "asserted_upper"},
+            "angle_pair_count": {"mass_large", "mass_small", "span", "asserted_pairs", "asserted_residual", "asserted_collisions"},
+            "angle_relation": {"mass_large", "mass_small", "asserted_step"},
+            "chord_direction_angle": {"mass_large", "mass_small", "asserted_direction"},
+            "legend_mapping": {"diagram_id", "symbol", "asserted_mapping"},
+            "wedge_angle": {"mass_large", "mass_small", "asserted_theta"},
+            "folded_unfolded": {"mass_large", "mass_small", "asserted_unfolded_turn"},
+            "diagram_matches_query": {"figure_ref"},
+        }
         for question in choices:
             contract = question["answer_contract"]
             self.assertEqual(contract["kind"], "structured_claims", question["key"])
@@ -450,12 +495,16 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
                     [option["text"] for option in question["options"]],
                     question["key"],
                 )
+            for claim in contract["claims"]:
+                typed = claim["claim"]
+                self.assertFalse(contains_boolean(typed), question["key"])
+                self.assertEqual(set(typed["parameters"]), expected_parameters[typed["kind"]], question["key"])
 
         velocity = {"kind": "velocity_state", "parameters": {"v_large": -2, "v_small": 1, "asserted_v_large": -2, "asserted_v_small": 1}}
         self.assertTrue(evaluate_typed_claim(velocity))
         velocity["parameters"]["v_large"] = -1
         self.assertFalse(evaluate_typed_claim(velocity))
-        angle = {"kind": "angle_pair_count", "parameters": {"mass_large": 4, "mass_small": 1, "span": math.pi, "asserted_pairs": 3, "asserted_collisions": 6}}
+        angle = {"kind": "angle_pair_count", "parameters": {"mass_large": 4, "mass_small": 1, "span": math.pi, "asserted_pairs": 3, "asserted_residual": 0, "asserted_collisions": 6}}
         self.assertTrue(evaluate_typed_claim(angle))
         angle["parameters"]["mass_large"] = 16
         self.assertFalse(evaluate_typed_claim(angle))
@@ -481,6 +530,17 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             prompt = question.get("ask", question.get("prompt"))
             self.assertEqual(prompt.count("请选择两项正确判读"), 1, question["key"])
             fingerprint = (question["node_id"], normalize_choice_semantics(question))
+            self.assertNotIn(fingerprint, seen, question["key"])
+            seen.add(fingerprint)
+
+    def test_multi_choice_physics_remains_distinct_without_stage_wrappers(self):
+        """Different stage labels alone cannot turn one physical judgment into four questions."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        multis = [question for question in scenario_questions + standalone if question["question_type"] == "multiple_choice"]
+        self.assertEqual(len(multis), 48)
+        seen = set()
+        for question in multis:
+            fingerprint = (question["node_id"], normalize_multi_physics(question))
             self.assertNotIn(fingerprint, seen, question["key"])
             seen.add(fingerprint)
 
@@ -516,16 +576,87 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         self.assertFalse(evaluate_diagram_claim(claim["claim"], candidate, query))
 
     def test_c7_pair_steps_map_to_two_physical_collisions(self):
-        """A 2theta step is one block+wall pair, never a single physical collision."""
+        """For an even count, a 2theta pair accounts for two physical collisions."""
         source, _, scenario_questions, standalone, fixtures, _ = self.load_source()
         c6_chain = fixtures["CAL-C6-CHAIN-02"]
         c7_count = fixtures["CAL-C7-COUNT-01"]
-        pair_steps = math.floor(c7_count["span"] / (2 * math.atan(math.sqrt(c7_count["mass_small"] / c7_count["mass_large"]))))
+        theta = math.atan(math.sqrt(c7_count["mass_small"] / c7_count["mass_large"]))
+        physical_collisions = math.ceil(math.pi / theta) - 1
+        pair_steps = physical_collisions // 2
         self.assertEqual(c7_count["expected"]["pair_steps"], pair_steps)
-        self.assertEqual(c7_count["expected"]["physical_collisions"], 2 * pair_steps)
+        self.assertEqual(c7_count["expected"]["physical_collisions"], physical_collisions)
         self.assertEqual(len(c6_chain["events"]), c7_count["expected"]["physical_collisions"])
         c7_questions = [question for question in scenario_questions + standalone if question["node_id"].startswith("C7.")]
         self.assertTrue(all("每个物理碰撞" not in (question.get("ask", question.get("prompt", "")) + question["explanation"]) for question in c7_questions))
+
+    def test_c7_collision_oracle_keeps_odd_residual_collision(self):
+        """The authoritative ceiling formula must not discard M/m=9's last collision."""
+        def count(mass_large, mass_small):
+            theta = math.atan(math.sqrt(mass_small / mass_large))
+            return math.ceil(math.pi / theta) - 1
+
+        self.assertEqual(count(4, 1), 6)
+        self.assertEqual(count(9, 1), 9)
+        self.assertEqual(count(10, 1), 10)
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        c7_claims = [
+            claim["claim"] for question in scenario_questions + standalone
+            if question["node_id"].startswith("C7.")
+            for option, claim in zip(question.get("options", []), question.get("answer_contract", {}).get("claims", []))
+            if option["correct"] and claim.get("claim", {}).get("kind") == "angle_pair_count"
+        ]
+        self.assertTrue(c7_claims)
+        for claim in c7_claims:
+            params = claim["parameters"]
+            expected = count(params["mass_large"], params["mass_small"])
+            self.assertEqual(params["asserted_collisions"], expected, claim)
+            self.assertEqual(params["asserted_pairs"], expected // 2, claim)
+            self.assertEqual(params["asserted_residual"], expected % 2, claim)
+
+    def test_c7_chord_direction_angle_is_geometric_not_theta(self):
+        """For a slope -sqrt(M/m), the +x direction is theta-pi/2 modulo pi."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        claims = [
+            claim["claim"] for question in scenario_questions + standalone
+            if question["node_id"].startswith("C7.")
+            for option, claim in zip(question.get("options", []), question.get("answer_contract", {}).get("claims", []))
+            if option["correct"] and claim.get("claim", {}).get("kind") == "chord_direction_angle"
+        ]
+        self.assertTrue(claims)
+        for claim in claims:
+            p = claim["parameters"]
+            theta = math.atan(math.sqrt(p["mass_small"] / p["mass_large"]))
+            expected = (theta - math.pi / 2) % math.pi
+            self.assertTrue(math.isclose(p["asserted_direction"], expected), claim)
+            self.assertFalse(math.isclose(p["asserted_direction"], theta), claim)
+
+    def test_option_figures_expose_only_neutral_accessibility_labels(self):
+        """Anonymous visual options cannot surface a source caption or description."""
+        _, _, scenario_questions, standalone, _, diagram_by_id = self.load_source()
+        option_figures = [q for q in scenario_questions + standalone if q["presentation_mode"] == "option_figures"]
+        self.assertEqual(len(option_figures), 24)
+        for question in option_figures:
+            exposed = question["answer_contract"]["option_accessibility"]
+            self.assertEqual(exposed, {option["id"]: f"图{option['id']}" for option in question["options"]}, question["key"])
+            prompt = question.get("ask", question.get("prompt", ""))
+            for option in question["options"]:
+                source = diagram_by_id[option["figure_ref"]]
+                self.assertNotIn(source["caption"], " ".join(exposed.values()), question["key"])
+                self.assertNotIn(source["alt_text"], " ".join(exposed.values()), question["key"])
+                self.assertNotIn(source["caption"], prompt, question["key"])
+                self.assertNotIn(source["alt_text"], prompt, question["key"])
+
+    def test_calculation_blanks_are_unique_and_match_requested_outputs(self):
+        """Every requested calculation variable has exactly one student-facing blank."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        calculations = [q for q in scenario_questions + standalone if q["question_type"] == "multi_blank"]
+        self.assertEqual(len(calculations), 24)
+        for question in calculations:
+            ids = [blank["id"] for blank in question["blanks"]]
+            self.assertEqual(len(ids), len(set(ids)), question["key"])
+            for variable in re.findall(r"填写([^。]+)", question.get("ask", question.get("prompt", ""))):
+                for token in re.findall(r"(?:theta|step|pair_steps|physical_collisions|[xy]|vM|vm)", variable):
+                    self.assertTrue(any(token in blank_id for blank_id in ids), question["key"])
 
     def test_schema_required_lists_have_no_duplicates(self):
         """Conditional requirements must remain strict without duplicate field entries."""
@@ -796,6 +927,16 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         mutation["standalone_questions"][0]["ask"] = "不允许的场景题字段"
         invalid = validate_source_with_pwsh(mutation)
         self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
+        mutation = copy.deepcopy(source)
+        typed = mutation["scenarios"][0]["questions"][2]["answer_contract"]["claims"][0]["claim"]["parameters"]
+        typed["asserted_v_large"] = True
+        invalid = validate_source_with_pwsh(mutation)
+        self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
+        mutation = copy.deepcopy(source)
+        typed = mutation["scenarios"][0]["questions"][2]["answer_contract"]["claims"][0]["claim"]["parameters"]
+        typed["hidden_expected_truth"] = 1
+        invalid = validate_source_with_pwsh(mutation)
+        self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
 
     def assert_checkpoint(self, prefixes, expected_count):
         _, _, scenario_questions, standalone, fixtures, diagram_by_id = self.load_source()
@@ -869,8 +1010,8 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             return {"theta": theta, "step": 2 * theta}
         if kind == "angle_count":
             theta = math.atan(math.sqrt(fixture["mass_small"] / fixture["mass_large"]))
-            pair_steps = math.floor(fixture["span"] / (2 * theta))
-            return {"theta": theta, "step": 2 * theta, "pair_steps": pair_steps, "physical_collisions": 2 * pair_steps}
+            physical_collisions = math.ceil(math.pi / theta) - 1
+            return {"theta": theta, "step": 2 * theta, "pair_steps": physical_collisions // 2, "physical_collisions": physical_collisions}
         if kind == "wedge_angle":
             return {"theta": math.atan(math.sqrt(fixture["mass_small"] / fixture["mass_large"]))}
         self.fail(f"unknown fixture kind: {kind}")

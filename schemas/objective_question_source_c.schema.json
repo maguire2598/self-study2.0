@@ -903,6 +903,7 @@
         "accepted_answers": {
           "type": "array",
           "minItems": 1,
+          "uniqueItems": true,
           "items": {
             "type": "string",
             "minLength": 1
@@ -1034,6 +1035,7 @@
         "blanks": {
           "type": "array",
           "minItems": 1,
+          "uniqueItems": true,
           "items": {
             "$ref": "#/$defs/blank"
           }
@@ -1297,7 +1299,8 @@
           "then": {
             "required": [
               "options",
-              "diagram_focus"
+              "diagram_focus",
+              "answer_contract"
             ],
             "not": {
               "required": [
@@ -1318,6 +1321,11 @@
                     }
                   ]
                 }
+              },
+              "answer_contract": {
+                "required": [
+                  "option_accessibility"
+                ]
               }
             }
           }
@@ -2102,6 +2110,22 @@
               "type": "object"
             }
           }
+        },
+        "option_accessibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "properties": {
+            "A": { "const": "图A" },
+            "B": { "const": "图B" },
+            "C": { "const": "图C" },
+            "D": { "const": "图D" }
+          }
         }
       }
     },
@@ -2131,6 +2155,7 @@
             "safe_sector",
             "angle_pair_count",
             "angle_relation",
+            "chord_direction_angle",
             "legend_mapping",
             "wedge_angle",
             "folded_unfolded",
@@ -2139,7 +2164,25 @@
         },
         "parameters": {
           "type": "object",
-          "minProperties": 1
+          "minProperties": 1,
+          "propertyNames": {
+            "enum": [
+              "v_large", "v_small", "asserted_v_large", "asserted_v_small",
+              "asserted_large_direction", "asserted_small_direction", "asserted_quadrant",
+              "mass_large", "mass_small", "energy", "asserted_rhs", "asserted_a2", "asserted_b2",
+              "asserted_x", "asserted_y", "asserted_r2", "asserted_slope",
+              "before", "after", "asserted_after", "asserted_before_r2", "asserted_after_r2",
+              "events", "asserted_count", "point", "boundary", "asserted_upper",
+              "span", "asserted_pairs", "asserted_residual", "asserted_collisions", "asserted_step",
+              "asserted_direction", "diagram_id", "symbol", "asserted_mapping", "asserted_theta",
+              "asserted_unfolded_turn", "figure_ref"
+            ]
+          },
+          "additionalProperties": {
+            "not": {
+              "type": "boolean"
+            }
+          }
         }
       }
     }

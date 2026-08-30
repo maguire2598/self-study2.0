@@ -593,7 +593,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -705,7 +711,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -717,8 +729,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。",
-          "ask": "速度分量读取：初始读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-2,1)，向右为正；下列哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：读取有序速度分量与运动方向。",
+          "ask": "速度分量读取：初始读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-2,1)，向右为正；下列围绕“读取有序速度分量与运动方向”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "速度状态为(vM,vm)=(-2,1)。",
@@ -812,8 +824,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。",
-          "ask": "速度分量读取：相遇前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(-3,2)，向右为正；下列哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：由速度正负判定相图象限。",
+          "ask": "速度分量读取：相遇前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(-3,2)，向右为正；下列围绕“由速度正负判定相图象限”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "速度状态为(vM,vm)=(-3,2)。",
@@ -903,8 +915,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。",
-          "ask": "速度正负方向：初始读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-2,1)，向右为正；下列哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：读取有序速度分量与运动方向。",
+          "ask": "速度正负方向：初始读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-2,1)，向右为正；下列围绕“读取有序速度分量与运动方向”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "速度状态为(vM,vm)=(-2,1)。",
@@ -998,8 +1010,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。",
-          "ask": "速度正负方向：相遇前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(-3,2)，向右为正；下列哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：由速度正负判定相图象限。",
+          "ask": "速度正负方向：相遇前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(-3,2)，向右为正；下列围绕“由速度正负判定相图象限”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "速度状态为(vM,vm)=(-3,2)。",
@@ -1093,8 +1105,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。",
-          "ask": "速度正负方向：相撞后读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-2,1)，向右为正；下列哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：区分状态点坐标与物块实际位置。",
+          "ask": "速度正负方向：相撞后读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-2,1)，向右为正；下列围绕“区分状态点坐标与物块实际位置”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "速度状态为(vM,vm)=(-2,1)。",
@@ -1188,8 +1200,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。",
-          "ask": "速度正负方向：到墙前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(-3,2)，向右为正；下列哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：用两分量检验相对运动方向。",
+          "ask": "速度正负方向：到墙前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(-3,2)，向右为正；下列围绕“用两分量检验相对运动方向”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "速度状态为(vM,vm)=(-3,2)。",
@@ -1965,7 +1977,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -2076,7 +2094,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -2187,7 +2211,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -2199,8 +2229,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。",
-          "ask": "能量椭圆方程：初始读数的原始速度坐标中，M=9、m=1、总动能E=2；哪些能量椭圆判读成立？ 请选择两项正确判读。",
+          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。 本题具体检验：把总能量改写为椭圆方程。",
+          "ask": "能量椭圆方程：初始读数的原始速度坐标中，M=9、m=1、总动能E=2；围绕“把总能量改写为椭圆方程”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "原始速度约束为9vM²+1vm²=4。",
@@ -2297,8 +2327,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。",
-          "ask": "椭圆半轴比较：初始读数的原始速度坐标中，M=9、m=1、总动能E=2；哪些能量椭圆判读成立？ 请选择两项正确判读。",
+          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。 本题具体检验：把总能量改写为椭圆方程。",
+          "ask": "椭圆半轴比较：初始读数的原始速度坐标中，M=9、m=1、总动能E=2；围绕“把总能量改写为椭圆方程”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "原始速度约束为9vM²+1vm²=4。",
@@ -2395,8 +2425,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。",
-          "ask": "椭圆半轴比较：相遇前读数的原始速度坐标中，M=4、m=1、总动能E=3；哪些能量椭圆判读成立？ 请选择两项正确判读。",
+          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。 本题具体检验：比较两条速度轴截距。",
+          "ask": "椭圆半轴比较：相遇前读数的原始速度坐标中，M=4、m=1、总动能E=3；围绕“比较两条速度轴截距”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "原始速度约束为4vM²+1vm²=6。",
@@ -2493,8 +2523,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。",
-          "ask": "椭圆半轴比较：相撞后读数的原始速度坐标中，M=9、m=1、总动能E=4；哪些能量椭圆判读成立？ 请选择两项正确判读。",
+          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。 本题具体检验：用质量比判断哪条半轴较长。",
+          "ask": "椭圆半轴比较：相撞后读数的原始速度坐标中，M=9、m=1、总动能E=4；围绕“用质量比判断哪条半轴较长”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "原始速度约束为9vM²+1vm²=8。",
@@ -3211,7 +3241,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -3340,7 +3376,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -3469,7 +3511,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -3598,7 +3646,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -3610,8 +3664,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "缩放比例：初始读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=2；哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：由速度分量执行质量加权。",
+          "ask": "缩放比例：初始读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=2；围绕“由速度分量执行质量加权”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,1.0)。",
@@ -3706,8 +3760,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "缩放比例：相遇前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=3；哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：从加权点反查原始速度。",
+          "ask": "缩放比例：相遇前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=3；围绕“从加权点反查原始速度”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,2.0)。",
@@ -3802,8 +3856,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "缩放比例：相撞后读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=4；哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：用半径平方检验能量圆。",
+          "ask": "缩放比例：相撞后读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=4；围绕“用半径平方检验能量圆”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,1.0)。",
@@ -3898,8 +3952,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "缩放比例：到墙前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=5；哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：比较不同质量的缩放倍率。",
+          "ask": "缩放比例：到墙前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=5；围绕“比较不同质量的缩放倍率”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,2.0)。",
@@ -3994,8 +4048,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "能量圆半径：初始读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=2；哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：由速度分量执行质量加权。",
+          "ask": "能量圆半径：初始读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=2；围绕“由速度分量执行质量加权”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,1.0)。",
@@ -4090,8 +4144,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "能量圆半径：相遇前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=3；哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：从加权点反查原始速度。",
+          "ask": "能量圆半径：相遇前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=3；围绕“从加权点反查原始速度”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,2.0)。",
@@ -4186,8 +4240,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "能量圆半径：相撞后读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=4；哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：用半径平方检验能量圆。",
+          "ask": "能量圆半径：相撞后读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=4；围绕“用半径平方检验能量圆”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,1.0)。",
@@ -4282,8 +4336,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "能量圆半径：到墙前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=5；哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：比较不同质量的缩放倍率。",
+          "ask": "能量圆半径：到墙前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=5；围绕“比较不同质量的缩放倍率”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,2.0)。",
@@ -4880,7 +4934,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -5000,7 +5060,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -5120,7 +5186,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -5241,7 +5313,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -5253,8 +5331,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
-          "ask": "动量线平行：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：由零动量求弦斜率。",
+          "ask": "动量线平行：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“由零动量求弦斜率”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-3.0。",
@@ -5344,8 +5422,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
-          "ask": "动量线平行：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：判断同总动量直线是否平行。",
+          "ask": "动量线平行：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-2.0。",
@@ -5435,8 +5513,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
-          "ask": "动量线平行：相撞后读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：定位零动量线的原点交点。",
+          "ask": "动量线平行：相撞后读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“定位零动量线的原点交点”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-3.0。",
@@ -5526,8 +5604,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
-          "ask": "动量线平行：到墙前读数的质量加权平面动量线对应M/m=4/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：区分弦方向与圆周轨迹。",
+          "ask": "动量线平行：到墙前读数的质量加权平面动量线对应M/m=4/1且总动量为零；围绕“区分弦方向与圆周轨迹”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-2.0。",
@@ -5617,8 +5695,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
-          "ask": "弦方向：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：由零动量求弦斜率。",
+          "ask": "弦方向：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“由零动量求弦斜率”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-3.0。",
@@ -5708,8 +5786,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
-          "ask": "弦方向：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：判断同总动量直线是否平行。",
+          "ask": "弦方向：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-2.0。",
@@ -5799,8 +5877,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
-          "ask": "弦方向：相撞后读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：定位零动量线的原点交点。",
+          "ask": "弦方向：相撞后读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“定位零动量线的原点交点”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-3.0。",
@@ -6461,7 +6539,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -6574,7 +6658,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -6586,8 +6676,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。",
-          "ask": "墙面镜像：初始读数的墙反射前，质量加权坐标点为(1,-2)；反射轴为x轴。哪些几何判读成立？ 请选择两项正确判读。",
+          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：反射时翻转法向分量。",
+          "ask": "墙面镜像：初始读数的墙反射前，质量加权坐标点为(1,-2)；反射轴为x轴。围绕“反射时翻转法向分量”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(1,2)。",
@@ -6702,8 +6792,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。",
-          "ask": "墙面镜像：相遇前读数的墙反射前，质量加权坐标点为(2,-3)；反射轴为x轴。哪些几何判读成立？ 请选择两项正确判读。",
+          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：比较镜像前后的半径平方。",
+          "ask": "墙面镜像：相遇前读数的墙反射前，质量加权坐标点为(2,-3)；反射轴为x轴。围绕“比较镜像前后的半径平方”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(2,3)。",
@@ -6818,8 +6908,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。",
-          "ask": "反射分量：初始读数的墙反射前，质量加权坐标点为(1,-2)；反射轴为x轴。哪些几何判读成立？ 请选择两项正确判读。",
+          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：反射时翻转法向分量。",
+          "ask": "反射分量：初始读数的墙反射前，质量加权坐标点为(1,-2)；反射轴为x轴。围绕“反射时翻转法向分量”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(1,2)。",
@@ -6934,8 +7024,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。",
-          "ask": "反射分量：相遇前读数的墙反射前，质量加权坐标点为(2,-3)；反射轴为x轴。哪些几何判读成立？ 请选择两项正确判读。",
+          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：比较镜像前后的半径平方。",
+          "ask": "反射分量：相遇前读数的墙反射前，质量加权坐标点为(2,-3)；反射轴为x轴。围绕“比较镜像前后的半径平方”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(2,3)。",
@@ -7050,8 +7140,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
-          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。",
-          "ask": "反射分量：相撞后读数的墙反射前，质量加权坐标点为(3,-4)；反射轴为x轴。哪些几何判读成立？ 请选择两项正确判读。",
+          "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：由反射轴判断保留的坐标。",
+          "ask": "反射分量：相撞后读数的墙反射前，质量加权坐标点为(3,-4)；反射轴为x轴。围绕“由反射轴判断保留的坐标”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(3,4)。",
@@ -7887,7 +7977,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -8023,7 +8119,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -8207,7 +8309,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -8219,8 +8327,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "状态链顺序：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
+          "ask": "状态链顺序：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -8321,8 +8429,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "状态链顺序：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
+          "ask": "状态链顺序：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为4。",
@@ -8427,8 +8535,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "状态链顺序：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
+          "ask": "状态链顺序：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为6。",
@@ -8537,8 +8645,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "状态链顺序：到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，安全边界为y=x；哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：由终点坐标复核安全条件。",
+          "ask": "状态链顺序：到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，安全边界为y=x；围绕“由终点坐标复核安全条件”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -8639,8 +8747,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "终态事件计数：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
+          "ask": "终态事件计数：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -8741,8 +8849,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "终态事件计数：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
+          "ask": "终态事件计数：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为4。",
@@ -8847,8 +8955,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "终态事件计数：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
+          "ask": "终态事件计数：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为6。",
@@ -9822,7 +9930,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "依据题干的坐标体系、质量参数和几何关系，只有一个候选图满足这些可观察条件。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
           "ask": "请选择最符合下列可观察物理/几何条件的图：一对反射（物块碰撞后撞墙）对应2theta推进的能量圆。并核对theta由质量比定义。四幅候选图均使用各自的坐标标注；只选择满足全部条件的一幅。",
           "options": [
             {
@@ -9934,7 +10042,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -9946,7 +10060,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "依据题干的坐标体系、质量参数和几何关系，只有一个候选图满足这些可观察条件。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
           "ask": "请选择最符合下列可观察物理/几何条件的图：平行动量弦对应相同弦方向的能量圆。并核对theta由质量比定义。四幅候选图均使用各自的坐标标注；只选择满足全部条件的一幅。",
           "options": [
             {
@@ -10059,7 +10173,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -10071,7 +10191,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "依据题干的坐标体系、质量参数和几何关系，只有一个候选图满足这些可观察条件。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
           "ask": "请选择最符合下列可观察物理/几何条件的图：按2theta事件对步长在pi范围内计数的能量圆。并核对theta由质量比定义。四幅候选图均使用各自的坐标标注；只选择满足全部条件的一幅。",
           "options": [
             {
@@ -10183,7 +10303,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -10195,7 +10321,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "依据题干的坐标体系、质量参数和几何关系，只有一个候选图满足这些可观察条件。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
           "ask": "请选择最符合下列可观察物理/几何条件的图：平行动量弦对应相同弦方向的能量圆。并区分弦方向角与圆周角、圆心角。四幅候选图均使用各自的坐标标注；只选择满足全部条件的一幅。",
           "options": [
             {
@@ -10308,7 +10434,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -10320,26 +10452,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "弦方向角：初始读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
+          "ask": "弦方向角：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，物理碰撞数为8。",
+              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.643501 rad。",
+              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "完整事件对数为6，物理碰撞数为12。",
+              "text": "一次完整事件对在圆上推进0.321751 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.421751 rad。",
+              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10362,7 +10494,8 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 4,
-                    "asserted_collisions": 8
+                    "asserted_residual": 1,
+                    "asserted_collisions": 9
                   }
                 }
               },
@@ -10370,11 +10503,11 @@
                 "option_id": "B",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.6435011087932844
+                    "asserted_direction": 1.8925468811915387
                   }
                 }
               },
@@ -10382,13 +10515,11 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_pair_count",
+                  "kind": "angle_relation",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 6,
-                    "asserted_collisions": 12
+                    "asserted_step": 0.3217505543966422
                   }
                 }
               },
@@ -10396,11 +10527,11 @@
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.4217505543966422
+                    "asserted_direction": 2.092546881191539
                   }
                 }
               }
@@ -10416,26 +10547,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "弦方向角：相遇前读数的弦方向角题中M/m=4/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：辨认完整事件对与奇数残余碰撞。",
+          "ask": "弦方向角：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为3，物理碰撞数为6。",
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.927295 rad。",
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "完整事件对数为5，物理碰撞数为10。",
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.563648 rad。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10458,6 +10589,7 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 3,
+                    "asserted_residual": 0,
                     "asserted_collisions": 6
                   }
                 }
@@ -10466,11 +10598,11 @@
                 "option_id": "B",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.9272952180016122
+                    "asserted_direction": 2.0344439357957027
                   }
                 }
               },
@@ -10478,13 +10610,11 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_pair_count",
+                  "kind": "angle_relation",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 5,
-                    "asserted_collisions": 10
+                    "asserted_step": 0.4636476090008061
                   }
                 }
               },
@@ -10492,11 +10622,11 @@
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.5636476090008061
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }
@@ -10512,26 +10642,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "事件对步长：初始读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
+          "ask": "事件对步长：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，物理碰撞数为8。",
+              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.643501 rad。",
+              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "完整事件对数为6，物理碰撞数为12。",
+              "text": "一次完整事件对在圆上推进0.321751 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.421751 rad。",
+              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10554,7 +10684,8 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 4,
-                    "asserted_collisions": 8
+                    "asserted_residual": 1,
+                    "asserted_collisions": 9
                   }
                 }
               },
@@ -10562,11 +10693,11 @@
                 "option_id": "B",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.6435011087932844
+                    "asserted_direction": 1.8925468811915387
                   }
                 }
               },
@@ -10574,13 +10705,11 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_pair_count",
+                  "kind": "angle_relation",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 6,
-                    "asserted_collisions": 12
+                    "asserted_step": 0.3217505543966422
                   }
                 }
               },
@@ -10588,11 +10717,11 @@
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.4217505543966422
+                    "asserted_direction": 2.092546881191539
                   }
                 }
               }
@@ -10608,26 +10737,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "事件对步长：相遇前读数的弦方向角题中M/m=4/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：辨认完整事件对与奇数残余碰撞。",
+          "ask": "事件对步长：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为3，物理碰撞数为6。",
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.927295 rad。",
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "完整事件对数为5，物理碰撞数为10。",
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.563648 rad。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10650,6 +10779,7 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 3,
+                    "asserted_residual": 0,
                     "asserted_collisions": 6
                   }
                 }
@@ -10658,11 +10788,11 @@
                 "option_id": "B",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.9272952180016122
+                    "asserted_direction": 2.0344439357957027
                   }
                 }
               },
@@ -10670,13 +10800,11 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_pair_count",
+                  "kind": "angle_relation",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 5,
-                    "asserted_collisions": 10
+                    "asserted_step": 0.4636476090008061
                   }
                 }
               },
@@ -10684,11 +10812,11 @@
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.5636476090008061
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }
@@ -10716,26 +10844,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "等角弦方向：初始读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
+          "ask": "等角弦方向：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，物理碰撞数为8。",
+              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.643501 rad。",
+              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "完整事件对数为6，物理碰撞数为12。",
+              "text": "一次完整事件对在圆上推进0.321751 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.421751 rad。",
+              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10758,7 +10886,8 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 4,
-                    "asserted_collisions": 8
+                    "asserted_residual": 1,
+                    "asserted_collisions": 9
                   }
                 }
               },
@@ -10766,11 +10895,11 @@
                 "option_id": "B",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.6435011087932844
+                    "asserted_direction": 1.8925468811915387
                   }
                 }
               },
@@ -10778,13 +10907,11 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_pair_count",
+                  "kind": "angle_relation",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 6,
-                    "asserted_collisions": 12
+                    "asserted_step": 0.3217505543966422
                   }
                 }
               },
@@ -10792,11 +10919,11 @@
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.4217505543966422
+                    "asserted_direction": 2.092546881191539
                   }
                 }
               }
@@ -10812,26 +10939,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "弦方向角：相撞后读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从弦斜率求标准方向角。",
+          "ask": "弦方向角：相撞后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从弦斜率求标准方向角”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，物理碰撞数为8。",
+              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.643501 rad。",
+              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "完整事件对数为6，物理碰撞数为12。",
+              "text": "一次完整事件对在圆上推进0.321751 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.421751 rad。",
+              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10854,7 +10981,8 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 4,
-                    "asserted_collisions": 8
+                    "asserted_residual": 1,
+                    "asserted_collisions": 9
                   }
                 }
               },
@@ -10862,11 +10990,11 @@
                 "option_id": "B",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.6435011087932844
+                    "asserted_direction": 1.8925468811915387
                   }
                 }
               },
@@ -10874,13 +11002,11 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_pair_count",
+                  "kind": "angle_relation",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 6,
-                    "asserted_collisions": 12
+                    "asserted_step": 0.3217505543966422
                   }
                 }
               },
@@ -10888,11 +11014,11 @@
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.4217505543966422
+                    "asserted_direction": 2.092546881191539
                   }
                 }
               }
@@ -10908,26 +11034,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "事件对步长：相撞后读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从弦斜率求标准方向角。",
+          "ask": "事件对步长：相撞后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；围绕“从弦斜率求标准方向角”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，物理碰撞数为8。",
+              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.643501 rad。",
+              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "完整事件对数为6，物理碰撞数为12。",
+              "text": "一次完整事件对在圆上推进0.321751 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.421751 rad。",
+              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10950,7 +11076,8 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 4,
-                    "asserted_collisions": 8
+                    "asserted_residual": 1,
+                    "asserted_collisions": 9
                   }
                 }
               },
@@ -10958,11 +11085,11 @@
                 "option_id": "B",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.6435011087932844
+                    "asserted_direction": 1.8925468811915387
                   }
                 }
               },
@@ -10970,13 +11097,11 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_pair_count",
+                  "kind": "angle_relation",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 6,
-                    "asserted_collisions": 12
+                    "asserted_step": 0.3217505543966422
                   }
                 }
               },
@@ -10984,11 +11109,11 @@
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.4217505543966422
+                    "asserted_direction": 2.092546881191539
                   }
                 }
               }
@@ -11004,26 +11129,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "事件对步长：到墙前读数的弦方向角题中M/m=4/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+          "ask": "事件对步长：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
-              "text": "完整事件对数为3，物理碰撞数为6。",
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "text": "以+x轴为参照的弦方向角为2.134444 rad（模pi）。",
               "correct": false,
               "id": "B"
             },
             {
-              "text": "完整事件对数为5，物理碰撞数为10。",
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.563648 rad。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11046,12 +11171,25 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 3,
+                    "asserted_residual": 0,
                     "asserted_collisions": 6
                   }
                 }
               },
               {
                 "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.134443935795703
+                  }
+                }
+              },
+              {
+                "option_id": "C",
                 "family": "physics",
                 "claim": {
                   "kind": "angle_relation",
@@ -11063,28 +11201,14 @@
                 }
               },
               {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 5,
-                    "asserted_collisions": 10
-                  }
-                }
-              },
-              {
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.5636476090008061
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }
@@ -11100,26 +11224,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "碰撞数计数：初始读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+          "ask": "碰撞数计数：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，物理碰撞数为8。",
+              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.321751 rad。",
+              "text": "以+x轴为参照的弦方向角为1.992547 rad（模pi）。",
               "correct": false,
               "id": "B"
             },
             {
-              "text": "完整事件对数为6，物理碰撞数为12。",
+              "text": "一次完整事件对在圆上推进0.321751 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.421751 rad。",
+              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11142,12 +11266,25 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 4,
-                    "asserted_collisions": 8
+                    "asserted_residual": 1,
+                    "asserted_collisions": 9
                   }
                 }
               },
               {
                 "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 9,
+                    "mass_small": 1,
+                    "asserted_direction": 1.9925468811915388
+                  }
+                }
+              },
+              {
+                "option_id": "C",
                 "family": "physics",
                 "claim": {
                   "kind": "angle_relation",
@@ -11159,28 +11296,14 @@
                 }
               },
               {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 6,
-                    "asserted_collisions": 12
-                  }
-                }
-              },
-              {
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.4217505543966422
+                    "asserted_direction": 2.092546881191539
                   }
                 }
               }
@@ -11196,26 +11319,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "碰撞数计数：相遇前读数的弦方向角题中M/m=4/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+          "ask": "碰撞数计数：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
-              "text": "完整事件对数为3，物理碰撞数为6。",
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "text": "以+x轴为参照的弦方向角为2.134444 rad（模pi）。",
               "correct": false,
               "id": "B"
             },
             {
-              "text": "完整事件对数为5，物理碰撞数为10。",
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.563648 rad。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11238,12 +11361,25 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 3,
+                    "asserted_residual": 0,
                     "asserted_collisions": 6
                   }
                 }
               },
               {
                 "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.134443935795703
+                  }
+                }
+              },
+              {
+                "option_id": "C",
                 "family": "physics",
                 "claim": {
                   "kind": "angle_relation",
@@ -11255,28 +11391,14 @@
                 }
               },
               {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 5,
-                    "asserted_collisions": 10
-                  }
-                }
-              },
-              {
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.5636476090008061
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }
@@ -11292,26 +11414,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "碰撞数计数：相撞后读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+          "ask": "碰撞数计数：相撞后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，物理碰撞数为8。",
+              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.321751 rad。",
+              "text": "以+x轴为参照的弦方向角为1.992547 rad（模pi）。",
               "correct": false,
               "id": "B"
             },
             {
-              "text": "完整事件对数为6，物理碰撞数为12。",
+              "text": "一次完整事件对在圆上推进0.321751 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.421751 rad。",
+              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11336,12 +11458,25 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 4,
-                    "asserted_collisions": 8
+                    "asserted_residual": 1,
+                    "asserted_collisions": 9
                   }
                 }
               },
               {
                 "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 9,
+                    "mass_small": 1,
+                    "asserted_direction": 1.9925468811915388
+                  }
+                }
+              },
+              {
+                "option_id": "C",
                 "family": "physics",
                 "claim": {
                   "kind": "angle_relation",
@@ -11353,28 +11488,14 @@
                 }
               },
               {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 6,
-                    "asserted_collisions": 12
-                  }
-                }
-              },
-              {
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_step": 0.4217505543966422
+                    "asserted_direction": 2.092546881191539
                   }
                 }
               }
@@ -11390,26 +11511,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-          "ask": "碰撞数计数：到墙前读数的弦方向角题中M/m=4/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+          "ask": "碰撞数计数：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
-              "text": "完整事件对数为3，物理碰撞数为6。",
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "text": "以+x轴为参照的弦方向角为2.134444 rad（模pi）。",
               "correct": false,
               "id": "B"
             },
             {
-              "text": "完整事件对数为5，物理碰撞数为10。",
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "一次完整事件对在圆上推进0.563648 rad。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11434,12 +11555,25 @@
                     "mass_small": 1,
                     "span": 3.141592653589793,
                     "asserted_pairs": 3,
+                    "asserted_residual": 0,
                     "asserted_collisions": 6
                   }
                 }
               },
               {
                 "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.134443935795703
+                  }
+                }
+              },
+              {
+                "option_id": "C",
                 "family": "physics",
                 "claim": {
                   "kind": "angle_relation",
@@ -11451,28 +11585,14 @@
                 }
               },
               {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 5,
-                    "asserted_collisions": 10
-                  }
-                }
-              },
-              {
                 "option_id": "D",
                 "family": "physics",
                 "claim": {
-                  "kind": "angle_relation",
+                  "kind": "chord_direction_angle",
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.5636476090008061
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }
@@ -11608,7 +11728,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         },
         {
@@ -11620,26 +11746,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "legend",
           "curriculum_scope": "core",
-          "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-          "ask": "动量图例：初始读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择两项正确判读。",
+          "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。 本题具体检验：读取能量圆的图例键。",
+          "ask": "动量图例：初始读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；围绕“读取能量圆的图例键”，哪些图例映射成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "图例中实线表示能量圆。",
+              "text": "图例中circle表示总动能。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "图例中虚线表示动量线。",
+              "text": "图例中line表示总动量。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "图例中实线表示墙面。",
+              "text": "图例中chord表示总动量。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "图例中虚线表示速度轴。",
+              "text": "图例中mirror表示总动量。",
               "correct": false,
               "id": "D"
             }
@@ -11658,12 +11784,9 @@
                 "claim": {
                   "kind": "legend_mapping",
                   "parameters": {
-                    "mapping": {
-                      "实线": "能量圆",
-                      "虚线": "动量线"
-                    },
-                    "symbol": "实线",
-                    "asserted_mapping": "能量圆"
+                    "diagram_id": "cp-c-element-legend-overview",
+                    "symbol": "circle",
+                    "asserted_mapping": "总动能"
                   }
                 }
               },
@@ -11673,12 +11796,9 @@
                 "claim": {
                   "kind": "legend_mapping",
                   "parameters": {
-                    "mapping": {
-                      "实线": "能量圆",
-                      "虚线": "动量线"
-                    },
-                    "symbol": "虚线",
-                    "asserted_mapping": "动量线"
+                    "diagram_id": "cp-c-element-legend-overview",
+                    "symbol": "line",
+                    "asserted_mapping": "总动量"
                   }
                 }
               },
@@ -11688,12 +11808,9 @@
                 "claim": {
                   "kind": "legend_mapping",
                   "parameters": {
-                    "mapping": {
-                      "实线": "能量圆",
-                      "虚线": "动量线"
-                    },
-                    "symbol": "实线",
-                    "asserted_mapping": "墙面"
+                    "diagram_id": "cp-c-element-legend-overview",
+                    "symbol": "chord",
+                    "asserted_mapping": "总动量"
                   }
                 }
               },
@@ -11703,12 +11820,9 @@
                 "claim": {
                   "kind": "legend_mapping",
                   "parameters": {
-                    "mapping": {
-                      "实线": "能量圆",
-                      "虚线": "动量线"
-                    },
-                    "symbol": "虚线",
-                    "asserted_mapping": "速度轴"
+                    "diagram_id": "cp-c-element-legend-overview",
+                    "symbol": "mirror",
+                    "asserted_mapping": "总动量"
                   }
                 }
               }
@@ -11831,7 +11945,13 @@
                   }
                 }
               }
-            ]
+            ],
+            "option_accessibility": {
+              "A": "图A",
+              "B": "图B",
+              "C": "图C",
+              "D": "图D"
+            }
           }
         }
       ]
@@ -11855,7 +11975,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "elective_method",
           "curriculum_scope": "elective",
-          "explanation": "theta=arctan√(m/M)。折叠图显示镜面位置，展开图把镜像边界排成直线；相邻边界相差2theta。",
+          "explanation": "theta=arctan√(m/M)。折叠图显示镜面位置，展开图把镜像边界排成直线；相邻边界相差2theta。 本题具体检验：在折叠位置空间读取楔角。",
           "ask": "边界镜像：初始读数的折叠—展开楔形模型中M/m=9/1；折叠位置空间与展开直线射线分别如何判读？ 请选择两项正确判读。",
           "options": [
             {
@@ -14977,7 +15097,7 @@
         }
       ],
       "calculation_fixture_id": "CAL-C7-ANGLE-01",
-      "explanation": "theta=arctan(sqrt(m/M))，一个事件对为2theta，所以theta=0.463647609，step=0.927295218。",
+      "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
       "presentation_mode": "figure_sequence",
       "figure_refs": [
         "cp-c-equal-angle-chord",
@@ -14995,26 +15115,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
-      "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-      "prompt": "等角弦方向：相遇前读数的弦方向角题中M/m=4/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+      "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+      "prompt": "等角弦方向：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "完整事件对数为3，物理碰撞数为6。",
+          "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "一次完整事件对在圆上推进0.463648 rad。",
+          "text": "以+x轴为参照的弦方向角为2.134444 rad（模pi）。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "完整事件对数为5，物理碰撞数为10。",
+          "text": "一次完整事件对在圆上推进0.463648 rad。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "一次完整事件对在圆上推进0.563648 rad。",
+          "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
           "correct": false,
           "id": "D"
         }
@@ -15033,12 +15153,25 @@
                 "mass_small": 1,
                 "span": 3.141592653589793,
                 "asserted_pairs": 3,
+                "asserted_residual": 0,
                 "asserted_collisions": 6
               }
             }
           },
           {
             "option_id": "B",
+            "family": "physics",
+            "claim": {
+              "kind": "chord_direction_angle",
+              "parameters": {
+                "mass_large": 4,
+                "mass_small": 1,
+                "asserted_direction": 2.134443935795703
+              }
+            }
+          },
+          {
+            "option_id": "C",
             "family": "physics",
             "claim": {
               "kind": "angle_relation",
@@ -15050,28 +15183,14 @@
             }
           },
           {
-            "option_id": "C",
-            "family": "physics",
-            "claim": {
-              "kind": "angle_pair_count",
-              "parameters": {
-                "mass_large": 4,
-                "mass_small": 1,
-                "span": 3.141592653589793,
-                "asserted_pairs": 5,
-                "asserted_collisions": 10
-              }
-            }
-          },
-          {
             "option_id": "D",
             "family": "physics",
             "claim": {
-              "kind": "angle_relation",
+              "kind": "chord_direction_angle",
               "parameters": {
                 "mass_large": 4,
                 "mass_small": 1,
-                "asserted_step": 0.5636476090008061
+                "asserted_direction": 2.234443935795703
               }
             }
           }
@@ -15103,7 +15222,7 @@
         }
       ],
       "calculation_fixture_id": "CAL-C7-ANGLE-02",
-      "explanation": "theta=arctan(sqrt(m/M))，一个事件对为2theta，所以theta=0.244978663，step=0.489957326。",
+      "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
       "presentation_mode": "figure_sequence",
       "figure_refs": [
         "cp-c-equal-angle-chord",
@@ -15121,26 +15240,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
-      "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-      "prompt": "弦方向角：到墙前读数的弦方向角题中M/m=4/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+      "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+      "prompt": "弦方向角：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "完整事件对数为3，物理碰撞数为6。",
+          "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "一次完整事件对在圆上推进0.463648 rad。",
+          "text": "以+x轴为参照的弦方向角为2.134444 rad（模pi）。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "完整事件对数为5，物理碰撞数为10。",
+          "text": "一次完整事件对在圆上推进0.463648 rad。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "一次完整事件对在圆上推进0.563648 rad。",
+          "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
           "correct": false,
           "id": "D"
         }
@@ -15159,12 +15278,25 @@
                 "mass_small": 1,
                 "span": 3.141592653589793,
                 "asserted_pairs": 3,
+                "asserted_residual": 0,
                 "asserted_collisions": 6
               }
             }
           },
           {
             "option_id": "B",
+            "family": "physics",
+            "claim": {
+              "kind": "chord_direction_angle",
+              "parameters": {
+                "mass_large": 4,
+                "mass_small": 1,
+                "asserted_direction": 2.134443935795703
+              }
+            }
+          },
+          {
+            "option_id": "C",
             "family": "physics",
             "claim": {
               "kind": "angle_relation",
@@ -15176,28 +15308,14 @@
             }
           },
           {
-            "option_id": "C",
-            "family": "physics",
-            "claim": {
-              "kind": "angle_pair_count",
-              "parameters": {
-                "mass_large": 4,
-                "mass_small": 1,
-                "span": 3.141592653589793,
-                "asserted_pairs": 5,
-                "asserted_collisions": 10
-              }
-            }
-          },
-          {
             "option_id": "D",
             "family": "physics",
             "claim": {
-              "kind": "angle_relation",
+              "kind": "chord_direction_angle",
               "parameters": {
                 "mass_large": 4,
                 "mass_small": 1,
-                "asserted_step": 0.5636476090008061
+                "asserted_direction": 2.234443935795703
               }
             }
           }
@@ -15238,58 +15356,10 @@
           "accepted_answers": [
             "6"
           ]
-        },
-        {
-          "id": "pair_steps",
-          "accepted_answers": [
-            "3"
-          ]
-        },
-        {
-          "id": "physical_collisions",
-          "accepted_answers": [
-            "6"
-          ]
-        },
-        {
-          "id": "pair_steps",
-          "accepted_answers": [
-            "3"
-          ]
-        },
-        {
-          "id": "physical_collisions",
-          "accepted_answers": [
-            "6"
-          ]
-        },
-        {
-          "id": "pair_steps",
-          "accepted_answers": [
-            "3"
-          ]
-        },
-        {
-          "id": "physical_collisions",
-          "accepted_answers": [
-            "6"
-          ]
-        },
-        {
-          "id": "pair_steps",
-          "accepted_answers": [
-            "3"
-          ]
-        },
-        {
-          "id": "physical_collisions",
-          "accepted_answers": [
-            "6"
-          ]
         }
       ],
       "calculation_fixture_id": "CAL-C7-COUNT-01",
-      "explanation": "以2theta为步长比较可用角度范围pi，所以theta=0.463647609，step=0.927295218，steps=3。",
+      "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
       "presentation_mode": "text_only"
     },
     {
@@ -15301,26 +15371,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
-      "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-      "prompt": "事件对步长：离墙后读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+      "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+      "prompt": "事件对步长：离墙后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "完整事件对数为4，物理碰撞数为8。",
+          "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "一次完整事件对在圆上推进0.321751 rad。",
+          "text": "以+x轴为参照的弦方向角为1.992547 rad（模pi）。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "完整事件对数为6，物理碰撞数为12。",
+          "text": "一次完整事件对在圆上推进0.321751 rad。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "一次完整事件对在圆上推进0.421751 rad。",
+          "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
           "correct": false,
           "id": "D"
         }
@@ -15339,12 +15409,25 @@
                 "mass_small": 1,
                 "span": 3.141592653589793,
                 "asserted_pairs": 4,
-                "asserted_collisions": 8
+                "asserted_residual": 1,
+                "asserted_collisions": 9
               }
             }
           },
           {
             "option_id": "B",
+            "family": "physics",
+            "claim": {
+              "kind": "chord_direction_angle",
+              "parameters": {
+                "mass_large": 9,
+                "mass_small": 1,
+                "asserted_direction": 1.9925468811915388
+              }
+            }
+          },
+          {
+            "option_id": "C",
             "family": "physics",
             "claim": {
               "kind": "angle_relation",
@@ -15356,28 +15439,14 @@
             }
           },
           {
-            "option_id": "C",
-            "family": "physics",
-            "claim": {
-              "kind": "angle_pair_count",
-              "parameters": {
-                "mass_large": 9,
-                "mass_small": 1,
-                "span": 3.141592653589793,
-                "asserted_pairs": 6,
-                "asserted_collisions": 12
-              }
-            }
-          },
-          {
             "option_id": "D",
             "family": "physics",
             "claim": {
-              "kind": "angle_relation",
+              "kind": "chord_direction_angle",
               "parameters": {
                 "mass_large": 9,
                 "mass_small": 1,
-                "asserted_step": 0.4217505543966422
+                "asserted_direction": 2.092546881191539
               }
             }
           }
@@ -15418,58 +15487,10 @@
           "accepted_answers": [
             "12"
           ]
-        },
-        {
-          "id": "pair_steps",
-          "accepted_answers": [
-            "6"
-          ]
-        },
-        {
-          "id": "physical_collisions",
-          "accepted_answers": [
-            "12"
-          ]
-        },
-        {
-          "id": "pair_steps",
-          "accepted_answers": [
-            "6"
-          ]
-        },
-        {
-          "id": "physical_collisions",
-          "accepted_answers": [
-            "12"
-          ]
-        },
-        {
-          "id": "pair_steps",
-          "accepted_answers": [
-            "6"
-          ]
-        },
-        {
-          "id": "physical_collisions",
-          "accepted_answers": [
-            "12"
-          ]
-        },
-        {
-          "id": "pair_steps",
-          "accepted_answers": [
-            "6"
-          ]
-        },
-        {
-          "id": "physical_collisions",
-          "accepted_answers": [
-            "12"
-          ]
         }
       ],
       "calculation_fixture_id": "CAL-C7-COUNT-02",
-      "explanation": "以2theta为步长比较可用角度范围pi，所以theta=0.244978663，step=0.489957326，steps=6。",
+      "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
       "presentation_mode": "text_only"
     },
     {
@@ -15481,26 +15502,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "angle_counting",
       "curriculum_scope": "core",
-      "explanation": "弦方向角是theta；一次完整事件对（一次块碰撞加一次墙碰撞）对应2theta，而非单个物理碰撞。",
-      "prompt": "碰撞数计数：离墙后读数的弦方向角题中M/m=9/1，theta=arctan√(m/M)，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+      "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+      "prompt": "碰撞数计数：离墙后读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "完整事件对数为4，物理碰撞数为8。",
+          "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "一次完整事件对在圆上推进0.321751 rad。",
+          "text": "以+x轴为参照的弦方向角为1.992547 rad（模pi）。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "完整事件对数为6，物理碰撞数为12。",
+          "text": "一次完整事件对在圆上推进0.321751 rad。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "一次完整事件对在圆上推进0.421751 rad。",
+          "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
           "correct": false,
           "id": "D"
         }
@@ -15519,12 +15540,25 @@
                 "mass_small": 1,
                 "span": 3.141592653589793,
                 "asserted_pairs": 4,
-                "asserted_collisions": 8
+                "asserted_residual": 1,
+                "asserted_collisions": 9
               }
             }
           },
           {
             "option_id": "B",
+            "family": "physics",
+            "claim": {
+              "kind": "chord_direction_angle",
+              "parameters": {
+                "mass_large": 9,
+                "mass_small": 1,
+                "asserted_direction": 1.9925468811915388
+              }
+            }
+          },
+          {
+            "option_id": "C",
             "family": "physics",
             "claim": {
               "kind": "angle_relation",
@@ -15536,28 +15570,14 @@
             }
           },
           {
-            "option_id": "C",
-            "family": "physics",
-            "claim": {
-              "kind": "angle_pair_count",
-              "parameters": {
-                "mass_large": 9,
-                "mass_small": 1,
-                "span": 3.141592653589793,
-                "asserted_pairs": 6,
-                "asserted_collisions": 12
-              }
-            }
-          },
-          {
             "option_id": "D",
             "family": "physics",
             "claim": {
-              "kind": "angle_relation",
+              "kind": "chord_direction_angle",
               "parameters": {
                 "mass_large": 9,
                 "mass_small": 1,
-                "asserted_step": 0.4217505543966422
+                "asserted_direction": 2.092546881191539
               }
             }
           }
@@ -15573,26 +15593,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "缩放图例：初始读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择两项正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。 本题具体检验：读取能量圆的图例键。",
+      "prompt": "缩放图例：初始读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；围绕“读取能量圆的图例键”，哪些图例映射成立？ 请选择两项正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示动量线。",
+          "text": "图例中line表示总动量。",
           "correct": true,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -15611,12 +15631,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -15626,12 +15643,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "动量线"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -15641,12 +15655,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -15656,12 +15667,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -15677,26 +15685,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "缩放图例：相遇前读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "缩放图例：相遇前读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -15715,12 +15723,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -15730,12 +15735,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -15745,12 +15747,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -15760,12 +15759,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -15781,26 +15777,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "缩放图例：相撞后读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "缩放图例：相撞后读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -15815,12 +15811,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -15830,12 +15823,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -15845,12 +15835,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -15860,12 +15847,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -15881,26 +15865,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "动量图例：相遇前读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "动量图例：相遇前读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -15919,12 +15903,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -15934,12 +15915,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -15949,12 +15927,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -15964,12 +15939,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -15985,26 +15957,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "动量图例：相撞后读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "动量图例：相撞后读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -16019,12 +15991,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16034,12 +16003,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16049,12 +16015,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -16064,12 +16027,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -16085,26 +16045,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "动量图例：到墙前读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "动量图例：到墙前读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -16119,12 +16079,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16134,12 +16091,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16149,12 +16103,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -16164,12 +16115,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -16185,26 +16133,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "墙反射图例：初始读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "墙反射图例：初始读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -16223,12 +16171,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16238,12 +16183,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16253,12 +16195,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -16268,12 +16207,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -16289,26 +16225,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "墙反射图例：相遇前读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "墙反射图例：相遇前读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -16329,12 +16265,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16344,12 +16277,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16359,12 +16289,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -16374,12 +16301,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -16395,26 +16319,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "墙反射图例：相撞后读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "墙反射图例：相撞后读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -16429,12 +16353,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16444,12 +16365,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16459,12 +16377,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -16474,12 +16389,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -16495,26 +16407,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "legend",
       "curriculum_scope": "core",
-      "explanation": "图例只说明图元含义；能量圆和动量线分别编码守恒能量与总动量条件。",
-      "prompt": "墙反射图例：到墙前读数的综合图图例规定实线表示能量圆、虚线表示动量线；哪些图例映射成立？ 请选择唯一正确判读。",
+      "explanation": "图例键由综合图的 labels 字段给出：circle 对应总动能，line 对应总动量，chord 对应物块碰撞，mirror 对应墙反射。",
+      "prompt": "墙反射图例：到墙前读数的综合图图例规定circle、line、chord、mirror四个图例键分别标注图元；哪些图例映射成立？ 请选择唯一正确判读。",
       "options": [
         {
-          "text": "图例中实线表示能量圆。",
+          "text": "图例中circle表示总动能。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "图例中虚线表示能量圆。",
+          "text": "图例中line表示总动能。",
           "correct": false,
           "id": "B"
         },
         {
-          "text": "图例中实线表示墙面。",
+          "text": "图例中chord表示总动量。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "图例中虚线表示速度轴。",
+          "text": "图例中mirror表示总动量。",
           "correct": false,
           "id": "D"
         }
@@ -16529,12 +16441,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "circle",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16544,12 +16453,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "能量圆"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "line",
+                "asserted_mapping": "总动能"
               }
             }
           },
@@ -16559,12 +16465,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "实线",
-                "asserted_mapping": "墙面"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "chord",
+                "asserted_mapping": "总动量"
               }
             }
           },
@@ -16574,12 +16477,9 @@
             "claim": {
               "kind": "legend_mapping",
               "parameters": {
-                "mapping": {
-                  "实线": "能量圆",
-                  "虚线": "动量线"
-                },
-                "symbol": "虚线",
-                "asserted_mapping": "速度轴"
+                "diagram_id": "cp-c-element-legend-overview",
+                "symbol": "mirror",
+                "asserted_mapping": "总动量"
               }
             }
           }
@@ -16595,7 +16495,7 @@
       "event_stage": "state_analysis",
       "variant_axis": "elective_method",
       "curriculum_scope": "elective",
-      "explanation": "theta=arctan√(m/M)。折叠图显示镜面位置，展开图把镜像边界排成直线；相邻边界相差2theta。",
+      "explanation": "theta=arctan√(m/M)。折叠图显示镜面位置，展开图把镜像边界排成直线；相邻边界相差2theta。 本题具体检验：在折叠位置空间读取楔角。",
       "prompt": "镜面折叠：初始读数的折叠—展开楔形模型中M/m=9/1；折叠位置空间与展开直线射线分别如何判读？ 请选择两项正确判读。",
       "options": [
         {
