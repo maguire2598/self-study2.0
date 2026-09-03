@@ -813,7 +813,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-1-scenario-04",
@@ -999,7 +1000,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-2-scenario-02",
@@ -1094,7 +1096,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-2-scenario-03",
@@ -1189,7 +1192,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-2-scenario-04",
@@ -1284,7 +1288,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-3-scenario-01",
@@ -1379,7 +1384,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-3-scenario-02",
@@ -1474,7 +1480,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-3-scenario-03",
@@ -1569,7 +1576,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-4-scenario-01",
@@ -1664,7 +1672,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-4-scenario-02",
@@ -1759,7 +1768,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c1-4-scenario-03",
@@ -2316,7 +2326,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c2-2-scenario-01",
@@ -2414,7 +2425,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c2-2-scenario-02",
@@ -2512,7 +2524,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c2-2-scenario-03",
@@ -2610,7 +2623,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c2-2-scenario-04",
@@ -2708,7 +2722,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c2-3-scenario-01",
@@ -2806,7 +2821,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c2-3-scenario-02",
@@ -2904,7 +2920,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c2-3-scenario-03",
@@ -3002,7 +3019,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c2-3-scenario-04",
@@ -3749,7 +3767,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-2-scenario-02",
@@ -3845,7 +3864,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-2-scenario-03",
@@ -3941,7 +3961,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-2-scenario-04",
@@ -4037,7 +4058,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-3-scenario-01",
@@ -4133,7 +4155,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-3-scenario-02",
@@ -4229,7 +4252,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-3-scenario-03",
@@ -4325,7 +4349,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-3-scenario-04",
@@ -4421,7 +4446,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-3-scenario-05",
@@ -4609,7 +4635,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-4-scenario-02",
@@ -4705,7 +4732,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c3-5-scenario-01",
@@ -5411,7 +5439,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c4-2-scenario-02",
@@ -5502,7 +5531,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c4-2-scenario-03",
@@ -5593,7 +5623,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c4-2-scenario-04",
@@ -5684,7 +5715,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-3-scenario-01",
@@ -5775,7 +5807,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c4-3-scenario-02",
@@ -5866,7 +5899,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c4-3-scenario-03",
@@ -5957,7 +5991,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-3-scenario-04",
@@ -6048,7 +6083,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c4-4-scenario-01",
@@ -6139,7 +6175,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c4-4-scenario-02",
@@ -6230,7 +6267,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c4-4-scenario-03",
@@ -6781,7 +6819,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c5-1-scenario-04",
@@ -6897,7 +6936,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c5-2-scenario-01",
@@ -7013,7 +7053,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c5-2-scenario-02",
@@ -7129,7 +7170,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c5-2-scenario-03",
@@ -7245,7 +7287,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c5-2-scenario-04",
@@ -7361,7 +7404,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c5-3-scenario-01",
@@ -7477,7 +7521,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c5-3-scenario-02",
@@ -8426,7 +8471,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c6-2-scenario-02",
@@ -8548,7 +8594,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c6-2-scenario-03",
@@ -8682,7 +8729,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c6-2-scenario-04",
@@ -8792,7 +8840,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c6-4-scenario-01",
@@ -8902,7 +8951,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c6-4-scenario-02",
@@ -9024,7 +9074,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c6-4-scenario-03",
@@ -9158,7 +9209,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         }
       ]
     },
@@ -9279,7 +9331,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c6-2-scenario-05",
@@ -9507,7 +9560,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c6-3-scenario-02",
@@ -10744,7 +10798,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c7-2-scenario-03",
@@ -10839,7 +10894,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c7-3-scenario-01",
@@ -10934,7 +10990,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c7-3-scenario-02",
@@ -11029,7 +11086,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         }
       ]
     },
@@ -11136,7 +11194,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c7-2-scenario-04",
@@ -11231,7 +11290,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "active_physics"
         },
         {
           "key": "c7-3-scenario-03",
@@ -11326,7 +11386,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "active_physics"
         },
         {
           "key": "c7-3-scenario-04",
@@ -11421,7 +11482,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c7-4-scenario-01",
@@ -11516,7 +11578,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c7-4-scenario-02",
@@ -11611,7 +11674,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         },
         {
           "key": "c7-4-scenario-03",
@@ -12035,7 +12099,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         }
       ]
     },
@@ -12264,7 +12329,8 @@
                 }
               }
             ]
-          }
+          },
+          "figure_role": "conceptual_reference"
         }
       ]
     }
@@ -15938,7 +16004,8 @@
             }
           }
         ]
-      }
+      },
+      "figure_role": "conceptual_reference"
     },
     {
       "key": "c8-1-concise-03",
@@ -16030,7 +16097,8 @@
             }
           }
         ]
-      }
+      },
+      "figure_role": "conceptual_reference"
     },
     {
       "key": "c8-1-concise-04",
@@ -16210,7 +16278,8 @@
             }
           }
         ]
-      }
+      },
+      "figure_role": "conceptual_reference"
     },
     {
       "key": "c8-2-concise-03",
@@ -16478,7 +16547,8 @@
             }
           }
         ]
-      }
+      },
+      "figure_role": "conceptual_reference"
     },
     {
       "key": "c8-3-concise-02",
@@ -16840,7 +16910,8 @@
             }
           }
         ]
-      }
+      },
+      "figure_role": "conceptual_reference"
     },
     {
       "key": "c9-3-concise-01",
@@ -17306,7 +17377,8 @@
       "figure_refs": [
         "cp-c-wedge-unfold-basic"
       ],
-      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系"
+      "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+      "figure_role": "conceptual_reference"
     },
     {
       "key": "c9-6-concise-01",

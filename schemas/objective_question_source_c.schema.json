@@ -1120,6 +1120,9 @@
           "type": "string",
           "minLength": 1
         },
+        "figure_role": {
+          "enum": ["active_physics", "conceptual_reference"]
+        },
         "explanation": {
           "type": "string",
           "minLength": 1
@@ -1278,7 +1281,8 @@
           "then": {
             "required": [
               "figure_refs",
-              "diagram_focus"
+              "diagram_focus",
+              "figure_role"
             ],
             "properties": {
               "figure_refs": {

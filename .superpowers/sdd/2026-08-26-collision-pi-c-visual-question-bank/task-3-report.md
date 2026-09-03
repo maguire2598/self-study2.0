@@ -360,6 +360,37 @@ python -m unittest discover -s tests -v
 exit code 0 (all displayed tests passed; tool output was truncated)
 ```
 
+## Final round-5 consistency audit
+
+- Added closed source-side `figure_role` declarations to every one of the 72
+  `stem_figure` records.  `active_physics` is reserved for the four diagrams
+  whose numerical mass/coordinate/geometry facts are student-active;
+  `conceptual_reference` is explicit for the remaining conceptual diagrams.
+- The deterministic validator resolves all 72 references through
+  `diagram-source-c.json`.  Active records compare visible mass ratio,
+  coordinate representation, structured mass parameters, momentum-chord
+  geometry, and equal-angle declarations.  It includes mass-ratio,
+  coordinate-system, momentum-diagram, and equal-angle-ratio adversarial
+  mutations.
+- Rechecked the four reviewer-cited records: c4-2-scenario-04,
+  c4-3-scenario-03, c7-2-scenario-04, c7-3-scenario-03.
+
+```text
+python -m unittest tests.test_question_source_c -q
+Ran 35 tests in 17.480s ... OK
+
+python -m unittest tests.test_question_bank.QuestionBankTests.test_a_wrapper_preserves_checked_in_bank_bytes tests.test_question_bank_b.QuestionBankBTests.test_checked_in_b_bank_matches_generator tests.test_collision_pi_c_diagrams.CollisionPiCDiagramTests.test_build_is_deterministic -v
+Ran 3 tests in 0.016s ... OK
+
+Test-Json C source schema ... True
+python -m unittest discover -s tests -v
+Ran 149 tests in 34.452s ... OK
+```
+
+## Final concerns
+
+None.
+
 ---
 
 # Fix round 4/5 — consumable anonymous figures and closed claim branches

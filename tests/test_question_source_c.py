@@ -324,6 +324,36 @@ def evaluate_diagram_claim(claim, diagram, query):
     )
 
 
+def stem_figure_compatibility(question, diagram):
+    """Validate every declared active stem figure against diagram-source facts."""
+    if question["figure_role"] == "conceptual_reference":
+        # Concept diagrams still declare why a numerical identity is not claimed.
+        return bool(question["diagram_focus"].strip())
+    text = question.get("ask", question.get("prompt", ""))
+    params = diagram["parameters"]
+    ratio = re.search(r"M/m=(\d+)/(\d+)", text)
+    if ratio:
+        if not {"mass_large", "mass_small"}.issubset(params):
+            return False
+        if (int(ratio.group(1)), int(ratio.group(2))) != (params["mass_large"], params["mass_small"]):
+            return False
+    if "质量加权" in text and diagram["coordinate_system"] != "velocity_weighted":
+        return False
+    if ("原始速度坐标" in text or "速度相图" in text) and diagram["coordinate_system"] != "velocity_raw":
+        return False
+    for item in question.get("answer_contract", {}).get("claims", []):
+        claim = item["claim"]
+        values = claim["parameters"]
+        if claim["kind"] in {"momentum_slope", "momentum_parallel", "angle_pair_count", "angle_relation", "chord_direction_angle"}:
+            if values.get("mass_large") != params.get("mass_large") or values.get("mass_small") != params.get("mass_small"):
+                return False
+    if diagram["template_kind"] == "momentum_chord" and not any(item["claim"]["kind"].startswith("momentum_") for item in question["answer_contract"]["claims"]):
+        return False
+    if diagram["template_kind"] == "equal_angle" and not any(item["claim"]["kind"] in {"angle_pair_count", "angle_relation", "chord_direction_angle"} for item in question["answer_contract"]["claims"]):
+        return False
+    return True
+
+
 def contains_boolean(value):
     if isinstance(value, bool):
         return True
@@ -947,6 +977,33 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
                 continue
             graphical = [question for question in all_questions if question["node_id"] == node_id and question["presentation_mode"] != "text_only"]
             self.assertGreaterEqual(len(graphical), 2, node_id)
+
+    def test_every_stem_figure_declares_and_meets_its_compatibility_role(self):
+        """All 72 stem figures are either source-matched physics or explicit concept context."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        source_diagrams = json.loads((ROOT / "content" / "courses" / "collision-pi" / "diagram-source-c.json").read_text(encoding="utf-8"))
+        diagrams = {diagram["diagram_id"]: diagram for diagram in source_diagrams["diagrams"]}
+        stems = [q for q in scenario_questions + standalone if q["presentation_mode"] == "stem_figure"]
+        self.assertEqual(len(stems), 72)
+        self.assertEqual({q["figure_role"] for q in stems}, {"active_physics", "conceptual_reference"})
+        for question in stems:
+            self.assertTrue(stem_figure_compatibility(question, diagrams[question["figure_refs"][0]]), question["key"])
+
+        active = {q["key"]: q for q in stems if q["figure_role"] == "active_physics"}
+        self.assertEqual(set(active), {"c4-2-scenario-04", "c4-3-scenario-03", "c7-2-scenario-04", "c7-3-scenario-03"})
+        # Adversarial checks: mass, coordinate system, chord geometry, and equal-angle source cannot drift.
+        target = copy.deepcopy(active["c4-2-scenario-04"])
+        target["ask"] = target["ask"].replace("M/m=16/1", "M/m=4/1")
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+        target = copy.deepcopy(active["c4-2-scenario-04"])
+        target["ask"] = target["ask"].replace("质量加权", "原始速度坐标")
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+        target = copy.deepcopy(active["c4-2-scenario-04"])
+        target["figure_refs"] = ["cp-c-momentum-chord-parallel"]
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+        target = copy.deepcopy(active["c7-2-scenario-04"])
+        target["ask"] = target["ask"].replace("M/m=4/1", "M/m=9/1")
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
 
     def test_question_payloads_and_wording_guards(self):
         _, _, scenario_questions, standalone, fixtures, _ = self.load_source()
