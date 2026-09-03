@@ -1,0 +1,19 @@
+const fs = require('fs');
+const path = require('path');
+
+const root = path.resolve(__dirname, '..');
+const editorPath = path.join(root, 'authoring', 'collision-pi-question-editor.html');
+const source = fs.readFileSync(editorPath, 'utf8');
+const scripts = [...source.matchAll(/<script(?: [^>]*)?>([\s\S]*?)<\/script>/g)];
+
+if (scripts.length < 2) {
+  throw new Error(`expected embedded data and application scripts, found ${scripts.length}`);
+}
+
+const bank = JSON.parse(scripts[0][1]);
+if (bank.questions.length !== 192) {
+  throw new Error(`expected 192 questions, found ${bank.questions.length}`);
+}
+
+new Function(scripts.at(-1)[1]);
+console.log(`question editor validation OK: ${bank.questions.length} questions, ${scripts.length} script blocks`);

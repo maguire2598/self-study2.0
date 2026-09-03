@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ObjectiveQuestionBank",
+  "description": "具有标准答案的课程客观题库，与旧版状态定位题库相互独立。",
+  "type": "object",
+  "required": ["course_id", "section_id", "version", "delivery_policy", "status_assessment", "questions"],
+  "properties": {
+    "course_id": { "type": "string" },
+    "section_id": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "delivery_policy": {
+      "type": "object",
+      "required": ["reveal_answer_after_wrong", "wrong_answer_action", "correct_answer_actions"],
+      "properties": {
+        "reveal_answer_after_wrong": { "const": false },
+        "wrong_answer_action": { "const": "error_followup_agent" },
+        "correct_answer_actions": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "next_question" },
+            { "const": "error_followup_agent" }
+          ],
+          "items": false
+        }
+      }
+    },
+    "status_assessment": {
+      "type": "object",
+      "required": ["enabled"],
+      "properties": { "enabled": { "const": false } }
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 192,
+      "maxItems": 192,
+      "items": {
+        "type": "object",
+        "required": ["id", "node_id", "node_title", "question_type", "assessment_kind", "prompt", "explanation", "enabled", "revision"],
+        "properties": {
+          "id": { "type": "string" },
+          "node_id": { "type": "string", "pattern": "^A" },
+          "node_title": { "type": "string" },
+          "question_type": { "enum": ["single_choice", "multiple_choice", "multi_blank"] },
+          "assessment_kind": { "const": "objective" },
+          "prompt": { "type": "string", "minLength": 1 },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "text"],
+              "properties": {
+                "id": { "type": "string" },
+                "text": { "type": "string" }
+              }
+            }
+          },
+          "correct_answers": { "type": "array", "items": { "type": "string" } },
+          "blanks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "accepted_answers"],
+              "properties": {
+                "id": { "type": "string" },
+                "accepted_answers": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+              }
+            }
+          },
+          "explanation": { "type": "string" },
+          "enabled": { "type": "boolean" },
+          "revision": { "type": "integer", "minimum": 0 },
+          "author_notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

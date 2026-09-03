@@ -1,0 +1,290 @@
+<div id="collisionPiQuestionEditor">
+  <h2>碰撞与π · A板块题库筛选</h2>
+  <p class="text-muted" id="questionSummary"></p>
+
+  <div class="viz-controls" aria-label="题库筛选控件">
+    <label class="form-label">知识点
+      <select class="form-select" id="questionNodeSelect"></select>
+    </label>
+    <label class="form-label">题型
+      <select class="form-select" id="questionTypeFilter">
+        <option value="all">全部题型</option>
+        <option value="single_choice">单选题</option>
+        <option value="multiple_choice">多选题</option>
+        <option value="multi_blank">多空填空题</option>
+      </select>
+    </label>
+    <label class="form-label">搜索题干
+      <input class="form-control" id="questionSearch" type="search" placeholder="输入关键词">
+    </label>
+  </div>
+
+  <div class="viz-row">
+    <button class="btn btn-ghost" id="previousNode" type="button">上一个知识点</button>
+    <button class="btn btn-ghost" id="nextNode" type="button">下一个知识点</button>
+    <label class="form-check">
+      <input class="form-check-input" id="nodeEnabled" type="checkbox">
+      <span class="form-check-label">启用当前知识点全部题目</span>
+    </label>
+  </div>
+
+  <div id="questionList" aria-live="polite"></div>
+
+  <div class="viz-controls" aria-label="题库操作">
+    <button class="btn" id="saveDraft" type="button">保存本地草稿</button>
+    <button class="btn btn-ghost" id="resetQuestion" type="button">恢复当前知识点原题</button>
+    <button class="btn" id="copyQuestionBank" type="button">复制完整题库</button>
+    <button class="btn btn-primary" id="submitEdits" type="button">提交本次修改</button>
+  </div>
+  <p class="text-small text-muted" id="questionEditorStatus" role="status"></p>
+
+  <script id="embeddedQuestionBank" type="application/json">__QUESTION_BANK_JSON__</script>
+</div>
+
+<style>
+  #collisionPiQuestionEditor { display:grid; gap:16px; color:var(--foreground); }
+  #collisionPiQuestionEditor #questionList { display:grid; gap:12px; }
+  #collisionPiQuestionEditor .cqe-card { display:grid; gap:10px; }
+  #collisionPiQuestionEditor .cqe-heading { display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  #collisionPiQuestionEditor .cqe-options { display:grid; gap:8px; }
+  #collisionPiQuestionEditor .cqe-option { display:grid; grid-template-columns:auto 1fr; gap:8px; align-items:center; }
+  #collisionPiQuestionEditor .cqe-fields { display:grid; gap:8px; }
+  @media (max-width:520px) { #collisionPiQuestionEditor .cqe-option { grid-template-columns:1fr; } }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('collisionPiQuestionEditor');
+  const original = JSON.parse(root.querySelector('#embeddedQuestionBank').textContent);
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const storageKey = 'collision-pi-a-question-draft';
+  const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+  const bank = saved?.course_id === original.course_id && saved?.version === original.version ? saved : clone(original);
+  const originalById = new Map(original.questions.map(question => [question.id, question]));
+  const nodeSelect = root.querySelector('#questionNodeSelect');
+  const typeFilter = root.querySelector('#questionTypeFilter');
+  const searchInput = root.querySelector('#questionSearch');
+  const list = root.querySelector('#questionList');
+  const status = root.querySelector('#questionEditorStatus');
+  const summary = root.querySelector('#questionSummary');
+  const nodeEnabled = root.querySelector('#nodeEnabled');
+  const nodes = [...new Map(bank.questions.map(question => [question.node_id, question.node_title])).entries()];
+
+  const typeNames = {
+    single_choice: '单选题',
+    multiple_choice: '多选题',
+    multi_blank: '多空填空题'
+  };
+
+  function setStatus(message) {
+    status.textContent = message;
+  }
+
+  function markChanged(question) {
+    question.revision = (question.revision || 0) + 1;
+    updateSummary();
+  }
+
+  function changedQuestions() {
+    return bank.questions.filter(question => JSON.stringify(question) !== JSON.stringify(originalById.get(question.id)));
+  }
+
+  function updateSummary() {
+    const enabled = bank.questions.filter(question => question.enabled).length;
+    summary.textContent = `${nodes.length} 个知识点 · ${bank.questions.length} 道题 · 已启用 ${enabled} 道 · 已修改 ${changedQuestions().length} 道`;
+  }
+
+  function makeTextField(labelText, value, onInput, rows = 2) {
+    const label = document.createElement('label');
+    label.className = 'form-label';
+    label.append(document.createTextNode(labelText));
+    const control = document.createElement(rows > 1 ? 'textarea' : 'input');
+    control.className = 'form-control';
+    if (rows > 1) control.rows = rows;
+    control.value = value;
+    control.addEventListener('input', () => onInput(control.value));
+    label.append(control);
+    return label;
+  }
+
+  function renderQuestion(question) {
+    const card = document.createElement('article');
+    card.className = 'card cqe-card';
+    card.dataset.questionId = question.id;
+
+    const heading = document.createElement('div');
+    heading.className = 'cqe-heading';
+    const title = document.createElement('strong');
+    title.textContent = `${question.id} · ${typeNames[question.question_type]}`;
+    const enabledLabel = document.createElement('label');
+    enabledLabel.className = 'form-check';
+    const enabledInput = document.createElement('input');
+    enabledInput.className = 'form-check-input';
+    enabledInput.type = 'checkbox';
+    enabledInput.checked = question.enabled;
+    enabledInput.addEventListener('change', () => {
+      question.enabled = enabledInput.checked;
+      markChanged(question);
+      updateNodeEnabled();
+    });
+    const enabledText = document.createElement('span');
+    enabledText.className = 'form-check-label';
+    enabledText.textContent = '纳入题库';
+    enabledLabel.append(enabledInput, enabledText);
+    heading.append(title, enabledLabel);
+    card.append(heading);
+
+    card.append(makeTextField('题干', question.prompt, value => {
+      question.prompt = value;
+      markChanged(question);
+    }, 3));
+
+    if (question.options) {
+      const options = document.createElement('div');
+      options.className = 'cqe-options';
+      question.options.forEach(option => {
+        const row = document.createElement('label');
+        row.className = 'cqe-option';
+        const answer = document.createElement('input');
+        answer.type = question.question_type === 'single_choice' ? 'radio' : 'checkbox';
+        answer.name = `answer-${question.id}`;
+        answer.checked = question.correct_answers.includes(option.id);
+        answer.setAttribute('aria-label', `${option.id}为正确答案`);
+        answer.addEventListener('change', () => {
+          if (question.question_type === 'single_choice') {
+            question.correct_answers = [option.id];
+          } else if (answer.checked) {
+            question.correct_answers = [...new Set([...question.correct_answers, option.id])];
+          } else {
+            question.correct_answers = question.correct_answers.filter(id => id !== option.id);
+          }
+          markChanged(question);
+        });
+        const text = document.createElement('input');
+        text.className = 'form-control';
+        text.value = option.text;
+        text.setAttribute('aria-label', `选项${option.id}`);
+        text.addEventListener('input', () => {
+          option.text = text.value;
+          markChanged(question);
+        });
+        row.append(answer, text);
+        options.append(row);
+      });
+      card.append(options);
+    } else {
+      const fields = document.createElement('div');
+      fields.className = 'cqe-fields';
+      question.blanks.forEach((blank, index) => {
+        fields.append(makeTextField(`第 ${index + 1} 空可接受答案（用 | 分隔）`, blank.accepted_answers.join(' | '), value => {
+          blank.accepted_answers = value.split('|').map(item => item.trim()).filter(Boolean);
+          markChanged(question);
+        }, 1));
+      });
+      card.append(fields);
+    }
+
+    card.append(makeTextField('答案解析（仅作者端编辑）', question.explanation, value => {
+      question.explanation = value;
+      markChanged(question);
+    }, 2));
+    card.append(makeTextField('作者备注', question.author_notes || '', value => {
+      question.author_notes = value;
+      markChanged(question);
+    }, 2));
+    return card;
+  }
+
+  function currentNodeId() {
+    return nodeSelect.value || nodes[0][0];
+  }
+
+  function updateNodeEnabled() {
+    const nodeQuestions = bank.questions.filter(question => question.node_id === currentNodeId());
+    nodeEnabled.checked = nodeQuestions.every(question => question.enabled);
+    nodeEnabled.indeterminate = !nodeEnabled.checked && nodeQuestions.some(question => question.enabled);
+  }
+
+  function render() {
+    const query = searchInput.value.trim().toLowerCase();
+    const selectedType = typeFilter.value;
+    const questions = bank.questions.filter(question =>
+      question.node_id === currentNodeId() &&
+      (selectedType === 'all' || question.question_type === selectedType) &&
+      (!query || `${question.prompt} ${question.options?.map(option => option.text).join(' ') || ''}`.toLowerCase().includes(query))
+    );
+    list.replaceChildren(...questions.map(renderQuestion));
+    if (!questions.length) {
+      const empty = document.createElement('p');
+      empty.className = 'text-muted';
+      empty.textContent = '当前筛选条件下没有题目。';
+      list.append(empty);
+    }
+    updateNodeEnabled();
+    updateSummary();
+  }
+
+  function moveNode(step) {
+    const currentIndex = nodes.findIndex(([nodeId]) => nodeId === currentNodeId());
+    const nextIndex = (currentIndex + step + nodes.length) % nodes.length;
+    nodeSelect.value = nodes[nextIndex][0];
+    render();
+  }
+
+  nodes.forEach(([nodeId, title]) => {
+    const option = document.createElement('option');
+    option.value = nodeId;
+    option.textContent = `${nodeId} · ${title}`;
+    nodeSelect.append(option);
+  });
+
+  nodeSelect.addEventListener('change', render);
+  typeFilter.addEventListener('change', render);
+  searchInput.addEventListener('input', render);
+  root.querySelector('#previousNode').addEventListener('click', () => moveNode(-1));
+  root.querySelector('#nextNode').addEventListener('click', () => moveNode(1));
+  nodeEnabled.addEventListener('change', () => {
+    bank.questions.filter(question => question.node_id === currentNodeId()).forEach(question => {
+      question.enabled = nodeEnabled.checked;
+      markChanged(question);
+    });
+    render();
+  });
+
+  root.querySelector('#saveDraft').addEventListener('click', () => {
+    localStorage.setItem(storageKey, JSON.stringify(bank));
+    setStatus(`草稿已保存：${new Date().toLocaleTimeString()}`);
+  });
+
+  root.querySelector('#resetQuestion').addEventListener('click', () => {
+    const nodeId = currentNodeId();
+    bank.questions = bank.questions.map(question => question.node_id === nodeId ? clone(originalById.get(question.id)) : question);
+    localStorage.setItem(storageKey, JSON.stringify(bank));
+    setStatus(`${nodeId} 已恢复为初始题目。`);
+    render();
+  });
+
+  root.querySelector('#copyQuestionBank').addEventListener('click', async () => {
+    await navigator.clipboard.writeText(JSON.stringify(bank, null, 2));
+    setStatus('完整题库 JSON 已复制。');
+  });
+
+  root.querySelector('#submitEdits').addEventListener('click', async () => {
+    const changes = changedQuestions();
+    if (!changes.length) {
+      setStatus('当前没有需要提交的修改。');
+      return;
+    }
+    const prompt = `这是我对《碰撞与π》A板块题库的修改，共 ${changes.length} 道：\n\n${JSON.stringify(changes, null, 2)}\n\n请校验结构和答案后写回正式题库。`;
+    if (window.openai?.sendFollowUpMessage) {
+      await window.openai.sendFollowUpMessage({ title: '提交A板块题库修改', prompt });
+      setStatus(`已提交 ${changes.length} 道修改。`);
+    } else {
+      await navigator.clipboard.writeText(prompt);
+      setStatus('当前环境不能直接提交，修改内容已复制，请粘贴回对话。');
+    }
+  });
+
+  render();
+})();
+</script>

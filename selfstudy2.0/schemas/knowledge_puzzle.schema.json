@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KnowledgePuzzle",
+  "type": "object",
+  "required": ["course_id", "version", "nodes"],
+  "properties": {
+    "course_id": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "board", "depth", "title", "role", "summary"],
+        "properties": {
+          "id": { "type": "string" },
+          "board": { "enum": ["A", "B", "C", "D"] },
+          "depth": { "type": "integer", "minimum": 1, "maximum": 2 },
+          "title": { "type": "string", "minLength": 1 },
+          "role": { "enum": ["核心", "工具", "选修", "边界", "拓展"] },
+          "summary": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
