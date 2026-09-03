@@ -9,7 +9,10 @@
       "required": ["id", "text"],
       "properties": {
         "id": { "enum": ["A", "B", "C", "D"] },
-        "text": { "type": "string" }
+        "text": { "type": "string" },
+        "figure_ref": { "type": "string", "minLength": 1 },
+        "option_accessibility_label": { "enum": ["图A", "图B", "图C", "图D"] },
+        "embedded_figure_aria_hidden": { "const": true }
       }
     }
   },
@@ -73,11 +76,23 @@
             "enum": [
               "mass_ratio", "initial_velocity", "friction", "elasticity", "incline", "spring",
               "system_boundary", "counting", "direction", "observation", "model_assumption", "event_sequence",
-              "conservation", "energy", "equation_setup", "impulse", "limit", "restitution", "solution_method", "state_geometry"
-              , "coordinate_transform", "angle_counting", "legend", "momentum", "wall_reflection", "elective_method", "calculation"
+              "conservation", "energy", "equation_setup", "impulse", "limit", "restitution", "solution_method", "state_geometry",
+              "coordinate_transform", "angle_counting", "legend", "momentum", "wall_reflection", "elective_method", "calculation"
             ]
           },
           "calculation_fixture_id": { "type": "string", "minLength": 1 },
+          "presentation_mode": { "enum": ["text_only", "stem_figure", "option_figures", "figure_sequence"] },
+          "figure_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "diagram_focus": { "type": "string" },
+          "anonymous_option_rendering": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["embedded_figure_aria_hidden", "accessible_name_source"],
+            "properties": {
+              "embedded_figure_aria_hidden": { "const": true },
+              "accessible_name_source": { "const": "option_accessibility_label" }
+            }
+          },
           "source_refs": { "type": "array", "items": { "type": "string" } },
           "assessment_kind": { "const": "objective" },
           "prompt": { "type": "string", "minLength": 1 },
@@ -174,6 +189,22 @@
           {
             "if": { "properties": { "question_style": { "const": "calculation" } } },
             "then": { "required": ["calculation_fixture_id"] }
+          },
+          {
+            "if": { "allOf": [{ "required": ["presentation_mode"] }, { "properties": { "presentation_mode": { "const": "option_figures" } } }] },
+            "then": {
+              "required": ["options", "anonymous_option_rendering"],
+              "properties": {
+                "options": {
+                  "prefixItems": [
+                    { "required": ["figure_ref", "option_accessibility_label", "embedded_figure_aria_hidden"], "properties": { "option_accessibility_label": { "const": "图A" }, "embedded_figure_aria_hidden": { "const": true } } },
+                    { "required": ["figure_ref", "option_accessibility_label", "embedded_figure_aria_hidden"], "properties": { "option_accessibility_label": { "const": "图B" }, "embedded_figure_aria_hidden": { "const": true } } },
+                    { "required": ["figure_ref", "option_accessibility_label", "embedded_figure_aria_hidden"], "properties": { "option_accessibility_label": { "const": "图C" }, "embedded_figure_aria_hidden": { "const": true } } },
+                    { "required": ["figure_ref", "option_accessibility_label", "embedded_figure_aria_hidden"], "properties": { "option_accessibility_label": { "const": "图D" }, "embedded_figure_aria_hidden": { "const": true } } }
+                  ]
+                }
+              }
+            }
           }
         ]
       }
@@ -196,7 +227,9 @@
                     "A4.1", "A4.2", "A4.3", "A5.1", "A5.2",
                     "A6.1", "A6.2", "A7.1", "A7.2", "A7.3"
                   ]
-                }
+                },
+                "event_stage": { "enum": ["initial", "after_first_collision", "after_wall_collision", "after_second_collision", "terminal", "special_case", "extension_stage"] },
+                "variant_axis": { "not": { "enum": ["coordinate_transform", "angle_counting", "legend", "momentum", "wall_reflection", "elective_method", "calculation"] } }
               }
             }
           },
@@ -232,7 +265,9 @@
                     "B4.1", "B4.2", "B4.3", "B4.4", "B4.5",
                     "B5.1", "B5.2", "B5.3", "B5.4"
                   ]
-                }
+                },
+                "event_stage": { "enum": ["initial", "after_first_collision", "after_wall_collision", "after_second_collision", "terminal", "special_case", "extension_stage"] },
+                "variant_axis": { "not": { "enum": ["coordinate_transform", "angle_counting", "legend", "momentum", "wall_reflection", "elective_method", "calculation"] } }
               }
             }
           },

@@ -1105,12 +1105,12 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：区分状态点坐标与物块实际位置。",
-          "ask": "速度正负方向：相撞后读数：9m 与 m 的两物块在速度相图中(vM,vm)=(-1,-2)，向右为正；下列围绕“区分状态点坐标与物块实际位置”，哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "坐标只表示速度；两个速度都为负，故状态点在第三象限且两物块均向左。",
+          "ask": "速度象限：相撞后读数为(vM,vm)=(-1,-2)，向右为正。状态点编码速度而非物块位置；围绕“由正负组合判定象限”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "速度状态为(vM,vm)=(-1,-2)。",
-              "correct": true,
+              "text": "速度状态为(vM,vm)=(1,-2)。",
+              "correct": false,
               "id": "A"
             },
             {
@@ -1119,12 +1119,12 @@
               "id": "B"
             },
             {
-              "text": "状态点位于第一象限。",
-              "correct": false,
+              "text": "状态点位于第三象限。",
+              "correct": true,
               "id": "C"
             },
             {
-              "text": "速度状态为(vM,vm)=(1,-2)。",
+              "text": "速度状态为(vM,vm)=(-1,2)。",
               "correct": false,
               "id": "D"
             }
@@ -1145,7 +1145,7 @@
                   "parameters": {
                     "v_large": -1,
                     "v_small": -2,
-                    "asserted_v_large": -1,
+                    "asserted_v_large": 1,
                     "asserted_v_small": -2
                   }
                 }
@@ -1171,7 +1171,7 @@
                   "parameters": {
                     "v_large": -1,
                     "v_small": -2,
-                    "asserted_quadrant": "第一象限"
+                    "asserted_quadrant": "第三象限"
                   }
                 }
               },
@@ -1183,8 +1183,8 @@
                   "parameters": {
                     "v_large": -1,
                     "v_small": -2,
-                    "asserted_v_large": 1,
-                    "asserted_v_small": -2
+                    "asserted_v_large": -1,
+                    "asserted_v_small": 2
                   }
                 }
               }
@@ -1200,8 +1200,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "state_geometry",
           "curriculum_scope": "core",
-          "explanation": "按横轴vM、纵轴vm读取有序状态，并以速度正负判断方向和象限。 本题具体检验：用两分量检验相对运动方向。",
-          "ask": "速度正负方向：到墙前读数：4m 与 m 的两物块在速度相图中(vM,vm)=(2,-1)，向右为正；下列围绕“用两分量检验相对运动方向”，哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "vM为正、vm为负，所以状态点在第四象限；两物块运动方向相反。",
+          "ask": "相对方向：到墙前读数为(vM,vm)=(2,-1)，向右为正；围绕“由正负组合识别第四象限和相向运动”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "速度状态为(vM,vm)=(2,-1)。",
@@ -1209,13 +1209,13 @@
               "id": "A"
             },
             {
-              "text": "大物块向右、小物块向左。",
-              "correct": true,
+              "text": "大物块向左、小物块向左。",
+              "correct": false,
               "id": "B"
             },
             {
-              "text": "状态点位于第一象限。",
-              "correct": false,
+              "text": "状态点位于第四象限。",
+              "correct": true,
               "id": "C"
             },
             {
@@ -1253,7 +1253,7 @@
                   "parameters": {
                     "v_large": 2,
                     "v_small": -1,
-                    "asserted_large_direction": "向右",
+                    "asserted_large_direction": "向左",
                     "asserted_small_direction": "向左"
                   }
                 }
@@ -1266,7 +1266,7 @@
                   "parameters": {
                     "v_large": 2,
                     "v_small": -1,
-                    "asserted_quadrant": "第一象限"
+                    "asserted_quadrant": "第四象限"
                   }
                 }
               },
@@ -5335,12 +5335,12 @@
           "ask": "动量线平行：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“由零动量求弦斜率”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-3.0。",
+              "text": "动量直线斜率为-4.0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-3.0。",
+              "text": "同一总动量的直线斜率应为-4.0。",
               "correct": true,
               "id": "B"
             },
@@ -5350,7 +5350,7 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为-1.0。",
+              "text": "动量直线斜率为-3.0。",
               "correct": false,
               "id": "D"
             }
@@ -5369,9 +5369,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -4.0
                   }
                 }
               },
@@ -5381,9 +5381,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -4.0
                   }
                 }
               },
@@ -5404,9 +5404,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -3.0
                   }
                 }
               }
@@ -5513,27 +5513,27 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：定位零动量线的原点交点。",
-          "ask": "动量线平行：相撞后读数的质量加权平面动量线对应M/m=16/1且总动量为零；围绕“定位零动量线的原点交点”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "P=0的约束线必通过原点；M/m=16/1时斜率为-4。",
+          "ask": "零动量交点：图示质量加权平面对应M/m=16/1且P=0；围绕“定位动量线的原点交点”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-4.0。",
-              "correct": true,
+              "text": "动量直线斜率为-1.0。",
+              "correct": false,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-4.0。",
-              "correct": true,
+              "text": "同一总动量的直线斜率应为-3.0。",
+              "correct": false,
               "id": "B"
             },
             {
-              "text": "零总动量直线与坐标轴的交点为(1,0)。",
-              "correct": false,
+              "text": "零总动量直线与坐标轴的交点为(0,0)。",
+              "correct": true,
               "id": "C"
             },
             {
-              "text": "动量直线斜率为-2.0。",
-              "correct": false,
+              "text": "动量直线斜率为-4.0。",
+              "correct": true,
               "id": "D"
             }
           ],
@@ -5553,7 +5553,7 @@
                   "parameters": {
                     "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "asserted_slope": -1.0
                   }
                 }
               },
@@ -5565,7 +5565,7 @@
                   "parameters": {
                     "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "asserted_slope": -3.0
                   }
                 }
               },
@@ -5575,7 +5575,7 @@
                 "claim": {
                   "kind": "momentum_intersection",
                   "parameters": {
-                    "asserted_x": 1,
+                    "asserted_x": 0,
                     "asserted_y": 0
                   }
                 }
@@ -5588,7 +5588,7 @@
                   "parameters": {
                     "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -2.0
+                    "asserted_slope": -4.0
                   }
                 }
               }
@@ -5608,12 +5608,12 @@
           "ask": "动量线平行：到墙前读数的质量加权平面动量线对应M/m=1/1且总动量为零；围绕“区分弦方向与圆周轨迹”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-1.0。",
+              "text": "动量直线斜率为-4.0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-1.0。",
+              "text": "同一总动量的直线斜率应为-4.0。",
               "correct": true,
               "id": "B"
             },
@@ -5623,7 +5623,7 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为1.0。",
+              "text": "动量直线斜率为4.0。",
               "correct": false,
               "id": "D"
             }
@@ -5642,9 +5642,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 1,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -4.0
                   }
                 }
               },
@@ -5654,9 +5654,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 1,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -4.0
                   }
                 }
               },
@@ -5677,9 +5677,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 1,
+                    "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": 1.0
+                    "asserted_slope": 4.0
                   }
                 }
               }
@@ -5699,12 +5699,12 @@
           "ask": "弦方向：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“由零动量求弦斜率”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-3.0。",
+              "text": "动量直线斜率为-2.0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-3.0。",
+              "text": "同一总动量的直线斜率应为-2.0。",
               "correct": true,
               "id": "B"
             },
@@ -5733,9 +5733,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -2.0
                   }
                 }
               },
@@ -5745,9 +5745,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -2.0
                   }
                 }
               },
@@ -5768,7 +5768,7 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "asserted_slope": -1.0
                   }
@@ -5877,27 +5877,27 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：定位零动量线的原点交点。",
-          "ask": "弦方向：相撞后读数的质量加权平面动量线对应M/m=16/1且总动量为零；围绕“定位零动量线的原点交点”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "P=0的约束线必通过原点；M/m=4/1时斜率为-2。",
+          "ask": "零动量交点：图示质量加权平面对应M/m=4/1且P=0；围绕“定位动量线的原点交点”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-4.0。",
-              "correct": true,
+              "text": "动量直线斜率为-1.0。",
+              "correct": false,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-4.0。",
-              "correct": true,
+              "text": "同一总动量的直线斜率应为-3.0。",
+              "correct": false,
               "id": "B"
             },
             {
-              "text": "零总动量直线与坐标轴的交点为(1,0)。",
-              "correct": false,
+              "text": "零总动量直线与坐标轴的交点为(0,0)。",
+              "correct": true,
               "id": "C"
             },
             {
               "text": "动量直线斜率为-2.0。",
-              "correct": false,
+              "correct": true,
               "id": "D"
             }
           ],
@@ -5915,9 +5915,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "asserted_slope": -1.0
                   }
                 }
               },
@@ -5927,9 +5927,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "asserted_slope": -3.0
                   }
                 }
               },
@@ -5939,7 +5939,7 @@
                 "claim": {
                   "kind": "momentum_intersection",
                   "parameters": {
-                    "asserted_x": 1,
+                    "asserted_x": 0,
                     "asserted_y": 0
                   }
                 }
@@ -5950,7 +5950,7 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "asserted_slope": -2.0
                   }
@@ -10660,26 +10660,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
-          "ask": "弦方向角：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "theta=arctan√(m/M)，所以N=ceil(pi/theta)-1=6；可组成3个完整事件对且无剩余碰撞。标准弦方向角为(theta-pi/2)模pi。",
+          "ask": "碰撞计数：初始读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“由N=ceil(pi/theta)-1计算总物理碰撞数”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "一次完整事件对在圆上推进0.321751 rad。",
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10698,12 +10698,12 @@
                 "claim": {
                   "kind": "angle_pair_count",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "span": 3.141592653589793,
-                    "asserted_pairs": 4,
-                    "asserted_residual": 1,
-                    "asserted_collisions": 9
+                    "asserted_pairs": 3,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 6
                   }
                 }
               },
@@ -10713,9 +10713,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 1.8925468811915387
+                    "asserted_direction": 2.0344439357957027
                   }
                 }
               },
@@ -10725,9 +10725,9 @@
                 "claim": {
                   "kind": "angle_relation",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.3217505543966422
+                    "asserted_step": 0.4636476090008061
                   }
                 }
               },
@@ -10737,9 +10737,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 2.092546881191539
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }
@@ -10850,26 +10850,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
-          "ask": "事件对步长：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "弦方向角为(theta-pi/2)模pi；完整事件对由两个物理碰撞组成，圆心角推进2theta。",
+          "ask": "事件步长：初始读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“识别一次完整事件对推进的2theta圆心角”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
-              "correct": true,
+              "text": "完整事件对数为2，剩余物理碰撞为0，总物理碰撞数为4。",
+              "correct": false,
               "id": "A"
             },
             {
-              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "一次完整事件对在圆上推进0.321751 rad。",
-              "correct": false,
+              "text": "一次完整事件对在圆上推进0.927295 rad。",
+              "correct": true,
               "id": "C"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -10888,12 +10888,12 @@
                 "claim": {
                   "kind": "angle_pair_count",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "span": 3.141592653589793,
-                    "asserted_pairs": 4,
-                    "asserted_residual": 1,
-                    "asserted_collisions": 9
+                    "asserted_pairs": 2,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 4
                   }
                 }
               },
@@ -10903,9 +10903,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 1.8925468811915387
+                    "asserted_direction": 2.0344439357957027
                   }
                 }
               },
@@ -10915,9 +10915,9 @@
                 "claim": {
                   "kind": "angle_relation",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.3217505543966422
+                    "asserted_step": 0.9272952180016122
                   }
                 }
               },
@@ -10927,9 +10927,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 2.092546881191539
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }
@@ -11147,26 +11147,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从弦斜率求标准方向角。",
-          "ask": "弦方向角：相撞后读数的弦方向角题中M/m=16/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从弦斜率求标准方向角”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "theta=arctan√(m/M)。弦斜率为-sqrt(M/m)，故标准弦方向角为(theta-pi/2)模pi；一次完整事件对才推进2theta。",
+          "ask": "弦与步长：相撞后读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“区分弦方向角与一次完整事件对的2theta步长”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为6，剩余物理碰撞为0，总物理碰撞数为12。",
-              "correct": true,
+              "text": "完整事件对数为2，剩余物理碰撞为0，总物理碰撞数为4。",
+              "correct": false,
               "id": "A"
             },
             {
-              "text": "以+x轴为参照的弦方向角为1.815775 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "一次完整事件对在圆上推进0.244979 rad。",
-              "correct": false,
+              "text": "一次完整事件对在圆上推进0.927295 rad。",
+              "correct": true,
               "id": "C"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.015775 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11185,12 +11185,12 @@
                 "claim": {
                   "kind": "angle_pair_count",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "span": 3.141592653589793,
-                    "asserted_pairs": 6,
+                    "asserted_pairs": 2,
                     "asserted_residual": 0,
-                    "asserted_collisions": 12
+                    "asserted_collisions": 4
                   }
                 }
               },
@@ -11200,9 +11200,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 1.8157749899217608
+                    "asserted_direction": 2.0344439357957027
                   }
                 }
               },
@@ -11212,9 +11212,9 @@
                 "claim": {
                   "kind": "angle_relation",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.24497866312686414
+                    "asserted_step": 0.9272952180016122
                   }
                 }
               },
@@ -11224,9 +11224,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 2.015774989921761
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }
@@ -11242,26 +11242,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从弦斜率求标准方向角。",
-          "ask": "事件对步长：相撞后读数的弦方向角题中M/m=16/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从弦斜率求标准方向角”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "explanation": "theta=arctan√(m/M)。弦斜率为-sqrt(M/m)，故标准弦方向角为(theta-pi/2)模pi；一次完整事件对才推进2theta。",
+          "ask": "等角推进：相撞后读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“区分弦方向角与一次完整事件对的2theta步长”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为6，剩余物理碰撞为0，总物理碰撞数为12。",
-              "correct": true,
+              "text": "完整事件对数为2，剩余物理碰撞为0，总物理碰撞数为4。",
+              "correct": false,
               "id": "A"
             },
             {
-              "text": "以+x轴为参照的弦方向角为1.815775 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "一次完整事件对在圆上推进0.244979 rad。",
-              "correct": false,
+              "text": "一次完整事件对在圆上推进0.927295 rad。",
+              "correct": true,
               "id": "C"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.015775 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11280,12 +11280,12 @@
                 "claim": {
                   "kind": "angle_pair_count",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "span": 3.141592653589793,
-                    "asserted_pairs": 6,
+                    "asserted_pairs": 2,
                     "asserted_residual": 0,
-                    "asserted_collisions": 12
+                    "asserted_collisions": 4
                   }
                 }
               },
@@ -11295,9 +11295,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 1.8157749899217608
+                    "asserted_direction": 2.0344439357957027
                   }
                 }
               },
@@ -11307,9 +11307,9 @@
                 "claim": {
                   "kind": "angle_relation",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.24497866312686414
+                    "asserted_step": 0.9272952180016122
                   }
                 }
               },
@@ -11319,9 +11319,9 @@
                 "claim": {
                   "kind": "chord_direction_angle",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 2.015774989921761
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               }

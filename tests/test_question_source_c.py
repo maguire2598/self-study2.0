@@ -429,6 +429,16 @@ class QuestionSourceCSchemaTests(SourceLoadMixin, unittest.TestCase):
 
 
 class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
+    def test_formal_schema_keeps_ab_stage_and_axis_contracts_strict(self):
+        """C-only stage/axis values must not silently broaden the A/B bank API."""
+        for section in ("a", "b"):
+            bank = json.loads((ROOT / "content" / "courses" / "collision-pi" / f"question-bank-{section}.json").read_text(encoding="utf-8"))
+            self.assertEqual(validate_c_bank_with_pwsh(bank).returncode, 0, section)
+            for field, value in (("event_stage", "calculation"), ("variant_axis", "elective_method")):
+                broken = copy.deepcopy(bank)
+                broken["questions"][0][field] = value
+                self.assertNotEqual(validate_c_bank_with_pwsh(broken).returncode, 0, f"{section}:{field}")
+
     def test_expansion_keeps_c_visual_contract_and_anonymizes_option_figures(self):
         """Consumable C output must not fall back to an SVG's own accessible name."""
         bank = question_bank.build_bank_from_paths(
@@ -443,15 +453,32 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         for question in option_figures:
             contract = question["anonymous_option_rendering"]
             self.assertTrue(contract["embedded_figure_aria_hidden"])
-            self.assertEqual(contract["accessible_name_source"], "option_accessibility_label")
+            accessible_name_source = contract["accessible_name_source"]
+            self.assertEqual(accessible_name_source, "option_accessibility_label")
             self.assertEqual(len(question["options"]), 4)
             for option in question["options"]:
                 self.assertIn("figure_ref", option)
-                self.assertEqual(option["accessibility_label"], f"图{option['id']}")
+                self.assertEqual(option[accessible_name_source], f"图{option['id']}")
                 self.assertTrue(option["embedded_figure_aria_hidden"])
                 source_diagram = diagram_by_id[option["figure_ref"]]
-                self.assertNotIn(source_diagram["caption"], option["accessibility_label"])
-                self.assertNotIn(source_diagram["alt_text"], option["accessibility_label"])
+                self.assertNotIn(source_diagram["caption"], option[accessible_name_source])
+                self.assertNotIn(source_diagram["alt_text"], option[accessible_name_source])
+
+        # The formal consumer schema must reject every way a renderer could lose
+        # the anonymous-option contract, rather than merely accepting extra fields.
+        sample = next(q for q in option_figures if q["options"])
+        for mutate in (
+            lambda q: q.pop("anonymous_option_rendering"),
+            lambda q: q["options"][0].pop("figure_ref"),
+            lambda q: q["options"][0].pop(q["anonymous_option_rendering"]["accessible_name_source"]),
+            lambda q: q["options"][0].__setitem__("embedded_figure_aria_hidden", False),
+            lambda q: q["anonymous_option_rendering"].__setitem__("accessible_name_source", "accessibility_label"),
+        ):
+            broken = copy.deepcopy(bank)
+            target = next(q for q in broken["questions"] if q["id"] == sample["id"])
+            mutate(target)
+            invalid = validate_c_bank_with_pwsh(broken)
+            self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
         self.assertEqual(source["section_id"], "C")
 
     def test_exact_source_contract_and_quotas(self):

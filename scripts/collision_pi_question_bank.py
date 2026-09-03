@@ -43,7 +43,10 @@ def expand_choice_options(
         if anonymous_figures:
             output.update({
                 "figure_ref": option["figure_ref"],
-                "accessibility_label": f"图{option_id}",
+                # This field name is deliberately shared with the question-level
+                # contract.  Consumers must use it instead of an embedded SVG's
+                # title/desc when the same diagram is an anonymous answer option.
+                "option_accessibility_label": f"图{option_id}",
                 "embedded_figure_aria_hidden": True,
             })
         rendered.append(output)
