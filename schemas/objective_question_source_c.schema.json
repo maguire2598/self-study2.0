@@ -2161,6 +2161,7 @@
             "momentum_slope",
             "momentum_parallel",
             "momentum_intersection",
+            "chord_state_invariants",
             "wall_reflection",
             "wall_radius",
             "event_count",
@@ -2196,6 +2197,10 @@
               "asserted_y",
               "asserted_r2",
               "asserted_slope",
+              "first",
+              "second",
+              "asserted_momentum_difference",
+              "asserted_radius2_difference",
               "before",
               "after",
               "asserted_after",
@@ -2414,6 +2419,25 @@
             "properties": {
               "parameters": {
                 "$ref": "#/$defs/claimParams_momentum_intersection"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "chord_state_invariants"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "parameters": {
+                "$ref": "#/$defs/claimParams_chord_state_invariants"
               }
             }
           }
@@ -2862,6 +2886,26 @@
         "asserted_y": {
           "type": "number"
         }
+      }
+    },
+    "claimParams_chord_state_invariants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_large",
+        "mass_small",
+        "first",
+        "second",
+        "asserted_momentum_difference",
+        "asserted_radius2_difference"
+      ],
+      "properties": {
+        "mass_large": {"type": "number"},
+        "mass_small": {"type": "number"},
+        "first": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "second": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "asserted_momentum_difference": {"type": "number"},
+        "asserted_radius2_difference": {"type": "number"}
       }
     },
     "claimParams_wall_reflection": {

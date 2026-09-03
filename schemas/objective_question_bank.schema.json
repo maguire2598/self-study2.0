@@ -4,13 +4,26 @@
   "description": "具有标准答案的课程客观题库，与旧版状态定位题库相互独立。",
   "type": "object",
   "$defs": {
+    "cDiagramId": {
+      "enum": [
+        "cp-c-velocity-plane-quadrants", "cp-c-velocity-plane-initial", "cp-c-velocity-plane-terminal", "cp-c-velocity-plane-state-vs-path",
+        "cp-c-energy-ellipse-equal-mass", "cp-c-energy-ellipse-ratio-4", "cp-c-energy-ellipse-ratio-16", "cp-c-energy-ellipse-same-energy",
+        "cp-c-scale-pair-equal-mass", "cp-c-scale-pair-ratio-4", "cp-c-scale-pair-ratio-16", "cp-c-scale-pair-ratio-100", "cp-c-scale-pair-error-check",
+        "cp-c-momentum-chord-ratio-1", "cp-c-momentum-chord-ratio-4", "cp-c-momentum-chord-ratio-16", "cp-c-momentum-chord-parallel", "cp-c-momentum-chord-intersections",
+        "cp-c-wall-reflection-basic", "cp-c-wall-reflection-axis-check", "cp-c-wall-reflection-radius",
+        "cp-c-state-chain-ratio-4", "cp-c-state-chain-ratio-9", "cp-c-state-chain-ratio-16", "cp-c-state-chain-ratio-100", "cp-c-state-chain-terminal",
+        "cp-c-safe-sector-ratio-4", "cp-c-safe-sector-ratio-16", "cp-c-safe-sector-boundary",
+        "cp-c-equal-angle-chord", "cp-c-equal-angle-step", "cp-c-equal-angle-count", "cp-c-element-legend-overview",
+        "cp-c-wedge-unfold-basic", "cp-c-wedge-unfold-mirror", "cp-c-wedge-unfold-count"
+      ]
+    },
     "option": {
       "type": "object",
       "required": ["id", "text"],
       "properties": {
         "id": { "enum": ["A", "B", "C", "D"] },
         "text": { "type": "string" },
-        "figure_ref": { "type": "string", "minLength": 1 },
+        "figure_ref": { "$ref": "#/$defs/cDiagramId" },
         "option_accessibility_label": { "enum": ["图A", "图B", "图C", "图D"] },
         "embedded_figure_aria_hidden": { "const": true }
       }
@@ -82,7 +95,7 @@
           },
           "calculation_fixture_id": { "type": "string", "minLength": 1 },
           "presentation_mode": { "enum": ["text_only", "stem_figure", "option_figures", "figure_sequence"] },
-          "figure_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "figure_refs": { "type": "array", "items": { "$ref": "#/$defs/cDiagramId" } },
           "diagram_focus": { "type": "string" },
           "anonymous_option_rendering": {
             "type": "object",

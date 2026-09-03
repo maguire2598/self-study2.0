@@ -453,10 +453,10 @@
       "id": "CAL-C9-WEDGE-01",
       "node_id": "C9.6",
       "kind": "wedge_angle",
-      "mass_large": 9,
+      "mass_large": 4,
       "mass_small": 1,
       "expected": {
-        "theta": 0.3217505543966422
+        "theta": 0.4636476090008061
       }
     }
   ],
@@ -814,7 +814,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-1-scenario-04",
@@ -1001,7 +1001,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-2-scenario-02",
@@ -1097,7 +1097,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-2-scenario-03",
@@ -1193,7 +1193,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-2-scenario-04",
@@ -1289,7 +1289,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-3-scenario-01",
@@ -1385,7 +1385,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-3-scenario-02",
@@ -1481,7 +1481,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-3-scenario-03",
@@ -1577,7 +1577,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-4-scenario-01",
@@ -1673,7 +1673,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-4-scenario-02",
@@ -1769,7 +1769,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c1-4-scenario-03",
@@ -2239,26 +2239,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。 本题具体检验：把总能量改写为椭圆方程。",
-          "ask": "能量椭圆方程：初始读数的原始速度坐标中，M=9、m=1、总动能E=2；围绕“把总能量改写为椭圆方程”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
+          "explanation": "原始速度坐标满足MvM²+mvm²=2E；分别令另一速度为零即可复算两轴截距。",
+          "ask": "能量椭圆方程：初始读数的原始速度坐标中，M=1、m=1、总动能E=2；围绕“把总能量改写为椭圆方程”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "原始速度约束为9vM²+1vm²=4。",
+              "text": "原始速度约束为1vM²+1vm²=4。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "椭圆两半轴平方依次为0.4444444444444444和4.0。",
+              "text": "椭圆两半轴平方依次为4.0和4.0。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "原始速度约束为9vM²+1vm²=6。",
+              "text": "原始速度约束为1vM²+1vm²=5。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "椭圆两半轴平方依次为0.4444444444444444和5.0。",
+              "text": "椭圆两半轴平方依次为5.0和4.0。",
               "correct": false,
               "id": "D"
             }
@@ -2277,7 +2277,7 @@
                 "claim": {
                   "kind": "raw_energy_ellipse",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 1,
                     "mass_small": 1,
                     "energy": 2,
                     "asserted_rhs": 4
@@ -2290,10 +2290,10 @@
                 "claim": {
                   "kind": "ellipse_axes",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 1,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_a2": 0.4444444444444444,
+                    "asserted_a2": 4.0,
                     "asserted_b2": 4.0
                   }
                 }
@@ -2304,10 +2304,10 @@
                 "claim": {
                   "kind": "raw_energy_ellipse",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 1,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_rhs": 6
+                    "asserted_rhs": 5
                   }
                 }
               },
@@ -2317,17 +2317,17 @@
                 "claim": {
                   "kind": "ellipse_axes",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 1,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_a2": 0.4444444444444444,
-                    "asserted_b2": 5.0
+                    "asserted_a2": 5.0,
+                    "asserted_b2": 4.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c2-2-scenario-01",
@@ -2338,26 +2338,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。 本题具体检验：把总能量改写为椭圆方程。",
-          "ask": "椭圆半轴比较：初始读数的原始速度坐标中，M=9、m=1、总动能E=2；围绕“把总能量改写为椭圆方程”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
+          "explanation": "原始速度坐标满足MvM²+mvm²=2E；分别令另一速度为零即可复算两轴截距。",
+          "ask": "椭圆半轴比较：初始读数的原始速度坐标中，M=4、m=1、总动能E=2；围绕“把总能量改写为椭圆方程”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "原始速度约束为9vM²+1vm²=4。",
+              "text": "原始速度约束为4vM²+1vm²=4。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "椭圆两半轴平方依次为0.4444444444444444和4.0。",
+              "text": "椭圆两半轴平方依次为1.0和4.0。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "原始速度约束为9vM²+1vm²=6。",
+              "text": "原始速度约束为4vM²+1vm²=5。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "椭圆两半轴平方依次为0.4444444444444444和5.0。",
+              "text": "椭圆两半轴平方依次为2.0和4.0。",
               "correct": false,
               "id": "D"
             }
@@ -2376,7 +2376,7 @@
                 "claim": {
                   "kind": "raw_energy_ellipse",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "energy": 2,
                     "asserted_rhs": 4
@@ -2389,10 +2389,10 @@
                 "claim": {
                   "kind": "ellipse_axes",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_a2": 0.4444444444444444,
+                    "asserted_a2": 1.0,
                     "asserted_b2": 4.0
                   }
                 }
@@ -2403,10 +2403,10 @@
                 "claim": {
                   "kind": "raw_energy_ellipse",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_rhs": 6
+                    "asserted_rhs": 5
                   }
                 }
               },
@@ -2416,17 +2416,17 @@
                 "claim": {
                   "kind": "ellipse_axes",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_a2": 0.4444444444444444,
-                    "asserted_b2": 5.0
+                    "asserted_a2": 2.0,
+                    "asserted_b2": 4.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c2-2-scenario-02",
@@ -2437,26 +2437,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。 本题具体检验：比较两条速度轴截距。",
-          "ask": "椭圆半轴比较：相遇前读数的原始速度坐标中，M=4、m=1、总动能E=3；围绕“比较两条速度轴截距”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
+          "explanation": "原始速度坐标满足MvM²+mvm²=2E；分别令另一速度为零即可复算两轴截距。",
+          "ask": "椭圆半轴比较：相遇前读数的原始速度坐标中，M=4、m=1、总动能E=2；围绕“比较两条速度轴截距”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "原始速度约束为4vM²+1vm²=6。",
+              "text": "原始速度约束为4vM²+1vm²=4。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "椭圆两半轴平方依次为1.5和6.0。",
+              "text": "椭圆两半轴平方依次为1.0和4.0。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "原始速度约束为4vM²+1vm²=8。",
+              "text": "原始速度约束为4vM²+1vm²=5。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "椭圆两半轴平方依次为1.5和7.0。",
+              "text": "椭圆两半轴平方依次为2.0和4.0。",
               "correct": false,
               "id": "D"
             }
@@ -2476,303 +2476,6 @@
                   "kind": "raw_energy_ellipse",
                   "parameters": {
                     "mass_large": 4,
-                    "mass_small": 1,
-                    "energy": 3,
-                    "asserted_rhs": 6
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "ellipse_axes",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "energy": 3,
-                    "asserted_a2": 1.5,
-                    "asserted_b2": 6.0
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "raw_energy_ellipse",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "energy": 3,
-                    "asserted_rhs": 8
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "ellipse_axes",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "energy": 3,
-                    "asserted_a2": 1.5,
-                    "asserted_b2": 7.0
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        },
-        {
-          "key": "c2-2-scenario-03",
-          "node_id": "C2.2",
-          "question_type": "multiple_choice",
-          "question_style": "scenario",
-          "difficulty": 3,
-          "event_stage": "state_analysis",
-          "variant_axis": "energy",
-          "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。 本题具体检验：用质量比判断哪条半轴较长。",
-          "ask": "椭圆半轴比较：相撞后读数的原始速度坐标中，M=9、m=1、总动能E=4；围绕“用质量比判断哪条半轴较长”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
-          "options": [
-            {
-              "text": "原始速度约束为9vM²+1vm²=8。",
-              "correct": true,
-              "id": "A"
-            },
-            {
-              "text": "椭圆两半轴平方依次为0.8888888888888888和8.0。",
-              "correct": true,
-              "id": "B"
-            },
-            {
-              "text": "原始速度约束为9vM²+1vm²=10。",
-              "correct": false,
-              "id": "C"
-            },
-            {
-              "text": "椭圆两半轴平方依次为0.8888888888888888和9.0。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-energy-ellipse-ratio-4"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "raw_energy_ellipse",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "energy": 4,
-                    "asserted_rhs": 8
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "ellipse_axes",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "energy": 4,
-                    "asserted_a2": 0.8888888888888888,
-                    "asserted_b2": 8.0
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "raw_energy_ellipse",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "energy": 4,
-                    "asserted_rhs": 10
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "ellipse_axes",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "energy": 4,
-                    "asserted_a2": 0.8888888888888888,
-                    "asserted_b2": 9.0
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        },
-        {
-          "key": "c2-2-scenario-04",
-          "node_id": "C2.2",
-          "question_type": "single_choice",
-          "question_style": "scenario",
-          "difficulty": 1,
-          "event_stage": "state_analysis",
-          "variant_axis": "energy",
-          "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。",
-          "ask": "椭圆半轴比较：到墙前读数的原始速度坐标中，M=4、m=1、总动能E=5；哪些能量椭圆判读成立？ 请选择唯一正确判读。",
-          "options": [
-            {
-              "text": "原始速度约束为4vM²+1vm²=10。",
-              "correct": true,
-              "id": "A"
-            },
-            {
-              "text": "椭圆两半轴平方依次为3.5和10.0。",
-              "correct": false,
-              "id": "B"
-            },
-            {
-              "text": "原始速度约束为4vM²+1vm²=12。",
-              "correct": false,
-              "id": "C"
-            },
-            {
-              "text": "椭圆两半轴平方依次为2.5和11.0。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-energy-ellipse-ratio-4"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "raw_energy_ellipse",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "energy": 5,
-                    "asserted_rhs": 10
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "ellipse_axes",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "energy": 5,
-                    "asserted_a2": 3.5,
-                    "asserted_b2": 10.0
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "raw_energy_ellipse",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "energy": 5,
-                    "asserted_rhs": 12
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "ellipse_axes",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "energy": 5,
-                    "asserted_a2": 2.5,
-                    "asserted_b2": 11.0
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        },
-        {
-          "key": "c2-3-scenario-01",
-          "node_id": "C2.3",
-          "question_type": "single_choice",
-          "question_style": "scenario",
-          "difficulty": 1,
-          "event_stage": "state_analysis",
-          "variant_axis": "energy",
-          "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。",
-          "ask": "能量层级识别：初始读数的原始速度坐标中，M=9、m=1、总动能E=2；哪些能量椭圆判读成立？ 请选择唯一正确判读。",
-          "options": [
-            {
-              "text": "原始速度约束为9vM²+1vm²=4。",
-              "correct": true,
-              "id": "A"
-            },
-            {
-              "text": "椭圆两半轴平方依次为1.4444444444444444和4.0。",
-              "correct": false,
-              "id": "B"
-            },
-            {
-              "text": "原始速度约束为9vM²+1vm²=6。",
-              "correct": false,
-              "id": "C"
-            },
-            {
-              "text": "椭圆两半轴平方依次为0.4444444444444444和5.0。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-energy-ellipse-same-energy"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "raw_energy_ellipse",
-                  "parameters": {
-                    "mass_large": 9,
                     "mass_small": 1,
                     "energy": 2,
                     "asserted_rhs": 4
@@ -2785,10 +2488,10 @@
                 "claim": {
                   "kind": "ellipse_axes",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_a2": 1.4444444444444444,
+                    "asserted_a2": 1.0,
                     "asserted_b2": 4.0
                   }
                 }
@@ -2799,10 +2502,10 @@
                 "claim": {
                   "kind": "raw_energy_ellipse",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_rhs": 6
+                    "asserted_rhs": 5
                   }
                 }
               },
@@ -2812,17 +2515,314 @@
                 "claim": {
                   "kind": "ellipse_axes",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "energy": 2,
-                    "asserted_a2": 0.4444444444444444,
-                    "asserted_b2": 5.0
+                    "asserted_a2": 2.0,
+                    "asserted_b2": 4.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
+        },
+        {
+          "key": "c2-2-scenario-03",
+          "node_id": "C2.2",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "state_analysis",
+          "variant_axis": "energy",
+          "curriculum_scope": "core",
+          "explanation": "原始速度坐标满足MvM²+mvm²=2E；分别令另一速度为零即可复算两轴截距。",
+          "ask": "椭圆半轴比较：相撞后读数的原始速度坐标中，M=4、m=1、总动能E=2；围绕“用质量比判断哪条半轴较长”，哪些能量椭圆判读成立？ 请选择两项正确判读。",
+          "options": [
+            {
+              "text": "原始速度约束为4vM²+1vm²=4。",
+              "correct": true,
+              "id": "A"
+            },
+            {
+              "text": "椭圆两半轴平方依次为1.0和4.0。",
+              "correct": true,
+              "id": "B"
+            },
+            {
+              "text": "原始速度约束为4vM²+1vm²=5。",
+              "correct": false,
+              "id": "C"
+            },
+            {
+              "text": "椭圆两半轴平方依次为2.0和4.0。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-energy-ellipse-ratio-4"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "raw_energy_ellipse",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 2,
+                    "asserted_rhs": 4
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "ellipse_axes",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 2,
+                    "asserted_a2": 1.0,
+                    "asserted_b2": 4.0
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "raw_energy_ellipse",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 2,
+                    "asserted_rhs": 5
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "ellipse_axes",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 2,
+                    "asserted_a2": 2.0,
+                    "asserted_b2": 4.0
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
+        },
+        {
+          "key": "c2-2-scenario-04",
+          "node_id": "C2.2",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "state_analysis",
+          "variant_axis": "energy",
+          "curriculum_scope": "core",
+          "explanation": "原始速度坐标满足MvM²+mvm²=2E；分别令另一速度为零即可复算两轴截距。",
+          "ask": "椭圆半轴比较：到墙前读数的原始速度坐标中，M=4、m=1、总动能E=2；哪些能量椭圆判读成立？ 请选择唯一正确判读。",
+          "options": [
+            {
+              "text": "原始速度约束为4vM²+1vm²=4。",
+              "correct": true,
+              "id": "A"
+            },
+            {
+              "text": "椭圆两半轴平方依次为2.0和4.0。",
+              "correct": false,
+              "id": "B"
+            },
+            {
+              "text": "原始速度约束为4vM²+1vm²=5。",
+              "correct": false,
+              "id": "C"
+            },
+            {
+              "text": "椭圆两半轴平方依次为3.0和4.0。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-energy-ellipse-ratio-4"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "raw_energy_ellipse",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 2,
+                    "asserted_rhs": 4
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "ellipse_axes",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 2,
+                    "asserted_a2": 2.0,
+                    "asserted_b2": 4.0
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "raw_energy_ellipse",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 2,
+                    "asserted_rhs": 5
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "ellipse_axes",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 2,
+                    "asserted_a2": 3.0,
+                    "asserted_b2": 4.0
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
+        },
+        {
+          "key": "c2-3-scenario-01",
+          "node_id": "C2.3",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "state_analysis",
+          "variant_axis": "energy",
+          "curriculum_scope": "core",
+          "explanation": "原始速度坐标满足MvM²+mvm²=2E；分别令另一速度为零即可复算两轴截距。",
+          "ask": "能量层级识别：初始读数的原始速度坐标中，M=4、m=1、总动能E=8；哪些能量椭圆判读成立？ 请选择唯一正确判读。",
+          "options": [
+            {
+              "text": "原始速度约束为4vM²+1vm²=16。",
+              "correct": true,
+              "id": "A"
+            },
+            {
+              "text": "椭圆两半轴平方依次为5.0和16.0。",
+              "correct": false,
+              "id": "B"
+            },
+            {
+              "text": "原始速度约束为4vM²+1vm²=17。",
+              "correct": false,
+              "id": "C"
+            },
+            {
+              "text": "椭圆两半轴平方依次为6.0和16.0。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-energy-ellipse-same-energy"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "raw_energy_ellipse",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 8,
+                    "asserted_rhs": 16
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "ellipse_axes",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 8,
+                    "asserted_a2": 5.0,
+                    "asserted_b2": 16.0
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "raw_energy_ellipse",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 8,
+                    "asserted_rhs": 17
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "ellipse_axes",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "energy": 8,
+                    "asserted_a2": 6.0,
+                    "asserted_b2": 16.0
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
         },
         {
           "key": "c2-3-scenario-02",
@@ -2833,26 +2833,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。",
-          "ask": "能量层级识别：相遇前读数的原始速度坐标中，M=4、m=1、总动能E=3；哪些能量椭圆判读成立？ 请选择唯一正确判读。",
+          "explanation": "原始速度坐标满足MvM²+mvm²=2E；分别令另一速度为零即可复算两轴截距。",
+          "ask": "能量层级识别：相遇前读数的原始速度坐标中，M=4、m=1、总动能E=8；哪些能量椭圆判读成立？ 请选择唯一正确判读。",
           "options": [
             {
-              "text": "原始速度约束为4vM²+1vm²=6。",
+              "text": "原始速度约束为4vM²+1vm²=16。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "椭圆两半轴平方依次为2.5和6.0。",
+              "text": "椭圆两半轴平方依次为5.0和16.0。",
               "correct": false,
               "id": "B"
             },
             {
-              "text": "原始速度约束为4vM²+1vm²=8。",
+              "text": "原始速度约束为4vM²+1vm²=17。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "椭圆两半轴平方依次为1.5和7.0。",
+              "text": "椭圆两半轴平方依次为6.0和16.0。",
               "correct": false,
               "id": "D"
             }
@@ -2873,8 +2873,8 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "energy": 3,
-                    "asserted_rhs": 6
+                    "energy": 8,
+                    "asserted_rhs": 16
                   }
                 }
               },
@@ -2886,9 +2886,9 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "energy": 3,
-                    "asserted_a2": 2.5,
-                    "asserted_b2": 6.0
+                    "energy": 8,
+                    "asserted_a2": 5.0,
+                    "asserted_b2": 16.0
                   }
                 }
               },
@@ -2900,8 +2900,8 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "energy": 3,
-                    "asserted_rhs": 8
+                    "energy": 8,
+                    "asserted_rhs": 17
                   }
                 }
               },
@@ -2913,15 +2913,15 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "energy": 3,
-                    "asserted_a2": 1.5,
-                    "asserted_b2": 7.0
+                    "energy": 8,
+                    "asserted_a2": 6.0,
+                    "asserted_b2": 16.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c2-3-scenario-03",
@@ -2932,26 +2932,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "energy",
           "curriculum_scope": "core",
-          "explanation": "原始速度坐标满足 MvM²+mvm²=2E；各轴截距平方分别为2E/M和2E/m。",
-          "ask": "能量层级识别：相撞后读数的原始速度坐标中，M=9、m=1、总动能E=4；哪些能量椭圆判读成立？ 请选择唯一正确判读。",
+          "explanation": "原始速度坐标满足MvM²+mvm²=2E；分别令另一速度为零即可复算两轴截距。",
+          "ask": "能量层级识别：相撞后读数的原始速度坐标中，M=4、m=1、总动能E=8；哪些能量椭圆判读成立？ 请选择唯一正确判读。",
           "options": [
             {
-              "text": "原始速度约束为9vM²+1vm²=8。",
+              "text": "原始速度约束为4vM²+1vm²=16。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "椭圆两半轴平方依次为1.8888888888888888和8.0。",
+              "text": "椭圆两半轴平方依次为5.0和16.0。",
               "correct": false,
               "id": "B"
             },
             {
-              "text": "原始速度约束为9vM²+1vm²=10。",
+              "text": "原始速度约束为4vM²+1vm²=17。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "椭圆两半轴平方依次为0.8888888888888888和9.0。",
+              "text": "椭圆两半轴平方依次为6.0和16.0。",
               "correct": false,
               "id": "D"
             }
@@ -2970,10 +2970,10 @@
                 "claim": {
                   "kind": "raw_energy_ellipse",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "energy": 4,
-                    "asserted_rhs": 8
+                    "energy": 8,
+                    "asserted_rhs": 16
                   }
                 }
               },
@@ -2983,11 +2983,11 @@
                 "claim": {
                   "kind": "ellipse_axes",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "energy": 4,
-                    "asserted_a2": 1.8888888888888888,
-                    "asserted_b2": 8.0
+                    "energy": 8,
+                    "asserted_a2": 5.0,
+                    "asserted_b2": 16.0
                   }
                 }
               },
@@ -2997,10 +2997,10 @@
                 "claim": {
                   "kind": "raw_energy_ellipse",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "energy": 4,
-                    "asserted_rhs": 10
+                    "energy": 8,
+                    "asserted_rhs": 17
                   }
                 }
               },
@@ -3010,17 +3010,17 @@
                 "claim": {
                   "kind": "ellipse_axes",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "energy": 4,
-                    "asserted_a2": 0.8888888888888888,
-                    "asserted_b2": 9.0
+                    "energy": 8,
+                    "asserted_a2": 6.0,
+                    "asserted_b2": 16.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c2-3-scenario-04",
@@ -3682,26 +3682,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：由速度分量执行质量加权。",
-          "ask": "缩放比例：初始读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=2；围绕“由速度分量执行质量加权”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "缩放比例：初始读数的缩放中，M=16、m=1、(vM,vm)=(-2,1)、E=8；围绕“由速度分量执行质量加权”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,1.0)。",
+              "text": "质量加权点为(-8.0,1.0)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为4。",
+              "text": "质量加权能量圆半径平方为16。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,3.0)。",
+              "text": "质量加权点为(-7.0,1.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为6。",
+              "text": "质量加权能量圆半径平方为17。",
               "correct": false,
               "id": "D"
             }
@@ -3720,11 +3720,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
+                    "asserted_x": -8.0,
                     "asserted_y": 1.0
                   }
                 }
@@ -3735,8 +3735,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 2,
-                    "asserted_r2": 4
+                    "energy": 8,
+                    "asserted_r2": 16
                   }
                 }
               },
@@ -3746,12 +3746,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
-                    "asserted_y": 3.0
+                    "asserted_x": -7.0,
+                    "asserted_y": 1.0
                   }
                 }
               },
@@ -3761,14 +3761,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 2,
-                    "asserted_r2": 6
+                    "energy": 8,
+                    "asserted_r2": 17
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-2-scenario-02",
@@ -3779,26 +3779,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：从加权点反查原始速度。",
-          "ask": "缩放比例：相遇前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=3；围绕“从加权点反查原始速度”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "缩放比例：相遇前读数的缩放中，M=16、m=1、(vM,vm)=(-3,2)、E=8；围绕“从加权点反查原始速度”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,2.0)。",
+              "text": "质量加权点为(-12.0,2.0)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为6。",
+              "text": "质量加权能量圆半径平方为16。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,4.0)。",
+              "text": "质量加权点为(-11.0,2.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为8。",
+              "text": "质量加权能量圆半径平方为17。",
               "correct": false,
               "id": "D"
             }
@@ -3817,11 +3817,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
+                    "asserted_x": -12.0,
                     "asserted_y": 2.0
                   }
                 }
@@ -3832,8 +3832,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 3,
-                    "asserted_r2": 6
+                    "energy": 8,
+                    "asserted_r2": 16
                   }
                 }
               },
@@ -3843,12 +3843,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
-                    "asserted_y": 4.0
+                    "asserted_x": -11.0,
+                    "asserted_y": 2.0
                   }
                 }
               },
@@ -3858,14 +3858,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 3,
-                    "asserted_r2": 8
+                    "energy": 8,
+                    "asserted_r2": 17
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-2-scenario-03",
@@ -3876,26 +3876,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：用半径平方检验能量圆。",
-          "ask": "缩放比例：相撞后读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=4；围绕“用半径平方检验能量圆”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "缩放比例：相撞后读数的缩放中，M=16、m=1、(vM,vm)=(-2,1)、E=8；围绕“用半径平方检验能量圆”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,1.0)。",
+              "text": "质量加权点为(-8.0,1.0)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为8。",
+              "text": "质量加权能量圆半径平方为16。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,3.0)。",
+              "text": "质量加权点为(-7.0,1.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为10。",
+              "text": "质量加权能量圆半径平方为17。",
               "correct": false,
               "id": "D"
             }
@@ -3914,11 +3914,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
+                    "asserted_x": -8.0,
                     "asserted_y": 1.0
                   }
                 }
@@ -3929,8 +3929,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 4,
-                    "asserted_r2": 8
+                    "energy": 8,
+                    "asserted_r2": 16
                   }
                 }
               },
@@ -3940,12 +3940,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
-                    "asserted_y": 3.0
+                    "asserted_x": -7.0,
+                    "asserted_y": 1.0
                   }
                 }
               },
@@ -3955,14 +3955,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 4,
-                    "asserted_r2": 10
+                    "energy": 8,
+                    "asserted_r2": 17
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-2-scenario-04",
@@ -3973,26 +3973,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：比较不同质量的缩放倍率。",
-          "ask": "缩放比例：到墙前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=5；围绕“比较不同质量的缩放倍率”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "缩放比例：到墙前读数的缩放中，M=16、m=1、(vM,vm)=(-3,2)、E=8；围绕“比较不同质量的缩放倍率”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,2.0)。",
+              "text": "质量加权点为(-12.0,2.0)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为10。",
+              "text": "质量加权能量圆半径平方为16。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,4.0)。",
+              "text": "质量加权点为(-11.0,2.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为12。",
+              "text": "质量加权能量圆半径平方为17。",
               "correct": false,
               "id": "D"
             }
@@ -4011,11 +4011,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
+                    "asserted_x": -12.0,
                     "asserted_y": 2.0
                   }
                 }
@@ -4026,8 +4026,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 5,
-                    "asserted_r2": 10
+                    "energy": 8,
+                    "asserted_r2": 16
                   }
                 }
               },
@@ -4037,12 +4037,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 16,
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
-                    "asserted_y": 4.0
+                    "asserted_x": -11.0,
+                    "asserted_y": 2.0
                   }
                 }
               },
@@ -4052,14 +4052,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 5,
-                    "asserted_r2": 12
+                    "energy": 8,
+                    "asserted_r2": 17
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-3-scenario-01",
@@ -4070,26 +4070,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：由速度分量执行质量加权。",
-          "ask": "能量圆半径：初始读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=2；围绕“由速度分量执行质量加权”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "能量圆半径：初始读数的缩放中，M=100、m=1、(vM,vm)=(-2,1)、E=50；围绕“由速度分量执行质量加权”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,1.0)。",
+              "text": "质量加权点为(-20.0,1.0)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为4。",
+              "text": "质量加权能量圆半径平方为100。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,3.0)。",
+              "text": "质量加权点为(-19.0,1.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为6。",
+              "text": "质量加权能量圆半径平方为101。",
               "correct": false,
               "id": "D"
             }
@@ -4108,11 +4108,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 100,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
+                    "asserted_x": -20.0,
                     "asserted_y": 1.0
                   }
                 }
@@ -4123,8 +4123,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 2,
-                    "asserted_r2": 4
+                    "energy": 50,
+                    "asserted_r2": 100
                   }
                 }
               },
@@ -4134,12 +4134,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 100,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
-                    "asserted_y": 3.0
+                    "asserted_x": -19.0,
+                    "asserted_y": 1.0
                   }
                 }
               },
@@ -4149,14 +4149,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 2,
-                    "asserted_r2": 6
+                    "energy": 50,
+                    "asserted_r2": 101
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-3-scenario-02",
@@ -4167,26 +4167,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：从加权点反查原始速度。",
-          "ask": "能量圆半径：相遇前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=3；围绕“从加权点反查原始速度”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "能量圆半径：相遇前读数的缩放中，M=100、m=1、(vM,vm)=(-3,2)、E=50；围绕“从加权点反查原始速度”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,2.0)。",
+              "text": "质量加权点为(-30.0,2.0)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为6。",
+              "text": "质量加权能量圆半径平方为100。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,4.0)。",
+              "text": "质量加权点为(-29.0,2.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为8。",
+              "text": "质量加权能量圆半径平方为101。",
               "correct": false,
               "id": "D"
             }
@@ -4205,11 +4205,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 100,
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
+                    "asserted_x": -30.0,
                     "asserted_y": 2.0
                   }
                 }
@@ -4220,8 +4220,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 3,
-                    "asserted_r2": 6
+                    "energy": 50,
+                    "asserted_r2": 100
                   }
                 }
               },
@@ -4231,12 +4231,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 100,
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
-                    "asserted_y": 4.0
+                    "asserted_x": -29.0,
+                    "asserted_y": 2.0
                   }
                 }
               },
@@ -4246,14 +4246,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 3,
-                    "asserted_r2": 8
+                    "energy": 50,
+                    "asserted_r2": 101
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-3-scenario-03",
@@ -4264,26 +4264,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：用半径平方检验能量圆。",
-          "ask": "能量圆半径：相撞后读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=4；围绕“用半径平方检验能量圆”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "能量圆半径：相撞后读数的缩放中，M=100、m=1、(vM,vm)=(-2,1)、E=50；围绕“用半径平方检验能量圆”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,1.0)。",
+              "text": "质量加权点为(-20.0,1.0)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为8。",
+              "text": "质量加权能量圆半径平方为100。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,3.0)。",
+              "text": "质量加权点为(-19.0,1.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为10。",
+              "text": "质量加权能量圆半径平方为101。",
               "correct": false,
               "id": "D"
             }
@@ -4302,11 +4302,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 100,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
+                    "asserted_x": -20.0,
                     "asserted_y": 1.0
                   }
                 }
@@ -4317,8 +4317,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 4,
-                    "asserted_r2": 8
+                    "energy": 50,
+                    "asserted_r2": 100
                   }
                 }
               },
@@ -4328,12 +4328,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 100,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
-                    "asserted_y": 3.0
+                    "asserted_x": -19.0,
+                    "asserted_y": 1.0
                   }
                 }
               },
@@ -4343,14 +4343,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 4,
-                    "asserted_r2": 10
+                    "energy": 50,
+                    "asserted_r2": 101
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-3-scenario-04",
@@ -4361,26 +4361,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。 本题具体检验：比较不同质量的缩放倍率。",
-          "ask": "能量圆半径：到墙前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=5；围绕“比较不同质量的缩放倍率”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "能量圆半径：到墙前读数的缩放中，M=100、m=1、(vM,vm)=(-3,2)、E=50；围绕“比较不同质量的缩放倍率”，哪些质量加权坐标判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,2.0)。",
+              "text": "质量加权点为(-30.0,2.0)。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为10。",
+              "text": "质量加权能量圆半径平方为100。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,4.0)。",
+              "text": "质量加权点为(-29.0,2.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为12。",
+              "text": "质量加权能量圆半径平方为101。",
               "correct": false,
               "id": "D"
             }
@@ -4399,11 +4399,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 100,
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
+                    "asserted_x": -30.0,
                     "asserted_y": 2.0
                   }
                 }
@@ -4414,8 +4414,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 5,
-                    "asserted_r2": 10
+                    "energy": 50,
+                    "asserted_r2": 100
                   }
                 }
               },
@@ -4425,12 +4425,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 100,
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
-                    "asserted_y": 4.0
+                    "asserted_x": -29.0,
+                    "asserted_y": 2.0
                   }
                 }
               },
@@ -4440,14 +4440,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 5,
-                    "asserted_r2": 12
+                    "energy": 50,
+                    "asserted_r2": 101
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-3-scenario-05",
@@ -4550,11 +4550,11 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "逆变换：初始读数的缩放中，M=9、m=1、(vM,vm)=(-2,1)、E=2；哪些质量加权坐标判读成立？ 请选择唯一正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "逆变换：初始读数的缩放中，M=4、m=1、(vM,vm)=(-2,1)、E=2；哪些质量加权坐标判读成立？ 请选择唯一正确判读。",
           "options": [
             {
-              "text": "质量加权点为(-6.0,1.0)。",
+              "text": "质量加权点为(-4.0,1.0)。",
               "correct": true,
               "id": "A"
             },
@@ -4564,7 +4564,7 @@
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,3.0)。",
+              "text": "质量加权点为(-3.0,1.0)。",
               "correct": false,
               "id": "C"
             },
@@ -4588,11 +4588,11 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
+                    "asserted_x": -4.0,
                     "asserted_y": 1.0
                   }
                 }
@@ -4614,12 +4614,12 @@
                 "claim": {
                   "kind": "weighted_point",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
                     "v_large": -2,
                     "v_small": 1,
-                    "asserted_x": -6.0,
-                    "asserted_y": 3.0
+                    "asserted_x": -3.0,
+                    "asserted_y": 1.0
                   }
                 }
               },
@@ -4636,7 +4636,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-4-scenario-02",
@@ -4647,8 +4647,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "coordinate_transform",
           "curriculum_scope": "core",
-          "explanation": "定义x=√M·vM、y=√m·vm，能量圆满足x²+y²=2E。",
-          "ask": "逆变换：相遇前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=3；哪些质量加权坐标判读成立？ 请选择唯一正确判读。",
+          "explanation": "质量加权坐标为x=√M·vM、y=√m·vm，且能量圆满足x²+y²=2E。",
+          "ask": "逆变换：相遇前读数的缩放中，M=4、m=1、(vM,vm)=(-3,2)、E=2；哪些质量加权坐标判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "质量加权点为(-6.0,2.0)。",
@@ -4656,17 +4656,17 @@
               "id": "A"
             },
             {
-              "text": "质量加权能量圆半径平方为7。",
+              "text": "质量加权能量圆半径平方为5。",
               "correct": false,
               "id": "B"
             },
             {
-              "text": "质量加权点为(-6.0,4.0)。",
+              "text": "质量加权点为(-5.0,2.0)。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "质量加权能量圆半径平方为8。",
+              "text": "质量加权能量圆半径平方为6。",
               "correct": false,
               "id": "D"
             }
@@ -4700,8 +4700,8 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 3,
-                    "asserted_r2": 7
+                    "energy": 2,
+                    "asserted_r2": 5
                   }
                 }
               },
@@ -4715,8 +4715,8 @@
                     "mass_small": 1,
                     "v_large": -3,
                     "v_small": 2,
-                    "asserted_x": -6.0,
-                    "asserted_y": 4.0
+                    "asserted_x": -5.0,
+                    "asserted_y": 2.0
                   }
                 }
               },
@@ -4726,14 +4726,14 @@
                 "claim": {
                   "kind": "energy_radius",
                   "parameters": {
-                    "energy": 3,
-                    "asserted_r2": 8
+                    "energy": 2,
+                    "asserted_r2": 6
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c3-5-scenario-01",
@@ -5359,16 +5359,16 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：由零动量求弦斜率。",
-          "ask": "动量线平行：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“由零动量求弦斜率”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3。",
+          "ask": "动量线平行：图中质量加权状态链给出M/m=9/1；在同一坐标系另画总动量为零的动量线，围绕“由零动量求弦斜率”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-4.0。",
+              "text": "动量直线斜率为-3.0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-4.0。",
+              "text": "同一总动量的直线斜率应为-3.0。",
               "correct": true,
               "id": "B"
             },
@@ -5378,14 +5378,14 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为-3.0。",
+              "text": "动量直线斜率为-2.0。",
               "correct": false,
               "id": "D"
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
-            "cp-c-momentum-chord-ratio-16"
+            "cp-c-state-chain-ratio-9"
           ],
           "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
           "answer_contract": {
@@ -5397,9 +5397,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "asserted_slope": -3.0
                   }
                 }
               },
@@ -5409,9 +5409,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "asserted_slope": -3.0
                   }
                 }
               },
@@ -5432,15 +5432,15 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 16,
+                    "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -2.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-2-scenario-02",
@@ -5451,7 +5451,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：判断同总动量直线是否平行。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
           "ask": "动量线平行：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -5470,14 +5470,14 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为0.0。",
+              "text": "动量直线斜率为-1.0。",
               "correct": false,
               "id": "D"
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
-            "cp-c-momentum-chord-ratio-16"
+            "cp-c-momentum-chord-ratio-4"
           ],
           "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
           "answer_contract": {
@@ -5526,13 +5526,13 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": 0.0
+                    "asserted_slope": -1.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-2-scenario-03",
@@ -5543,11 +5543,11 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "P=0的约束线必通过原点；M/m=16/1时斜率为-4。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-4。",
           "ask": "零动量交点：图示质量加权平面对应M/m=16/1且P=0；围绕“定位动量线的原点交点”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-1.0。",
+              "text": "动量直线斜率为-3.0。",
               "correct": false,
               "id": "A"
             },
@@ -5583,7 +5583,7 @@
                   "parameters": {
                     "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -3.0
                   }
                 }
               },
@@ -5624,7 +5624,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-2-scenario-04",
@@ -5635,26 +5635,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：区分弦方向与圆周轨迹。",
-          "ask": "动量线平行：到墙前读数的质量加权平面动量线对应M/m=16/1且总动量为零；围绕“区分弦方向与圆周轨迹”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "弦两端同时满足同一能量圆和同一动量线，所以半径平方差与动量表达式差均为0；弦斜率为−√(M/m)=−4。",
+          "ask": "弦的两个端点：图示质量加权平面对应M/m=16/1。把动量弦理解为一次碰撞前后的两个允许状态，而不是物块在圆周上的连续轨迹；哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-4.0。",
+              "text": "弦两端的动量表达式差与半径平方差依次为0和0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-4.0。",
+              "text": "动量直线斜率为-4。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "零总动量直线与坐标轴的交点为(1,0)。",
+              "text": "弦两端的动量表达式差与半径平方差依次为1和0。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "动量直线斜率为4.0。",
+              "text": "动量直线斜率为4。",
               "correct": false,
               "id": "D"
             }
@@ -5671,11 +5671,20 @@
                 "option_id": "A",
                 "family": "physics",
                 "claim": {
-                  "kind": "momentum_slope",
+                  "kind": "chord_state_invariants",
                   "parameters": {
                     "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "first": [
+                      0,
+                      4
+                    ],
+                    "second": [
+                      1.8823529411764706,
+                      -3.5294117647058822
+                    ],
+                    "asserted_momentum_difference": 0,
+                    "asserted_radius2_difference": 0
                   }
                 }
               },
@@ -5683,11 +5692,11 @@
                 "option_id": "B",
                 "family": "physics",
                 "claim": {
-                  "kind": "momentum_parallel",
+                  "kind": "momentum_slope",
                   "parameters": {
                     "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "asserted_slope": -4
                   }
                 }
               },
@@ -5695,10 +5704,20 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "momentum_intersection",
+                  "kind": "chord_state_invariants",
                   "parameters": {
-                    "asserted_x": 1,
-                    "asserted_y": 0
+                    "mass_large": 16,
+                    "mass_small": 1,
+                    "first": [
+                      0,
+                      4
+                    ],
+                    "second": [
+                      1.8823529411764706,
+                      -3.5294117647058822
+                    ],
+                    "asserted_momentum_difference": 1,
+                    "asserted_radius2_difference": 0
                   }
                 }
               },
@@ -5710,7 +5729,7 @@
                   "parameters": {
                     "mass_large": 16,
                     "mass_small": 1,
-                    "asserted_slope": 4.0
+                    "asserted_slope": 4
                   }
                 }
               }
@@ -5727,16 +5746,16 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：由零动量求弦斜率。",
-          "ask": "弦方向：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；围绕“由零动量求弦斜率”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3。",
+          "ask": "弦方向：图中质量加权状态链给出M/m=9/1；在同一坐标系另画总动量为零的动量线，围绕“由零动量求弦斜率”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-2.0。",
+              "text": "动量直线斜率为-3.0。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-2.0。",
+              "text": "同一总动量的直线斜率应为-3.0。",
               "correct": true,
               "id": "B"
             },
@@ -5746,14 +5765,14 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为-1.0。",
+              "text": "动量直线斜率为-2.0。",
               "correct": false,
               "id": "D"
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
-            "cp-c-momentum-chord-parallel"
+            "cp-c-state-chain-ratio-9"
           ],
           "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
           "answer_contract": {
@@ -5765,9 +5784,9 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_slope": -2.0
+                    "asserted_slope": -3.0
                   }
                 }
               },
@@ -5777,9 +5796,9 @@
                 "claim": {
                   "kind": "momentum_parallel",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_slope": -2.0
+                    "asserted_slope": -3.0
                   }
                 }
               },
@@ -5800,15 +5819,15 @@
                 "claim": {
                   "kind": "momentum_slope",
                   "parameters": {
-                    "mass_large": 4,
+                    "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -2.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-3-scenario-02",
@@ -5819,7 +5838,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：判断同总动量直线是否平行。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
           "ask": "弦方向：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -5838,7 +5857,7 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为0.0。",
+              "text": "动量直线斜率为-1.0。",
               "correct": false,
               "id": "D"
             }
@@ -5894,13 +5913,13 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": 0.0
+                    "asserted_slope": -1.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-3-scenario-03",
@@ -5911,7 +5930,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "P=0的约束线必通过原点；M/m=4/1时斜率为-2。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
           "ask": "零动量交点：图示质量加权平面对应M/m=4/1且P=0；围绕“定位动量线的原点交点”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -5920,7 +5939,7 @@
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为2.0。",
+              "text": "同一总动量的直线斜率应为-1.0。",
               "correct": false,
               "id": "B"
             },
@@ -5930,7 +5949,7 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为2.0。",
+              "text": "动量直线斜率为-1.0。",
               "correct": false,
               "id": "D"
             }
@@ -5963,7 +5982,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": 2.0
+                    "asserted_slope": -1.0
                   }
                 }
               },
@@ -5986,7 +6005,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": 2.0
+                    "asserted_slope": -1.0
                   }
                 }
               }
@@ -6003,7 +6022,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
           "ask": "弦方向：到墙前读数的质量加权平面动量线对应M/m=4/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
           "options": [
             {
@@ -6012,7 +6031,7 @@
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-3.0。",
+              "text": "同一总动量的直线斜率应为-1.0。",
               "correct": false,
               "id": "B"
             },
@@ -6022,7 +6041,7 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为0.0。",
+              "text": "动量直线斜率为-1.0。",
               "correct": false,
               "id": "D"
             }
@@ -6055,7 +6074,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -1.0
                   }
                 }
               },
@@ -6078,13 +6097,13 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": 0.0
+                    "asserted_slope": -1.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-4-scenario-01",
@@ -6095,8 +6114,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
-          "ask": "线圆交点：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3。",
+          "ask": "线圆交点：图中质量加权状态链给出M/m=9/1；在同一坐标系另画总动量为零的动量线，哪些判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-3.0。",
@@ -6104,7 +6123,7 @@
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-4.0。",
+              "text": "同一总动量的直线斜率应为-2.0。",
               "correct": false,
               "id": "B"
             },
@@ -6114,14 +6133,14 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为-1.0。",
+              "text": "动量直线斜率为-2.0。",
               "correct": false,
               "id": "D"
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
-            "cp-c-momentum-chord-intersections"
+            "cp-c-state-chain-ratio-9"
           ],
           "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
           "answer_contract": {
@@ -6147,7 +6166,7 @@
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_slope": -4.0
+                    "asserted_slope": -2.0
                   }
                 }
               },
@@ -6170,13 +6189,13 @@
                   "parameters": {
                     "mass_large": 9,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -2.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-4-scenario-02",
@@ -6187,7 +6206,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
           "ask": "线圆交点：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
           "options": [
             {
@@ -6196,7 +6215,7 @@
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-3.0。",
+              "text": "同一总动量的直线斜率应为-1.0。",
               "correct": false,
               "id": "B"
             },
@@ -6206,14 +6225,14 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为0.0。",
+              "text": "动量直线斜率为-1.0。",
               "correct": false,
               "id": "D"
             }
           ],
           "presentation_mode": "stem_figure",
           "figure_refs": [
-            "cp-c-momentum-chord-intersections"
+            "cp-c-momentum-chord-ratio-4"
           ],
           "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
           "answer_contract": {
@@ -6239,7 +6258,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": -1.0
                   }
                 }
               },
@@ -6262,13 +6281,13 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": 0.0
+                    "asserted_slope": -1.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c4-4-scenario-03",
@@ -6715,7 +6734,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：反射时翻转法向分量。",
-          "ask": "墙面镜像：初始读数的墙反射前，质量加权坐标点为(1,-2)；反射轴为x轴。围绕“反射时翻转法向分量”，哪些几何判读成立？ 请选择两项正确判读。",
+          "ask": "墙面镜像：初始读数的墙反射前，质量加权坐标点为(1.2,-1.6)；反射轴为x轴。围绕“反射时翻转法向分量”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(1,2)。",
@@ -6820,7 +6839,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c5-1-scenario-04",
@@ -6832,7 +6851,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：比较镜像前后的半径平方。",
-          "ask": "墙面镜像：相遇前读数的墙反射前，质量加权坐标点为(2,-3)；反射轴为x轴。围绕“比较镜像前后的半径平方”，哪些几何判读成立？ 请选择两项正确判读。",
+          "ask": "墙面镜像：相遇前读数的墙反射前，质量加权坐标点为(1.2,-1.6)；反射轴为x轴。围绕“比较镜像前后的半径平方”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(2,3)。",
@@ -6937,7 +6956,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c5-2-scenario-01",
@@ -6949,7 +6968,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：反射时翻转法向分量。",
-          "ask": "反射分量：初始读数的墙反射前，质量加权坐标点为(1,-2)；反射轴为x轴。围绕“反射时翻转法向分量”，哪些几何判读成立？ 请选择两项正确判读。",
+          "ask": "反射分量：初始读数的墙反射前，质量加权坐标点为(1.2,-1.6)；反射轴为x轴。围绕“反射时翻转法向分量”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(1,2)。",
@@ -7054,7 +7073,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c5-2-scenario-02",
@@ -7066,7 +7085,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：比较镜像前后的半径平方。",
-          "ask": "反射分量：相遇前读数的墙反射前，质量加权坐标点为(2,-3)；反射轴为x轴。围绕“比较镜像前后的半径平方”，哪些几何判读成立？ 请选择两项正确判读。",
+          "ask": "反射分量：相遇前读数的墙反射前，质量加权坐标点为(1.2,-1.6)；反射轴为x轴。围绕“比较镜像前后的半径平方”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(2,3)。",
@@ -7171,7 +7190,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c5-2-scenario-03",
@@ -7183,7 +7202,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。 本题具体检验：由反射轴判断保留的坐标。",
-          "ask": "反射分量：相撞后读数的墙反射前，质量加权坐标点为(3,-4)；反射轴为x轴。围绕“由反射轴判断保留的坐标”，哪些几何判读成立？ 请选择两项正确判读。",
+          "ask": "反射分量：相撞后读数的墙反射前，质量加权坐标点为(1.2,-1.6)；反射轴为x轴。围绕“由反射轴判断保留的坐标”，哪些几何判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(3,4)。",
@@ -7288,7 +7307,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c5-2-scenario-04",
@@ -7300,7 +7319,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。",
-          "ask": "反射分量：到墙前读数的墙反射前，质量加权坐标点为(4,-5)；反射轴为x轴。哪些几何判读成立？ 请选择唯一正确判读。",
+          "ask": "反射分量：到墙前读数的墙反射前，质量加权坐标点为(1.2,-1.6)；反射轴为x轴。哪些几何判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(4,5)。",
@@ -7405,7 +7424,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c5-3-scenario-01",
@@ -7417,7 +7436,7 @@
           "variant_axis": "wall_reflection",
           "curriculum_scope": "core",
           "explanation": "墙反射只改变垂直于墙的分量符号；它是圆上的镜像，因而半径保持。",
-          "ask": "反射半径：初始读数的墙反射前，质量加权坐标点为(1,-2)；反射轴为x轴。哪些几何判读成立？ 请选择唯一正确判读。",
+          "ask": "反射半径：初始读数的墙反射前，质量加权坐标点为(1.2,-1.6)；反射轴为x轴。哪些几何判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "墙反射后的点为(1,2)。",
@@ -7522,7 +7541,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c5-3-scenario-02",
@@ -8386,7 +8405,7 @@
               "id": "B"
             },
             {
-              "text": "已发生的物理碰撞数为4。",
+              "text": "已发生的物理碰撞数为3。",
               "correct": false,
               "id": "C"
             },
@@ -8451,7 +8470,7 @@
                         "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 4
+                    "asserted_count": 3
                   }
                 }
               },
@@ -8472,7 +8491,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c6-2-scenario-02",
@@ -8484,10 +8503,10 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
-          "ask": "状态链顺序：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
+          "ask": "状态链顺序：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "已发生的物理碰撞数为4。",
+              "text": "已发生的物理碰撞数为2。",
               "correct": true,
               "id": "A"
             },
@@ -8497,7 +8516,7 @@
               "id": "B"
             },
             {
-              "text": "已发生的物理碰撞数为6。",
+              "text": "已发生的物理碰撞数为3。",
               "correct": false,
               "id": "C"
             },
@@ -8527,15 +8546,9 @@
                       },
                       {
                         "kind": "wall_collision"
-                      },
-                      {
-                        "kind": "block_collision"
-                      },
-                      {
-                        "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 4
+                    "asserted_count": 2
                   }
                 }
               },
@@ -8566,15 +8579,9 @@
                       },
                       {
                         "kind": "wall_collision"
-                      },
-                      {
-                        "kind": "block_collision"
-                      },
-                      {
-                        "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 6
+                    "asserted_count": 3
                   }
                 }
               },
@@ -8595,7 +8602,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c6-2-scenario-03",
@@ -8607,10 +8614,10 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
-          "ask": "状态链顺序：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
+          "ask": "状态链顺序：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "已发生的物理碰撞数为6。",
+              "text": "已发生的物理碰撞数为2。",
               "correct": true,
               "id": "A"
             },
@@ -8620,7 +8627,7 @@
               "id": "B"
             },
             {
-              "text": "已发生的物理碰撞数为8。",
+              "text": "已发生的物理碰撞数为3。",
               "correct": false,
               "id": "C"
             },
@@ -8650,21 +8657,9 @@
                       },
                       {
                         "kind": "wall_collision"
-                      },
-                      {
-                        "kind": "block_collision"
-                      },
-                      {
-                        "kind": "wall_collision"
-                      },
-                      {
-                        "kind": "block_collision"
-                      },
-                      {
-                        "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 6
+                    "asserted_count": 2
                   }
                 }
               },
@@ -8695,21 +8690,9 @@
                       },
                       {
                         "kind": "wall_collision"
-                      },
-                      {
-                        "kind": "block_collision"
-                      },
-                      {
-                        "kind": "wall_collision"
-                      },
-                      {
-                        "kind": "block_collision"
-                      },
-                      {
-                        "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 8
+                    "asserted_count": 3
                   }
                 }
               },
@@ -8730,7 +8713,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c6-2-scenario-04",
@@ -8755,7 +8738,7 @@
               "id": "B"
             },
             {
-              "text": "已发生的物理碰撞数为4。",
+              "text": "已发生的物理碰撞数为3。",
               "correct": false,
               "id": "C"
             },
@@ -8820,7 +8803,7 @@
                         "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 4
+                    "asserted_count": 3
                   }
                 }
               },
@@ -8841,7 +8824,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c6-4-scenario-01",
@@ -8853,10 +8836,10 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
-          "ask": "终态事件计数：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
+          "ask": "终态事件计数：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "已发生的物理碰撞数为2。",
+              "text": "已发生的物理碰撞数为6。",
               "correct": true,
               "id": "A"
             },
@@ -8866,7 +8849,7 @@
               "id": "B"
             },
             {
-              "text": "已发生的物理碰撞数为4。",
+              "text": "已发生的物理碰撞数为7。",
               "correct": false,
               "id": "C"
             },
@@ -8896,9 +8879,21 @@
                       },
                       {
                         "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 2
+                    "asserted_count": 6
                   }
                 }
               },
@@ -8929,9 +8924,21 @@
                       },
                       {
                         "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 4
+                    "asserted_count": 7
                   }
                 }
               },
@@ -8952,7 +8959,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c6-4-scenario-02",
@@ -8964,10 +8971,10 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
-          "ask": "终态事件计数：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
+          "ask": "终态事件计数：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "已发生的物理碰撞数为4。",
+              "text": "已发生的物理碰撞数为6。",
               "correct": true,
               "id": "A"
             },
@@ -8977,7 +8984,7 @@
               "id": "B"
             },
             {
-              "text": "已发生的物理碰撞数为6。",
+              "text": "已发生的物理碰撞数为7。",
               "correct": false,
               "id": "C"
             },
@@ -9013,9 +9020,15 @@
                       },
                       {
                         "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 4
+                    "asserted_count": 6
                   }
                 }
               },
@@ -9052,9 +9065,15 @@
                       },
                       {
                         "kind": "wall_collision"
+                      },
+                      {
+                        "kind": "block_collision"
+                      },
+                      {
+                        "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 6
+                    "asserted_count": 7
                   }
                 }
               },
@@ -9075,7 +9094,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c6-4-scenario-03",
@@ -9100,7 +9119,7 @@
               "id": "B"
             },
             {
-              "text": "已发生的物理碰撞数为8。",
+              "text": "已发生的物理碰撞数为7。",
               "correct": false,
               "id": "C"
             },
@@ -9189,7 +9208,7 @@
                         "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 8
+                    "asserted_count": 7
                   }
                 }
               },
@@ -9210,7 +9229,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         }
       ]
     },
@@ -9246,7 +9265,7 @@
               "id": "B"
             },
             {
-              "text": "已发生的物理碰撞数为4。",
+              "text": "已发生的物理碰撞数为3。",
               "correct": false,
               "id": "C"
             },
@@ -9311,7 +9330,7 @@
                         "kind": "wall_collision"
                       }
                     ],
-                    "asserted_count": 4
+                    "asserted_count": 3
                   }
                 }
               },
@@ -9332,7 +9351,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c6-2-scenario-05",
@@ -9462,7 +9481,7 @@
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
           "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "安全扇区：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "ask": "安全扇区：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -9470,7 +9489,7 @@
               "id": "A"
             },
             {
-              "text": "当x=2时，安全扇区允许的最大y为0。",
+              "text": "当x=2时，安全扇区允许的最大y为2.0。",
               "correct": false,
               "id": "B"
             },
@@ -9480,7 +9499,7 @@
               "id": "C"
             },
             {
-              "text": "当x=2时，安全扇区允许的最大y为-1。",
+              "text": "当x=2时，安全扇区允许的最大y为3.0。",
               "correct": false,
               "id": "D"
             }
@@ -9521,8 +9540,8 @@
                       2,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": 0
+                    "boundary": 0.5,
+                    "asserted_upper": 2.0
                   }
                 }
               },
@@ -9554,14 +9573,14 @@
                       2,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": -1
+                    "boundary": 0.5,
+                    "asserted_upper": 3.0
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c6-3-scenario-02",
@@ -10714,500 +10733,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "theta=arctan√(m/M)，所以N=ceil(pi/theta)-1=6；可组成3个完整事件对且无剩余碰撞。标准弦方向角为(theta-pi/2)模pi。",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
           "ask": "碰撞计数：初始读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“由N=ceil(pi/theta)-1计算总物理碰撞数”，哪些判读成立？ 请选择两项正确判读。",
-          "options": [
-            {
-              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
-              "correct": true,
-              "id": "A"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
-              "correct": true,
-              "id": "B"
-            },
-            {
-              "text": "一次完整事件对在圆上推进0.463648 rad。",
-              "correct": false,
-              "id": "C"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-equal-angle-chord"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 3,
-                    "asserted_residual": 0,
-                    "asserted_collisions": 6
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_direction": 2.0344439357957027
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_relation",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_step": 0.4636476090008061
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_direction": 2.234443935795703
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        },
-        {
-          "key": "c7-2-scenario-03",
-          "node_id": "C7.2",
-          "question_type": "multiple_choice",
-          "question_style": "scenario",
-          "difficulty": 3,
-          "event_stage": "state_analysis",
-          "variant_axis": "angle_counting",
-          "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：辨认完整事件对与奇数残余碰撞。",
-          "ask": "弦方向角：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
-          "options": [
-            {
-              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
-              "correct": true,
-              "id": "A"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
-              "correct": true,
-              "id": "B"
-            },
-            {
-              "text": "一次完整事件对在圆上推进0.463648 rad。",
-              "correct": false,
-              "id": "C"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-equal-angle-chord"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 3,
-                    "asserted_residual": 0,
-                    "asserted_collisions": 6
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_direction": 2.0344439357957027
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_relation",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_step": 0.4636476090008061
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_direction": 2.234443935795703
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        },
-        {
-          "key": "c7-3-scenario-01",
-          "node_id": "C7.3",
-          "question_type": "multiple_choice",
-          "question_style": "scenario",
-          "difficulty": 1,
-          "event_stage": "state_analysis",
-          "variant_axis": "angle_counting",
-          "curriculum_scope": "core",
-          "explanation": "弦方向角为(theta-pi/2)模pi；完整事件对由两个物理碰撞组成，圆心角推进2theta。",
-          "ask": "事件步长：初始读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“识别一次完整事件对推进的2theta圆心角”，哪些判读成立？ 请选择两项正确判读。",
-          "options": [
-            {
-              "text": "完整事件对数为2，剩余物理碰撞为0，总物理碰撞数为4。",
-              "correct": false,
-              "id": "A"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
-              "correct": true,
-              "id": "B"
-            },
-            {
-              "text": "一次完整事件对在圆上推进0.927295 rad。",
-              "correct": true,
-              "id": "C"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-equal-angle-step"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 2,
-                    "asserted_residual": 0,
-                    "asserted_collisions": 4
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_direction": 2.0344439357957027
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_relation",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_step": 0.9272952180016122
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_direction": 2.234443935795703
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        },
-        {
-          "key": "c7-3-scenario-02",
-          "node_id": "C7.3",
-          "question_type": "multiple_choice",
-          "question_style": "scenario",
-          "difficulty": 2,
-          "event_stage": "state_analysis",
-          "variant_axis": "angle_counting",
-          "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：辨认完整事件对与奇数残余碰撞。",
-          "ask": "事件对步长：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
-          "options": [
-            {
-              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
-              "correct": true,
-              "id": "A"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
-              "correct": true,
-              "id": "B"
-            },
-            {
-              "text": "一次完整事件对在圆上推进0.463648 rad。",
-              "correct": false,
-              "id": "C"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-equal-angle-step"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 3,
-                    "asserted_residual": 0,
-                    "asserted_collisions": 6
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_direction": 2.0344439357957027
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_relation",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_step": 0.4636476090008061
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 4,
-                    "mass_small": 1,
-                    "asserted_direction": 2.234443935795703
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        }
-      ]
-    },
-    {
-      "id": "SC-C7-COUNT",
-      "context": "几何计数把每一对已核实事件（物块碰撞后撞墙）在展开图中推进2theta；单个物理碰撞本身是一次反射。",
-      "source_refs": [
-        "video-main",
-        "openstax-angles",
-        "openstax-unit-circle"
-      ],
-      "author_notes": "外部资料用于交叉核对椭圆、角度或守恒术语；若与主视频的二物块叙事粒度不同，保留来源差异而不覆盖主视频。",
-      "questions": [
-        {
-          "key": "c7-1-scenario-04",
-          "node_id": "C7.1",
-          "question_type": "multiple_choice",
-          "question_style": "scenario",
-          "difficulty": 1,
-          "event_stage": "state_analysis",
-          "variant_axis": "angle_counting",
-          "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。 本题具体检验：从质量比计算总碰撞数。",
-          "ask": "等角弦方向：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
-          "options": [
-            {
-              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
-              "correct": true,
-              "id": "A"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为1.892547 rad（模pi）。",
-              "correct": true,
-              "id": "B"
-            },
-            {
-              "text": "一次完整事件对在圆上推进0.321751 rad。",
-              "correct": false,
-              "id": "C"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-equal-angle-step"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 4,
-                    "asserted_residual": 1,
-                    "asserted_collisions": 9
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "asserted_direction": 1.8925468811915387
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_relation",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "asserted_step": 0.3217505543966422
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "asserted_direction": 2.092546881191539
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        },
-        {
-          "key": "c7-2-scenario-04",
-          "node_id": "C7.2",
-          "question_type": "multiple_choice",
-          "question_style": "scenario",
-          "difficulty": 1,
-          "event_stage": "state_analysis",
-          "variant_axis": "angle_counting",
-          "curriculum_scope": "core",
-          "explanation": "theta=arctan√(m/M)。弦斜率为-sqrt(M/m)，故标准弦方向角为(theta-pi/2)模pi；一次完整事件对才推进2theta。",
-          "ask": "弦与步长：相撞后读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“区分弦方向角与一次完整事件对的2theta步长”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -11294,6 +10821,498 @@
           "figure_role": "active_physics"
         },
         {
+          "key": "c7-2-scenario-03",
+          "node_id": "C7.2",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 3,
+          "event_stage": "state_analysis",
+          "variant_axis": "angle_counting",
+          "curriculum_scope": "core",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
+          "ask": "弦方向角：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "options": [
+            {
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
+              "correct": true,
+              "id": "A"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
+              "correct": true,
+              "id": "B"
+            },
+            {
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "correct": false,
+              "id": "C"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-equal-angle-chord"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_pair_count",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "span": 3.141592653589793,
+                    "asserted_pairs": 3,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 6
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.0344439357957027
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_relation",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_step": 0.4636476090008061
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.234443935795703
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
+        },
+        {
+          "key": "c7-3-scenario-01",
+          "node_id": "C7.3",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "state_analysis",
+          "variant_axis": "angle_counting",
+          "curriculum_scope": "core",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
+          "ask": "事件步长：初始读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“识别一次完整事件对推进的2theta圆心角”，哪些判读成立？ 请选择两项正确判读。",
+          "options": [
+            {
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为7。",
+              "correct": false,
+              "id": "A"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
+              "correct": true,
+              "id": "B"
+            },
+            {
+              "text": "一次完整事件对在圆上推进0.927295 rad。",
+              "correct": true,
+              "id": "C"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-equal-angle-step"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_pair_count",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "span": 3.141592653589793,
+                    "asserted_pairs": 3,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 7
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.0344439357957027
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_relation",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_step": 0.9272952180016122
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.234443935795703
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
+        },
+        {
+          "key": "c7-3-scenario-02",
+          "node_id": "C7.3",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "state_analysis",
+          "variant_axis": "angle_counting",
+          "curriculum_scope": "core",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
+          "ask": "事件对步长：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“辨认完整事件对与奇数残余碰撞”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "options": [
+            {
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
+              "correct": true,
+              "id": "A"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
+              "correct": true,
+              "id": "B"
+            },
+            {
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "correct": false,
+              "id": "C"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-equal-angle-step"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_pair_count",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "span": 3.141592653589793,
+                    "asserted_pairs": 3,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 6
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.0344439357957027
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_relation",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_step": 0.4636476090008061
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.234443935795703
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
+        }
+      ]
+    },
+    {
+      "id": "SC-C7-COUNT",
+      "context": "几何计数把每一对已核实事件（物块碰撞后撞墙）在展开图中推进2theta；单个物理碰撞本身是一次反射。",
+      "source_refs": [
+        "video-main",
+        "openstax-angles",
+        "openstax-unit-circle"
+      ],
+      "author_notes": "外部资料用于交叉核对椭圆、角度或守恒术语；若与主视频的二物块叙事粒度不同，保留来源差异而不覆盖主视频。",
+      "questions": [
+        {
+          "key": "c7-1-scenario-04",
+          "node_id": "C7.1",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "state_analysis",
+          "variant_axis": "angle_counting",
+          "curriculum_scope": "core",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
+          "ask": "等角弦方向：初始读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；围绕“从质量比计算总碰撞数”，哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择两项正确判读。",
+          "options": [
+            {
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
+              "correct": true,
+              "id": "A"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
+              "correct": true,
+              "id": "B"
+            },
+            {
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "correct": false,
+              "id": "C"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-equal-angle-step"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_pair_count",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "span": 3.141592653589793,
+                    "asserted_pairs": 3,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 6
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.0344439357957027
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_relation",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_step": 0.4636476090008061
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.234443935795703
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
+        },
+        {
+          "key": "c7-2-scenario-04",
+          "node_id": "C7.2",
+          "question_type": "multiple_choice",
+          "question_style": "scenario",
+          "difficulty": 1,
+          "event_stage": "state_analysis",
+          "variant_axis": "angle_counting",
+          "curriculum_scope": "core",
+          "explanation": "theta=arctan√(m/M)。一次完整事件对推进2theta；弦方向角以+x轴为参照，为(theta-pi/2)模pi，两者不是同一个角。",
+          "ask": "弦与步长：相撞后读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“区分弦方向角与一次完整事件对的2theta步长”，哪些判读成立？ 请选择两项正确判读。",
+          "options": [
+            {
+              "text": "一次完整事件对在圆上推进0.927295 rad。",
+              "correct": true,
+              "id": "A"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.034444 rad（模pi）。",
+              "correct": true,
+              "id": "B"
+            },
+            {
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为7。",
+              "correct": false,
+              "id": "C"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-equal-angle-chord"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_relation",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_step": 0.9272952180016122
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.0344439357957027
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_pair_count",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "span": 3.141592653589793,
+                    "asserted_pairs": 3,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 7
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.234443935795703
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
+        },
+        {
           "key": "c7-3-scenario-03",
           "node_id": "C7.3",
           "question_type": "multiple_choice",
@@ -11302,7 +11321,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "theta=arctan√(m/M)。弦斜率为-sqrt(M/m)，故标准弦方向角为(theta-pi/2)模pi；一次完整事件对才推进2theta。",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
           "ask": "等角推进：相撞后读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“区分弦方向角与一次完整事件对的2theta步长”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -11398,7 +11417,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
           "ask": "事件对步长：到墙前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
@@ -11407,7 +11426,7 @@
               "id": "A"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.134444 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "B"
             },
@@ -11417,7 +11436,7 @@
               "id": "C"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.434444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11453,7 +11472,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 2.134443935795703
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               },
@@ -11477,13 +11496,13 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 2.234443935795703
+                    "asserted_direction": 2.434443935795703
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         },
         {
           "key": "c7-4-scenario-01",
@@ -11494,104 +11513,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "angle_counting",
           "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-          "ask": "碰撞数计数：初始读数的弦方向角题中M/m=9/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
-          "options": [
-            {
-              "text": "完整事件对数为4，剩余物理碰撞为1，总物理碰撞数为9。",
-              "correct": true,
-              "id": "A"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为1.992547 rad（模pi）。",
-              "correct": false,
-              "id": "B"
-            },
-            {
-              "text": "一次完整事件对在圆上推进0.321751 rad。",
-              "correct": false,
-              "id": "C"
-            },
-            {
-              "text": "以+x轴为参照的弦方向角为2.092547 rad（模pi）。",
-              "correct": false,
-              "id": "D"
-            }
-          ],
-          "presentation_mode": "stem_figure",
-          "figure_refs": [
-            "cp-c-equal-angle-count"
-          ],
-          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-          "answer_contract": {
-            "kind": "structured_claims",
-            "claims": [
-              {
-                "option_id": "A",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_pair_count",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "span": 3.141592653589793,
-                    "asserted_pairs": 4,
-                    "asserted_residual": 1,
-                    "asserted_collisions": 9
-                  }
-                }
-              },
-              {
-                "option_id": "B",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "asserted_direction": 1.9925468811915388
-                  }
-                }
-              },
-              {
-                "option_id": "C",
-                "family": "physics",
-                "claim": {
-                  "kind": "angle_relation",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "asserted_step": 0.3217505543966422
-                  }
-                }
-              },
-              {
-                "option_id": "D",
-                "family": "physics",
-                "claim": {
-                  "kind": "chord_direction_angle",
-                  "parameters": {
-                    "mass_large": 9,
-                    "mass_small": 1,
-                    "asserted_direction": 2.092546881191539
-                  }
-                }
-              }
-            ]
-          },
-          "figure_role": "conceptual_reference"
-        },
-        {
-          "key": "c7-4-scenario-02",
-          "node_id": "C7.4",
-          "question_type": "single_choice",
-          "question_style": "scenario",
-          "difficulty": 2,
-          "event_stage": "state_analysis",
-          "variant_axis": "angle_counting",
-          "curriculum_scope": "core",
-          "explanation": "令theta=arctan√(m/M)。弦斜率为−√(M/m)，故以+x轴为参照的弦方向角为(theta−pi/2)模pi；一次完整事件对推进2theta。总物理碰撞数按N=ceil(pi/theta)−1计，奇数N保留一个未配对的物理碰撞。",
-          "ask": "碰撞数计数：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
+          "ask": "碰撞数计数：初始读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
@@ -11599,7 +11522,7 @@
               "id": "A"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.134444 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
               "correct": false,
               "id": "B"
             },
@@ -11609,7 +11532,7 @@
               "id": "C"
             },
             {
-              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
+              "text": "以+x轴为参照的弦方向角为2.434444 rad（模pi）。",
               "correct": false,
               "id": "D"
             }
@@ -11645,7 +11568,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 2.134443935795703
+                    "asserted_direction": 2.234443935795703
                   }
                 }
               },
@@ -11669,13 +11592,109 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_direction": 2.234443935795703
+                    "asserted_direction": 2.434443935795703
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
+        },
+        {
+          "key": "c7-4-scenario-02",
+          "node_id": "C7.4",
+          "question_type": "single_choice",
+          "question_style": "scenario",
+          "difficulty": 2,
+          "event_stage": "state_analysis",
+          "variant_axis": "angle_counting",
+          "curriculum_scope": "core",
+          "explanation": "theta=arctan√(m/M)；弦方向角为(theta-pi/2)模pi，一次完整事件对推进2theta，碰撞数由N=ceil(pi/theta)-1复算。",
+          "ask": "碰撞数计数：相遇前读数的弦方向角题中M/m=4/1，质量加权坐标平面中theta=arctan√(m/M)，弦方向角以+x轴为参照，可用圆弧为π；哪些关于圆周角、弦方向角和完整事件对的判读成立？ 请选择唯一正确判读。",
+          "options": [
+            {
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
+              "correct": true,
+              "id": "A"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.234444 rad（模pi）。",
+              "correct": false,
+              "id": "B"
+            },
+            {
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "correct": false,
+              "id": "C"
+            },
+            {
+              "text": "以+x轴为参照的弦方向角为2.434444 rad（模pi）。",
+              "correct": false,
+              "id": "D"
+            }
+          ],
+          "presentation_mode": "stem_figure",
+          "figure_refs": [
+            "cp-c-equal-angle-count"
+          ],
+          "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
+          "answer_contract": {
+            "kind": "structured_claims",
+            "claims": [
+              {
+                "option_id": "A",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_pair_count",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "span": 3.141592653589793,
+                    "asserted_pairs": 3,
+                    "asserted_residual": 0,
+                    "asserted_collisions": 6
+                  }
+                }
+              },
+              {
+                "option_id": "B",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.234443935795703
+                  }
+                }
+              },
+              {
+                "option_id": "C",
+                "family": "physics",
+                "claim": {
+                  "kind": "angle_relation",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_step": 0.4636476090008061
+                  }
+                }
+              },
+              {
+                "option_id": "D",
+                "family": "physics",
+                "claim": {
+                  "kind": "chord_direction_angle",
+                  "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "asserted_direction": 2.434443935795703
+                  }
+                }
+              }
+            ]
+          },
+          "figure_role": "active_physics"
         },
         {
           "key": "c7-4-scenario-03",
@@ -12100,7 +12119,7 @@
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         }
       ]
     },
@@ -12248,26 +12267,26 @@
           "event_stage": "state_analysis",
           "variant_axis": "elective_method",
           "curriculum_scope": "elective",
-          "explanation": "theta=arctan√(m/M)。折叠图显示镜面位置，展开图把镜像边界排成直线；相邻边界相差2theta。 本题具体检验：在折叠位置空间读取楔角。",
-          "ask": "边界镜像：初始读数的折叠—展开楔形模型中M/m=9/1；折叠位置空间与展开直线射线分别如何判读？ 请选择两项正确判读。",
+          "explanation": "质量加权位置楔形满足theta=arctan√(m/M)，镜面展开后相邻边界转角为2theta。",
+          "ask": "边界镜像：初始读数的折叠—展开楔形模型中M/m=4/1；折叠位置空间与展开直线射线分别如何判读？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "楔形角theta约为0.321751 rad。",
+              "text": "楔形角theta约为0.463648 rad。",
               "correct": true,
               "id": "A"
             },
             {
-              "text": "展开图中相邻镜像边界的转角为0.643501 rad。",
+              "text": "展开图中相邻镜像边界的转角为0.927295 rad。",
               "correct": true,
               "id": "B"
             },
             {
-              "text": "楔形角theta约为0.521751 rad。",
+              "text": "楔形角theta约为0.563648 rad。",
               "correct": false,
               "id": "C"
             },
             {
-              "text": "展开图中相邻镜像边界的转角为0.843501 rad。",
+              "text": "展开图中相邻镜像边界的转角为0.463648 rad。",
               "correct": false,
               "id": "D"
             }
@@ -12286,9 +12305,9 @@
                 "claim": {
                   "kind": "wedge_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_theta": 0.3217505543966422
+                    "asserted_theta": 0.4636476090008061
                   }
                 }
               },
@@ -12298,9 +12317,9 @@
                 "claim": {
                   "kind": "folded_unfolded",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_unfolded_turn": 0.6435011087932844
+                    "asserted_unfolded_turn": 0.9272952180016122
                   }
                 }
               },
@@ -12310,9 +12329,9 @@
                 "claim": {
                   "kind": "wedge_angle",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_theta": 0.5217505543966422
+                    "asserted_theta": 0.5636476090008061
                   }
                 }
               },
@@ -12322,15 +12341,15 @@
                 "claim": {
                   "kind": "folded_unfolded",
                   "parameters": {
-                    "mass_large": 9,
+                    "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_unfolded_turn": 0.8435011087932844
+                    "asserted_unfolded_turn": 0.4636476090008061
                   }
                 }
               }
             ]
           },
-          "figure_role": "conceptual_reference"
+          "figure_role": "active_physics"
         }
       ]
     }
@@ -16005,7 +16024,7 @@
           }
         ]
       },
-      "figure_role": "conceptual_reference"
+      "figure_role": "active_physics"
     },
     {
       "key": "c8-1-concise-03",
@@ -16098,7 +16117,7 @@
           }
         ]
       },
-      "figure_role": "conceptual_reference"
+      "figure_role": "active_physics"
     },
     {
       "key": "c8-1-concise-04",
@@ -16279,7 +16298,7 @@
           }
         ]
       },
-      "figure_role": "conceptual_reference"
+      "figure_role": "active_physics"
     },
     {
       "key": "c8-2-concise-03",
@@ -16548,7 +16567,7 @@
           }
         ]
       },
-      "figure_role": "conceptual_reference"
+      "figure_role": "active_physics"
     },
     {
       "key": "c8-3-concise-02",
@@ -16829,26 +16848,26 @@
       "event_stage": "state_analysis",
       "variant_axis": "elective_method",
       "curriculum_scope": "elective",
-      "explanation": "theta=arctan√(m/M)。折叠图显示镜面位置，展开图把镜像边界排成直线；相邻边界相差2theta。 本题具体检验：在折叠位置空间读取楔角。",
-      "prompt": "镜面折叠：初始读数的折叠—展开楔形模型中M/m=9/1；折叠位置空间与展开直线射线分别如何判读？ 请选择两项正确判读。",
+      "explanation": "质量加权位置楔形满足theta=arctan√(m/M)，镜面展开后相邻边界转角为2theta。",
+      "prompt": "镜面折叠：初始读数的折叠—展开楔形模型中M/m=4/1；折叠位置空间与展开直线射线分别如何判读？ 请选择两项正确判读。",
       "options": [
         {
-          "text": "楔形角theta约为0.321751 rad。",
+          "text": "楔形角theta约为0.463648 rad。",
           "correct": true,
           "id": "A"
         },
         {
-          "text": "展开图中相邻镜像边界的转角为0.643501 rad。",
+          "text": "展开图中相邻镜像边界的转角为0.927295 rad。",
           "correct": true,
           "id": "B"
         },
         {
-          "text": "楔形角theta约为0.521751 rad。",
+          "text": "楔形角theta约为0.563648 rad。",
           "correct": false,
           "id": "C"
         },
         {
-          "text": "展开图中相邻镜像边界的转角为0.843501 rad。",
+          "text": "展开图中相邻镜像边界的转角为0.463648 rad。",
           "correct": false,
           "id": "D"
         }
@@ -16867,9 +16886,9 @@
             "claim": {
               "kind": "wedge_angle",
               "parameters": {
-                "mass_large": 9,
+                "mass_large": 4,
                 "mass_small": 1,
-                "asserted_theta": 0.3217505543966422
+                "asserted_theta": 0.4636476090008061
               }
             }
           },
@@ -16879,9 +16898,9 @@
             "claim": {
               "kind": "folded_unfolded",
               "parameters": {
-                "mass_large": 9,
+                "mass_large": 4,
                 "mass_small": 1,
-                "asserted_unfolded_turn": 0.6435011087932844
+                "asserted_unfolded_turn": 0.9272952180016122
               }
             }
           },
@@ -16891,9 +16910,9 @@
             "claim": {
               "kind": "wedge_angle",
               "parameters": {
-                "mass_large": 9,
+                "mass_large": 4,
                 "mass_small": 1,
-                "asserted_theta": 0.5217505543966422
+                "asserted_theta": 0.5636476090008061
               }
             }
           },
@@ -16903,15 +16922,15 @@
             "claim": {
               "kind": "folded_unfolded",
               "parameters": {
-                "mass_large": 9,
+                "mass_large": 4,
                 "mass_small": 1,
-                "asserted_unfolded_turn": 0.8435011087932844
+                "asserted_unfolded_turn": 0.4636476090008061
               }
             }
           }
         ]
       },
-      "figure_role": "conceptual_reference"
+      "figure_role": "active_physics"
     },
     {
       "key": "c9-3-concise-01",
@@ -17362,23 +17381,23 @@
       "event_stage": "calculation",
       "variant_axis": "calculation",
       "curriculum_scope": "elective",
-      "prompt": "选修质量加权位置楔形中M=9、m=1，theta=arctan(sqrt(m/M))。填写楔形角theta（弧度）。",
+      "prompt": "选修质量加权位置楔形中M=4、m=1，theta=arctan(sqrt(m/M))。填写楔形角theta（弧度）。",
       "blanks": [
         {
           "id": "theta",
           "accepted_answers": [
-            "0.321750554"
+            "0.463647609"
           ]
         }
       ],
       "calculation_fixture_id": "CAL-C9-WEDGE-01",
-      "explanation": "楔形角满足theta=arctan(sqrt(m/M))，所以theta=0.321750554。",
+      "explanation": "楔形角满足theta=arctan(sqrt(m/M))，所以theta=0.463647609。",
       "presentation_mode": "stem_figure",
       "figure_refs": [
         "cp-c-wedge-unfold-basic"
       ],
       "diagram_focus": "题干所述的坐标、状态点或守恒几何关系",
-      "figure_role": "conceptual_reference"
+      "figure_role": "active_physics"
     },
     {
       "key": "c9-6-concise-01",

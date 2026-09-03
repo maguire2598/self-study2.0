@@ -17,6 +17,7 @@ SOURCE = ROOT / "content" / "courses" / "collision-pi" / "question-source-c.json
 SCHEMA = ROOT / "schemas" / "objective_question_source_c.schema.json"
 FORMAL_BANK_SCHEMA = ROOT / "schemas" / "objective_question_bank.schema.json"
 MANIFEST = ROOT / "content" / "courses" / "collision-pi" / "diagram-manifest-c.json"
+DIAGRAM_SOURCE = ROOT / "content" / "courses" / "collision-pi" / "diagram-source-c.json"
 PUZZLE = ROOT / "content" / "courses" / "collision-pi" / "knowledge-puzzle.json"
 
 EXPECTED_QUOTAS = {
@@ -156,6 +157,19 @@ FORBIDDEN_GRAPH_CONFUSION = (
 )
 ANGLE_AMBIGUITY = re.compile(r"(?<!2)θ推进|间隔θ(?!与)|圆心角就是θ")
 
+STEM_FACT_DIMENSIONS_BY_TEMPLATE = {
+    "velocity_plane": {"coordinate_system", "velocity_state"},
+    "energy_ellipse": {"coordinate_system", "mass_ratio", "energy_geometry"},
+    "scale_pair": {"coordinate_system", "mass_ratio", "coordinate_transform", "energy_geometry"},
+    "momentum_chord": {"coordinate_system", "mass_ratio", "momentum_geometry"},
+    "wall_reflection": {"coordinate_system", "mass_ratio", "reflection_geometry"},
+    "state_chain": {"coordinate_system", "mass_ratio", "event_sequence"},
+    "safe_sector": {"coordinate_system", "mass_ratio", "sector_boundary"},
+    "equal_angle": {"coordinate_system", "mass_ratio", "equal_angle_geometry"},
+    "element_legend": {"coordinate_system", "legend_mapping"},
+    "wedge_unfold": {"coordinate_system", "mass_ratio", "wedge_geometry"},
+}
+
 
 def normalize_semantic_prompt(text):
     text = re.sub(r"本题额外聚焦.*$", "", text)
@@ -198,6 +212,14 @@ def multi_physical_signature(question):
     return normalize_semantic_prompt(prompt + " " + explanation), json.dumps(claims, ensure_ascii=False, sort_keys=True)
 
 
+def assessed_relation_signature(question):
+    """Identify the assessed relations while ignoring numbers and cosmetic prose."""
+    return tuple(
+        (item["claim"]["kind"], option["correct"])
+        for option, item in zip(question["options"], question["answer_contract"]["claims"])
+    )
+
+
 def evaluate_typed_claim(claim):
     """Compute an option's truth solely from its physical assertion parameters."""
     params = claim["parameters"]
@@ -229,6 +251,15 @@ def evaluate_typed_claim(claim):
         return math.isclose(params["asserted_slope"], -math.sqrt(params["mass_large"] / params["mass_small"]))
     if kind == "momentum_intersection":
         return math.isclose(params["asserted_x"], 0) and math.isclose(params["asserted_y"], 0)
+    if kind == "chord_state_invariants":
+        first, second = params["first"], params["second"]
+        momentum_difference = (
+            math.sqrt(params["mass_large"]) * (first[0] - second[0])
+            + math.sqrt(params["mass_small"]) * (first[1] - second[1])
+        )
+        radius2_difference = (first[0] ** 2 + first[1] ** 2) - (second[0] ** 2 + second[1] ** 2)
+        return (math.isclose(params["asserted_momentum_difference"], momentum_difference)
+                and math.isclose(params["asserted_radius2_difference"], radius2_difference))
     if kind == "wall_reflection":
         return params["asserted_after"] == [params["before"][0], -params["before"][1]]
     if kind == "wall_radius":
@@ -289,6 +320,9 @@ def render_typed_claim(claim):
         return f"同一总动量的直线斜率应为{params['asserted_slope']}。"
     if kind == "momentum_intersection":
         return f"零总动量直线与坐标轴的交点为({params['asserted_x']},{params['asserted_y']})。"
+    if kind == "chord_state_invariants":
+        return ("弦两端的动量表达式差与半径平方差依次为"
+                f"{params['asserted_momentum_difference']}和{params['asserted_radius2_difference']}。")
     if kind == "wall_reflection":
         return f"墙反射后的点为({params['asserted_after'][0]},{params['asserted_after'][1]})。"
     if kind == "wall_radius":
@@ -325,29 +359,68 @@ def evaluate_diagram_claim(claim, diagram, query):
 
 
 def stem_figure_compatibility(question, diagram):
-    """Validate every declared active stem figure against diagram-source facts."""
-    if question["figure_role"] == "conceptual_reference":
-        # Concept diagrams still declare why a numerical identity is not claimed.
-        return bool(question["diagram_focus"].strip())
+    """Validate every student-visible stem fact against diagram-source facts."""
     text = question.get("ask", question.get("prompt", ""))
     params = diagram["parameters"]
-    ratio = re.search(r"M/m=(\d+)/(\d+)", text)
-    if ratio:
+    if diagram["template_kind"] not in STEM_FACT_DIMENSIONS_BY_TEMPLATE:
+        return False
+    ratio_match = re.search(r"M/m=(\d+)/(\d+)", text) or re.search(r"M=(\d+)、m=(\d+)", text)
+    compact_ratio = re.search(r"(\d+)m 与 m", text) if not ratio_match else None
+    stated_ratio = ((int(ratio_match.group(1)), int(ratio_match.group(2))) if ratio_match
+                    else (int(compact_ratio.group(1)), 1) if compact_ratio else None)
+    if stated_ratio:
         if not {"mass_large", "mass_small"}.issubset(params):
+            # Velocity-plane figures do not encode a mass ratio, so the stated
+            # mass remains a separate problem datum rather than a contradiction.
+            if diagram["template_kind"] != "velocity_plane":
+                return False
+        elif stated_ratio != (params["mass_large"], params["mass_small"]):
             return False
-        if (int(ratio.group(1)), int(ratio.group(2))) != (params["mass_large"], params["mass_small"]):
-            return False
-    if "质量加权" in text and diagram["coordinate_system"] != "velocity_weighted":
+    if "质量加权位置" in text and diagram["coordinate_system"] != "position_weighted":
+        return False
+    if "质量加权" in text and "质量加权位置" not in text and diagram["coordinate_system"] != "velocity_weighted":
         return False
     if ("原始速度坐标" in text or "速度相图" in text) and diagram["coordinate_system"] != "velocity_raw":
         return False
+    if diagram["template_kind"] == "wall_reflection":
+        point = re.search(r"坐标点为\((-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)\)", text)
+        if point:
+            before = params["before"]
+            if not (math.isclose(float(point.group(1)), before["x"])
+                    and math.isclose(float(point.group(2)), before["y"])):
+                return False
+    if diagram["template_kind"] == "state_chain":
+        sequence = re.search(r"按“([^”]+)”顺序记录", text)
+        if sequence:
+            stated = ["block_collision" if part == "块碰撞" else "wall_reflection" for part in sequence.group(1).split("、")]
+            if stated != [event["kind"] for event in params["events"]]:
+                return False
+    if diagram["template_kind"] == "safe_sector":
+        boundary = re.search(r"安全边界为y=([0-9.]+)?x", text)
+        if boundary:
+            expected = math.sqrt(params["mass_small"] / params["mass_large"])
+            stated = float(boundary.group(1) or 1)
+            if not math.isclose(stated, expected):
+                return False
+    if diagram["template_kind"] in {"energy_ellipse", "scale_pair"}:
+        energy = re.search(r"(?:总动能)?E=(\d+(?:\.\d+)?)", text)
+        if energy and not math.isclose(float(energy.group(1)), params["energy"]):
+            return False
+    if diagram["template_kind"] == "equal_angle":
+        expected_theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
+        if not math.isclose(params["theta"], expected_theta):
+            return False
+    if diagram["template_kind"] == "wedge_unfold":
+        expected_theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
+        if not math.isclose(params["wedge_angle"], expected_theta):
+            return False
     for item in question.get("answer_contract", {}).get("claims", []):
         claim = item["claim"]
         values = claim["parameters"]
-        if claim["kind"] in {"momentum_slope", "momentum_parallel", "angle_pair_count", "angle_relation", "chord_direction_angle"}:
+        if {"mass_large", "mass_small"}.issubset(values):
             if values.get("mass_large") != params.get("mass_large") or values.get("mass_small") != params.get("mass_small"):
                 return False
-    if diagram["template_kind"] == "momentum_chord" and not any(item["claim"]["kind"].startswith("momentum_") for item in question["answer_contract"]["claims"]):
+    if diagram["template_kind"] == "momentum_chord" and not any(item["claim"]["kind"].startswith("momentum_") or item["claim"]["kind"] == "chord_state_invariants" for item in question["answer_contract"]["claims"]):
         return False
     if diagram["template_kind"] == "equal_angle" and not any(item["claim"]["kind"] in {"angle_pair_count", "angle_relation", "chord_direction_angle"} for item in question["answer_contract"]["claims"]):
         return False
@@ -511,6 +584,47 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             self.assertNotEqual(invalid.returncode, 0, invalid.stdout + invalid.stderr)
         self.assertEqual(source["section_id"], "C")
 
+    def test_generation_and_formal_schema_reject_non_manifest_figure_references(self):
+        """Both source figure routes must fail before an invalid C bank is consumable."""
+        source, _, scenario_questions, standalone, _, _ = self.load_source()
+        manifest_ids = {
+            item["diagram_id"]
+            for item in json.loads(MANIFEST.read_text(encoding="utf-8"))["diagrams"]
+        }
+        source_schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
+        self.assertEqual(
+            set(source_schema["$defs"]["option"]["properties"]["figure_ref"]["enum"]),
+            manifest_ids,
+        )
+        self.assertEqual(
+            set(source_schema["$defs"]["question"]["properties"]["figure_refs"]["items"]["enum"]),
+            manifest_ids,
+        )
+        formal_schema = json.loads(FORMAL_BANK_SCHEMA.read_text(encoding="utf-8"))
+        self.assertEqual(set(formal_schema["$defs"]["cDiagramId"]["enum"]), manifest_ids)
+
+        for route in ("question", "option"):
+            mutation = copy.deepcopy(source)
+            questions = sum((scenario["questions"] for scenario in mutation["scenarios"]), []) + mutation["standalone_questions"]
+            if route == "question":
+                target = next(q for q in questions if q["presentation_mode"] == "stem_figure")
+                target["figure_refs"][0] = "not-a-manifest-diagram"
+            else:
+                target = next(q for q in questions if q["presentation_mode"] == "option_figures")
+                target["options"][0]["figure_ref"] = "not-a-manifest-diagram"
+            self.assertNotEqual(validate_source_with_pwsh(mutation).returncode, 0, route)
+            with self.assertRaisesRegex(ValueError, "not-a-manifest-diagram"):
+                question_bank.build_bank(mutation, json.loads(PUZZLE.read_text(encoding="utf-8")), section_id="C", title="碰撞与π：C")
+
+        bank = question_bank.build_bank_from_paths(SOURCE, PUZZLE, section_id="C", title="碰撞与π：C")
+        for route in ("question", "option"):
+            broken = copy.deepcopy(bank)
+            if route == "question":
+                next(q for q in broken["questions"] if q.get("figure_refs"))["figure_refs"][0] = "not-a-manifest-diagram"
+            else:
+                next(q for q in broken["questions"] if q.get("presentation_mode") == "option_figures")["options"][0]["figure_ref"] = "not-a-manifest-diagram"
+            self.assertNotEqual(validate_c_bank_with_pwsh(broken).returncode, 0, route)
+
     def test_exact_source_contract_and_quotas(self):
         source, scenarios, scenario_questions, standalone, _, _ = self.load_source()
         all_questions = scenario_questions + standalone
@@ -574,6 +688,7 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             "momentum_slope": {"mass_large", "mass_small", "asserted_slope"},
             "momentum_parallel": {"mass_large", "mass_small", "asserted_slope"},
             "momentum_intersection": {"asserted_x", "asserted_y"},
+            "chord_state_invariants": {"mass_large", "mass_small", "first", "second", "asserted_momentum_difference", "asserted_radius2_difference"},
             "wall_reflection": {"before", "asserted_after"},
             "wall_radius": {"before", "after", "asserted_before_r2", "asserted_after_r2"},
             "event_count": {"events", "asserted_count"},
@@ -680,6 +795,49 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         cosmetic["ask"] = cosmetic["ask"].replace("初始读数", "终态读数").replace("读取有序速度分量与运动方向", "由速度正负判定相图象限")
         cosmetic["explanation"] += " 本题具体检验：由速度正负判定相图象限。"
         self.assertEqual(multi_physical_signature(by_key["c1-2-scenario-01"]), multi_physical_signature(cosmetic))
+
+    def test_reviewed_pairs_differ_in_assessed_relation_not_only_numbers_or_focus(self):
+        """Number/focus rewrites cannot disguise an identical option-relation task."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        by_key = {q["key"]: q for q in scenario_questions + standalone}
+        pairs = (
+            ("c1-2-scenario-01", "c1-2-scenario-03"),
+            ("c1-2-scenario-02", "c1-2-scenario-04"),
+            ("c4-2-scenario-01", "c4-2-scenario-03"),
+            ("c4-2-scenario-02", "c4-2-scenario-04"),
+            ("c4-3-scenario-01", "c4-3-scenario-03"),
+            ("c7-2-scenario-02", "c7-2-scenario-04"),
+            ("c7-3-scenario-01", "c7-3-scenario-03"),
+        )
+        for left, right in pairs:
+            self.assertNotEqual(assessed_relation_signature(by_key[left]), assessed_relation_signature(by_key[right]), (left, right))
+
+        number_only = copy.deepcopy(by_key["c4-2-scenario-02"])
+        number_only["ask"] = re.sub(r"\d+(?:\.\d+)?", "99", number_only["ask"])
+        for claim in number_only["answer_contract"]["claims"]:
+            for name, value in list(claim["claim"]["parameters"].items()):
+                if isinstance(value, (int, float)) and not isinstance(value, bool):
+                    claim["claim"]["parameters"][name] = 99
+        focus_only = copy.deepcopy(by_key["c4-2-scenario-02"])
+        focus_only["ask"] += " 本题改为强调另一观察阶段。"
+        focus_only["explanation"] += " 本题具体检验：另一观察阶段。"
+        self.assertEqual(assessed_relation_signature(by_key["c4-2-scenario-02"]), assessed_relation_signature(number_only))
+        self.assertEqual(assessed_relation_signature(by_key["c4-2-scenario-02"]), assessed_relation_signature(focus_only))
+
+    def test_ratio_nine_momentum_questions_key_negative_three_slope(self):
+        """M/m=9/1 must produce slope -sqrt(9)=-3 in both reviewed records."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        by_key = {q["key"]: q for q in scenario_questions + standalone}
+        for key in ("c4-2-scenario-01", "c4-3-scenario-01"):
+            question = by_key[key]
+            self.assertIn("M/m=9/1", question["ask"])
+            computed = [
+                (claim["claim"]["parameters"]["asserted_slope"], option["correct"])
+                for option, claim in zip(question["options"], question["answer_contract"]["claims"])
+                if claim["claim"]["kind"] in {"momentum_slope", "momentum_parallel"}
+            ]
+            self.assertTrue(any(math.isclose(slope, -3) and correct for slope, correct in computed), key)
+            self.assertFalse(any(correct and not math.isclose(slope, -3) for slope, correct in computed), key)
 
     def test_option_figure_stems_do_not_leak_caption_or_id_and_use_typed_queries(self):
         """The visual task must be solved from physics criteria, not a copied caption."""
@@ -979,30 +1137,34 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             self.assertGreaterEqual(len(graphical), 2, node_id)
 
     def test_every_stem_figure_declares_and_meets_its_compatibility_role(self):
-        """All 72 stem figures are either source-matched physics or explicit concept context."""
+        """All 72 stem figures match applicable facts; role names cannot bypass checks."""
         _, _, scenario_questions, standalone, _, _ = self.load_source()
         source_diagrams = json.loads((ROOT / "content" / "courses" / "collision-pi" / "diagram-source-c.json").read_text(encoding="utf-8"))
         diagrams = {diagram["diagram_id"]: diagram for diagram in source_diagrams["diagrams"]}
         stems = [q for q in scenario_questions + standalone if q["presentation_mode"] == "stem_figure"]
         self.assertEqual(len(stems), 72)
-        self.assertEqual({q["figure_role"] for q in stems}, {"active_physics", "conceptual_reference"})
         for question in stems:
-            self.assertTrue(stem_figure_compatibility(question, diagrams[question["figure_refs"][0]]), question["key"])
-
-        active = {q["key"]: q for q in stems if q["figure_role"] == "active_physics"}
-        self.assertEqual(set(active), {"c4-2-scenario-04", "c4-3-scenario-03", "c7-2-scenario-04", "c7-3-scenario-03"})
+            diagram = diagrams[question["figure_refs"][0]]
+            dimensions = STEM_FACT_DIMENSIONS_BY_TEMPLATE[diagram["template_kind"]]
+            self.assertIn("coordinate_system", dimensions, question["key"])
+            self.assertGreaterEqual(len(dimensions), 2, question["key"])
+            self.assertTrue(stem_figure_compatibility(question, diagram), question["key"])
         # Adversarial checks: mass, coordinate system, chord geometry, and equal-angle source cannot drift.
-        target = copy.deepcopy(active["c4-2-scenario-04"])
+        by_key = {q["key"]: q for q in stems}
+        target = copy.deepcopy(by_key["c4-2-scenario-04"])
         target["ask"] = target["ask"].replace("M/m=16/1", "M/m=4/1")
         self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
-        target = copy.deepcopy(active["c4-2-scenario-04"])
+        target = copy.deepcopy(by_key["c4-2-scenario-04"])
         target["ask"] = target["ask"].replace("质量加权", "原始速度坐标")
         self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
-        target = copy.deepcopy(active["c4-2-scenario-04"])
+        target = copy.deepcopy(by_key["c4-2-scenario-04"])
         target["figure_refs"] = ["cp-c-momentum-chord-parallel"]
         self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
-        target = copy.deepcopy(active["c7-2-scenario-04"])
+        target = copy.deepcopy(by_key["c7-2-scenario-04"])
         target["ask"] = target["ask"].replace("M/m=4/1", "M/m=9/1")
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+        target = copy.deepcopy(by_key["c9-6-calculation-24"])
+        target["figure_refs"] = ["cp-c-wedge-unfold-count"]
         self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
 
     def test_question_payloads_and_wording_guards(self):

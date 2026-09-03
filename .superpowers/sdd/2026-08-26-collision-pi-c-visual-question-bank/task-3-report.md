@@ -315,6 +315,68 @@ Ran 145 tests in 19.144s ... OK
 
 None.
 
+---
+
+# Fix round 6 — exhaustive stem compatibility, distinct relations, and manifest validation
+
+## Root causes and repairs
+
+- The four `conceptual_reference` checks introduced in round 5 were the only records whose physical facts were validated; the other 68 records bypassed all numerical comparison. The validator now ignores the role label and classifies every one of the 72 stem figures by template-specific fact dimensions. It checks every applicable mass ratio, coordinate system, visible energy equation, wall-reflection point, state-chain event sequence, safe-sector boundary, momentum geometry, equal-angle relation, and wedge angle against `diagram-source-c.json`.
+- All 24 previously mismatched stem records were reconciled with the authoritative diagram source. The two reviewed 9:1 momentum questions retain `M/m=9/1`, use the existing 9:1 weighted-state figure as the stated mass source, and independently recompute the zero-momentum slope as `-3`. Other energy, scale, angle, and wedge records now use the mass/energy values represented by their figures. The C9 calculation fixture and displayed answer were recomputed for its 4:1 wedge.
+- `c4-2-scenario-04` now assesses chord-endpoint invariants: its two states have zero difference in both the weighted momentum expression and radius squared, explicitly separating a collision chord from a continuous circular trajectory. A new `chord_state_invariants` typed claim independently recomputes both differences. `c7-2-scenario-04` now keys the `2theta` event-pair step plus the standard chord direction, instead of repeating the collision-count relation.
+- The duplicate guard now fingerprints claim kinds and truth positions while ignoring all numeric values and focus/explanation prose. All seven formerly reviewed pairs differ under this relation-only signature; adversarial number-only and focus/explanation-only mutations still collide.
+- C generation now resolves every source question and option figure reference through the checked-in 36-entry manifest before expansion. Both source and formal schemas carry the exact manifest ID enum, and mutations of either route to `not-a-manifest-diagram` fail source validation, generation, and formal bank validation.
+
+## TDD evidence
+
+RED before implementation:
+
+```text
+python -m unittest tests.test_question_source_c.QuestionSourceCTests.test_ratio_nine_momentum_questions_key_negative_three_slope tests.test_question_source_c.QuestionSourceCTests.test_every_stem_figure_declares_and_meets_its_compatibility_role tests.test_question_source_c.QuestionSourceCTests.test_reviewed_pairs_differ_in_assessed_relation_not_only_numbers_or_focus tests.test_question_source_c.QuestionSourceCTests.test_generation_and_formal_schema_reject_non_manifest_figure_references -v
+
+Ran 4 tests in 1.216s
+FAILED (failures=3, errors=1)
+- both 9:1 momentum records still keyed -4/-2
+- c2-1-scenario-04 was the first of 24 mass/figure contradictions
+- c4-2-scenario-02 and -04 had the same assessed-relation signature
+- the actual generator had no manifest-validation entry point
+```
+
+GREEN after implementation:
+
+```text
+python -m unittest tests.test_question_source_c -v
+Ran 38 tests in 19.353s ... OK
+
+python -m unittest tests.test_question_source_c.QuestionSourceCTests.test_c1_c3_checkpoint tests.test_question_source_c.QuestionSourceCTests.test_c4_c6_checkpoint tests.test_question_source_c.QuestionSourceCTests.test_c7_c9_checkpoint -v
+Ran 3 tests in 0.013s ... OK (66 / 66 / 48)
+
+Test-Json -SchemaFile schemas/objective_question_source_c.schema.json
+C source schema valid
+```
+
+## Independent audits and full verification
+
+- All 180 records were rechecked through the keyed-answer oracles: 156 choice records recompute every typed claim and compare the truth vector to flags; all 24 calculations recompute accepted answers from fixtures.
+- All 72 stem figures pass the role-independent, dimension-classified compatibility validator. Its adversarial mutations cover mass ratio, velocity/position coordinate systems, momentum geometry, state sequence, safe-sector boundary, equal-angle mass ratio, and wedge geometry.
+- All 24 option-figure questions still resolve exactly one anonymous, neutral candidate from the diagram source; accessibility labels and `aria-hidden` behavior remain unchanged.
+- All seven former duplicate pairs pass the relation-only audit, including explicit number-only and focus/explanation-only collision tests.
+
+```text
+python -m unittest tests.test_question_bank.QuestionBankTests.test_a_wrapper_preserves_checked_in_bank_bytes tests.test_question_bank_b.QuestionBankBTests.test_checked_in_b_bank_matches_generator tests.test_collision_pi_c_diagrams.CollisionPiCDiagramTests.test_build_is_deterministic -v
+Ran 3 tests in 0.016s ... OK
+
+Generated C bank + Test-Json -SchemaFile schemas/objective_question_bank.schema.json
+formal C bank schema valid
+
+python -m unittest discover -s tests -q
+Ran 152 tests in 34.395s ... OK
+```
+
+## Concerns
+
+None.
+
 ## Fix round 5
 
 Implemented the final anonymous-option seam: the generator emits the same

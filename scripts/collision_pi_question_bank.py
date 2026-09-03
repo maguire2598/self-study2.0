@@ -10,6 +10,7 @@ from typing import TypeVar
 
 
 OPTION_IDS = ["A", "B", "C", "D"]
+ROOT = Path(__file__).resolve().parents[1]
 
 T = TypeVar("T")
 
@@ -119,19 +120,39 @@ def expand_questions(source: dict, puzzle: dict, section_id: str) -> list[dict]:
     return expanded
 
 
-def build_bank_from_paths(
-    source_path: Path,
-    puzzle_path: Path,
-    *,
-    section_id: str,
-    title: str,
-) -> dict:
-    source = json.loads(source_path.read_text(encoding="utf-8"))
-    puzzle = json.loads(puzzle_path.read_text(encoding="utf-8"))
+def validate_c_figure_references(source: dict) -> None:
+    """Reject C references that are not present in the checked-in manifest."""
+    if source.get("section_id") != "C":
+        return
+    manifest_path = ROOT / "content/courses/collision-pi/diagram-manifest-c.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    valid_ids = {diagram["diagram_id"] for diagram in manifest["diagrams"]}
+    questions = [
+        question
+        for scenario in source["scenarios"]
+        for question in scenario["questions"]
+    ] + source["standalone_questions"]
+    for question in questions:
+        refs = list(question.get("figure_refs", []))
+        refs.extend(
+            option["figure_ref"]
+            for option in question.get("options", [])
+            if "figure_ref" in option
+        )
+        for figure_ref in refs:
+            if figure_ref not in valid_ids:
+                raise ValueError(
+                    f"question {question['key']} references non-manifest diagram: {figure_ref}"
+                )
+
+
+def build_bank(source: dict, puzzle: dict, *, section_id: str, title: str) -> dict:
+    """Build a formal bank from loaded source data after semantic validation."""
     if source["section_id"] != section_id:
         raise ValueError(
             f"source section {source['section_id']} does not match {section_id}"
         )
+    validate_c_figure_references(source)
     questions = expand_questions(source, puzzle, section_id)
     actual = Counter(question["node_id"] for question in questions)
     expected = Counter(source["node_quotas"])
@@ -159,6 +180,18 @@ def build_bank_from_paths(
     }
     bank["content_fingerprint"] = content_fingerprint(bank)
     return bank
+
+
+def build_bank_from_paths(
+    source_path: Path,
+    puzzle_path: Path,
+    *,
+    section_id: str,
+    title: str,
+) -> dict:
+    source = json.loads(source_path.read_text(encoding="utf-8"))
+    puzzle = json.loads(puzzle_path.read_text(encoding="utf-8"))
+    return build_bank(source, puzzle, section_id=section_id, title=title)
 
 
 def write_bank(bank: dict, output_path: Path) -> None:
