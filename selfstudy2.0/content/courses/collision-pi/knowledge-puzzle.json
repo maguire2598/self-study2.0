@@ -1,0 +1,1159 @@
+{
+  "$schema": "../../../schemas/knowledge_puzzle.schema.json",
+  "course_id": "collision-pi",
+  "version": "1.0.0",
+  "nodes": [
+    {
+      "id": "A1",
+      "board": "A",
+      "depth": 1,
+      "title": "碰撞系统与可观察现象",
+      "role": "核心",
+      "summary": "明确墙、小物块、大物块以及两种都要计数的碰撞。"
+    },
+    {
+      "id": "A1.1",
+      "board": "A",
+      "depth": 2,
+      "title": "三个对象与空间顺序",
+      "role": "核心",
+      "summary": "墙壁—小物块m—大物块M。"
+    },
+    {
+      "id": "A1.2",
+      "board": "A",
+      "depth": 2,
+      "title": "两种碰撞事件",
+      "role": "核心",
+      "summary": "物块碰撞与小物块撞墙。"
+    },
+    {
+      "id": "A1.3",
+      "board": "A",
+      "depth": 2,
+      "title": "一次碰撞的计数口径",
+      "role": "边界",
+      "summary": "一次独立接触并完成速度改变记一次。"
+    },
+    {
+      "id": "A1.4",
+      "board": "A",
+      "depth": 2,
+      "title": "方向、速度正负与事件记录",
+      "role": "工具",
+      "summary": "统一规定向右为正。"
+    },
+    {
+      "id": "A2",
+      "board": "A",
+      "depth": 1,
+      "title": "初始状态",
+      "role": "核心",
+      "summary": "给出位置、质量、初速度和理想环境。"
+    },
+    {
+      "id": "A2.1",
+      "board": "A",
+      "depth": 2,
+      "title": "位置与质量参数",
+      "role": "核心",
+      "summary": "M≥m>0，小物块位于墙和大物块之间。"
+    },
+    {
+      "id": "A2.2",
+      "board": "A",
+      "depth": 2,
+      "title": "初速度设置",
+      "role": "核心",
+      "summary": "大物块以−V向左，小物块静止。"
+    },
+    {
+      "id": "A2.3",
+      "board": "A",
+      "depth": 2,
+      "title": "理想化条件",
+      "role": "核心",
+      "summary": "无摩擦、完全弹性、一维、固定墙。"
+    },
+    {
+      "id": "A2.4",
+      "board": "A",
+      "depth": 2,
+      "title": "控制变量与参数范围",
+      "role": "工具",
+      "summary": "改变质量比时保持其他初始条件一致。"
+    },
+    {
+      "id": "A3",
+      "board": "A",
+      "depth": 1,
+      "title": "第一次碰撞后的物理量变化",
+      "role": "核心",
+      "summary": "观察速度、方向、动量和动能如何重新分配。"
+    },
+    {
+      "id": "A3.1",
+      "board": "A",
+      "depth": 2,
+      "title": "碰撞前后状态快照",
+      "role": "核心",
+      "summary": "用同一组变量记录碰撞前后。"
+    },
+    {
+      "id": "A3.2",
+      "board": "A",
+      "depth": 2,
+      "title": "质量比影响速度分配",
+      "role": "核心",
+      "summary": "区分M>m、M=m和边界情况。"
+    },
+    {
+      "id": "A3.3",
+      "board": "A",
+      "depth": 2,
+      "title": "单体变化与系统总量",
+      "role": "工具",
+      "summary": "单体改变不等于系统总量改变。"
+    },
+    {
+      "id": "A3.4",
+      "board": "A",
+      "depth": 2,
+      "title": "第一次碰撞产生下一事件",
+      "role": "核心",
+      "summary": "小物块获得向墙运动的速度。"
+    },
+    {
+      "id": "A4",
+      "board": "A",
+      "depth": 1,
+      "title": "后续碰撞的原因与事件链",
+      "role": "核心",
+      "summary": "追踪物块碰撞、墙碰撞和自由运动的循环。"
+    },
+    {
+      "id": "A4.1",
+      "board": "A",
+      "depth": 2,
+      "title": "理想墙壁的速度反射",
+      "role": "核心",
+      "summary": "小物块速度v变为−v。"
+    },
+    {
+      "id": "A4.2",
+      "board": "A",
+      "depth": 2,
+      "title": "再次追上大物块的条件",
+      "role": "核心",
+      "summary": "比较两个物块的位置和速度。"
+    },
+    {
+      "id": "A4.3",
+      "board": "A",
+      "depth": 2,
+      "title": "两类碰撞交替与状态表",
+      "role": "工具",
+      "summary": "逐次保存事件编号和速度状态。"
+    },
+    {
+      "id": "A4.4",
+      "board": "A",
+      "depth": 2,
+      "title": "不同质量比的现象比较",
+      "role": "核心",
+      "summary": "比较1、100、10000及任意质量比。"
+    },
+    {
+      "id": "A4.5",
+      "board": "A",
+      "depth": 2,
+      "title": "无限质量与固定墙的区别",
+      "role": "边界",
+      "summary": "极限类比可用，但系统边界不同。"
+    },
+    {
+      "id": "A4.6",
+      "board": "A",
+      "depth": 2,
+      "title": "极端质量比的实验限制",
+      "role": "拓展",
+      "summary": "高速、密集碰撞、摩擦和测量分辨率。"
+    },
+    {
+      "id": "A5",
+      "board": "A",
+      "depth": 1,
+      "title": "碰撞结束原因与状态",
+      "role": "核心",
+      "summary": "两物块仍可运动，但不再发生接触。"
+    },
+    {
+      "id": "A5.1",
+      "board": "A",
+      "depth": 2,
+      "title": "不再撞墙的条件",
+      "role": "核心",
+      "summary": "小物块速度不再向左。"
+    },
+    {
+      "id": "A5.2",
+      "board": "A",
+      "depth": 2,
+      "title": "不再追上的条件",
+      "role": "核心",
+      "summary": "大物块向右且不比小物块慢。"
+    },
+    {
+      "id": "A5.3",
+      "board": "A",
+      "depth": 2,
+      "title": "终止判据 vM≥vm≥0",
+      "role": "核心",
+      "summary": "用速度关系判断事件链结束。"
+    },
+    {
+      "id": "A5.4",
+      "board": "A",
+      "depth": 2,
+      "title": "有限碰撞与持续运动的区别",
+      "role": "边界",
+      "summary": "结束不是静止。"
+    },
+    {
+      "id": "A6",
+      "board": "A",
+      "depth": 1,
+      "title": "碰撞次数与π的现象关系",
+      "role": "核心",
+      "summary": "先读出规律，再把原因交给B、C、D。"
+    },
+    {
+      "id": "A6.1",
+      "board": "A",
+      "depth": 2,
+      "title": "质量比—碰撞次数表",
+      "role": "核心",
+      "summary": "1→3，100→31，10000→314。"
+    },
+    {
+      "id": "A6.2",
+      "board": "A",
+      "depth": 2,
+      "title": "100ⁿ与π前n+1个数字",
+      "role": "核心",
+      "summary": "也可表述为整数位加小数点后n位。"
+    },
+    {
+      "id": "A6.3",
+      "board": "A",
+      "depth": 2,
+      "title": "观察规律与证明的区别",
+      "role": "边界",
+      "summary": "看到数字不等于建立数学关系。"
+    },
+    {
+      "id": "A6.4",
+      "board": "A",
+      "depth": 2,
+      "title": "精确关系与近似关系的疑问",
+      "role": "边界",
+      "summary": "为D中的误差与整数稳定留下问题。"
+    },
+    {
+      "id": "B1",
+      "board": "B",
+      "depth": 1,
+      "title": "动量",
+      "role": "核心",
+      "summary": "建立有方向的运动量及系统守恒。"
+    },
+    {
+      "id": "B1.1",
+      "board": "B",
+      "depth": 2,
+      "title": "动量p=mv与方向",
+      "role": "核心",
+      "summary": "速度符号决定动量方向。"
+    },
+    {
+      "id": "B1.2",
+      "board": "B",
+      "depth": 2,
+      "title": "单体动量与系统总动量",
+      "role": "核心",
+      "summary": "区分局部变化和总量约束。"
+    },
+    {
+      "id": "B1.3",
+      "board": "B",
+      "depth": 2,
+      "title": "冲量与动量变化",
+      "role": "工具",
+      "summary": "I=Δp，内部冲量成对出现。"
+    },
+    {
+      "id": "B1.4",
+      "board": "B",
+      "depth": 2,
+      "title": "动量守恒条件",
+      "role": "核心",
+      "summary": "选定系统外部总冲量可忽略。"
+    },
+    {
+      "id": "B1.5",
+      "board": "B",
+      "depth": 2,
+      "title": "两物块动量守恒式",
+      "role": "核心",
+      "summary": "MuM+mum=MvM+mvm。"
+    },
+    {
+      "id": "B1.6",
+      "board": "B",
+      "depth": 2,
+      "title": "撞墙时的系统边界",
+      "role": "边界",
+      "summary": "墙对两物块系统提供外部冲量。"
+    },
+    {
+      "id": "B2",
+      "board": "B",
+      "depth": 1,
+      "title": "动能",
+      "role": "核心",
+      "summary": "建立完全弹性碰撞中的第二个约束。"
+    },
+    {
+      "id": "B2.1",
+      "board": "B",
+      "depth": 2,
+      "title": "动能K=½mv²",
+      "role": "核心",
+      "summary": "速度平方使动能没有方向。"
+    },
+    {
+      "id": "B2.2",
+      "board": "B",
+      "depth": 2,
+      "title": "碰撞中的能量转化",
+      "role": "工具",
+      "summary": "真实碰撞可转化为热、声和形变。"
+    },
+    {
+      "id": "B2.3",
+      "board": "B",
+      "depth": 2,
+      "title": "完全弹性与动能守恒",
+      "role": "核心",
+      "summary": "模型规定两物块总动能不变。"
+    },
+    {
+      "id": "B2.4",
+      "board": "B",
+      "depth": 2,
+      "title": "两物块动能守恒式",
+      "role": "核心",
+      "summary": "MuM²+mum²=MvM²+mvm²。"
+    },
+    {
+      "id": "B2.5",
+      "board": "B",
+      "depth": 2,
+      "title": "动量与动能的区别",
+      "role": "核心",
+      "summary": "线性/二次、有方向/无方向。"
+    },
+    {
+      "id": "B2.6",
+      "board": "B",
+      "depth": 2,
+      "title": "恢复系数e",
+      "role": "拓展",
+      "summary": "用e=1描述完全弹性。"
+    },
+    {
+      "id": "B3",
+      "board": "B",
+      "depth": 1,
+      "title": "碰撞物理模型构建",
+      "role": "核心",
+      "summary": "把假设、变量、事件规则和终止条件组成状态机。"
+    },
+    {
+      "id": "B3.1",
+      "board": "B",
+      "depth": 2,
+      "title": "研究对象与系统边界",
+      "role": "核心",
+      "summary": "不同事件使用合适的观察系统。"
+    },
+    {
+      "id": "B3.2",
+      "board": "B",
+      "depth": 2,
+      "title": "符号、初始条件和参数",
+      "role": "核心",
+      "summary": "统一M、m、位置和碰撞前后速度。"
+    },
+    {
+      "id": "B3.3",
+      "board": "B",
+      "depth": 2,
+      "title": "两物块碰撞规则",
+      "role": "核心",
+      "summary": "联立两个守恒式更新速度。"
+    },
+    {
+      "id": "B3.4",
+      "board": "B",
+      "depth": 2,
+      "title": "撞墙与自由运动规则",
+      "role": "核心",
+      "summary": "速度反向或保持匀速。"
+    },
+    {
+      "id": "B3.5",
+      "board": "B",
+      "depth": 2,
+      "title": "事件判断、计数和终止",
+      "role": "核心",
+      "summary": "决定下一次更新或结束。"
+    },
+    {
+      "id": "B3.6",
+      "board": "B",
+      "depth": 2,
+      "title": "模型适用范围与现实偏差",
+      "role": "边界",
+      "summary": "摩擦、非弹性、可动墙等会改变结论。"
+    },
+    {
+      "id": "B4",
+      "board": "B",
+      "depth": 1,
+      "title": "联立方程求碰撞后速度",
+      "role": "核心",
+      "summary": "建立从一次碰撞输入到输出的计算机器。"
+    },
+    {
+      "id": "B4.1",
+      "board": "B",
+      "depth": 2,
+      "title": "碰撞前后变量与两个未知数",
+      "role": "核心",
+      "summary": "输入uM、um，输出vM、vm。"
+    },
+    {
+      "id": "B4.2",
+      "board": "B",
+      "depth": 2,
+      "title": "代入消元法",
+      "role": "工具",
+      "summary": "从动量式消去一个未知量。"
+    },
+    {
+      "id": "B4.3",
+      "board": "B",
+      "depth": 2,
+      "title": "平方差分解法",
+      "role": "工具",
+      "summary": "结合两个守恒式减少二次运算。"
+    },
+    {
+      "id": "B4.4",
+      "board": "B",
+      "depth": 2,
+      "title": "相对速度反向关系",
+      "role": "核心",
+      "summary": "碰后分离速度等于碰前接近速度。"
+    },
+    {
+      "id": "B4.5",
+      "board": "B",
+      "depth": 2,
+      "title": "碰撞后速度通式",
+      "role": "核心",
+      "summary": "适用于任意一次一维完全弹性碰撞。"
+    },
+    {
+      "id": "B4.6",
+      "board": "B",
+      "depth": 2,
+      "title": "典型质量比代入与验证",
+      "role": "工具",
+      "summary": "检查守恒、方向和极限趋势。"
+    },
+    {
+      "id": "B4.7",
+      "board": "B",
+      "depth": 2,
+      "title": "连续碰撞递推",
+      "role": "核心",
+      "summary": "碰撞通式与墙反射交替更新。"
+    },
+    {
+      "id": "B4.8",
+      "board": "B",
+      "depth": 2,
+      "title": "直线与椭圆的两个交点",
+      "role": "核心",
+      "summary": "碰前、碰后状态成为两个交点，进入C。"
+    },
+    {
+      "id": "C1",
+      "board": "C",
+      "depth": 1,
+      "title": "速度相空间与状态点",
+      "role": "核心",
+      "summary": "把一对速度写成平面上的一个点。"
+    },
+    {
+      "id": "C1.1",
+      "board": "C",
+      "depth": 2,
+      "title": "速度坐标(vM,vm)",
+      "role": "核心",
+      "summary": "横纵轴分别记录两个物块速度。"
+    },
+    {
+      "id": "C1.2",
+      "board": "C",
+      "depth": 2,
+      "title": "象限与运动方向",
+      "role": "工具",
+      "summary": "坐标正负对应两个物块的运动方向。"
+    },
+    {
+      "id": "C1.3",
+      "board": "C",
+      "depth": 2,
+      "title": "状态轨迹与真实位置轨迹",
+      "role": "边界",
+      "summary": "相图移动表示速度改变，不是物块空间路径。"
+    },
+    {
+      "id": "C1.4",
+      "board": "C",
+      "depth": 2,
+      "title": "初始点与终止区域",
+      "role": "核心",
+      "summary": "标出(-V,0)和不再碰撞的速度区域。"
+    },
+    {
+      "id": "C2",
+      "board": "C",
+      "depth": 1,
+      "title": "动能守恒的几何图像",
+      "role": "核心",
+      "summary": "同一总动能形成以原点为中心的椭圆。"
+    },
+    {
+      "id": "C2.1",
+      "board": "C",
+      "depth": 2,
+      "title": "能量方程对应椭圆",
+      "role": "核心",
+      "summary": "MvM²+mvm²=常数。"
+    },
+    {
+      "id": "C2.2",
+      "board": "C",
+      "depth": 2,
+      "title": "长短轴与质量的关系",
+      "role": "工具",
+      "summary": "质量系数决定两个方向的刻度。"
+    },
+    {
+      "id": "C2.3",
+      "board": "C",
+      "depth": 2,
+      "title": "同一椭圆上的状态含义",
+      "role": "核心",
+      "summary": "不同速度分配共享同一总动能。"
+    },
+    {
+      "id": "C3",
+      "board": "C",
+      "depth": 1,
+      "title": "质量加权坐标缩放",
+      "role": "核心",
+      "summary": "用质量平方根把能量椭圆变成圆。"
+    },
+    {
+      "id": "C3.1",
+      "board": "C",
+      "depth": 2,
+      "title": "x=√M·vM，y=√m·vm",
+      "role": "核心",
+      "summary": "定义新坐标。"
+    },
+    {
+      "id": "C3.2",
+      "board": "C",
+      "depth": 2,
+      "title": "为什么必须乘√质量",
+      "role": "核心",
+      "summary": "使质量系数吸收到平方项。"
+    },
+    {
+      "id": "C3.3",
+      "board": "C",
+      "depth": 2,
+      "title": "椭圆变圆 x²+y²=2E",
+      "role": "核心",
+      "summary": "圆的半径由总动能决定。"
+    },
+    {
+      "id": "C3.4",
+      "board": "C",
+      "depth": 2,
+      "title": "换刻度不改变物理状态",
+      "role": "边界",
+      "summary": "表示方式改变，原碰撞状态不变。"
+    },
+    {
+      "id": "C3.5",
+      "board": "C",
+      "depth": 2,
+      "title": "二次型标准化",
+      "role": "拓展",
+      "summary": "推广为z=M¹ᐟ²v。"
+    },
+    {
+      "id": "C4",
+      "board": "C",
+      "depth": 1,
+      "title": "动量直线与碰撞弦",
+      "role": "核心",
+      "summary": "同一次物块碰撞的两个状态位于同一直线与圆的交点。"
+    },
+    {
+      "id": "C4.1",
+      "board": "C",
+      "depth": 2,
+      "title": "缩放后的动量直线",
+      "role": "核心",
+      "summary": "√M·x+√m·y=P。"
+    },
+    {
+      "id": "C4.2",
+      "board": "C",
+      "depth": 2,
+      "title": "斜率−√(M/m)",
+      "role": "核心",
+      "summary": "质量比决定直线方向。"
+    },
+    {
+      "id": "C4.3",
+      "board": "C",
+      "depth": 2,
+      "title": "连续动量直线互相平行",
+      "role": "核心",
+      "summary": "撞墙改变P，但质量系数不变。"
+    },
+    {
+      "id": "C4.4",
+      "board": "C",
+      "depth": 2,
+      "title": "两个交点对应碰前与碰后",
+      "role": "核心",
+      "summary": "一次物块碰撞是沿弦跳到另一端。"
+    },
+    {
+      "id": "C5",
+      "board": "C",
+      "depth": 1,
+      "title": "墙壁碰撞的几何反射",
+      "role": "核心",
+      "summary": "小物块速度变号，对应状态点关于x轴反射。"
+    },
+    {
+      "id": "C5.1",
+      "board": "C",
+      "depth": 2,
+      "title": "y→−y",
+      "role": "核心",
+      "summary": "大物块速度不变，小物块速度反向。"
+    },
+    {
+      "id": "C5.2",
+      "board": "C",
+      "depth": 2,
+      "title": "反射保持能量圆",
+      "role": "核心",
+      "summary": "坐标点仍位于同一圆上。"
+    },
+    {
+      "id": "C5.3",
+      "board": "C",
+      "depth": 2,
+      "title": "墙反射与物块弦跳交替",
+      "role": "核心",
+      "summary": "组成完整相空间演化。"
+    },
+    {
+      "id": "C6",
+      "board": "C",
+      "depth": 1,
+      "title": "完整状态演化与终止区域",
+      "role": "核心",
+      "summary": "从初始点逐次追踪到安全区域。"
+    },
+    {
+      "id": "C6.1",
+      "board": "C",
+      "depth": 2,
+      "title": "初始状态点定位",
+      "role": "核心",
+      "summary": "大物块左行、小物块静止。"
+    },
+    {
+      "id": "C6.2",
+      "board": "C",
+      "depth": 2,
+      "title": "逐次跳点与碰撞计数",
+      "role": "核心",
+      "summary": "一次物理碰撞对应一次状态更新。"
+    },
+    {
+      "id": "C6.3",
+      "board": "C",
+      "depth": 2,
+      "title": "右侧安全区域的物理意义",
+      "role": "核心",
+      "summary": "满足vM≥vm≥0。"
+    },
+    {
+      "id": "C6.4",
+      "board": "C",
+      "depth": 2,
+      "title": "几何计数与物理计数一致",
+      "role": "边界",
+      "summary": "必须确认每次边界或弦跳都对应一次碰撞。"
+    },
+    {
+      "id": "C7",
+      "board": "C",
+      "depth": 1,
+      "title": "等角跳跃与圆弧计数",
+      "role": "核心",
+      "summary": "平行弦和圆周角关系使状态点等角前进。"
+    },
+    {
+      "id": "C7.1",
+      "board": "C",
+      "depth": 2,
+      "title": "质量比定义角θ",
+      "role": "核心",
+      "summary": "直线方向决定基础角度。"
+    },
+    {
+      "id": "C7.2",
+      "board": "C",
+      "depth": 2,
+      "title": "平行弦与圆周角",
+      "role": "核心",
+      "summary": "相同方向的弦截出相等角关系。"
+    },
+    {
+      "id": "C7.3",
+      "board": "C",
+      "depth": 2,
+      "title": "相邻状态间隔2θ",
+      "role": "核心",
+      "summary": "每次更新推进固定角度。"
+    },
+    {
+      "id": "C7.4",
+      "board": "C",
+      "depth": 2,
+      "title": "半周、整周与π的来源",
+      "role": "核心",
+      "summary": "圆的角度总量把π带入计数。"
+    },
+    {
+      "id": "C8",
+      "board": "C",
+      "depth": 1,
+      "title": "图像元素的物理意义总表",
+      "role": "工具",
+      "summary": "统一解释坐标轴、点、圆、直线、弦、弧、角和安全区。"
+    },
+    {
+      "id": "C8.1",
+      "board": "C",
+      "depth": 2,
+      "title": "坐标轴、象限与状态点",
+      "role": "工具",
+      "summary": "读出两个物块速度。"
+    },
+    {
+      "id": "C8.2",
+      "board": "C",
+      "depth": 2,
+      "title": "圆、弦、交点与反射",
+      "role": "工具",
+      "summary": "分别对应能量、动量和碰撞更新。"
+    },
+    {
+      "id": "C8.3",
+      "board": "C",
+      "depth": 2,
+      "title": "θ、2θ、弧段与计数",
+      "role": "工具",
+      "summary": "区分基础角和一次跳跃角。"
+    },
+    {
+      "id": "C9",
+      "board": "C",
+      "depth": 1,
+      "title": "光线反射法",
+      "role": "选修",
+      "summary": "用位置空间的楔形台球与镜面展开得到同一计数。"
+    },
+    {
+      "id": "C9.1",
+      "board": "C",
+      "depth": 2,
+      "title": "位置坐标与允许区域",
+      "role": "选修",
+      "summary": "两个位置和墙形成楔形边界。"
+    },
+    {
+      "id": "C9.2",
+      "board": "C",
+      "depth": 2,
+      "title": "质量加权位置缩放",
+      "role": "选修",
+      "summary": "使碰撞反射满足普通镜面反射。"
+    },
+    {
+      "id": "C9.3",
+      "board": "C",
+      "depth": 2,
+      "title": "两类碰撞对应两条边界",
+      "role": "选修",
+      "summary": "撞墙或物块相撞都是碰到楔形边。"
+    },
+    {
+      "id": "C9.4",
+      "board": "C",
+      "depth": 2,
+      "title": "镜面展开把折线拉直",
+      "role": "选修",
+      "summary": "反射楔形而不是反射轨迹。"
+    },
+    {
+      "id": "C9.5",
+      "board": "C",
+      "depth": 2,
+      "title": "直线穿越扇区与碰撞计数",
+      "role": "选修",
+      "summary": "每穿过一条展开边界计一次。"
+    },
+    {
+      "id": "C9.6",
+      "board": "C",
+      "depth": 2,
+      "title": "楔形角θ与质量比",
+      "role": "选修",
+      "summary": "θ=arctan√(m/M)。"
+    },
+    {
+      "id": "C9.7",
+      "board": "C",
+      "depth": 2,
+      "title": "与速度相空间法的对应",
+      "role": "选修",
+      "summary": "两条证明共享质量加权角度结构。"
+    },
+    {
+      "id": "D1",
+      "board": "D",
+      "depth": 1,
+      "title": "从质量比计算几何角θ",
+      "role": "核心",
+      "summary": "把质量参数变成可用于计数的角度。"
+    },
+    {
+      "id": "D1.1",
+      "board": "D",
+      "depth": 2,
+      "title": "读取动量直线斜率",
+      "role": "核心",
+      "summary": "k=−√(M/m)。"
+    },
+    {
+      "id": "D1.2",
+      "board": "D",
+      "depth": 2,
+      "title": "确定角度定义",
+      "role": "核心",
+      "summary": "明确θ与坐标轴、直线或楔形边的关系。"
+    },
+    {
+      "id": "D1.3",
+      "board": "D",
+      "depth": 2,
+      "title": "θ=arctan√(m/M)",
+      "role": "核心",
+      "summary": "由斜率得到质量比的角度表达。"
+    },
+    {
+      "id": "D1.4",
+      "board": "D",
+      "depth": 2,
+      "title": "质量比越大、θ越小",
+      "role": "核心",
+      "summary": "更小步幅产生更多碰撞。"
+    },
+    {
+      "id": "D2",
+      "board": "D",
+      "depth": 1,
+      "title": "从固定角度计算碰撞次数",
+      "role": "核心",
+      "summary": "把连续碰撞变成有限角度范围内的步数问题。"
+    },
+    {
+      "id": "D2.1",
+      "board": "D",
+      "depth": 2,
+      "title": "一次碰撞对应一次角度推进",
+      "role": "核心",
+      "summary": "由C确认物理事件与几何步数一致。"
+    },
+    {
+      "id": "D2.2",
+      "board": "D",
+      "depth": 2,
+      "title": "可用总角度范围π",
+      "role": "核心",
+      "summary": "从起始方向推进到终止边界。"
+    },
+    {
+      "id": "D2.3",
+      "board": "D",
+      "depth": 2,
+      "title": "严格计数不等式",
+      "role": "核心",
+      "summary": "Nθ<π≤(N+1)θ。"
+    },
+    {
+      "id": "D2.4",
+      "board": "D",
+      "depth": 2,
+      "title": "N=ceil(π/θ)−1",
+      "role": "边界",
+      "summary": "统一处理π/θ恰为整数的情况。"
+    },
+    {
+      "id": "D2.5",
+      "board": "D",
+      "depth": 2,
+      "title": "非整数时等价于floor(π/θ)",
+      "role": "工具",
+      "summary": "解释常见公式的适用条件。"
+    },
+    {
+      "id": "D2.6",
+      "board": "D",
+      "depth": 2,
+      "title": "1:1质量比的边界案例",
+      "role": "边界",
+      "summary": "θ=π/4时应得到3次而不是4次。"
+    },
+    {
+      "id": "D3",
+      "board": "D",
+      "depth": 1,
+      "title": "代入100ⁿ质量比",
+      "role": "核心",
+      "summary": "把平方根质量比变成十进制位移。"
+    },
+    {
+      "id": "D3.1",
+      "board": "D",
+      "depth": 2,
+      "title": "M/m=100ⁿ",
+      "role": "核心",
+      "summary": "设定生成十进制π数字的质量比。"
+    },
+    {
+      "id": "D3.2",
+      "board": "D",
+      "depth": 2,
+      "title": "√(m/M)=10⁻ⁿ",
+      "role": "核心",
+      "summary": "平方根把100ⁿ变成10ⁿ。"
+    },
+    {
+      "id": "D3.3",
+      "board": "D",
+      "depth": 2,
+      "title": "θ=arctan(10⁻ⁿ)",
+      "role": "核心",
+      "summary": "得到精确角度表达。"
+    },
+    {
+      "id": "D3.4",
+      "board": "D",
+      "depth": 2,
+      "title": "精确碰撞次数表达式",
+      "role": "核心",
+      "summary": "将精确θ代入计数公式。"
+    },
+    {
+      "id": "D4",
+      "board": "D",
+      "depth": 1,
+      "title": "小角度近似",
+      "role": "核心",
+      "summary": "解释arctan(10⁻ⁿ)为何接近10⁻ⁿ。"
+    },
+    {
+      "id": "D4.1",
+      "board": "D",
+      "depth": 2,
+      "title": "弧度制下tanθ≈θ",
+      "role": "核心",
+      "summary": "小角时弧、切线和高度接近。"
+    },
+    {
+      "id": "D4.2",
+      "board": "D",
+      "depth": 2,
+      "title": "arctan x≈x",
+      "role": "核心",
+      "summary": "得到θ≈10⁻ⁿ。"
+    },
+    {
+      "id": "D4.3",
+      "board": "D",
+      "depth": 2,
+      "title": "泰勒展开x−x³/3+…",
+      "role": "拓展",
+      "summary": "给出近似误差的数量级。"
+    },
+    {
+      "id": "D4.4",
+      "board": "D",
+      "depth": 2,
+      "title": "近似方向与误差界",
+      "role": "边界",
+      "summary": "arctan x略小于x，计数值略大于π·10ⁿ。"
+    },
+    {
+      "id": "D5",
+      "board": "D",
+      "depth": 1,
+      "title": "π的位数关系",
+      "role": "核心",
+      "summary": "把角度计数转换成十进制数字。"
+    },
+    {
+      "id": "D5.1",
+      "board": "D",
+      "depth": 2,
+      "title": "π/θ≈π·10ⁿ",
+      "role": "核心",
+      "summary": "除以10⁻ⁿ等于小数点右移n位。"
+    },
+    {
+      "id": "D5.2",
+      "board": "D",
+      "depth": 2,
+      "title": "整数计数与截取数字",
+      "role": "核心",
+      "summary": "目标值floor(π·10ⁿ)给出前n+1位。"
+    },
+    {
+      "id": "D5.3",
+      "board": "D",
+      "depth": 2,
+      "title": "n=0、1、2、3的完整计算",
+      "role": "核心",
+      "summary": "分别得到3、31、314、3141。"
+    },
+    {
+      "id": "D5.4",
+      "board": "D",
+      "depth": 2,
+      "title": "整数稳定条件",
+      "role": "边界",
+      "summary": "近似误差不能跨过下一个整数。"
+    },
+    {
+      "id": "D5.5",
+      "board": "D",
+      "depth": 2,
+      "title": "“任意n都成立”的证据边界",
+      "role": "边界",
+      "summary": "小角近似本身不足以证明所有位数永远稳定。"
+    },
+    {
+      "id": "D6",
+      "board": "D",
+      "depth": 1,
+      "title": "精确计算、验证与一般化",
+      "role": "工具",
+      "summary": "用多条路线验证结果并探索参数变化。"
+    },
+    {
+      "id": "D6.1",
+      "board": "D",
+      "depth": 2,
+      "title": "精确反正切数值验证",
+      "role": "工具",
+      "summary": "直接计算θ和N。"
+    },
+    {
+      "id": "D6.2",
+      "board": "D",
+      "depth": 2,
+      "title": "速度递推模拟验证",
+      "role": "工具",
+      "summary": "逐次应用B的碰撞规则计数。"
+    },
+    {
+      "id": "D6.3",
+      "board": "D",
+      "depth": 2,
+      "title": "相空间角度验证",
+      "role": "工具",
+      "summary": "比较几何计数与数值递推。"
+    },
+    {
+      "id": "D6.4",
+      "board": "D",
+      "depth": 2,
+      "title": "初速度大小为何不改变次数",
+      "role": "拓展",
+      "summary": "速度缩放只改变能量圆半径。"
+    },
+    {
+      "id": "D6.5",
+      "board": "D",
+      "depth": 2,
+      "title": "任意质量比的碰撞次数",
+      "role": "拓展",
+      "summary": "不要求结果组成π的十进制数字。"
+    },
+    {
+      "id": "D6.6",
+      "board": "D",
+      "depth": 2,
+      "title": "其他进制的质量比设计",
+      "role": "拓展",
+      "summary": "质量比b²ⁿ对应基数b的位移结构。"
+    },
+    {
+      "id": "D6.7",
+      "board": "D",
+      "depth": 2,
+      "title": "摩擦、非弹性和可动墙",
+      "role": "拓展",
+      "summary": "观察理想结论如何失效。"
+    }
+  ]
+}
