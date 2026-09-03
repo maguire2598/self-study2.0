@@ -5605,7 +5605,7 @@
           "variant_axis": "momentum",
           "curriculum_scope": "core",
           "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。 本题具体检验：区分弦方向与圆周轨迹。",
-          "ask": "动量线平行：到墙前读数的质量加权平面动量线对应M/m=1/1且总动量为零；围绕“区分弦方向与圆周轨迹”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "ask": "动量线平行：到墙前读数的质量加权平面动量线对应M/m=16/1且总动量为零；围绕“区分弦方向与圆周轨迹”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-4.0。",
@@ -5881,12 +5881,12 @@
           "ask": "零动量交点：图示质量加权平面对应M/m=4/1且P=0；围绕“定位动量线的原点交点”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "动量直线斜率为-1.0。",
-              "correct": false,
+              "text": "动量直线斜率为-2.0。",
+              "correct": true,
               "id": "A"
             },
             {
-              "text": "同一总动量的直线斜率应为-3.0。",
+              "text": "同一总动量的直线斜率应为2.0。",
               "correct": false,
               "id": "B"
             },
@@ -5896,8 +5896,8 @@
               "id": "C"
             },
             {
-              "text": "动量直线斜率为-2.0。",
-              "correct": true,
+              "text": "动量直线斜率为2.0。",
+              "correct": false,
               "id": "D"
             }
           ],
@@ -5917,7 +5917,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -1.0
+                    "asserted_slope": -2.0
                   }
                 }
               },
@@ -5929,7 +5929,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -3.0
+                    "asserted_slope": 2.0
                   }
                 }
               },
@@ -5952,7 +5952,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_slope": -2.0
+                    "asserted_slope": 2.0
                   }
                 }
               }
@@ -11151,8 +11151,8 @@
           "ask": "弦与步长：相撞后读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“区分弦方向角与一次完整事件对的2theta步长”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为2，剩余物理碰撞为0，总物理碰撞数为4。",
-              "correct": false,
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
+              "correct": true,
               "id": "A"
             },
             {
@@ -11161,8 +11161,8 @@
               "id": "B"
             },
             {
-              "text": "一次完整事件对在圆上推进0.927295 rad。",
-              "correct": true,
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "correct": false,
               "id": "C"
             },
             {
@@ -11188,9 +11188,9 @@
                     "mass_large": 4,
                     "mass_small": 1,
                     "span": 3.141592653589793,
-                    "asserted_pairs": 2,
+                    "asserted_pairs": 3,
                     "asserted_residual": 0,
-                    "asserted_collisions": 4
+                    "asserted_collisions": 6
                   }
                 }
               },
@@ -11214,7 +11214,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.9272952180016122
+                    "asserted_step": 0.4636476090008061
                   }
                 }
               },
@@ -11246,8 +11246,8 @@
           "ask": "等角推进：相撞后读数的质量加权图对应M/m=4/1，theta=arctan√(m/M)，弦方向角以+x轴为参照。围绕“区分弦方向角与一次完整事件对的2theta步长”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
-              "text": "完整事件对数为2，剩余物理碰撞为0，总物理碰撞数为4。",
-              "correct": false,
+              "text": "完整事件对数为3，剩余物理碰撞为0，总物理碰撞数为6。",
+              "correct": true,
               "id": "A"
             },
             {
@@ -11256,8 +11256,8 @@
               "id": "B"
             },
             {
-              "text": "一次完整事件对在圆上推进0.927295 rad。",
-              "correct": true,
+              "text": "一次完整事件对在圆上推进0.463648 rad。",
+              "correct": false,
               "id": "C"
             },
             {
@@ -11283,9 +11283,9 @@
                     "mass_large": 4,
                     "mass_small": 1,
                     "span": 3.141592653589793,
-                    "asserted_pairs": 2,
+                    "asserted_pairs": 3,
                     "asserted_residual": 0,
-                    "asserted_collisions": 4
+                    "asserted_collisions": 6
                   }
                 }
               },
@@ -11309,7 +11309,7 @@
                   "parameters": {
                     "mass_large": 4,
                     "mass_small": 1,
-                    "asserted_step": 0.9272952180016122
+                    "asserted_step": 0.4636476090008061
                   }
                 }
               },
