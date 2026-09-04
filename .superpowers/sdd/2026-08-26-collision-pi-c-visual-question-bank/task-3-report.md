@@ -636,3 +636,83 @@ clean after committing the test/semantic-validator changes.
 ## Concerns
 
 None.
+
+---
+
+# Fix round 9 — Chinese ratio, momentum, and origin-proposition parsing
+
+## Repairs
+
+- Extended the student-visible mass-ratio parser with the `M:m=a:b` family,
+  including ASCII/Chinese colons, mixed colon glyphs, spaces, and full-width
+  equals. Existing slash, separate-assignment, and “4m与m” forms remain valid.
+  Conflicting ratios are ambiguous, while zero, negative, malformed, and
+  missing ratios fail the safe-sector contract.
+- Extended numeric momentum parsing in both stem and explanation to accept
+  ASCII/full-width equals and “总动量为/是” phrasing with optional spaces,
+  punctuation, and units. The symbolic parser excludes identifiers such as
+  `ΔP=...`, and question-like prose such as “总动量是否为...” is not treated as
+  an asserted momentum value.
+- Replaced the origin substring check with a polarity classifier for
+  `通过/穿过/经过原点` and explicit negations. Nonzero-only figures reject
+  positive origin claims; zero-only figures reject negative claims; mixed
+  zero/nonzero figures reject generic origin claims as ambiguous. The double
+  negation “不是不通过原点” is deliberately rejected rather than guessed.
+
+## TDD evidence
+
+RED before the mass-ratio and momentum parser changes:
+
+```text
+python -m unittest tests.test_question_source_c.QuestionSourceCTests.test_safe_sector_contract_masses_are_bound_to_the_visible_ratio tests.test_question_source_c.QuestionSourceCTests.test_momentum_statements_in_stem_and_explanation_match_the_figure -v
+
+Ran 2 tests in 0.014s
+FAILED (failures=2)
+- M:m=16:1 conflict was accepted
+- P＝999 was accepted
+```
+
+RED before the origin proposition classifier:
+
+```text
+python -m unittest tests.test_question_source_c.QuestionSourceCTests.test_origin_propositions_respect_crossing_and_negation_semantics -v
+
+Ran 1 test in 0.011s
+FAILED (failures=5)
+- 穿过原点 and 经过原点 were accepted on a nonzero line
+- 并非通过原点 and 不会通过原点 were rejected on a nonzero line
+- 不是不通过原点 was accepted instead of rejected as ambiguous
+```
+
+GREEN:
+
+```text
+python -m unittest tests.test_question_source_c.QuestionSourceCTests.test_safe_sector_contract_masses_are_bound_to_the_visible_ratio tests.test_question_source_c.QuestionSourceCTests.test_momentum_statements_in_stem_and_explanation_match_the_figure tests.test_question_source_c.QuestionSourceCTests.test_origin_propositions_respect_crossing_and_negation_semantics -v
+Ran 3 tests in 0.018s ... OK
+
+python -m unittest tests.test_question_source_c -q
+Ran 43 tests in 17.909s ... OK
+```
+
+## Verification and fresh audit
+
+```text
+Three C checkpoints: 3 tests ... OK (66 / 66 / 48)
+Test-Json C source schema: True
+
+C expansion/formal schema, manifest rejection, A byte parity, B generator
+parity, A/B formal strictness, and C diagram determinism: 6 tests ... OK
+
+AUDIT safe_sector_questions=18 p_bearing_records=19
+AUDIT momentum_stem_figures=7 stem_figures=72
+AUDIT all_safe_ratios_and_all_stem_figures_compatible=True
+
+python -m unittest discover -s tests -q
+Ran 157 tests in 30.892s ... OK
+```
+
+No question, diagram, schema, generator, or A/B asset changed in this round.
+
+## Concerns
+
+None.

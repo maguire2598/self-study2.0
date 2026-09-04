@@ -379,8 +379,9 @@ def _visible_mass_ratios(text):
     """Return the distinct explicit (M, m) pairs supplied to the student."""
     pairs = []
     patterns = (
-        rf"M\s*/\s*m\s*=\s*({VISIBLE_NUMBER})\s*/\s*({VISIBLE_NUMBER})",
-        rf"M\s*=\s*({VISIBLE_NUMBER})\s*[、,，]\s*m\s*=\s*({VISIBLE_NUMBER})",
+        rf"M\s*/\s*m\s*[=＝]\s*({VISIBLE_NUMBER})\s*/\s*({VISIBLE_NUMBER})",
+        rf"M\s*[:∶]\s*m\s*[=＝]\s*({VISIBLE_NUMBER})\s*[:∶]\s*({VISIBLE_NUMBER})",
+        rf"M\s*[=＝]\s*({VISIBLE_NUMBER})\s*[、,，]\s*m\s*[=＝]\s*({VISIBLE_NUMBER})",
     )
     for pattern in patterns:
         pairs.extend((float(large.replace("−", "-")), float(small.replace("−", "-")))
@@ -424,11 +425,26 @@ def safe_sector_question_compatibility(question, visible_context=""):
 def visible_momentum_values(text):
     """Parse numeric total-momentum statements in symbolic or Chinese prose form."""
     values = []
-    for value in re.findall(rf"(?<![A-Za-z])P\s*=\s*({VISIBLE_NUMBER})", text):
+    for value in re.findall(rf"(?<![A-Za-z0-9_Δ])P\s*[=＝]\s*({VISIBLE_NUMBER})", text):
         values.append(float(value.replace("−", "-")))
-    for value in re.findall(rf"总动量\s*为\s*({VISIBLE_NUMBER}|零)", text):
+    for value in re.findall(rf"总动量\s*(?:为|是)\s*({VISIBLE_NUMBER}|零)", text):
         values.append(0.0 if value == "零" else float(value.replace("−", "-")))
     return set(values)
+
+
+def origin_propositions(text):
+    """Classify explicit claims about whether a momentum line crosses the origin.
+
+    ``True`` means crosses, ``False`` means does not cross, and ``None`` marks
+    deliberately rejected double-negation/ambiguous wording.
+    """
+    if re.search(r"不是\s*不(?:通过|穿过|经过)原点", text):
+        return None
+    pattern = re.compile(
+        r"(?P<negation>并非|不会|并不|并没有|没有|不是|未|不)?\s*"
+        r"(?P<verb>通过|穿过|经过)原点"
+    )
+    return {match.group("negation") is None for match in pattern.finditer(text)}
 
 
 def stem_figure_compatibility(question, diagram):
@@ -497,7 +513,16 @@ def stem_figure_compatibility(question, diagram):
             return False
         if not explained_values.issubset(visible_values):
             return False
-        if all(value != 0 for value in visible_values) and re.search(r"(?<!不)通过原点|原点交点", text + explanation):
+        propositions = origin_propositions(text + explanation)
+        if propositions is None:
+            return False
+        if all(value == 0 for value in visible_values) and False in propositions:
+            return False
+        if all(value != 0 for value in visible_values) and True in propositions:
+            return False
+        if len(visible_values) > 1 and 0 in visible_values and propositions:
+            # A generic origin proposition is ambiguous when the figure shows
+            # both zero- and nonzero-momentum lines.
             return False
         for option, item in zip(question.get("options", []), claims):
             claim = item["claim"]
@@ -1387,6 +1412,39 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         target["ask"] = target["ask"].replace("M/m=4/1", "M/m=4/1，另有M/m=16/1")
         self.assertFalse(safe_sector_question_compatibility(target, contexts[target["key"]]))
 
+        for conflicting in (
+            "M:m=16:1",
+            "M:m = 16:1",
+            "M∶m=16∶1",
+            "M:m=16∶1",
+        ):
+            target = copy.deepcopy(by_key["c6-2-scenario-05"])
+            target["ask"] += f"，另有{conflicting}"
+            self.assertFalse(
+                safe_sector_question_compatibility(target, contexts[target["key"]]),
+                conflicting,
+            )
+
+        for equivalent in ("M:m=4:1", "M:m = 4 : 1", "M∶m=4∶1", "M:m=4∶1"):
+            target = copy.deepcopy(by_key["c6-2-scenario-05"])
+            target["ask"] = target["ask"].replace("M/m=4/1", equivalent)
+            self.assertTrue(
+                safe_sector_question_compatibility(target, contexts[target["key"]]),
+                equivalent,
+            )
+
+        for invalid in ("M:m=0:1", "M:m=-4:1", "M:m=4:0", "M:m=4:"):
+            target = copy.deepcopy(by_key["c6-2-scenario-05"])
+            target["ask"] = target["ask"].replace("M/m=4/1", invalid)
+            self.assertFalse(
+                safe_sector_question_compatibility(target, contexts[target["key"]]),
+                invalid,
+            )
+
+        target = copy.deepcopy(by_key["c6-2-scenario-05"])
+        target["ask"] += " 提示：先比较速度方向。"
+        self.assertTrue(safe_sector_question_compatibility(target, contexts[target["key"]]))
+
     def test_all_momentum_stem_figures_match_visible_nonzero_lines(self):
         """A momentum stem cannot relabel a visible nonzero line as P=0 or an origin line."""
         _, _, scenario_questions, standalone, _, _ = self.load_source()
@@ -1457,6 +1515,68 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         target = copy.deepcopy(original)
         target["explanation"] += " 该非零动量线通过原点。"
         self.assertFalse(stem_figure_compatibility(target, diagram))
+
+        for visible in ("P＝999", "总动量是999"):
+            target = copy.deepcopy(original)
+            target["ask"] = target["ask"].replace("P=4", visible)
+            self.assertFalse(stem_figure_compatibility(target, diagram), visible)
+
+        for visible in ("P＝999", "总动量是999"):
+            target = copy.deepcopy(original)
+            target["explanation"] = target["explanation"].replace("P=4", visible)
+            self.assertFalse(stem_figure_compatibility(target, diagram), f"explanation: {visible}")
+
+        for visible in ("P＝4", "总动量是4", "总动量是 4 kg·m/s，"):
+            target = copy.deepcopy(original)
+            target["ask"] = target["ask"].replace("P=4", visible)
+            self.assertTrue(stem_figure_compatibility(target, diagram), visible)
+
+        self.assertEqual(visible_momentum_values("冲量变化ΔP=999；总动量是否为4？"), set())
+
+    def test_origin_propositions_respect_crossing_and_negation_semantics(self):
+        """Origin claims use proposition polarity, not a brittle substring check."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        diagram_source = json.loads(DIAGRAM_SOURCE.read_text(encoding="utf-8"))
+        diagrams = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
+        by_key = {question["key"]: question for question in scenario_questions + standalone}
+        original = by_key["c4-2-scenario-02"]
+        diagram = diagrams[original["figure_refs"][0]]
+
+        for wording in ("通过原点", "穿过原点", "经过原点"):
+            with self.subTest(nonzero_positive=wording):
+                target = copy.deepcopy(original)
+                target["explanation"] = f"图示P=4，该非零动量线{wording}。"
+                self.assertFalse(stem_figure_compatibility(target, diagram), wording)
+
+        for wording in (
+            "不通过原点",
+            "并非通过原点",
+            "不会通过原点",
+            "不穿过原点",
+            "未经过原点",
+            "并不经过原点",
+        ):
+            with self.subTest(nonzero_negative=wording):
+                target = copy.deepcopy(original)
+                target["explanation"] = f"图示P=4，该非零动量线{wording}。"
+                self.assertTrue(stem_figure_compatibility(target, diagram), wording)
+
+        target = copy.deepcopy(original)
+        target["explanation"] = "图示P=4，该非零动量线不是不通过原点。"
+        self.assertFalse(stem_figure_compatibility(target, diagram))
+
+        zero_diagram = copy.deepcopy(diagram)
+        zero_diagram["parameters"]["momentum_values"] = [0]
+        for wording, expected in (("通过原点", True), ("不通过原点", False)):
+            with self.subTest(zero_line=wording):
+                target = copy.deepcopy(original)
+                target["ask"] = target["ask"].replace("P=4", "P=0")
+                target["explanation"] = f"图示P=0，该零动量线{wording}。"
+                self.assertEqual(
+                    stem_figure_compatibility(target, zero_diagram),
+                    expected,
+                    wording,
+                )
 
     def test_question_payloads_and_wording_guards(self):
         _, _, scenario_questions, standalone, fixtures, _ = self.load_source()
