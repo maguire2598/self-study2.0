@@ -5451,8 +5451,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
-          "ask": "动量线平行：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "图示P=4，质量加权动量线斜率为−√(M/m)=-2；非零动量线不通过原点。",
+          "ask": "动量线平行：相遇前读数的质量加权平面动量线对应M/m=4/1且图示动量弦P=4；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-2.0。",
@@ -5543,8 +5543,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-4。",
-          "ask": "零动量交点：图示质量加权平面对应M/m=16/1且P=0；围绕“定位动量线的原点交点”，哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "图示P=4，质量加权动量线斜率为−4；碰撞弦两端同时保持动量表达式与半径平方不变。",
+          "ask": "非零动量弦：图示质量加权平面对应M/m=16/1且图示动量弦P=4；围绕“核对非零动量弦的守恒量”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-3.0。",
@@ -5557,7 +5557,7 @@
               "id": "B"
             },
             {
-              "text": "零总动量直线与坐标轴的交点为(0,0)。",
+              "text": "弦两端的动量表达式差与半径平方差依次为0和0。",
               "correct": true,
               "id": "C"
             },
@@ -5603,10 +5603,20 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "momentum_intersection",
+                  "kind": "chord_state_invariants",
                   "parameters": {
-                    "asserted_x": 0,
-                    "asserted_y": 0
+                    "mass_large": 16,
+                    "mass_small": 1,
+                    "first": [
+                      0,
+                      4
+                    ],
+                    "second": [
+                      1.8823529411764706,
+                      -3.5294117647058822
+                    ],
+                    "asserted_momentum_difference": 0,
+                    "asserted_radius2_difference": 0
                   }
                 }
               },
@@ -5838,8 +5848,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
-          "ask": "弦方向：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+          "explanation": "图示P=2与P=4两条动量线互相平行，公共斜率为−√(M/m)=-2，且都不通过原点。",
+          "ask": "弦方向：相遇前读数的质量加权平面动量线对应M/m=4/1且图中两条平行动量线分别为P=2和P=4；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-2.0。",
@@ -5930,8 +5940,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
-          "ask": "零动量交点：图示质量加权平面对应M/m=4/1且P=0；围绕“定位动量线的原点交点”，哪些判读成立？ 请选择两项正确判读。",
+          "explanation": "图示P=2与P=4；其中P=4的弦两端保持动量表达式与半径平方不变，公共斜率为−2。",
+          "ask": "非零动量弦：图示质量加权平面对应M/m=4/1且图中两条平行动量线分别为P=2和P=4；围绕“核对非零动量弦的守恒量”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-2.0。",
@@ -5944,7 +5954,7 @@
               "id": "B"
             },
             {
-              "text": "零总动量直线与坐标轴的交点为(0,0)。",
+              "text": "弦两端的动量表达式差与半径平方差依次为0和0。",
               "correct": true,
               "id": "C"
             },
@@ -5990,10 +6000,20 @@
                 "option_id": "C",
                 "family": "physics",
                 "claim": {
-                  "kind": "momentum_intersection",
+                  "kind": "chord_state_invariants",
                   "parameters": {
-                    "asserted_x": 0,
-                    "asserted_y": 0
+                    "mass_large": 4,
+                    "mass_small": 1,
+                    "first": [
+                      2,
+                      0
+                    ],
+                    "second": [
+                      1.2,
+                      1.6
+                    ],
+                    "asserted_momentum_difference": 0,
+                    "asserted_radius2_difference": 0
                   }
                 }
               },
@@ -6022,8 +6042,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
-          "ask": "弦方向：到墙前读数的质量加权平面动量线对应M/m=4/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+          "explanation": "图示P=2与P=4两条非零动量线共享斜率−√(M/m)=-2，截距随P改变。",
+          "ask": "弦方向：到墙前读数的质量加权平面动量线对应M/m=4/1且图中两条平行动量线分别为P=2和P=4；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-2.0。",
@@ -6206,8 +6226,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-2。",
-          "ask": "线圆交点：相遇前读数的质量加权平面动量线对应M/m=4/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+          "explanation": "图示P=4的动量弦斜率为−√(M/m)=-2；它与能量圆的交点表示碰撞前后状态。",
+          "ask": "线圆交点：相遇前读数的质量加权平面动量线对应M/m=4/1且图示动量弦P=4；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "动量直线斜率为-2.0。",
@@ -8391,8 +8411,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
-          "ask": "状态链顺序：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.25x判定，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
+          "ask": "状态链顺序：在M/m=16/1的系统中，初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=0.25x；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -8400,7 +8420,7 @@
               "id": "A"
             },
             {
-              "text": "当x=2时，安全扇区允许的最大y为2。",
+              "text": "当x=2时，安全扇区允许的最大y为0.5。",
               "correct": true,
               "id": "B"
             },
@@ -8447,12 +8467,14 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 16,
+                    "mass_small": 1,
                     "point": [
                       2,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": 2
+                    "boundary": 0.25,
+                    "asserted_upper": 0.5
                   }
                 }
               },
@@ -8480,11 +8502,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 16,
+                    "mass_small": 1,
                     "point": [
                       2,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.25,
                     "asserted_upper": -1
                   }
                 }
@@ -8502,8 +8526,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
-          "ask": "状态链顺序：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.25x判定，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
+          "ask": "状态链顺序：在M/m=16/1的系统中，相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=0.25x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -8511,7 +8535,7 @@
               "id": "A"
             },
             {
-              "text": "当x=3时，安全扇区允许的最大y为3。",
+              "text": "当x=3时，安全扇区允许的最大y为0.75。",
               "correct": true,
               "id": "B"
             },
@@ -8558,12 +8582,14 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 16,
+                    "mass_small": 1,
                     "point": [
                       3,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": 3
+                    "boundary": 0.25,
+                    "asserted_upper": 0.75
                   }
                 }
               },
@@ -8591,11 +8617,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 16,
+                    "mass_small": 1,
                     "point": [
                       3,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.25,
                     "asserted_upper": -1
                   }
                 }
@@ -8613,8 +8641,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
-          "ask": "状态链顺序：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.25x判定，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
+          "ask": "状态链顺序：在M/m=16/1的系统中，相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=0.25x；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -8622,7 +8650,7 @@
               "id": "A"
             },
             {
-              "text": "当x=4时，安全扇区允许的最大y为4。",
+              "text": "当x=4时，安全扇区允许的最大y为1。",
               "correct": true,
               "id": "B"
             },
@@ -8669,12 +8697,14 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 16,
+                    "mass_small": 1,
                     "point": [
                       4,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": 4
+                    "boundary": 0.25,
+                    "asserted_upper": 1
                   }
                 }
               },
@@ -8702,11 +8732,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 16,
+                    "mass_small": 1,
                     "point": [
                       4,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.25,
                     "asserted_upper": -1
                   }
                 }
@@ -8724,8 +8756,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：由终点坐标复核安全条件。",
-          "ask": "状态链顺序：到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，安全边界为y=x；围绕“由终点坐标复核安全条件”，哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.25x判定，不能以图线长度替代事件数。 本题具体检验：由终点坐标复核安全条件。",
+          "ask": "状态链顺序：在M/m=16/1的系统中，到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，安全边界为y=0.25x；围绕“由终点坐标复核安全条件”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -8733,7 +8765,7 @@
               "id": "A"
             },
             {
-              "text": "当x=5时，安全扇区允许的最大y为5。",
+              "text": "当x=5时，安全扇区允许的最大y为1.25。",
               "correct": true,
               "id": "B"
             },
@@ -8780,12 +8812,14 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 16,
+                    "mass_small": 1,
                     "point": [
                       5,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": 5
+                    "boundary": 0.25,
+                    "asserted_upper": 1.25
                   }
                 }
               },
@@ -8813,11 +8847,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 16,
+                    "mass_small": 1,
                     "point": [
                       5,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.25,
                     "asserted_upper": -1
                   }
                 }
@@ -8835,8 +8871,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
-          "ask": "终态事件计数：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
+          "ask": "终态事件计数：在M/m=4/1的系统中，初始读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=0.5x；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为6。",
@@ -8844,7 +8880,7 @@
               "id": "A"
             },
             {
-              "text": "当x=2时，安全扇区允许的最大y为2。",
+              "text": "当x=2时，安全扇区允许的最大y为1。",
               "correct": true,
               "id": "B"
             },
@@ -8903,12 +8939,14 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       2,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": 2
+                    "boundary": 0.5,
+                    "asserted_upper": 1
                   }
                 }
               },
@@ -8948,11 +8986,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       2,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -8970,8 +9010,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
-          "ask": "终态事件计数：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
+          "ask": "终态事件计数：在M/m=4/1的系统中，相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=0.5x；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为6。",
@@ -8979,7 +9019,7 @@
               "id": "A"
             },
             {
-              "text": "当x=3时，安全扇区允许的最大y为3。",
+              "text": "当x=3时，安全扇区允许的最大y为1.5。",
               "correct": true,
               "id": "B"
             },
@@ -9038,12 +9078,14 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       3,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": 3
+                    "boundary": 0.5,
+                    "asserted_upper": 1.5
                   }
                 }
               },
@@ -9083,11 +9125,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       3,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -9105,8 +9149,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
-          "ask": "终态事件计数：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
+          "ask": "终态事件计数：在M/m=4/1的系统中，相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=0.5x；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为6。",
@@ -9114,7 +9158,7 @@
               "id": "A"
             },
             {
-              "text": "当x=4时，安全扇区允许的最大y为4。",
+              "text": "当x=4时，安全扇区允许的最大y为2。",
               "correct": true,
               "id": "B"
             },
@@ -9173,12 +9217,14 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       4,
                       1
                     ],
-                    "boundary": 1,
-                    "asserted_upper": 4
+                    "boundary": 0.5,
+                    "asserted_upper": 2
                   }
                 }
               },
@@ -9218,11 +9264,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       4,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -9251,8 +9299,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "状态链起点：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+          "ask": "状态链起点：在M/m=4/1的系统中，初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -9307,11 +9355,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       2,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": 0
                   }
                 }
@@ -9340,11 +9390,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       2,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -9362,8 +9414,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "状态链顺序：离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+          "ask": "状态链顺序：在M/m=4/1的系统中，离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为4。",
@@ -9420,11 +9472,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       6,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": 0
                   }
                 }
@@ -9459,11 +9513,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       6,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -9480,8 +9536,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "安全扇区：初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+          "ask": "安全扇区：在M/m=4/1的系统中，初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -9536,6 +9592,8 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       2,
                       1
@@ -9569,6 +9627,8 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       2,
                       1
@@ -9591,8 +9651,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "安全扇区：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+          "ask": "安全扇区：在M/m=4/1的系统中，相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为4。",
@@ -9655,11 +9715,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       3,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": 0
                   }
                 }
@@ -9694,11 +9756,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       3,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -9715,8 +9779,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "安全扇区：相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+          "ask": "安全扇区：在M/m=4/1的系统中，相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为6。",
@@ -9785,11 +9849,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       4,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": 0
                   }
                 }
@@ -9830,11 +9896,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       4,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -9851,8 +9919,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "安全扇区：到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+          "ask": "安全扇区：在M/m=4/1的系统中，到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -9909,11 +9977,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       5,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": 0
                   }
                 }
@@ -9942,11 +10012,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       5,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -9963,8 +10035,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "安全扇区：离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+          "ask": "安全扇区：在M/m=4/1的系统中，离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为4。",
@@ -10027,11 +10099,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       6,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": 0
                   }
                 }
@@ -10066,11 +10140,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       6,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -10087,8 +10163,8 @@
           "event_stage": "state_analysis",
           "variant_axis": "event_sequence",
           "curriculum_scope": "core",
-          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-          "ask": "终态事件计数：到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+          "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+          "ask": "终态事件计数：在M/m=4/1的系统中，到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
           "options": [
             {
               "text": "已发生的物理碰撞数为2。",
@@ -10145,11 +10221,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       5,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": 0
                   }
                 }
@@ -10178,11 +10256,13 @@
                 "claim": {
                   "kind": "safe_sector",
                   "parameters": {
+                    "mass_large": 4,
+                    "mass_small": 1,
                     "point": [
                       5,
                       1
                     ],
-                    "boundary": 1,
+                    "boundary": 0.5,
                     "asserted_upper": -1
                   }
                 }
@@ -15002,8 +15082,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "event_sequence",
       "curriculum_scope": "core",
-      "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-      "prompt": "状态链起点：相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+      "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+      "prompt": "状态链起点：在M/m=4/1的系统中，相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
       "options": [
         {
           "text": "已发生的物理碰撞数为4。",
@@ -15060,11 +15140,13 @@
             "claim": {
               "kind": "safe_sector",
               "parameters": {
+                "mass_large": 4,
+                "mass_small": 1,
                 "point": [
                   3,
                   1
                 ],
-                "boundary": 1,
+                "boundary": 0.5,
                 "asserted_upper": 0
               }
             }
@@ -15099,11 +15181,13 @@
             "claim": {
               "kind": "safe_sector",
               "parameters": {
+                "mass_large": 4,
+                "mass_small": 1,
                 "point": [
                   3,
                   1
                 ],
-                "boundary": 1,
+                "boundary": 0.5,
                 "asserted_upper": -1
               }
             }
@@ -15182,8 +15266,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "event_sequence",
       "curriculum_scope": "core",
-      "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-      "prompt": "终态事件计数：离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+      "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+      "prompt": "终态事件计数：在M/m=4/1的系统中，离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
       "options": [
         {
           "text": "已发生的物理碰撞数为4。",
@@ -15240,11 +15324,13 @@
             "claim": {
               "kind": "safe_sector",
               "parameters": {
+                "mass_large": 4,
+                "mass_small": 1,
                 "point": [
                   6,
                   1
                 ],
-                "boundary": 1,
+                "boundary": 0.5,
                 "asserted_upper": 0
               }
             }
@@ -15279,11 +15365,13 @@
             "claim": {
               "kind": "safe_sector",
               "parameters": {
+                "mass_large": 4,
+                "mass_small": 1,
                 "point": [
                   6,
                   1
                 ],
-                "boundary": 1,
+                "boundary": 0.5,
                 "asserted_upper": -1
               }
             }
@@ -15300,8 +15388,8 @@
       "event_stage": "state_analysis",
       "variant_axis": "event_sequence",
       "curriculum_scope": "core",
-      "explanation": "先逐项数出物理事件；安全扇区用0≤y≤x判定，不能以图线长度替代事件数。",
-      "prompt": "终态事件计数：终态前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(7,1)，安全边界为y=x；哪些终态判读成立？ 请选择唯一正确判读。",
+      "explanation": "先逐项数出物理事件；安全扇区用0≤y≤0.5x判定，不能以图线长度替代事件数。",
+      "prompt": "终态事件计数：在M/m=4/1的系统中，终态前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(7,1)，安全边界为y=0.5x；哪些终态判读成立？ 请选择唯一正确判读。",
       "options": [
         {
           "text": "已发生的物理碰撞数为6。",
@@ -15364,11 +15452,13 @@
             "claim": {
               "kind": "safe_sector",
               "parameters": {
+                "mass_large": 4,
+                "mass_small": 1,
                 "point": [
                   7,
                   1
                 ],
-                "boundary": 1,
+                "boundary": 0.5,
                 "asserted_upper": 0
               }
             }
@@ -15409,11 +15499,13 @@
             "claim": {
               "kind": "safe_sector",
               "parameters": {
+                "mass_large": 4,
+                "mass_small": 1,
                 "point": [
                   7,
                   1
                 ],
-                "boundary": 1,
+                "boundary": 0.5,
                 "asserted_upper": -1
               }
             }

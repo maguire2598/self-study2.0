@@ -3004,11 +3004,21 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "mass_large",
+        "mass_small",
         "point",
         "boundary",
         "asserted_upper"
       ],
       "properties": {
+        "mass_large": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "mass_small": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
         "point": {
           "type": "array",
           "minItems": 2,

@@ -171,6 +171,18 @@ STEM_FACT_DIMENSIONS_BY_TEMPLATE = {
 }
 
 
+def stem_fact_dimensions(question, diagram):
+    """Classify every fact the student must reconcile with the stem figure."""
+    dimensions = set(STEM_FACT_DIMENSIONS_BY_TEMPLATE[diagram["template_kind"]])
+    text = question.get("ask", question.get("prompt", ""))
+    claims = question.get("answer_contract", {}).get("claims", [])
+    if "安全边界" in text or any(item["claim"]["kind"] == "safe_sector" for item in claims):
+        dimensions.update({"mass_ratio", "sector_boundary"})
+    if re.search(r"P=-?\d", text) or "总动量为零" in text:
+        dimensions.update({"mass_ratio", "momentum_geometry"})
+    return dimensions
+
+
 def normalize_semantic_prompt(text):
     text = re.sub(r"本题额外聚焦.*$", "", text)
     text = re.sub(r"(?:请先|请把|作答前|复核时).*$", "", text)
@@ -271,7 +283,9 @@ def evaluate_typed_claim(claim):
         return (params["asserted_count"] == len(params["events"])
                 and [event["kind"] for event in params["events"]] == expected)
     if kind == "safe_sector":
-        return math.isclose(params["asserted_upper"], params["boundary"] * params["point"][0]) and params["point"][1] <= params["asserted_upper"]
+        expected_boundary = math.sqrt(params["mass_small"] / params["mass_large"])
+        return (math.isclose(params["boundary"], expected_boundary)
+                and math.isclose(params["asserted_upper"], expected_boundary * params["point"][0]))
     if kind == "angle_pair_count":
         theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
         collisions = math.ceil(math.pi / theta) - 1
@@ -395,13 +409,42 @@ def stem_figure_compatibility(question, diagram):
             stated = ["block_collision" if part == "块碰撞" else "wall_reflection" for part in sequence.group(1).split("、")]
             if stated != [event["kind"] for event in params["events"]]:
                 return False
-    if diagram["template_kind"] == "safe_sector":
-        boundary = re.search(r"安全边界为y=([0-9.]+)?x", text)
-        if boundary:
-            expected = math.sqrt(params["mass_small"] / params["mass_large"])
-            stated = float(boundary.group(1) or 1)
-            if not math.isclose(stated, expected):
+    # Facts in the stem/contract select their semantic checks.  A state-chain
+    # picture can support a safe-sector question, so template/role must not be
+    # an escape hatch from the mass-weighted boundary.
+    claims = question.get("answer_contract", {}).get("claims", [])
+    safe_claims = [item["claim"] for item in claims if item["claim"]["kind"] == "safe_sector"]
+    boundary = re.search(r"安全边界为y=([0-9.]+)?x", text)
+    if boundary or safe_claims:
+        if not {"mass_large", "mass_small"}.issubset(params):
+            return False
+        expected = math.sqrt(params["mass_small"] / params["mass_large"])
+        if not boundary or not math.isclose(float(boundary.group(1) or 1), expected):
+            return False
+        if any(not math.isclose(claim["parameters"]["boundary"], expected) for claim in safe_claims):
+            return False
+
+    # Likewise, validate every stated momentum value against every visible
+    # line.  Nonzero momentum lines have nonzero axis intercepts and therefore
+    # cannot be described as zero-momentum/origin lines.
+    if "momentum_values" in params:
+        stated_values = {float(value) for value in re.findall(r"P=(-?\d+(?:\.\d+)?)", text)}
+        if "总动量为零" in text:
+            stated_values.add(0.0)
+        visible_values = {float(value) for value in params["momentum_values"]}
+        if stated_values and stated_values != visible_values:
+            return False
+        if all(value != 0 for value in visible_values) and re.search(r"(?:通过原点|原点交点)", text):
+            return False
+        for option, item in zip(question.get("options", []), claims):
+            claim = item["claim"]
+            if option.get("correct") and claim["kind"] == "momentum_intersection" and 0 not in visible_values:
                 return False
+            if option.get("correct") and claim["kind"] == "chord_state_invariants":
+                endpoints = [[point["x"], point["y"]] for point in params.get("intersections", [])]
+                values = claim["parameters"]
+                if values["first"] not in endpoints or values["second"] not in endpoints:
+                    return False
     if diagram["template_kind"] in {"energy_ellipse", "scale_pair"}:
         energy = re.search(r"(?:总动能)?E=(\d+(?:\.\d+)?)", text)
         if energy and not math.isclose(float(energy.group(1)), params["energy"]):
@@ -414,7 +457,7 @@ def stem_figure_compatibility(question, diagram):
         expected_theta = math.atan(math.sqrt(params["mass_small"] / params["mass_large"]))
         if not math.isclose(params["wedge_angle"], expected_theta):
             return False
-    for item in question.get("answer_contract", {}).get("claims", []):
+    for item in claims:
         claim = item["claim"]
         values = claim["parameters"]
         if {"mass_large", "mass_small"}.issubset(values):
@@ -692,7 +735,7 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             "wall_reflection": {"before", "asserted_after"},
             "wall_radius": {"before", "after", "asserted_before_r2", "asserted_after_r2"},
             "event_count": {"events", "asserted_count"},
-            "safe_sector": {"point", "boundary", "asserted_upper"},
+            "safe_sector": {"mass_large", "mass_small", "point", "boundary", "asserted_upper"},
             "angle_pair_count": {"mass_large", "mass_small", "span", "asserted_pairs", "asserted_residual", "asserted_collisions"},
             "angle_relation": {"mass_large", "mass_small", "asserted_step"},
             "chord_direction_angle": {"mass_large", "mass_small", "asserted_direction"},
@@ -1145,12 +1188,14 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         self.assertEqual(len(stems), 72)
         for question in stems:
             diagram = diagrams[question["figure_refs"][0]]
-            dimensions = STEM_FACT_DIMENSIONS_BY_TEMPLATE[diagram["template_kind"]]
+            dimensions = stem_fact_dimensions(question, diagram)
             self.assertIn("coordinate_system", dimensions, question["key"])
             self.assertGreaterEqual(len(dimensions), 2, question["key"])
             self.assertTrue(stem_figure_compatibility(question, diagram), question["key"])
         # Adversarial checks: mass, coordinate system, chord geometry, and equal-angle source cannot drift.
         by_key = {q["key"]: q for q in stems}
+        safe_target = by_key["c6-2-scenario-01"]
+        self.assertIn("sector_boundary", stem_fact_dimensions(safe_target, diagrams[safe_target["figure_refs"][0]]))
         target = copy.deepcopy(by_key["c4-2-scenario-04"])
         target["ask"] = target["ask"].replace("M/m=16/1", "M/m=4/1")
         self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
@@ -1166,6 +1211,89 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         target = copy.deepcopy(by_key["c9-6-calculation-24"])
         target["figure_refs"] = ["cp-c-wedge-unfold-count"]
         self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+
+        # Semantic dimensions are driven by stated facts, not by template or role.
+        target = copy.deepcopy(by_key["c6-2-scenario-01"])
+        target["ask"] = re.sub(r"安全边界为y=(?:[0-9.]+)?x", "安全边界为y=999x", target["ask"])
+        for item in target["answer_contract"]["claims"]:
+            if item["claim"]["kind"] == "safe_sector":
+                values = item["claim"]["parameters"]
+                values["boundary"] = 999
+                values["asserted_upper"] = 999 * values["point"][0]
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+        target = copy.deepcopy(by_key["c6-2-scenario-01"])
+        changed_diagram = copy.deepcopy(diagrams[target["figure_refs"][0]])
+        changed_diagram["parameters"]["mass_large"] = 9
+        self.assertFalse(stem_figure_compatibility(target, changed_diagram))
+
+        target = copy.deepcopy(by_key["c4-2-scenario-02"])
+        target["ask"] = re.sub(r"P=\d+(?:\.\d+)?", "P=999", target["ask"])
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+        target = copy.deepcopy(by_key["c4-2-scenario-02"])
+        changed_diagram = copy.deepcopy(diagrams[target["figure_refs"][0]])
+        changed_diagram["parameters"]["momentum_values"] = [999]
+        self.assertFalse(stem_figure_compatibility(target, changed_diagram))
+        target = copy.deepcopy(by_key["c4-2-scenario-02"])
+        target["ask"] += " 该非零动量线通过原点。"
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+        target = copy.deepcopy(by_key["c4-2-scenario-02"])
+        target["ask"] = re.sub(r"P=\d+(?:\.\d+)?", "P=0", target["ask"])
+        self.assertFalse(stem_figure_compatibility(target, diagrams[target["figure_refs"][0]]))
+
+    def test_all_safe_sector_statements_use_the_mass_weighted_boundary(self):
+        """Every safe-sector fact uses y=sqrt(m/M)x, including state-chain figures."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        diagram_source = json.loads(DIAGRAM_SOURCE.read_text(encoding="utf-8"))
+        diagrams = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
+        questions = scenario_questions + standalone
+        safe_questions = [
+            question for question in questions
+            if any(item["claim"]["kind"] == "safe_sector"
+                   for item in question.get("answer_contract", {}).get("claims", []))
+        ]
+        self.assertEqual(len(safe_questions), 18)
+        for question in safe_questions:
+            text = question.get("ask", question.get("prompt", ""))
+            ratio = re.search(r"M/m=(\d+)/(\d+)", text)
+            if ratio:
+                mass_large, mass_small = map(int, ratio.groups())
+            else:
+                refs = question.get("figure_refs", [])
+                self.assertTrue(refs, f"safe-sector mass ratio is unstated: {question['key']}")
+                figure = diagrams[refs[0]]
+                mass_large = figure["parameters"]["mass_large"]
+                mass_small = figure["parameters"]["mass_small"]
+            expected = math.sqrt(mass_small / mass_large)
+            boundary = re.search(r"安全边界为y=([0-9.]+)?x", text)
+            self.assertIsNotNone(boundary, question["key"])
+            self.assertTrue(math.isclose(float(boundary.group(1) or 1), expected), question["key"])
+            explanation_boundary = re.search(r"0≤y≤([0-9.]+)?x", question["explanation"])
+            if explanation_boundary:
+                self.assertTrue(math.isclose(float(explanation_boundary.group(1) or 1), expected), question["key"])
+            for item in question["answer_contract"]["claims"]:
+                if item["claim"]["kind"] == "safe_sector":
+                    self.assertTrue(math.isclose(item["claim"]["parameters"]["boundary"], expected), question["key"])
+
+    def test_all_momentum_stem_figures_match_visible_nonzero_lines(self):
+        """A momentum stem cannot relabel a visible nonzero line as P=0 or an origin line."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        diagram_source = json.loads(DIAGRAM_SOURCE.read_text(encoding="utf-8"))
+        diagrams = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
+        stems = [
+            question for question in scenario_questions + standalone
+            if question["presentation_mode"] == "stem_figure"
+            and diagrams[question["figure_refs"][0]]["template_kind"] == "momentum_chord"
+        ]
+        self.assertGreaterEqual(len(stems), 6)
+        for question in stems:
+            diagram = diagrams[question["figure_refs"][0]]
+            self.assertTrue(stem_figure_compatibility(question, diagram), question["key"])
+            text = question.get("ask", question.get("prompt", ""))
+            stated = {float(value) for value in re.findall(r"P=(-?\d+(?:\.\d+)?)", text)}
+            if stated:
+                self.assertEqual(stated, {float(value) for value in diagram["parameters"]["momentum_values"]}, question["key"])
+            if all(value != 0 for value in diagram["parameters"]["momentum_values"]):
+                self.assertNotRegex(text, r"(?:通过原点|原点交点|P=0)", question["key"])
 
     def test_question_payloads_and_wording_guards(self):
         _, _, scenario_questions, standalone, fixtures, _ = self.load_source()

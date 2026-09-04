@@ -503,3 +503,62 @@ Total: 147 tests ... OK
 ## Concerns
 
 None.
+
+---
+
+# Fix round 7 — mass-weighted safe sectors and nonzero momentum figures
+
+## Repairs
+
+- Recomputed every C safe-sector statement from `y=sqrt(m/M)x`, not merely the eight reviewer-cited stem figures. The 16:1 state-chain records now use `y=0.25x`; every 4:1 record uses `y=0.5x`. All 18 safe-sector questions carry the mass pair inside each typed claim, so the evaluator derives the boundary independently instead of trusting an author-entered slope.
+- Reconciled the six reviewer-cited momentum stems with `diagram-source-c.json`: ratio-4 and ratio-16 chords state `P=4`, while the parallel-line figure states both `P=2` and `P=4`. The two formerly correct zero-origin claims were replaced by independently recomputed chord-invariant claims using the visible endpoints.
+- Removed the template/role bypass from stem compatibility. Safe-sector facts are checked even on a `state_chain` figure; momentum values, origin wording, correct chord endpoints, mass ratios, slopes, and line families are checked from the facts that appear in the stem and contract.
+- Added adversarial regressions for a jointly mutated `y=999x` stem/contract, retained boundary after a mass mutation, `P=999` in the stem, `[999]` in diagram-source momentum values, `P=0` on a nonzero line, and a nonzero line claimed through the origin.
+
+## TDD evidence
+
+RED before implementation:
+
+```text
+python -m unittest tests.test_question_source_c.QuestionSourceCTests.test_every_stem_figure_declares_and_meets_its_compatibility_role tests.test_question_source_c.QuestionSourceCTests.test_all_safe_sector_statements_use_the_mass_weighted_boundary tests.test_question_source_c.QuestionSourceCTests.test_all_momentum_stem_figures_match_visible_nonzero_lines -v
+
+Ran 3 tests in 0.020s
+FAILED (failures=3)
+- state-chain template accepted the jointly mutated safe boundary
+- c6-2-scenario-01 still used y=x for M/m=16/1
+- c4-2-scenario-03 stated P=0 while its figure carried P=4
+```
+
+GREEN after implementation:
+
+```text
+python -m unittest tests.test_question_source_c -q
+Ran 40 tests in 21.113s ... OK
+
+Get-Content question-source-c.json | Test-Json -SchemaFile objective_question_source_c.schema.json
+C_SOURCE_SCHEMA=True
+
+python -m unittest discover -s tests -q
+Ran 154 tests in 32.743s ... OK
+```
+
+## Checkpoints and compatibility
+
+```text
+Three C checkpoints: 3 tests ... OK (66 / 66 / 48)
+C formal-bank expansion and schema: 1 test ... OK (180 questions)
+A byte parity, B generator parity, A/B formal strictness, C diagram determinism: 4 tests ... OK
+```
+
+Fresh independent audit output:
+
+```text
+AUDIT total=180 answer_contract_claims=624 calculations=24
+AUDIT safe_sector_questions=18 all_ratio_boundaries_recomputed=True
+AUDIT momentum_stem_figures=7 P_slope_origin_chord_checks=True
+AUDIT stem_figures=72 all_applicable_dimensions_valid=True
+```
+
+## Concerns
+
+None.
