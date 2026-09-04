@@ -5359,7 +5359,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3；零动量线通过原点。",
           "ask": "动量线平行：图中质量加权状态链给出M/m=9/1；在同一坐标系另画总动量为零的动量线，围绕“由零动量求弦斜率”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -5440,7 +5440,26 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "动量线平行：图中质量加权状态链给出M/m=9/1；在同一坐标系另画{{momentum_1}}的动量线，围绕“由零动量求弦斜率”，哪些判读成立？ 请选择两项正确判读。",
+            "explanation_template": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  0
+                ],
+                "notation": "zero_words"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "passes_origin"
+              }
+            ]
+          }
         },
         {
           "key": "c4-2-scenario-02",
@@ -5532,7 +5551,42 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "动量线平行：相遇前读数的质量加权平面动量线对应M/m=4/1且图示动量弦{{momentum_1}}；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+            "explanation_template": "图示{{momentum_2}}，质量加权动量线斜率为−√(M/m)=-2；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_2",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "does_not_pass_origin"
+              }
+            ],
+            "figure_bindings": [
+              {
+                "figure_ref": "cp-c-momentum-chord-ratio-4",
+                "momentum_values": [
+                  4
+                ]
+              }
+            ]
+          }
         },
         {
           "key": "c4-2-scenario-03",
@@ -5543,7 +5597,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "图示P=4，质量加权动量线斜率为−4；碰撞弦两端同时保持动量表达式与半径平方不变。",
+          "explanation": "图示P=4，质量加权动量线斜率为−4；碰撞弦两端同时保持动量表达式与半径平方不变；非零动量线不通过原点。",
           "ask": "非零动量弦：图示质量加权平面对应M/m=16/1且图示动量弦P=4；围绕“核对非零动量弦的守恒量”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -5634,7 +5688,42 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "非零动量弦：图示质量加权平面对应M/m=16/1且图示动量弦{{momentum_1}}；围绕“核对非零动量弦的守恒量”，哪些判读成立？ 请选择两项正确判读。",
+            "explanation_template": "图示{{momentum_2}}，质量加权动量线斜率为−4；碰撞弦两端同时保持动量表达式与半径平方不变；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_2",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "does_not_pass_origin"
+              }
+            ],
+            "figure_bindings": [
+              {
+                "figure_ref": "cp-c-momentum-chord-ratio-16",
+                "momentum_values": [
+                  4
+                ]
+              }
+            ]
+          }
         },
         {
           "key": "c4-2-scenario-04",
@@ -5645,7 +5734,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "弦两端同时满足同一能量圆和同一动量线，所以半径平方差与动量表达式差均为0；弦斜率为−√(M/m)=−4。",
+          "explanation": "弦两端同时满足同一能量圆和同一动量线，所以半径平方差与动量表达式差均为0；弦斜率为−√(M/m)=−4；非零动量线不通过原点。",
           "ask": "弦的两个端点：图示质量加权平面对应M/m=16/1。把动量弦理解为一次碰撞前后的两个允许状态，而不是物块在圆周上的连续轨迹；哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -5745,7 +5834,26 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "弦的两个端点：图示质量加权平面对应M/m=16/1。把动量弦理解为一次碰撞前后的两个允许状态，而不是物块在圆周上的连续轨迹；哪些判读成立？ 请选择两项正确判读。",
+            "explanation_template": "弦两端同时满足同一能量圆和同一动量线，所以半径平方差与动量表达式差均为0；弦斜率为−√(M/m)=−4；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "does_not_pass_origin"
+              }
+            ],
+            "figure_bindings": [
+              {
+                "figure_ref": "cp-c-momentum-chord-ratio-16",
+                "momentum_values": [
+                  4
+                ]
+              }
+            ]
+          }
         },
         {
           "key": "c4-3-scenario-01",
@@ -5756,7 +5864,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3；零动量线通过原点。",
           "ask": "弦方向：图中质量加权状态链给出M/m=9/1；在同一坐标系另画总动量为零的动量线，围绕“由零动量求弦斜率”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -5837,7 +5945,26 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "弦方向：图中质量加权状态链给出M/m=9/1；在同一坐标系另画{{momentum_1}}的动量线，围绕“由零动量求弦斜率”，哪些判读成立？ 请选择两项正确判读。",
+            "explanation_template": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  0
+                ],
+                "notation": "zero_words"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "passes_origin"
+              }
+            ]
+          }
         },
         {
           "key": "c4-3-scenario-02",
@@ -5848,7 +5975,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "图示P=2与P=4两条动量线互相平行，公共斜率为−√(M/m)=-2，且都不通过原点。",
+          "explanation": "图示P=2与P=4两条动量线互相平行，公共斜率为−√(M/m)=-2；非零动量线不通过原点。",
           "ask": "弦方向：相遇前读数的质量加权平面动量线对应M/m=4/1且图中两条平行动量线分别为P=2和P=4；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -5929,7 +6056,59 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "弦方向：相遇前读数的质量加权平面动量线对应M/m=4/1且图中两条平行动量线分别为{{momentum_1}}和{{momentum_2}}；围绕“判断同总动量直线是否平行”，哪些弦方向、平行线或交点判读成立？ 请选择两项正确判读。",
+            "explanation_template": "图示{{momentum_3}}与{{momentum_4}}两条动量线互相平行，公共斜率为−√(M/m)=-2；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  2.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_2",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_3",
+                "kind": "momentum_value_set",
+                "values": [
+                  2.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_4",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "does_not_pass_origin"
+              }
+            ],
+            "figure_bindings": [
+              {
+                "figure_ref": "cp-c-momentum-chord-parallel",
+                "momentum_values": [
+                  2,
+                  4
+                ]
+              }
+            ]
+          }
         },
         {
           "key": "c4-3-scenario-03",
@@ -5940,7 +6119,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "图示P=2与P=4；其中P=4的弦两端保持动量表达式与半径平方不变，公共斜率为−2。",
+          "explanation": "图示P=2与P=4；其中P=4的弦两端保持动量表达式与半径平方不变，公共斜率为−2；非零动量线不通过原点。",
           "ask": "非零动量弦：图示质量加权平面对应M/m=4/1且图中两条平行动量线分别为P=2和P=4；围绕“核对非零动量弦的守恒量”，哪些判读成立？ 请选择两项正确判读。",
           "options": [
             {
@@ -6031,7 +6210,67 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "非零动量弦：图示质量加权平面对应M/m=4/1且图中两条平行动量线分别为{{momentum_1}}和{{momentum_2}}；围绕“核对非零动量弦的守恒量”，哪些判读成立？ 请选择两项正确判读。",
+            "explanation_template": "图示{{momentum_3}}与{{momentum_4}}；其中{{momentum_5}}的弦两端保持动量表达式与半径平方不变，公共斜率为−2；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  2.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_2",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_3",
+                "kind": "momentum_value_set",
+                "values": [
+                  2.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_4",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_5",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "does_not_pass_origin"
+              }
+            ],
+            "figure_bindings": [
+              {
+                "figure_ref": "cp-c-momentum-chord-parallel",
+                "momentum_values": [
+                  2,
+                  4
+                ]
+              }
+            ]
+          }
         },
         {
           "key": "c4-3-scenario-04",
@@ -6042,7 +6281,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "图示P=2与P=4两条非零动量线共享斜率−√(M/m)=-2，截距随P改变。",
+          "explanation": "图示P=2与P=4两条非零动量线共享斜率−√(M/m)=-2，截距随P改变；非零动量线不通过原点。",
           "ask": "弦方向：到墙前读数的质量加权平面动量线对应M/m=4/1且图中两条平行动量线分别为P=2和P=4；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
           "options": [
             {
@@ -6123,7 +6362,59 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "弦方向：到墙前读数的质量加权平面动量线对应M/m=4/1且图中两条平行动量线分别为{{momentum_1}}和{{momentum_2}}；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "图示{{momentum_3}}与{{momentum_4}}两条非零动量线共享斜率−√(M/m)=-2，截距随P改变；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  2.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_2",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_3",
+                "kind": "momentum_value_set",
+                "values": [
+                  2.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_4",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "does_not_pass_origin"
+              }
+            ],
+            "figure_bindings": [
+              {
+                "figure_ref": "cp-c-momentum-chord-parallel",
+                "momentum_values": [
+                  2,
+                  4
+                ]
+              }
+            ]
+          }
         },
         {
           "key": "c4-4-scenario-01",
@@ -6134,7 +6425,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3。",
+          "explanation": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3；零动量线通过原点。",
           "ask": "线圆交点：图中质量加权状态链给出M/m=9/1；在同一坐标系另画总动量为零的动量线，哪些判读成立？ 请选择唯一正确判读。",
           "options": [
             {
@@ -6215,7 +6506,26 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "线圆交点：图中质量加权状态链给出M/m=9/1；在同一坐标系另画{{momentum_1}}的动量线，哪些判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "质量加权坐标中动量线为√M·x+√m·y=P，斜率为−√(M/m)=-3；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  0
+                ],
+                "notation": "zero_words"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "passes_origin"
+              }
+            ]
+          }
         },
         {
           "key": "c4-4-scenario-02",
@@ -6226,7 +6536,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "图示P=4的动量弦斜率为−√(M/m)=-2；它与能量圆的交点表示碰撞前后状态。",
+          "explanation": "图示P=4的动量弦斜率为−√(M/m)=-2；它与能量圆的交点表示碰撞前后状态；非零动量线不通过原点。",
           "ask": "线圆交点：相遇前读数的质量加权平面动量线对应M/m=4/1且图示动量弦P=4；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
           "options": [
             {
@@ -6307,7 +6617,42 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "线圆交点：相遇前读数的质量加权平面动量线对应M/m=4/1且图示动量弦{{momentum_1}}；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "图示{{momentum_2}}的动量弦斜率为−√(M/m)=-2；它与能量圆的交点表示碰撞前后状态；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "momentum_2",
+                "kind": "momentum_value_set",
+                "values": [
+                  4.0
+                ],
+                "notation": "symbol"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "does_not_pass_origin"
+              }
+            ],
+            "figure_bindings": [
+              {
+                "figure_ref": "cp-c-momentum-chord-ratio-4",
+                "momentum_values": [
+                  4
+                ]
+              }
+            ]
+          }
         },
         {
           "key": "c4-4-scenario-03",
@@ -6318,7 +6663,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；零动量线通过原点。",
           "ask": "线圆交点：相撞后读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
           "options": [
             {
@@ -6400,6 +6745,25 @@
                 }
               }
             ]
+          },
+          "visible_physics_contract": {
+            "prompt_template": "线圆交点：相撞后读数的质量加权平面动量线对应M/m=9/1且{{momentum_1}}；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  0
+                ],
+                "notation": "zero_words"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "passes_origin"
+              }
+            ]
           }
         },
         {
@@ -6411,7 +6775,7 @@
           "event_stage": "state_analysis",
           "variant_axis": "momentum",
           "curriculum_scope": "core",
-          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
+          "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；零动量线通过原点。",
           "ask": "线圆交点：到墙前读数的质量加权平面动量线对应M/m=4/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
           "options": [
             {
@@ -6491,6 +6855,25 @@
                     "asserted_slope": 0.0
                   }
                 }
+              }
+            ]
+          },
+          "visible_physics_contract": {
+            "prompt_template": "线圆交点：到墙前读数的质量加权平面动量线对应M/m=4/1且{{momentum_1}}；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；{{origin_relation}}。",
+            "facts": [
+              {
+                "id": "momentum_1",
+                "kind": "momentum_value_set",
+                "values": [
+                  0
+                ],
+                "notation": "zero_words"
+              },
+              {
+                "id": "origin_relation",
+                "kind": "origin_relation",
+                "relation": "passes_origin"
               }
             ]
           }
@@ -8515,7 +8898,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "状态链顺序：在{{mass_ratio}}的系统中，初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，{{safe_boundary}}；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 16.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 16.0,
+                "mass_small": 1.0,
+                "coefficient": 0.25,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 16.0,
+                "mass_small": 1.0,
+                "coefficient": 0.25,
+                "notation": "interval"
+              }
+            ]
+          }
         },
         {
           "key": "c6-2-scenario-02",
@@ -8630,7 +9041,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "状态链顺序：在{{mass_ratio}}的系统中，相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(3,1)，{{safe_boundary}}；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 16.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 16.0,
+                "mass_small": 1.0,
+                "coefficient": 0.25,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 16.0,
+                "mass_small": 1.0,
+                "coefficient": 0.25,
+                "notation": "interval"
+              }
+            ]
+          }
         },
         {
           "key": "c6-2-scenario-03",
@@ -8745,7 +9184,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "状态链顺序：在{{mass_ratio}}的系统中，相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(4,1)，{{safe_boundary}}；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 16.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 16.0,
+                "mass_small": 1.0,
+                "coefficient": 0.25,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 16.0,
+                "mass_small": 1.0,
+                "coefficient": 0.25,
+                "notation": "interval"
+              }
+            ]
+          }
         },
         {
           "key": "c6-2-scenario-04",
@@ -8860,7 +9327,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "状态链顺序：在{{mass_ratio}}的系统中，到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，{{safe_boundary}}；围绕“由终点坐标复核安全条件”，哪些终态判读成立？ 请选择两项正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。 本题具体检验：由终点坐标复核安全条件。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 16.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 16.0,
+                "mass_small": 1.0,
+                "coefficient": 0.25,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 16.0,
+                "mass_small": 1.0,
+                "coefficient": 0.25,
+                "notation": "interval"
+              }
+            ]
+          }
         },
         {
           "key": "c6-4-scenario-01",
@@ -8999,7 +9494,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "终态事件计数：在{{mass_ratio}}的系统中，初始读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(2,1)，{{safe_boundary}}；围绕“按给定顺序数物理事件”，哪些终态判读成立？ 请选择两项正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。 本题具体检验：按给定顺序数物理事件。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
+              }
+            ]
+          }
         },
         {
           "key": "c6-4-scenario-02",
@@ -9138,7 +9661,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "终态事件计数：在{{mass_ratio}}的系统中，相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，{{safe_boundary}}；围绕“用边界不等式判断安全扇区”，哪些终态判读成立？ 请选择两项正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。 本题具体检验：用边界不等式判断安全扇区。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
+              }
+            ]
+          }
         },
         {
           "key": "c6-4-scenario-03",
@@ -9277,7 +9828,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "终态事件计数：在{{mass_ratio}}的系统中，相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，{{safe_boundary}}；围绕“区分状态链长度与碰撞次数”，哪些终态判读成立？ 请选择两项正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。 本题具体检验：区分状态链长度与碰撞次数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
+              }
+            ]
+          }
         }
       ]
     },
@@ -9403,7 +9982,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "状态链起点：在{{mass_ratio}}的系统中，初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
+              }
+            ]
+          }
         },
         {
           "key": "c6-2-scenario-05",
@@ -9525,6 +10132,34 @@
                 }
               }
             ]
+          },
+          "visible_physics_contract": {
+            "prompt_template": "状态链顺序：在{{mass_ratio}}的系统中，离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
+              }
+            ]
           }
         },
         {
@@ -9640,7 +10275,35 @@
               }
             ]
           },
-          "figure_role": "active_physics"
+          "figure_role": "active_physics",
+          "visible_physics_contract": {
+            "prompt_template": "安全扇区：在{{mass_ratio}}的系统中，初始读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(2,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
+              }
+            ]
+          }
         },
         {
           "key": "c6-3-scenario-02",
@@ -9766,6 +10429,34 @@
                     "asserted_upper": -1
                   }
                 }
+              }
+            ]
+          },
+          "visible_physics_contract": {
+            "prompt_template": "安全扇区：在{{mass_ratio}}的系统中，相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
               }
             ]
           }
@@ -9908,6 +10599,34 @@
                 }
               }
             ]
+          },
+          "visible_physics_contract": {
+            "prompt_template": "安全扇区：在{{mass_ratio}}的系统中，相撞后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(4,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
+              }
+            ]
           }
         },
         {
@@ -10022,6 +10741,34 @@
                     "asserted_upper": -1
                   }
                 }
+              }
+            ]
+          },
+          "visible_physics_contract": {
+            "prompt_template": "安全扇区：在{{mass_ratio}}的系统中，到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
               }
             ]
           }
@@ -10152,6 +10899,34 @@
                 }
               }
             ]
+          },
+          "visible_physics_contract": {
+            "prompt_template": "安全扇区：在{{mass_ratio}}的系统中，离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
+              }
+            ]
           }
         },
         {
@@ -10266,6 +11041,34 @@
                     "asserted_upper": -1
                   }
                 }
+              }
+            ]
+          },
+          "visible_physics_contract": {
+            "prompt_template": "终态事件计数：在{{mass_ratio}}的系统中，到墙前读数的质量加权坐标状态链按“块碰撞、墙碰撞”顺序记录，当前点为(5,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+            "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+            "facts": [
+              {
+                "id": "mass_ratio",
+                "kind": "mass_ratio",
+                "mass_large": 4.0,
+                "mass_small": 1.0
+              },
+              {
+                "id": "safe_boundary",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "equation"
+              },
+              {
+                "id": "safe_interval",
+                "kind": "safe_sector_boundary",
+                "mass_large": 4.0,
+                "mass_small": 1.0,
+                "coefficient": 0.5,
+                "notation": "interval"
               }
             ]
           }
@@ -14064,8 +14867,27 @@
         }
       ],
       "calculation_fixture_id": "CAL-C4-LINE-01",
-      "explanation": "P=sqrt(M)x+sqrt(m)y，斜率为-sqrt(M/m)，所以P=-4，slope=-2。",
-      "presentation_mode": "text_only"
+      "explanation": "P=sqrt(M)x+sqrt(m)y，斜率为-sqrt(M/m)，所以P=-4，slope=-2；非零动量线不通过原点。",
+      "presentation_mode": "text_only",
+      "visible_physics_contract": {
+        "prompt_template": "质量加权速度坐标点为(x,y)=(-2,0)，M=4、m=1。填写总动量P和动量直线斜率。",
+        "explanation_template": "P=sqrt(M)x+sqrt(m)y，斜率为-sqrt(M/m)，所以{{momentum_1}}，slope=-2；{{origin_relation}}。",
+        "facts": [
+          {
+            "id": "momentum_1",
+            "kind": "momentum_value_set",
+            "values": [
+              -4.0
+            ],
+            "notation": "symbol"
+          },
+          {
+            "id": "origin_relation",
+            "kind": "origin_relation",
+            "relation": "does_not_pass_origin"
+          }
+        ]
+      }
     },
     {
       "key": "c4-1-concise-05",
@@ -14076,7 +14898,7 @@
       "event_stage": "state_analysis",
       "variant_axis": "momentum",
       "curriculum_scope": "core",
-      "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
+      "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；零动量线通过原点。",
       "prompt": "动量线斜率：初始读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
       "options": [
         {
@@ -14152,6 +14974,25 @@
             }
           }
         ]
+      },
+      "visible_physics_contract": {
+        "prompt_template": "动量线斜率：初始读数的质量加权平面动量线对应M/m=9/1且{{momentum_1}}；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+        "explanation_template": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；{{origin_relation}}。",
+        "facts": [
+          {
+            "id": "momentum_1",
+            "kind": "momentum_value_set",
+            "values": [
+              0
+            ],
+            "notation": "zero_words"
+          },
+          {
+            "id": "origin_relation",
+            "kind": "origin_relation",
+            "relation": "passes_origin"
+          }
+        ]
       }
     },
     {
@@ -14179,8 +15020,27 @@
         }
       ],
       "calculation_fixture_id": "CAL-C4-LINE-02",
-      "explanation": "P=sqrt(M)x+sqrt(m)y，斜率为-sqrt(M/m)，所以P=-16，slope=-4。",
-      "presentation_mode": "text_only"
+      "explanation": "P=sqrt(M)x+sqrt(m)y，斜率为-sqrt(M/m)，所以P=-16，slope=-4；非零动量线不通过原点。",
+      "presentation_mode": "text_only",
+      "visible_physics_contract": {
+        "prompt_template": "质量加权速度坐标点为(x,y)=(-4,0)，M=16、m=1。填写总动量P和动量直线斜率。",
+        "explanation_template": "P=sqrt(M)x+sqrt(m)y，斜率为-sqrt(M/m)，所以{{momentum_1}}，slope=-4；{{origin_relation}}。",
+        "facts": [
+          {
+            "id": "momentum_1",
+            "kind": "momentum_value_set",
+            "values": [
+              -16.0
+            ],
+            "notation": "symbol"
+          },
+          {
+            "id": "origin_relation",
+            "kind": "origin_relation",
+            "relation": "does_not_pass_origin"
+          }
+        ]
+      }
     },
     {
       "key": "c4-2-concise-05",
@@ -14191,7 +15051,7 @@
       "event_stage": "state_analysis",
       "variant_axis": "momentum",
       "curriculum_scope": "core",
-      "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
+      "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；零动量线通过原点。",
       "prompt": "动量线平行：离墙后读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
       "options": [
         {
@@ -14267,6 +15127,25 @@
             }
           }
         ]
+      },
+      "visible_physics_contract": {
+        "prompt_template": "动量线平行：离墙后读数的质量加权平面动量线对应M/m=9/1且{{momentum_1}}；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+        "explanation_template": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；{{origin_relation}}。",
+        "facts": [
+          {
+            "id": "momentum_1",
+            "kind": "momentum_value_set",
+            "values": [
+              0
+            ],
+            "notation": "zero_words"
+          },
+          {
+            "id": "origin_relation",
+            "kind": "origin_relation",
+            "relation": "passes_origin"
+          }
+        ]
       }
     },
     {
@@ -14306,14 +15185,33 @@
         }
       ],
       "calculation_fixture_id": "CAL-C4-INTERSECT-01",
-      "explanation": "将sqrt(M)x+sqrt(m)y=P代入x^2+y^2=2E后解二次方程，所以x1=0，y1=2，x2=2，y2=0。",
+      "explanation": "将sqrt(M)x+sqrt(m)y=P代入x^2+y^2=2E后解二次方程，所以x1=0，y1=2，x2=2，y2=0；非零动量线不通过原点。",
       "presentation_mode": "figure_sequence",
       "figure_refs": [
         "cp-c-momentum-chord-ratio-1",
         "cp-c-momentum-chord-parallel",
         "cp-c-momentum-chord-intersections"
       ],
-      "diagram_focus": "动量弦、平行动量线和两个交点的碰撞含义"
+      "diagram_focus": "动量弦、平行动量线和两个交点的碰撞含义",
+      "visible_physics_contract": {
+        "prompt_template": "在质量加权速度坐标平面中，M=1、m=1、E=2 J、{{momentum_1}}。联立能量圆与动量线，按x从小到大填写两交点(x1,y1,x2,y2)。 图序固定展示：动量弦、平行动量线和两个交点的碰撞含义。请按数组顺序阅读，不按文件名排序。",
+        "explanation_template": "将sqrt(M)x+sqrt(m)y=P代入x^2+y^2=2E后解二次方程，所以x1=0，y1=2，x2=2，y2=0；{{origin_relation}}。",
+        "facts": [
+          {
+            "id": "momentum_1",
+            "kind": "momentum_value_set",
+            "values": [
+              2.0
+            ],
+            "notation": "symbol"
+          },
+          {
+            "id": "origin_relation",
+            "kind": "origin_relation",
+            "relation": "does_not_pass_origin"
+          }
+        ]
+      }
     },
     {
       "key": "c4-3-concise-05",
@@ -14324,7 +15222,7 @@
       "event_stage": "state_analysis",
       "variant_axis": "momentum",
       "curriculum_scope": "core",
-      "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
+      "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；零动量线通过原点。",
       "prompt": "弦方向：离墙后读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
       "options": [
         {
@@ -14400,6 +15298,25 @@
             }
           }
         ]
+      },
+      "visible_physics_contract": {
+        "prompt_template": "弦方向：离墙后读数的质量加权平面动量线对应M/m=9/1且{{momentum_1}}；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+        "explanation_template": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；{{origin_relation}}。",
+        "facts": [
+          {
+            "id": "momentum_1",
+            "kind": "momentum_value_set",
+            "values": [
+              0
+            ],
+            "notation": "zero_words"
+          },
+          {
+            "id": "origin_relation",
+            "kind": "origin_relation",
+            "relation": "passes_origin"
+          }
+        ]
       }
     },
     {
@@ -14439,14 +15356,33 @@
         }
       ],
       "calculation_fixture_id": "CAL-C4-INTERSECT-02",
-      "explanation": "将sqrt(M)x+sqrt(m)y=P代入x^2+y^2=2E后解二次方程，所以x1=0，y1=2，x2=1.6，y2=-1.2。",
+      "explanation": "将sqrt(M)x+sqrt(m)y=P代入x^2+y^2=2E后解二次方程，所以x1=0，y1=2，x2=1.6，y2=-1.2；非零动量线不通过原点。",
       "presentation_mode": "figure_sequence",
       "figure_refs": [
         "cp-c-momentum-chord-ratio-1",
         "cp-c-momentum-chord-parallel",
         "cp-c-momentum-chord-intersections"
       ],
-      "diagram_focus": "动量弦、平行动量线和两个交点的碰撞含义"
+      "diagram_focus": "动量弦、平行动量线和两个交点的碰撞含义",
+      "visible_physics_contract": {
+        "prompt_template": "在质量加权速度坐标平面中，M=4、m=1、E=2 J、{{momentum_1}}。联立能量圆与动量线，按x从小到大填写两交点(x1,y1,x2,y2)。 图序固定展示：动量弦、平行动量线和两个交点的碰撞含义。请按数组顺序阅读，不按文件名排序。",
+        "explanation_template": "将sqrt(M)x+sqrt(m)y=P代入x^2+y^2=2E后解二次方程，所以x1=0，y1=2，x2=1.6，y2=-1.2；{{origin_relation}}。",
+        "facts": [
+          {
+            "id": "momentum_1",
+            "kind": "momentum_value_set",
+            "values": [
+              2.0
+            ],
+            "notation": "symbol"
+          },
+          {
+            "id": "origin_relation",
+            "kind": "origin_relation",
+            "relation": "does_not_pass_origin"
+          }
+        ]
+      }
     },
     {
       "key": "c4-4-concise-05",
@@ -14457,7 +15393,7 @@
       "event_stage": "state_analysis",
       "variant_axis": "momentum",
       "curriculum_scope": "core",
-      "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点。",
+      "explanation": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；零动量线通过原点。",
       "prompt": "线圆交点：离墙后读数的质量加权平面动量线对应M/m=9/1且总动量为零；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
       "options": [
         {
@@ -14531,6 +15467,25 @@
                 "asserted_slope": -1.0
               }
             }
+          }
+        ]
+      },
+      "visible_physics_contract": {
+        "prompt_template": "线圆交点：离墙后读数的质量加权平面动量线对应M/m=9/1且{{momentum_1}}；哪些弦方向、平行线或交点判读成立？ 请选择唯一正确判读。",
+        "explanation_template": "零总动量给出 y=−√(M/m)x；同一总动量的直线彼此平行并通过相应交点；{{origin_relation}}。",
+        "facts": [
+          {
+            "id": "momentum_1",
+            "kind": "momentum_value_set",
+            "values": [
+              0
+            ],
+            "notation": "zero_words"
+          },
+          {
+            "id": "origin_relation",
+            "kind": "origin_relation",
+            "relation": "passes_origin"
           }
         ]
       }
@@ -15193,6 +16148,34 @@
             }
           }
         ]
+      },
+      "visible_physics_contract": {
+        "prompt_template": "状态链起点：在{{mass_ratio}}的系统中，相遇前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(3,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+        "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+        "facts": [
+          {
+            "id": "mass_ratio",
+            "kind": "mass_ratio",
+            "mass_large": 4.0,
+            "mass_small": 1.0
+          },
+          {
+            "id": "safe_boundary",
+            "kind": "safe_sector_boundary",
+            "mass_large": 4.0,
+            "mass_small": 1.0,
+            "coefficient": 0.5,
+            "notation": "equation"
+          },
+          {
+            "id": "safe_interval",
+            "kind": "safe_sector_boundary",
+            "mass_large": 4.0,
+            "mass_small": 1.0,
+            "coefficient": 0.5,
+            "notation": "interval"
+          }
+        ]
       }
     },
     {
@@ -15377,6 +16360,34 @@
             }
           }
         ]
+      },
+      "visible_physics_contract": {
+        "prompt_template": "终态事件计数：在{{mass_ratio}}的系统中，离墙后读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(6,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+        "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+        "facts": [
+          {
+            "id": "mass_ratio",
+            "kind": "mass_ratio",
+            "mass_large": 4.0,
+            "mass_small": 1.0
+          },
+          {
+            "id": "safe_boundary",
+            "kind": "safe_sector_boundary",
+            "mass_large": 4.0,
+            "mass_small": 1.0,
+            "coefficient": 0.5,
+            "notation": "equation"
+          },
+          {
+            "id": "safe_interval",
+            "kind": "safe_sector_boundary",
+            "mass_large": 4.0,
+            "mass_small": 1.0,
+            "coefficient": 0.5,
+            "notation": "interval"
+          }
+        ]
       }
     },
     {
@@ -15509,6 +16520,34 @@
                 "asserted_upper": -1
               }
             }
+          }
+        ]
+      },
+      "visible_physics_contract": {
+        "prompt_template": "终态事件计数：在{{mass_ratio}}的系统中，终态前读数的质量加权坐标状态链按“块碰撞、墙碰撞、块碰撞、墙碰撞、块碰撞、墙碰撞”顺序记录，当前点为(7,1)，{{safe_boundary}}；哪些终态判读成立？ 请选择唯一正确判读。",
+        "explanation_template": "先逐项数出物理事件；{{safe_interval}}，不能以图线长度替代事件数。",
+        "facts": [
+          {
+            "id": "mass_ratio",
+            "kind": "mass_ratio",
+            "mass_large": 4.0,
+            "mass_small": 1.0
+          },
+          {
+            "id": "safe_boundary",
+            "kind": "safe_sector_boundary",
+            "mass_large": 4.0,
+            "mass_small": 1.0,
+            "coefficient": 0.5,
+            "notation": "equation"
+          },
+          {
+            "id": "safe_interval",
+            "kind": "safe_sector_boundary",
+            "mass_large": 4.0,
+            "mass_small": 1.0,
+            "coefficient": 0.5,
+            "notation": "interval"
           }
         ]
       }

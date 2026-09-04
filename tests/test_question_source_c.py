@@ -178,7 +178,8 @@ def stem_fact_dimensions(question, diagram):
     claims = question.get("answer_contract", {}).get("claims", [])
     if "安全边界" in text or any(item["claim"]["kind"] == "safe_sector" for item in claims):
         dimensions.update({"mass_ratio", "sector_boundary"})
-    if visible_momentum_values(text + " " + question.get("explanation", "")):
+    visible_facts = question.get("visible_physics_contract", {}).get("facts", [])
+    if any(fact["kind"] == "momentum_value_set" for fact in visible_facts):
         dimensions.update({"mass_ratio", "momentum_geometry"})
     return dimensions
 
@@ -372,35 +373,23 @@ def evaluate_diagram_claim(claim, diagram, query):
     )
 
 
-VISIBLE_NUMBER = r"[+\-−]?\d+(?:\.\d+)?"
-
-
-def _visible_mass_ratios(text):
-    """Return the distinct explicit (M, m) pairs supplied to the student."""
-    pairs = []
-    patterns = (
-        rf"M\s*/\s*m\s*[=＝]\s*({VISIBLE_NUMBER})\s*/\s*({VISIBLE_NUMBER})",
-        rf"M\s*[:∶]\s*m\s*[=＝]\s*({VISIBLE_NUMBER})\s*[:∶]\s*({VISIBLE_NUMBER})",
-        rf"M\s*[=＝]\s*({VISIBLE_NUMBER})\s*[、,，]\s*m\s*[=＝]\s*({VISIBLE_NUMBER})",
-    )
-    for pattern in patterns:
-        pairs.extend((float(large.replace("−", "-")), float(small.replace("−", "-")))
-                     for large, small in re.findall(pattern, text))
-    pairs.extend((float(large.replace("−", "-")), 1.0)
-                 for large in re.findall(rf"({VISIBLE_NUMBER})\s*m\s*与\s*m", text))
-    return set(pairs)
-
-
 def safe_sector_question_compatibility(question, visible_context=""):
-    """Bind every safe-sector claim to one authoritative student-visible mass pair."""
+    """Bind safe-sector claims to closed facts and exact canonical rendering."""
+    contract = question.get("visible_physics_contract")
+    if not contract:
+        return False
+    try:
+        rendered = question_bank.render_visible_physics_contract(contract)
+    except (KeyError, TypeError, ValueError):
+        return False
     prompt = question.get("ask", question.get("prompt", ""))
-    visible_text = f"{visible_context} {prompt}"
-    ratios = _visible_mass_ratios(visible_text)
-    if len(ratios) != 1:
+    if rendered != {"prompt": prompt, "explanation": question["explanation"]}:
         return False
-    mass_large, mass_small = next(iter(ratios))
-    if mass_large <= 0 or mass_small <= 0:
+    ratios = [fact for fact in contract["facts"] if fact["kind"] == "mass_ratio"]
+    boundaries = [fact for fact in contract["facts"] if fact["kind"] == "safe_sector_boundary"]
+    if len(ratios) != 1 or len(boundaries) != 2:
         return False
+    mass_large, mass_small = ratios[0]["mass_large"], ratios[0]["mass_small"]
     expected = math.sqrt(mass_small / mass_large)
     safe_claims = [
         item["claim"] for item in question.get("answer_contract", {}).get("claims", [])
@@ -414,37 +403,11 @@ def safe_sector_question_compatibility(question, visible_context=""):
                 and math.isclose(params["mass_small"], mass_small)
                 and math.isclose(params["boundary"], expected)):
             return False
-    boundary = re.search(r"安全边界为\s*y\s*=\s*([0-9.]+)?\s*x", prompt)
-    if not boundary or not math.isclose(float(boundary.group(1) or 1), expected):
-        return False
-    explanation_boundary = re.search(r"0\s*≤\s*y\s*≤\s*([0-9.]+)?\s*x", question["explanation"])
-    return (not explanation_boundary
-            or math.isclose(float(explanation_boundary.group(1) or 1), expected))
-
-
-def visible_momentum_values(text):
-    """Parse numeric total-momentum statements in symbolic or Chinese prose form."""
-    values = []
-    for value in re.findall(rf"(?<![A-Za-z0-9_Δ])P\s*[=＝]\s*({VISIBLE_NUMBER})", text):
-        values.append(float(value.replace("−", "-")))
-    for value in re.findall(rf"总动量\s*(?:为|是)\s*({VISIBLE_NUMBER}|零)", text):
-        values.append(0.0 if value == "零" else float(value.replace("−", "-")))
-    return set(values)
-
-
-def origin_propositions(text):
-    """Classify explicit claims about whether a momentum line crosses the origin.
-
-    ``True`` means crosses, ``False`` means does not cross, and ``None`` marks
-    deliberately rejected double-negation/ambiguous wording.
-    """
-    if re.search(r"不是\s*不(?:通过|穿过|经过)原点", text):
-        return None
-    pattern = re.compile(
-        r"(?P<negation>并非|不会|并不|并没有|没有|不是|未|不)?\s*"
-        r"(?P<verb>通过|穿过|经过)原点"
+    return all(
+        (boundary["mass_large"], boundary["mass_small"]) == (mass_large, mass_small)
+        and math.isclose(boundary["coefficient"], expected)
+        for boundary in boundaries
     )
-    return {match.group("negation") is None for match in pattern.finditer(text)}
 
 
 def stem_figure_compatibility(question, diagram):
@@ -485,20 +448,26 @@ def stem_figure_compatibility(question, diagram):
             stated = ["block_collision" if part == "块碰撞" else "wall_reflection" for part in sequence.group(1).split("、")]
             if stated != [event["kind"] for event in params["events"]]:
                 return False
+    contract = question.get("visible_physics_contract")
+    if contract:
+        try:
+            rendered = question_bank.render_visible_physics_contract(contract)
+        except (KeyError, TypeError, ValueError):
+            return False
+        if rendered != {"prompt": text, "explanation": explanation}:
+            return False
+
     # Facts in the stem/contract select their semantic checks.  A state-chain
     # picture can support a safe-sector question, so template/role must not be
     # an escape hatch from the mass-weighted boundary.
     claims = question.get("answer_contract", {}).get("claims", [])
     safe_claims = [item["claim"] for item in claims if item["claim"]["kind"] == "safe_sector"]
-    boundary = re.search(r"安全边界为y=([0-9.]+)?x", text)
-    if boundary or safe_claims:
+    if safe_claims:
         if not {"mass_large", "mass_small"}.issubset(params):
             return False
         if not safe_sector_question_compatibility(question):
             return False
         expected = math.sqrt(params["mass_small"] / params["mass_large"])
-        if not boundary or not math.isclose(float(boundary.group(1) or 1), expected):
-            return False
         if any(not math.isclose(claim["parameters"]["boundary"], expected) for claim in safe_claims):
             return False
 
@@ -506,23 +475,22 @@ def stem_figure_compatibility(question, diagram):
     # line.  Nonzero momentum lines have nonzero axis intercepts and therefore
     # cannot be described as zero-momentum/origin lines.
     if "momentum_values" in params:
-        stated_values = visible_momentum_values(text)
-        explained_values = visible_momentum_values(explanation)
         visible_values = {float(value) for value in params["momentum_values"]}
-        if stated_values and stated_values != visible_values:
+        if not contract:
             return False
-        if not explained_values.issubset(visible_values):
+        bindings = contract.get("figure_bindings", [])
+        binding = next((item for item in bindings if item["figure_ref"] == diagram["diagram_id"]), None)
+        if binding is None or {float(value) for value in binding["momentum_values"]} != visible_values:
             return False
-        propositions = origin_propositions(text + explanation)
-        if propositions is None:
+        origins = [fact for fact in contract["facts"] if fact["kind"] == "origin_relation"]
+        if len(origins) != 1:
             return False
-        if all(value == 0 for value in visible_values) and False in propositions:
-            return False
-        if all(value != 0 for value in visible_values) and True in propositions:
-            return False
-        if len(visible_values) > 1 and 0 in visible_values and propositions:
-            # A generic origin proposition is ambiguous when the figure shows
-            # both zero- and nonzero-momentum lines.
+        expected_origin = (
+            "passes_origin" if visible_values == {0.0}
+            else "does_not_pass_origin" if 0.0 not in visible_values
+            else "mixed_or_not_asserted"
+        )
+        if origins[0]["relation"] != expected_origin:
             return False
         for option, item in zip(question.get("options", []), claims):
             claim = item["claim"]
@@ -663,6 +631,269 @@ class QuestionSourceCSchemaTests(SourceLoadMixin, unittest.TestCase):
 
 
 class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
+    def test_visible_physics_contract_api_exists(self):
+        """C builds expose one production validator for canonical visible facts."""
+        self.assertTrue(
+            hasattr(question_bank, "validate_visible_physics_contracts"),
+            "production validator is missing",
+        )
+        self.assertTrue(
+            hasattr(question_bank, "render_visible_physics_contract"),
+            "production renderer is missing",
+        )
+
+    def test_structured_visible_physics_contracts_round_trip_every_affected_record(self):
+        """Closed facts, rather than parsed Chinese prose, reconstruct all controlled fields."""
+        source, _, scenario_questions, standalone, _, _ = self.load_source()
+        questions = scenario_questions + standalone
+        by_key = {question["key"]: question for question in questions}
+        safe_keys = {
+            question["key"]
+            for question in questions
+            if any(
+                item["claim"]["kind"] == "safe_sector"
+                for item in question.get("answer_contract", {}).get("claims", [])
+            )
+        }
+        momentum_keys = {
+            "c4-2-scenario-01", "c4-2-scenario-02", "c4-2-scenario-03",
+            "c4-3-scenario-01", "c4-3-scenario-02", "c4-3-scenario-03",
+            "c4-3-scenario-04", "c4-4-scenario-01", "c4-4-scenario-02",
+            "c4-4-scenario-03", "c4-4-scenario-04", "c4-1-calculation-11",
+            "c4-1-concise-05", "c4-2-calculation-12", "c4-2-concise-05",
+            "c4-3-calculation-13", "c4-3-concise-05", "c4-4-calculation-14",
+            "c4-4-concise-05",
+        }
+        momentum_figure_keys = {
+            "c4-2-scenario-02", "c4-2-scenario-03", "c4-2-scenario-04",
+            "c4-3-scenario-02", "c4-3-scenario-03", "c4-3-scenario-04",
+            "c4-4-scenario-02",
+        }
+
+        self.assertEqual(len(safe_keys), 18)
+        for key in safe_keys | momentum_keys | momentum_figure_keys:
+            self.assertIn("visible_physics_contract", by_key[key], key)
+            rendered = question_bank.render_visible_physics_contract(
+                by_key[key]["visible_physics_contract"]
+            )
+            prompt_field = "ask" if "ask" in by_key[key] else "prompt"
+            self.assertEqual(rendered["prompt"], by_key[key][prompt_field], key)
+            self.assertEqual(rendered["explanation"], by_key[key]["explanation"], key)
+
+        question_bank.validate_visible_physics_contracts(source)
+
+        contracted = {
+            question["key"]: question["visible_physics_contract"]
+            for question in questions
+            if "visible_physics_contract" in question
+        }
+        self.assertEqual(
+            {key for key, contract in contracted.items()
+             if any(fact["kind"] == "safe_sector_boundary" for fact in contract["facts"])},
+            safe_keys,
+        )
+        self.assertEqual(
+            {key for key, contract in contracted.items()
+             if any(fact["kind"] == "momentum_value_set" for fact in contract["facts"])},
+            momentum_keys,
+        )
+        self.assertEqual(
+            {key for key, contract in contracted.items() if contract.get("figure_bindings")},
+            momentum_figure_keys,
+        )
+
+    def test_canonical_visible_physics_rejects_text_and_fact_drift(self):
+        """Changing either rendered prose or its typed facts breaks the source contract."""
+        source, _, scenario_questions, standalone, _, _ = self.load_source()
+        by_key = {question["key"]: question for question in scenario_questions + standalone}
+
+        for bypass in (
+            "M：m=16：1", "M:m＝16:1", "M︰m=16︰1", "M比m为16比1",
+            "总动量＝999", "总动量=999", "总动量等于999", "总动量可写为999",
+            "通过原点", "不通过原点", "不是不通过原点", "并非不与原点相交",
+        ):
+            mutation = copy.deepcopy(source)
+            target = next(
+                question
+                for scenario in mutation["scenarios"]
+                for question in scenario["questions"]
+                if question["key"] == "c6-2-scenario-05"
+            )
+            target["ask"] += f"；{bypass}"
+            with self.subTest(text=bypass), self.assertRaises(ValueError):
+                question_bank.validate_visible_physics_contracts(mutation)
+
+        for replacement in (
+            "M：m=16：1", "M:m＝16:1", "M︰m=16︰1", "M比m为16比1",
+        ):
+            mutation = copy.deepcopy(source)
+            target = next(
+                question
+                for scenario in mutation["scenarios"]
+                for question in scenario["questions"]
+                if question["key"] == "c6-2-scenario-05"
+            )
+            target["ask"] = target["ask"].replace("M/m=4/1", replacement)
+            with self.subTest(replacement=replacement), self.assertRaises(ValueError):
+                question_bank.validate_visible_physics_contracts(mutation)
+
+        for replacement in (
+            "总动量＝999", "总动量=999", "总动量等于999", "总动量可写为999",
+        ):
+            mutation = copy.deepcopy(source)
+            target = next(
+                question for scenario in mutation["scenarios"] for question in scenario["questions"]
+                if question["key"] == "c4-2-scenario-02"
+            )
+            target["ask"] = target["ask"].replace("P=4", replacement, 1)
+            with self.subTest(momentum_replacement=replacement), self.assertRaises(ValueError):
+                question_bank.validate_visible_physics_contracts(mutation)
+
+        for replacement in (
+            "通过原点", "穿过原点", "经过原点", "不穿过原点",
+            "不是不通过原点", "并非不与原点相交",
+        ):
+            mutation = copy.deepcopy(source)
+            target = next(
+                question for scenario in mutation["scenarios"] for question in scenario["questions"]
+                if question["key"] == "c4-2-scenario-02"
+            )
+            target["explanation"] = target["explanation"].replace(
+                "非零动量线不通过原点", replacement
+            )
+            with self.subTest(origin_replacement=replacement), self.assertRaises(ValueError):
+                question_bank.validate_visible_physics_contracts(mutation)
+
+        mutation = copy.deepcopy(source)
+        safe = next(
+            question for scenario in mutation["scenarios"] for question in scenario["questions"]
+            if question["key"] == "c6-2-scenario-05"
+        )
+        ratio = next(fact for fact in safe["visible_physics_contract"]["facts"] if fact["kind"] == "mass_ratio")
+        ratio["mass_large"] = 16
+        with self.assertRaises(ValueError):
+            question_bank.validate_visible_physics_contracts(mutation)
+
+        malformed = {
+            "prompt_template": "{{ratio}}",
+            "explanation_template": "说明。",
+            "facts": [{
+                "id": "ratio", "kind": "mass_ratio",
+                "mass_large": True, "mass_small": 1,
+            }],
+        }
+        with self.assertRaises(ValueError):
+            question_bank.render_visible_physics_contract(malformed)
+
+        mutation = copy.deepcopy(source)
+        safe = next(
+            question for scenario in mutation["scenarios"] for question in scenario["questions"]
+            if question["key"] == "c6-2-scenario-05"
+        )
+        boundary = next(fact for fact in safe["visible_physics_contract"]["facts"] if fact["kind"] == "safe_sector_boundary")
+        boundary["coefficient"] = 999
+        with self.assertRaises(ValueError):
+            question_bank.validate_visible_physics_contracts(mutation)
+
+        mutation = copy.deepcopy(source)
+        momentum = next(
+            question for scenario in mutation["scenarios"] for question in scenario["questions"]
+            if question["key"] == "c4-2-scenario-02"
+        )
+        value = next(fact for fact in momentum["visible_physics_contract"]["facts"] if fact["kind"] == "momentum_value_set")
+        value["values"] = [999]
+        with self.assertRaises(ValueError):
+            question_bank.validate_visible_physics_contracts(mutation)
+
+        mutation = copy.deepcopy(source)
+        momentum = next(
+            question for scenario in mutation["scenarios"] for question in scenario["questions"]
+            if question["key"] == "c4-2-scenario-02"
+        )
+        origin = next(fact for fact in momentum["visible_physics_contract"]["facts"] if fact["kind"] == "origin_relation")
+        origin["relation"] = "passes_origin"
+        with self.assertRaises(ValueError):
+            question_bank.validate_visible_physics_contracts(mutation)
+
+        mutation = copy.deepcopy(source)
+        momentum = next(
+            question for scenario in mutation["scenarios"] for question in scenario["questions"]
+            if question["key"] == "c4-2-scenario-02"
+        )
+        momentum["visible_physics_contract"]["figure_bindings"][0]["momentum_values"] = [999]
+        with self.assertRaises(ValueError):
+            question_bank.validate_visible_physics_contracts(mutation)
+
+        mutation = copy.deepcopy(source)
+        safe = next(
+            question for scenario in mutation["scenarios"] for question in scenario["questions"]
+            if question["key"] == "c6-2-scenario-05"
+        )
+        del safe["visible_physics_contract"]
+        with self.assertRaises(ValueError):
+            question_bank.validate_visible_physics_contracts(mutation)
+
+    def test_visible_physics_contract_rejects_bad_slots_and_schema_shapes(self):
+        """Missing/duplicate slots and open fact shapes fail before bank generation."""
+        source, _, _, _, _, _ = self.load_source()
+
+        for mutate in ("missing_slot", "duplicate_slot"):
+            mutation = copy.deepcopy(source)
+            target = next(
+                question for scenario in mutation["scenarios"] for question in scenario["questions"]
+                if question["key"] == "c6-2-scenario-05"
+            )
+            contract = target["visible_physics_contract"]
+            token = "{{" + contract["facts"][0]["id"] + "}}"
+            contract["prompt_template"] = (
+                contract["prompt_template"].replace(token, "")
+                if mutate == "missing_slot" else contract["prompt_template"] + token
+            )
+            with self.subTest(mutate=mutate), self.assertRaises(ValueError):
+                question_bank.validate_visible_physics_contracts(mutation)
+
+        for mutate in ("unknown_kind", "unknown_property"):
+            mutation = copy.deepcopy(source)
+            target = next(
+                question for scenario in mutation["scenarios"] for question in scenario["questions"]
+                if question["key"] == "c6-2-scenario-05"
+            )
+            fact = target["visible_physics_contract"]["facts"][0]
+            if mutate == "unknown_kind":
+                fact["kind"] = "author_truth"
+            else:
+                fact["expected_truth"] = True
+            with self.subTest(mutate=mutate):
+                self.assertNotEqual(validate_source_with_pwsh(mutation).returncode, 0)
+                with self.assertRaises((KeyError, ValueError)):
+                    question_bank.validate_visible_physics_contracts(mutation)
+
+        mutation = copy.deepcopy(source)
+        target = next(
+            question for scenario in mutation["scenarios"] for question in scenario["questions"]
+            if question["key"] == "c6-2-scenario-05"
+        )
+        target["visible_physics_contract"]["facts"][0]["mass_large"] = True
+        self.assertNotEqual(validate_source_with_pwsh(mutation).returncode, 0)
+        with self.assertRaises(ValueError):
+            question_bank.validate_visible_physics_contracts(mutation)
+
+    def test_expanded_bank_carries_reconstructible_visible_physics_contracts(self):
+        """The formal C bank retains a contract that reconstructs full student text."""
+        source = json.loads(SOURCE.read_text(encoding="utf-8"))
+        puzzle = json.loads(PUZZLE.read_text(encoding="utf-8"))
+        bank = question_bank.build_bank(source, puzzle, section_id="C", title="C")
+        contracted = [q for q in bank["questions"] if "visible_physics_contract" in q]
+        self.assertEqual(len(contracted), 38)
+        for question in contracted:
+            rendered = question_bank.render_visible_physics_contract(
+                question["visible_physics_contract"]
+            )
+            self.assertEqual(rendered["prompt"], question["prompt"], question["id"])
+            self.assertEqual(rendered["explanation"], question["explanation"], question["id"])
+        self.assertEqual(validate_c_bank_with_pwsh(bank).returncode, 0)
+
+
     def test_formal_schema_keeps_ab_stage_and_axis_contracts_strict(self):
         """C-only stage/axis values must not silently broaden the A/B bank API."""
         for section in ("a", "b"):
@@ -1341,23 +1572,13 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         ]
         self.assertEqual(len(safe_questions), 18)
         for question in safe_questions:
-            text = question.get("ask", question.get("prompt", ""))
-            ratio = re.search(r"M/m=(\d+)/(\d+)", text)
-            if ratio:
-                mass_large, mass_small = map(int, ratio.groups())
-            else:
-                refs = question.get("figure_refs", [])
-                self.assertTrue(refs, f"safe-sector mass ratio is unstated: {question['key']}")
-                figure = diagrams[refs[0]]
-                mass_large = figure["parameters"]["mass_large"]
-                mass_small = figure["parameters"]["mass_small"]
+            facts = question["visible_physics_contract"]["facts"]
+            ratio = next(fact for fact in facts if fact["kind"] == "mass_ratio")
+            mass_large, mass_small = ratio["mass_large"], ratio["mass_small"]
             expected = math.sqrt(mass_small / mass_large)
-            boundary = re.search(r"安全边界为y=([0-9.]+)?x", text)
-            self.assertIsNotNone(boundary, question["key"])
-            self.assertTrue(math.isclose(float(boundary.group(1) or 1), expected), question["key"])
-            explanation_boundary = re.search(r"0≤y≤([0-9.]+)?x", question["explanation"])
-            if explanation_boundary:
-                self.assertTrue(math.isclose(float(explanation_boundary.group(1) or 1), expected), question["key"])
+            boundaries = [fact for fact in facts if fact["kind"] == "safe_sector_boundary"]
+            self.assertEqual({fact["notation"] for fact in boundaries}, {"equation", "interval"})
+            self.assertTrue(all(math.isclose(fact["coefficient"], expected) for fact in boundaries))
             for item in question["answer_contract"]["claims"]:
                 if item["claim"]["kind"] == "safe_sector":
                     self.assertTrue(math.isclose(item["claim"]["parameters"]["boundary"], expected), question["key"])
@@ -1402,7 +1623,7 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
 
         target = copy.deepcopy(by_key["c6-2-scenario-05"])
         target["ask"] = target["ask"].replace("M/m=4/1", "M/m = 4.0 / 1.0")
-        self.assertTrue(safe_sector_question_compatibility(target, contexts[target["key"]]))
+        self.assertFalse(safe_sector_question_compatibility(target, contexts[target["key"]]))
 
         target = copy.deepcopy(by_key["c6-2-scenario-05"])
         target["ask"] = target["ask"].replace("M/m=4/1", "质量已知")
@@ -1428,7 +1649,7 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         for equivalent in ("M:m=4:1", "M:m = 4 : 1", "M∶m=4∶1", "M:m=4∶1"):
             target = copy.deepcopy(by_key["c6-2-scenario-05"])
             target["ask"] = target["ask"].replace("M/m=4/1", equivalent)
-            self.assertTrue(
+            self.assertFalse(
                 safe_sector_question_compatibility(target, contexts[target["key"]]),
                 equivalent,
             )
@@ -1443,7 +1664,7 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
 
         target = copy.deepcopy(by_key["c6-2-scenario-05"])
         target["ask"] += " 提示：先比较速度方向。"
-        self.assertTrue(safe_sector_question_compatibility(target, contexts[target["key"]]))
+        self.assertFalse(safe_sector_question_compatibility(target, contexts[target["key"]]))
 
     def test_all_momentum_stem_figures_match_visible_nonzero_lines(self):
         """A momentum stem cannot relabel a visible nonzero line as P=0 or an origin line."""
@@ -1459,35 +1680,30 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         for question in stems:
             diagram = diagrams[question["figure_refs"][0]]
             self.assertTrue(stem_figure_compatibility(question, diagram), question["key"])
-            text = question.get("ask", question.get("prompt", ""))
-            stated = visible_momentum_values(text)
-            if stated:
-                self.assertEqual(stated, {float(value) for value in diagram["parameters"]["momentum_values"]}, question["key"])
-            if all(value != 0 for value in diagram["parameters"]["momentum_values"]):
-                self.assertNotRegex(text, r"(?:通过原点|原点交点|P=0)", question["key"])
+            binding = question["visible_physics_contract"]["figure_bindings"][0]
+            self.assertEqual(binding["figure_ref"], diagram["diagram_id"])
+            self.assertEqual(binding["momentum_values"], diagram["parameters"]["momentum_values"])
 
         p_bearing = [
             question for question in scenario_questions + standalone
-            if visible_momentum_values(
-                question.get("ask", question.get("prompt", "")) + " " + question.get("explanation", "")
+            if any(
+                fact["kind"] == "momentum_value_set"
+                for fact in question.get("visible_physics_contract", {}).get("facts", [])
             )
         ]
         self.assertEqual(len(p_bearing), 19)
         for question in p_bearing:
-            prompt_values = visible_momentum_values(question.get("ask", question.get("prompt", "")))
-            explanation_values = visible_momentum_values(question.get("explanation", ""))
-            if prompt_values and explanation_values:
-                self.assertTrue(
-                    explanation_values.issubset(prompt_values) or prompt_values.issubset(explanation_values),
-                    question["key"],
-                )
+            contract = question["visible_physics_contract"]
+            rendered = question_bank.render_visible_physics_contract(contract)
+            self.assertEqual(rendered["prompt"], question.get("ask", question.get("prompt")))
+            self.assertEqual(rendered["explanation"], question["explanation"])
             if question["presentation_mode"] == "stem_figure":
                 figure = diagrams[question["figure_refs"][0]]
                 if "momentum_values" in figure["parameters"]:
                     self.assertTrue(stem_figure_compatibility(question, figure), question["key"])
 
     def test_momentum_statements_in_stem_and_explanation_match_the_figure(self):
-        """Natural-language and symbolic P statements share one visible-figure contract."""
+        """Only canonical rendered momentum clauses may describe a bound figure."""
         _, _, scenario_questions, standalone, _, _ = self.load_source()
         diagram_source = json.loads(DIAGRAM_SOURCE.read_text(encoding="utf-8"))
         diagrams = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
@@ -1506,7 +1722,7 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         for visible in ("P = 4", "总动量为4", "总动量为 4", "总动量为4 kg·m/s，"):
             target = copy.deepcopy(original)
             target["ask"] = target["ask"].replace("P=4", visible)
-            self.assertTrue(stem_figure_compatibility(target, diagram), visible)
+            self.assertFalse(stem_figure_compatibility(target, diagram), visible)
 
         target = copy.deepcopy(original)
         target["ask"] = target["ask"].replace("P=4", "总动量为0")
@@ -1529,12 +1745,10 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         for visible in ("P＝4", "总动量是4", "总动量是 4 kg·m/s，"):
             target = copy.deepcopy(original)
             target["ask"] = target["ask"].replace("P=4", visible)
-            self.assertTrue(stem_figure_compatibility(target, diagram), visible)
+            self.assertFalse(stem_figure_compatibility(target, diagram), visible)
 
-        self.assertEqual(visible_momentum_values("冲量变化ΔP=999；总动量是否为4？"), set())
-
-    def test_origin_propositions_respect_crossing_and_negation_semantics(self):
-        """Origin claims use proposition polarity, not a brittle substring check."""
+    def test_origin_relation_uses_closed_canonical_facts(self):
+        """Origin claims use a typed enum and reject every noncanonical rewrite."""
         _, _, scenario_questions, standalone, _, _ = self.load_source()
         diagram_source = json.loads(DIAGRAM_SOURCE.read_text(encoding="utf-8"))
         diagrams = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
@@ -1548,35 +1762,20 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
                 target["explanation"] = f"图示P=4，该非零动量线{wording}。"
                 self.assertFalse(stem_figure_compatibility(target, diagram), wording)
 
-        for wording in (
-            "不通过原点",
-            "并非通过原点",
-            "不会通过原点",
-            "不穿过原点",
-            "未经过原点",
-            "并不经过原点",
-        ):
-            with self.subTest(nonzero_negative=wording):
+        for wording in ("并非通过原点", "不会通过原点", "不穿过原点", "未经过原点", "并不经过原点"):
+            with self.subTest(noncanonical_negative=wording):
                 target = copy.deepcopy(original)
-                target["explanation"] = f"图示P=4，该非零动量线{wording}。"
-                self.assertTrue(stem_figure_compatibility(target, diagram), wording)
+                target["explanation"] = target["explanation"].replace("非零动量线不通过原点", wording)
+                self.assertFalse(stem_figure_compatibility(target, diagram), wording)
 
         target = copy.deepcopy(original)
         target["explanation"] = "图示P=4，该非零动量线不是不通过原点。"
         self.assertFalse(stem_figure_compatibility(target, diagram))
 
-        zero_diagram = copy.deepcopy(diagram)
-        zero_diagram["parameters"]["momentum_values"] = [0]
-        for wording, expected in (("通过原点", True), ("不通过原点", False)):
-            with self.subTest(zero_line=wording):
-                target = copy.deepcopy(original)
-                target["ask"] = target["ask"].replace("P=4", "P=0")
-                target["explanation"] = f"图示P=0，该零动量线{wording}。"
-                self.assertEqual(
-                    stem_figure_compatibility(target, zero_diagram),
-                    expected,
-                    wording,
-                )
+        target = copy.deepcopy(original)
+        origin = next(fact for fact in target["visible_physics_contract"]["facts"] if fact["kind"] == "origin_relation")
+        origin["relation"] = "passes_origin"
+        self.assertFalse(stem_figure_compatibility(target, diagram))
 
     def test_question_payloads_and_wording_guards(self):
         _, _, scenario_questions, standalone, fixtures, _ = self.load_source()

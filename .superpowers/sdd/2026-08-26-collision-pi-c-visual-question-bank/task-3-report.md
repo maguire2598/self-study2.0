@@ -565,6 +565,99 @@ None.
 
 ---
 
+# Fix round 10 — closed structured visible-physics facts
+
+## Repairs
+
+- Replaced correctness-by-Chinese-regex for the affected C questions with a closed
+  `visible_physics_contract`. Its typed facts cover `mass_ratio`,
+  `safe_sector_boundary`, `momentum_value_set`, and `origin_relation`; every fact
+  has a unique placeholder that occurs exactly once across the full prompt and
+  explanation templates.
+- Added one deterministic renderer and a production validator. The checked-in
+  prompt/explanation must exactly equal canonical reconstruction, so punctuation,
+  synonyms, appended assertions, missing slots, duplicate slots, unknown kinds,
+  extra fields, hidden booleans, and coordinated diagram-source drift fail without
+  extending a synonym parser.
+- Bound all 18 safe-sector questions to their visible masses, derived
+  `sqrt(m/M)` boundary, both equation/interval renderings, and all typed answer
+  claims. Bound all 19 numeric-momentum records to structured value facts and
+  typed origin relations. Bound all seven momentum stem figures directly to
+  `diagram-source-c.json` momentum values; the seventh figure has an explicit
+  diagram binding even though its prose does not state a numeric P.
+- Carried the same reconstructible contract into formal expanded C questions,
+  with scenario context included in the formal prompt template. Added recursively
+  closed source/formal schemas. A/B expansion paths remain untouched.
+- Removed the mass-ratio, momentum-equality, and origin-substring parsers from
+  correctness checks. Compatibility and audit tests now consume structured facts
+  and canonical reconstruction.
+
+## TDD evidence
+
+RED — production API absent:
+
+```text
+test_visible_physics_contract_api_exists ... FAIL
+AssertionError: False is not true : production validator is missing
+```
+
+RED — affected records had no contracts:
+
+```text
+test_structured_visible_physics_contracts_round_trip_every_affected_record ... FAIL
+AssertionError: 'visible_physics_contract' not found ... c4-2-concise-05
+```
+
+RED — formal expansion dropped the contract:
+
+```text
+test_expanded_bank_carries_reconstructible_visible_physics_contracts ... FAIL
+AssertionError: 0 != 38
+```
+
+RED — malformed typed values were accepted by the renderer:
+
+```text
+test_canonical_visible_physics_rejects_text_and_fact_drift ... FAIL
+AssertionError: ValueError not raised
+```
+
+GREEN:
+
+```text
+python -m unittest tests.test_question_source_c -q
+Ran 48 tests in 21.686s ... OK
+
+python -m unittest discover -s tests -q
+Ran 162 tests in 33.321s ... OK
+```
+
+## Verification and fresh audit
+
+```text
+Three C checkpoints, source/formal schema, A byte parity, B generator parity,
+and C diagram determinism: 8 tests in 10.407s ... OK
+
+C_SOURCE_SCHEMA=True
+A bank blob unchanged: 99a12906c97493be65038357065a017183bbde85
+B bank blob unchanged: 3afb76fd3850d5530c90f72d90c9f8a19edc5803
+
+AUDIT total=180 safe=18 numeric_momentum=19 momentum_stem_figures=7
+AUDIT stem_figures=72 structured_claims=624 canonical_contracts=38
+```
+
+The adversarial suite appends and replaces all round-9 bypass families (ASCII,
+full-width, presentation-form colons/equality, Chinese ratio wording, four total-
+momentum phrasings, positive/negative/double-negative origin variants). It also
+mutates structured masses, boundary coefficients, momentum values, diagram
+bindings, origin enums, text, slots, kinds, and properties independently.
+
+## Concerns
+
+None.
+
+---
+
 # Fix round 8 — visible safe-sector masses and complete momentum-statement validation
 
 ## Repairs
@@ -712,6 +805,29 @@ Ran 157 tests in 30.892s ... OK
 ```
 
 No question, diagram, schema, generator, or A/B asset changed in this round.
+
+## Concerns
+
+None.
+
+---
+
+# Fix round 10 final verification addendum
+
+The full round-10 implementation, RED/GREEN evidence, architecture, and audit are
+recorded above under “Fix round 10 — closed structured visible-physics facts”.
+Final fresh verification after removing the prose parsers from correctness paths:
+
+```text
+python -m unittest tests.test_question_source_c -q
+Ran 48 tests ... OK
+
+python -m unittest discover -s tests -q
+Ran 162 tests ... OK
+
+AUDIT total=180 safe=18 numeric_momentum=19 momentum_stem_figures=7
+AUDIT stem_figures=72 structured_claims=624 canonical_contracts=38
+```
 
 ## Concerns
 

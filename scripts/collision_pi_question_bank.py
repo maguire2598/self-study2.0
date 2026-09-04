@@ -2,8 +2,11 @@
 
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
+import math
+import re
 from collections import Counter
 from pathlib import Path
 from typing import TypeVar
@@ -13,6 +16,234 @@ OPTION_IDS = ["A", "B", "C", "D"]
 ROOT = Path(__file__).resolve().parents[1]
 
 T = TypeVar("T")
+
+
+SAFE_SECTOR_CONTRACT_COUNT = 18
+MOMENTUM_CONTRACT_KEYS = {
+    "c4-2-scenario-01", "c4-2-scenario-02", "c4-2-scenario-03",
+    "c4-3-scenario-01", "c4-3-scenario-02", "c4-3-scenario-03",
+    "c4-3-scenario-04", "c4-4-scenario-01", "c4-4-scenario-02",
+    "c4-4-scenario-03", "c4-4-scenario-04", "c4-1-calculation-11",
+    "c4-1-concise-05", "c4-2-calculation-12", "c4-2-concise-05",
+    "c4-3-calculation-13", "c4-3-concise-05", "c4-4-calculation-14",
+    "c4-4-concise-05",
+}
+MOMENTUM_FIGURE_CONTRACT_KEYS = {
+    "c4-2-scenario-02", "c4-2-scenario-03", "c4-2-scenario-04",
+    "c4-3-scenario-02", "c4-3-scenario-03", "c4-3-scenario-04",
+    "c4-4-scenario-02",
+}
+VISIBLE_FACT_TOKEN = re.compile(r"\{\{([a-z][a-z0-9_]*)\}\}")
+VISIBLE_FACT_FIELDS = {
+    "mass_ratio": {"id", "kind", "mass_large", "mass_small"},
+    "safe_sector_boundary": {
+        "id", "kind", "mass_large", "mass_small", "coefficient", "notation",
+    },
+    "momentum_value_set": {"id", "kind", "values", "notation"},
+    "origin_relation": {"id", "kind", "relation"},
+}
+
+
+def _format_visible_number(value: float) -> str:
+    return str(int(value)) if float(value).is_integer() else f"{value:g}"
+
+
+def _visible_number(value: object, *, positive: bool = False) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError("visible physics numbers must be numeric, not boolean")
+    number = float(value)
+    if not math.isfinite(number) or (positive and number <= 0):
+        raise ValueError("visible physics number is outside its domain")
+    return number
+
+
+def _render_visible_fact(fact: dict) -> str:
+    kind = fact["kind"]
+    if kind not in VISIBLE_FACT_FIELDS or set(fact) != VISIBLE_FACT_FIELDS[kind]:
+        raise ValueError(f"malformed visible physics fact: {kind}")
+    if not isinstance(fact["id"], str) or not re.fullmatch(r"[a-z][a-z0-9_]*", fact["id"]):
+        raise ValueError("visible physics fact id is invalid")
+    if kind == "mass_ratio":
+        _visible_number(fact["mass_large"], positive=True)
+        _visible_number(fact["mass_small"], positive=True)
+        return f"M/m={_format_visible_number(fact['mass_large'])}/{_format_visible_number(fact['mass_small'])}"
+    if kind == "safe_sector_boundary":
+        _visible_number(fact["mass_large"], positive=True)
+        _visible_number(fact["mass_small"], positive=True)
+        _visible_number(fact["coefficient"], positive=True)
+        if fact["notation"] not in {"equation", "interval"}:
+            raise ValueError("unknown safe-sector notation")
+        coefficient = _format_visible_number(fact["coefficient"])
+        if fact["notation"] == "equation":
+            return f"安全边界为y={coefficient}x"
+        return f"安全扇区用0≤y≤{coefficient}x判定"
+    if kind == "momentum_value_set":
+        values = fact["values"]
+        if (not isinstance(values, list) or not values
+                or len(values) != len(set(values))):
+            raise ValueError("momentum values must be a nonempty unique list")
+        for value in values:
+            _visible_number(value)
+        if fact["notation"] not in {"symbol", "zero_words"}:
+            raise ValueError("unknown momentum notation")
+        if fact["notation"] == "zero_words":
+            if values != [0]:
+                raise ValueError("zero_words momentum fact must contain exactly zero")
+            return "总动量为零"
+        return "和".join(f"P={_format_visible_number(value)}" for value in values)
+    if kind == "origin_relation":
+        relation = fact["relation"]
+        if relation not in {
+            "passes_origin", "does_not_pass_origin", "mixed_or_not_asserted",
+        }:
+            raise ValueError("unknown origin relation")
+        if relation == "passes_origin":
+            return "零动量线通过原点"
+        if relation == "does_not_pass_origin":
+            return "非零动量线不通过原点"
+        return "图中各动量线不作统一的原点关系断言"
+    raise ValueError(f"unknown visible physics fact kind: {kind}")
+
+
+def render_visible_physics_contract(contract: dict) -> dict[str, str]:
+    """Render the prompt and explanation controlled by a visible-fact contract."""
+    allowed_contract_fields = {
+        "prompt_template", "explanation_template", "facts", "figure_bindings",
+    }
+    if not {"prompt_template", "explanation_template", "facts"}.issubset(contract):
+        raise ValueError("visible physics contract lacks a required field")
+    if not set(contract).issubset(allowed_contract_fields):
+        raise ValueError("visible physics contract has an unknown field")
+    if (not isinstance(contract["prompt_template"], str)
+            or not isinstance(contract["explanation_template"], str)
+            or not isinstance(contract["facts"], list)
+            or not contract["facts"]):
+        raise ValueError("visible physics contract fields are malformed")
+    for binding in contract.get("figure_bindings", []):
+        if set(binding) != {"figure_ref", "momentum_values"}:
+            raise ValueError("malformed visible physics figure binding")
+        if not isinstance(binding["figure_ref"], str) or not binding["figure_ref"]:
+            raise ValueError("visible physics figure reference is malformed")
+        values = binding["momentum_values"]
+        if (not isinstance(values, list) or not values or len(values) != len(set(values))):
+            raise ValueError("visible physics figure momentum values are malformed")
+        for value in values:
+            _visible_number(value)
+    facts = contract.get("facts", [])
+    fact_ids = [fact.get("id") for fact in facts]
+    if len(fact_ids) != len(set(fact_ids)) or None in fact_ids:
+        raise ValueError("visible physics fact ids must be present and unique")
+    templates = {
+        "prompt": contract.get("prompt_template", ""),
+        "explanation": contract.get("explanation_template", ""),
+    }
+    slots = VISIBLE_FACT_TOKEN.findall("\n".join(templates.values()))
+    if sorted(slots) != sorted(fact_ids):
+        raise ValueError("each visible physics fact must occupy exactly one known slot")
+    rendered = dict(templates)
+    for fact in facts:
+        token = "{{" + fact["id"] + "}}"
+        value = _render_visible_fact(fact)
+        rendered = {field: text.replace(token, value) for field, text in rendered.items()}
+    if any(VISIBLE_FACT_TOKEN.search(text) for text in rendered.values()):
+        raise ValueError("unknown visible physics fact slot")
+    return rendered
+
+
+def _all_source_questions(source: dict) -> list[dict]:
+    return [
+        question
+        for scenario in source["scenarios"]
+        for question in scenario["questions"]
+    ] + source["standalone_questions"]
+
+
+def validate_visible_physics_contracts(source: dict) -> None:
+    """Validate C using closed facts and exact canonical reconstruction."""
+    if source.get("section_id") != "C":
+        return
+    questions = _all_source_questions(source)
+    by_key = {question["key"]: question for question in questions}
+    safe_questions = [
+        question for question in questions
+        if any(
+            item["claim"]["kind"] == "safe_sector"
+            for item in question.get("answer_contract", {}).get("claims", [])
+        )
+    ]
+    if len(safe_questions) != SAFE_SECTOR_CONTRACT_COUNT:
+        raise ValueError("C safe-sector contract population changed")
+    required_keys = (
+        {question["key"] for question in safe_questions}
+        | MOMENTUM_CONTRACT_KEYS | MOMENTUM_FIGURE_CONTRACT_KEYS
+    )
+    for key in required_keys:
+        question = by_key[key]
+        contract = question.get("visible_physics_contract")
+        if not contract:
+            raise ValueError(f"question {key} lacks visible physics contract")
+        rendered = render_visible_physics_contract(contract)
+        prompt_field = "ask" if "ask" in question else "prompt"
+        if rendered["prompt"] != question[prompt_field]:
+            raise ValueError(f"question {key} prompt drifted from visible physics facts")
+        if rendered["explanation"] != question["explanation"]:
+            raise ValueError(f"question {key} explanation drifted from visible physics facts")
+
+    for question in safe_questions:
+        facts = question["visible_physics_contract"]["facts"]
+        ratios = [fact for fact in facts if fact["kind"] == "mass_ratio"]
+        boundaries = [fact for fact in facts if fact["kind"] == "safe_sector_boundary"]
+        if len(ratios) != 1 or len(boundaries) != 2:
+            raise ValueError(f"question {question['key']} has incomplete safe-sector facts")
+        ratio = ratios[0]
+        expected = math.sqrt(ratio["mass_small"] / ratio["mass_large"])
+        for boundary in boundaries:
+            if (boundary["mass_large"], boundary["mass_small"]) != (
+                ratio["mass_large"], ratio["mass_small"]
+            ) or not math.isclose(boundary["coefficient"], expected):
+                raise ValueError(f"question {question['key']} has inconsistent safe boundary")
+        for item in question["answer_contract"]["claims"]:
+            claim = item["claim"]
+            if claim["kind"] == "safe_sector":
+                params = claim["parameters"]
+                if (params["mass_large"], params["mass_small"]) != (
+                    ratio["mass_large"], ratio["mass_small"]
+                ) or not math.isclose(params["boundary"], expected):
+                    raise ValueError(f"question {question['key']} safe claim disagrees with facts")
+
+    diagram_source = json.loads(
+        (ROOT / "content/courses/collision-pi/diagram-source-c.json").read_text(encoding="utf-8")
+    )
+    diagrams = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
+    for key in MOMENTUM_CONTRACT_KEYS | MOMENTUM_FIGURE_CONTRACT_KEYS:
+        question = by_key[key]
+        contract = question["visible_physics_contract"]
+        momentum_facts = [fact for fact in contract["facts"] if fact["kind"] == "momentum_value_set"]
+        origins = [fact for fact in contract["facts"] if fact["kind"] == "origin_relation"]
+        if key in MOMENTUM_CONTRACT_KEYS and not momentum_facts:
+            raise ValueError(f"question {key} lacks a momentum fact")
+        if len(origins) != 1:
+            raise ValueError(f"question {key} must declare one origin relation")
+        bindings = contract.get("figure_bindings", [])
+        if key in MOMENTUM_FIGURE_CONTRACT_KEYS and len(bindings) != 1:
+            raise ValueError(f"question {key} must bind its momentum figure")
+        oracle_values = {
+            float(value) for binding in bindings for value in binding["momentum_values"]
+        } or {float(value) for fact in momentum_facts for value in fact["values"]}
+        expected_origin = (
+            "passes_origin" if oracle_values == {0.0}
+            else "does_not_pass_origin" if 0.0 not in oracle_values
+            else "mixed_or_not_asserted"
+        )
+        if origins[0]["relation"] != expected_origin:
+            raise ValueError(f"question {key} origin relation disagrees with momentum facts")
+        for binding in bindings:
+            figure_ref = binding["figure_ref"]
+            if figure_ref not in question.get("figure_refs", []):
+                raise ValueError(f"question {key} binds an unreferenced figure")
+            actual = diagrams[figure_ref]["parameters"].get("momentum_values")
+            if actual != binding["momentum_values"]:
+                raise ValueError(f"question {key} momentum binding disagrees with diagram source")
 
 
 def content_fingerprint(bank: dict) -> str:
@@ -116,6 +347,13 @@ def expand_questions(source: dict, puzzle: dict, section_id: str) -> list[dict]:
                     "embedded_figure_aria_hidden": True,
                     "accessible_name_source": "option_accessibility_label",
                 }
+        if "visible_physics_contract" in question:
+            contract = copy.deepcopy(question["visible_physics_contract"])
+            if scenario is not None:
+                contract["prompt_template"] = (
+                    f"{scenario['context']}\n\n{contract['prompt_template']}"
+                )
+            item["visible_physics_contract"] = contract
         expanded.append(item)
     return expanded
 
@@ -153,6 +391,7 @@ def build_bank(source: dict, puzzle: dict, *, section_id: str, title: str) -> di
             f"source section {source['section_id']} does not match {section_id}"
         )
     validate_c_figure_references(source)
+    validate_visible_physics_contracts(source)
     questions = expand_questions(source, puzzle, section_id)
     actual = Counter(question["node_id"] for question in questions)
     expected = Counter(source["node_quotas"])
