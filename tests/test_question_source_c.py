@@ -178,7 +178,7 @@ def stem_fact_dimensions(question, diagram):
     claims = question.get("answer_contract", {}).get("claims", [])
     if "安全边界" in text or any(item["claim"]["kind"] == "safe_sector" for item in claims):
         dimensions.update({"mass_ratio", "sector_boundary"})
-    if re.search(r"P=-?\d", text) or "总动量为零" in text:
+    if visible_momentum_values(text + " " + question.get("explanation", "")):
         dimensions.update({"mass_ratio", "momentum_geometry"})
     return dimensions
 
@@ -372,9 +372,69 @@ def evaluate_diagram_claim(claim, diagram, query):
     )
 
 
+VISIBLE_NUMBER = r"[+\-−]?\d+(?:\.\d+)?"
+
+
+def _visible_mass_ratios(text):
+    """Return the distinct explicit (M, m) pairs supplied to the student."""
+    pairs = []
+    patterns = (
+        rf"M\s*/\s*m\s*=\s*({VISIBLE_NUMBER})\s*/\s*({VISIBLE_NUMBER})",
+        rf"M\s*=\s*({VISIBLE_NUMBER})\s*[、,，]\s*m\s*=\s*({VISIBLE_NUMBER})",
+    )
+    for pattern in patterns:
+        pairs.extend((float(large.replace("−", "-")), float(small.replace("−", "-")))
+                     for large, small in re.findall(pattern, text))
+    pairs.extend((float(large.replace("−", "-")), 1.0)
+                 for large in re.findall(rf"({VISIBLE_NUMBER})\s*m\s*与\s*m", text))
+    return set(pairs)
+
+
+def safe_sector_question_compatibility(question, visible_context=""):
+    """Bind every safe-sector claim to one authoritative student-visible mass pair."""
+    prompt = question.get("ask", question.get("prompt", ""))
+    visible_text = f"{visible_context} {prompt}"
+    ratios = _visible_mass_ratios(visible_text)
+    if len(ratios) != 1:
+        return False
+    mass_large, mass_small = next(iter(ratios))
+    if mass_large <= 0 or mass_small <= 0:
+        return False
+    expected = math.sqrt(mass_small / mass_large)
+    safe_claims = [
+        item["claim"] for item in question.get("answer_contract", {}).get("claims", [])
+        if item["claim"]["kind"] == "safe_sector"
+    ]
+    if not safe_claims:
+        return False
+    for claim in safe_claims:
+        params = claim["parameters"]
+        if not (math.isclose(params["mass_large"], mass_large)
+                and math.isclose(params["mass_small"], mass_small)
+                and math.isclose(params["boundary"], expected)):
+            return False
+    boundary = re.search(r"安全边界为\s*y\s*=\s*([0-9.]+)?\s*x", prompt)
+    if not boundary or not math.isclose(float(boundary.group(1) or 1), expected):
+        return False
+    explanation_boundary = re.search(r"0\s*≤\s*y\s*≤\s*([0-9.]+)?\s*x", question["explanation"])
+    return (not explanation_boundary
+            or math.isclose(float(explanation_boundary.group(1) or 1), expected))
+
+
+def visible_momentum_values(text):
+    """Parse numeric total-momentum statements in symbolic or Chinese prose form."""
+    values = []
+    for value in re.findall(rf"(?<![A-Za-z])P\s*=\s*({VISIBLE_NUMBER})", text):
+        values.append(float(value.replace("−", "-")))
+    for value in re.findall(rf"总动量\s*为\s*({VISIBLE_NUMBER}|零)", text):
+        values.append(0.0 if value == "零" else float(value.replace("−", "-")))
+    return set(values)
+
+
 def stem_figure_compatibility(question, diagram):
     """Validate every student-visible stem fact against diagram-source facts."""
     text = question.get("ask", question.get("prompt", ""))
+    explanation = question.get("explanation", "")
     params = diagram["parameters"]
     if diagram["template_kind"] not in STEM_FACT_DIMENSIONS_BY_TEMPLATE:
         return False
@@ -418,6 +478,8 @@ def stem_figure_compatibility(question, diagram):
     if boundary or safe_claims:
         if not {"mass_large", "mass_small"}.issubset(params):
             return False
+        if not safe_sector_question_compatibility(question):
+            return False
         expected = math.sqrt(params["mass_small"] / params["mass_large"])
         if not boundary or not math.isclose(float(boundary.group(1) or 1), expected):
             return False
@@ -428,13 +490,14 @@ def stem_figure_compatibility(question, diagram):
     # line.  Nonzero momentum lines have nonzero axis intercepts and therefore
     # cannot be described as zero-momentum/origin lines.
     if "momentum_values" in params:
-        stated_values = {float(value) for value in re.findall(r"P=(-?\d+(?:\.\d+)?)", text)}
-        if "总动量为零" in text:
-            stated_values.add(0.0)
+        stated_values = visible_momentum_values(text)
+        explained_values = visible_momentum_values(explanation)
         visible_values = {float(value) for value in params["momentum_values"]}
         if stated_values and stated_values != visible_values:
             return False
-        if all(value != 0 for value in visible_values) and re.search(r"(?:通过原点|原点交点)", text):
+        if not explained_values.issubset(visible_values):
+            return False
+        if all(value != 0 for value in visible_values) and re.search(r"(?<!不)通过原点|原点交点", text + explanation):
             return False
         for option, item in zip(question.get("options", []), claims):
             claim = item["claim"]
@@ -1274,6 +1337,56 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
                 if item["claim"]["kind"] == "safe_sector":
                     self.assertTrue(math.isclose(item["claim"]["parameters"]["boundary"], expected), question["key"])
 
+    def test_safe_sector_contract_masses_are_bound_to_the_visible_ratio(self):
+        """Hidden safe-sector masses cannot drift from the ratio supplied to students."""
+        source, scenarios, scenario_questions, standalone, _, _ = self.load_source()
+        contexts = {
+            question["key"]: scenario["context"]
+            for scenario in scenarios
+            for question in scenario["questions"]
+        }
+        questions = scenario_questions + standalone
+        safe_questions = [
+            question for question in questions
+            if any(item["claim"]["kind"] == "safe_sector"
+                   for item in question.get("answer_contract", {}).get("claims", []))
+        ]
+        self.assertEqual(len(safe_questions), 18)
+        for question in safe_questions:
+            self.assertTrue(
+                safe_sector_question_compatibility(question, contexts.get(question["key"], "")),
+                question["key"],
+            )
+
+        by_key = {question["key"]: question for question in safe_questions}
+        target = copy.deepcopy(by_key["c6-2-scenario-05"])
+        for item in target["answer_contract"]["claims"]:
+            if item["claim"]["kind"] == "safe_sector":
+                item["claim"]["parameters"]["mass_large"] = 16
+        self.assertFalse(safe_sector_question_compatibility(target, contexts[target["key"]]))
+
+        target = copy.deepcopy(by_key["c6-2-scenario-05"])
+        for item in target["answer_contract"]["claims"]:
+            if item["claim"]["kind"] == "safe_sector":
+                item["claim"]["parameters"]["mass_small"] = 4
+        self.assertFalse(safe_sector_question_compatibility(target, contexts[target["key"]]))
+
+        target = copy.deepcopy(by_key["c6-2-scenario-05"])
+        target["ask"] = target["ask"].replace("M/m=4/1", "M/m = 16 / 1")
+        self.assertFalse(safe_sector_question_compatibility(target, contexts[target["key"]]))
+
+        target = copy.deepcopy(by_key["c6-2-scenario-05"])
+        target["ask"] = target["ask"].replace("M/m=4/1", "M/m = 4.0 / 1.0")
+        self.assertTrue(safe_sector_question_compatibility(target, contexts[target["key"]]))
+
+        target = copy.deepcopy(by_key["c6-2-scenario-05"])
+        target["ask"] = target["ask"].replace("M/m=4/1", "质量已知")
+        self.assertFalse(safe_sector_question_compatibility(target, contexts[target["key"]]))
+
+        target = copy.deepcopy(by_key["c6-2-scenario-05"])
+        target["ask"] = target["ask"].replace("M/m=4/1", "M/m=4/1，另有M/m=16/1")
+        self.assertFalse(safe_sector_question_compatibility(target, contexts[target["key"]]))
+
     def test_all_momentum_stem_figures_match_visible_nonzero_lines(self):
         """A momentum stem cannot relabel a visible nonzero line as P=0 or an origin line."""
         _, _, scenario_questions, standalone, _, _ = self.load_source()
@@ -1284,16 +1397,66 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
             if question["presentation_mode"] == "stem_figure"
             and diagrams[question["figure_refs"][0]]["template_kind"] == "momentum_chord"
         ]
-        self.assertGreaterEqual(len(stems), 6)
+        self.assertEqual(len(stems), 7)
         for question in stems:
             diagram = diagrams[question["figure_refs"][0]]
             self.assertTrue(stem_figure_compatibility(question, diagram), question["key"])
             text = question.get("ask", question.get("prompt", ""))
-            stated = {float(value) for value in re.findall(r"P=(-?\d+(?:\.\d+)?)", text)}
+            stated = visible_momentum_values(text)
             if stated:
                 self.assertEqual(stated, {float(value) for value in diagram["parameters"]["momentum_values"]}, question["key"])
             if all(value != 0 for value in diagram["parameters"]["momentum_values"]):
                 self.assertNotRegex(text, r"(?:通过原点|原点交点|P=0)", question["key"])
+
+        p_bearing = [
+            question for question in scenario_questions + standalone
+            if visible_momentum_values(
+                question.get("ask", question.get("prompt", "")) + " " + question.get("explanation", "")
+            )
+        ]
+        self.assertEqual(len(p_bearing), 19)
+        for question in p_bearing:
+            prompt_values = visible_momentum_values(question.get("ask", question.get("prompt", "")))
+            explanation_values = visible_momentum_values(question.get("explanation", ""))
+            if prompt_values and explanation_values:
+                self.assertTrue(
+                    explanation_values.issubset(prompt_values) or prompt_values.issubset(explanation_values),
+                    question["key"],
+                )
+            if question["presentation_mode"] == "stem_figure":
+                figure = diagrams[question["figure_refs"][0]]
+                if "momentum_values" in figure["parameters"]:
+                    self.assertTrue(stem_figure_compatibility(question, figure), question["key"])
+
+    def test_momentum_statements_in_stem_and_explanation_match_the_figure(self):
+        """Natural-language and symbolic P statements share one visible-figure contract."""
+        _, _, scenario_questions, standalone, _, _ = self.load_source()
+        diagram_source = json.loads(DIAGRAM_SOURCE.read_text(encoding="utf-8"))
+        diagrams = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
+        by_key = {question["key"]: question for question in scenario_questions + standalone}
+        original = by_key["c4-2-scenario-02"]
+        diagram = diagrams[original["figure_refs"][0]]
+
+        target = copy.deepcopy(original)
+        target["ask"] = target["ask"].replace("图示动量弦P=4", "图示总动量为999")
+        self.assertFalse(stem_figure_compatibility(target, diagram))
+
+        target = copy.deepcopy(original)
+        target["explanation"] = target["explanation"].replace("图示P=4", "图示P=999")
+        self.assertFalse(stem_figure_compatibility(target, diagram))
+
+        for visible in ("P = 4", "总动量为4", "总动量为 4", "总动量为4 kg·m/s，"):
+            target = copy.deepcopy(original)
+            target["ask"] = target["ask"].replace("P=4", visible)
+            self.assertTrue(stem_figure_compatibility(target, diagram), visible)
+
+        target = copy.deepcopy(original)
+        target["ask"] = target["ask"].replace("P=4", "总动量为0")
+        self.assertFalse(stem_figure_compatibility(target, diagram))
+
+        target = copy.deepcopy(original)
+        target["explanation"] += " 该非零动量线通过原点。"
+        self.assertFalse(stem_figure_compatibility(target, diagram))
 
     def test_question_payloads_and_wording_guards(self):
         _, _, scenario_questions, standalone, fixtures, _ = self.load_source()

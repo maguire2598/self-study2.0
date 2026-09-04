@@ -562,3 +562,77 @@ AUDIT stem_figures=72 all_applicable_dimensions_valid=True
 ## Concerns
 
 None.
+
+---
+
+# Fix round 8 — visible safe-sector masses and complete momentum-statement validation
+
+## Repairs
+
+- Added a question-level safe-sector validator that parses exactly one authoritative
+  student-visible `(M, m)` pair from the stem/context, accepts spaced and decimal-equivalent
+  notation, and binds every typed `safe_sector` claim to those exact masses and to
+  `sqrt(m/M)`. Missing or ambiguous visible ratios fail. This applies to all 18 safe-sector
+  questions: 9 `stem_figure`, 4 `text_only`, and 5 `figure_sequence` records (36 claims).
+- Added one parser for numeric total-momentum statements in both symbolic and natural-language
+  forms (`P=4`, `P = 4`, `总动量为4`, `总动量为 4`, Chinese punctuation, and units).
+  Stem-figure compatibility now checks both the question stem and explanation against the
+  referenced diagram-source momentum values, while preserving the valid phrase “不通过原点”.
+- Audited all 19 records carrying numeric P statements in their stem or explanation. All seven
+  direct momentum stem figures are tied to diagram-source values; the remaining calculation,
+  text, and sequence records are checked for stem/explanation consistency.
+
+## TDD evidence
+
+RED before implementation:
+
+```text
+python -m unittest tests.test_question_source_c.QuestionSourceCTests.test_safe_sector_contract_masses_are_bound_to_the_visible_ratio tests.test_question_source_c.QuestionSourceCTests.test_momentum_statements_in_stem_and_explanation_match_the_figure -v
+
+Ran 2 tests in 0.015s
+FAILED (failures=1, errors=1)
+- safe-sector validation had no question-level visible-mass binding
+- c4-2-scenario-02 with `图示总动量为999` was incorrectly accepted
+```
+
+GREEN after implementation:
+
+```text
+Ran 2 tests in 0.014s
+OK
+```
+
+The safe-sector test includes the exact reviewed mutation: both hidden `mass_large` values in
+`c6-2-scenario-05` change from 4 to 16 while the visible stem remains 4/1. It also mutates
+`mass_small`, only the visible ratio, missing/ambiguous ratios, and verifies spaced decimal
+notation. The momentum test includes both exact reviewed mutations (`图示总动量为999` in the
+stem and `图示P=999` in the explanation), plus whitespace, natural language, units,
+`总动量为0`, and a nonzero line claimed through the origin.
+
+## Verification and fresh audit
+
+```text
+python -m unittest tests.test_question_source_c -q
+Ran 42 tests in 18.292s ... OK
+
+Three C checkpoints: 3 tests ... OK (66 / 66 / 48)
+Test-Json C source schema: True
+
+C expansion/formal schema, manifest rejection, A byte parity, B generator parity,
+A/B formal strictness, and C diagram determinism: 6 tests ... OK
+
+AUDIT total=180 safe_questions=18 safe_claims=36
+AUDIT safe_modes={'stem_figure': 9, 'text_only': 4, 'figure_sequence': 5}
+AUDIT p_bearing_stem_or_explanation=19 momentum_stem_figures=7 stem_figures=72
+AUDIT safe_visible_ratio_and_contract_binding=True momentum_symbolic_and_natural_language_binding=True
+
+python -m unittest discover -s tests -q
+Ran 156 tests in 30.650s ... OK
+```
+
+No question, diagram, schema, generator, or A/B asset changed in this round. The worktree is
+clean after committing the test/semantic-validator changes.
+
+## Concerns
+
+None.
