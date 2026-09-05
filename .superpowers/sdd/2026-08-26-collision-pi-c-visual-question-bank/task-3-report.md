@@ -832,3 +832,59 @@ AUDIT stem_figures=72 structured_claims=624 canonical_contracts=38
 ## Concerns
 
 None.
+
+---
+
+# Round 10 completion — authoritative momentum and scenario context
+
+Completed against base `23820f7`. Every numeric momentum fact now has a closed
+scope: a specific line index in the bound diagram, the question's calculation
+fixture, or the separately defined line through the origin. Diagram scopes read
+`diagram-source-c.json` directly. Momentum-line calculations recompute
+`sqrt(M)*x + sqrt(m)*y`; line-circle calculations use the fixture's momentum
+input. No fixture `expected` value is used as an oracle. The origin-line scope
+uses the identity `sqrt(M)*0 + sqrt(m)*0 = 0`, independently of its rendered prose.
+
+Repeated references to a diagram line resolve to the same line index. The
+parallel-line questions retain distinct P=2 and P=4 scopes; the explanation's
+additional P=4 chord reference binds only that line. This avoids equating
+unrelated prompt/explanation value sets.
+
+All 27 controlled scenario questions carry a required `context_snapshot`.
+Production checks it against scenario context before expansion and expansion
+prefixes the stored snapshot deterministically. Both source and bank schemas
+retain recursive closure; standalone contracts remain supported.
+
+RED: the new production-path regression test failed all five subcases on the
+base implementation: both diagram facts changed to 999 and rerendered, one
+fact changed, line-calculation fact changed, intersection-calculation fact
+changed, and the context-only appended contradiction.
+
+GREEN:
+
+```text
+python -m unittest tests.test_question_source_c -q
+Ran 49 tests in 58.637s ... OK
+
+Three new focused production regression tests (including fixture-input drift
+with expected answers untouched, and schema-required context snapshot):
+Ran 3 tests in 2.994s ... OK
+
+python -m unittest discover -s tests -q
+Ran 165 tests in 53.669s ... OK
+```
+
+The final suite includes source/formal schema validation, all 38 controlled
+expanded roundtrips, A/B parity, distributions, and accessibility checks.
+An independent structural comparison to base confirmed that removing only
+the newly added scopes and context snapshots restores the exact original
+source JSON: all 180 questions and visible content are unchanged. Audit:
+19 numeric-momentum records, 32 scoped facts (9 origin, 19 diagram, 4 fixture),
+27 context snapshots. `git diff --check` passed. The untracked `docs/qa` port
+report was preserved and is excluded from this commit.
+
+## Concerns
+
+None within the requested boundary. Deliberate edits to canonical templates,
+scope assignments, and context snapshots remain author-controlled content
+changes requiring review; this implementation does not interpret arbitrary prose.

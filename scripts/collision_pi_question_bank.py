@@ -39,7 +39,7 @@ VISIBLE_FACT_FIELDS = {
     "safe_sector_boundary": {
         "id", "kind", "mass_large", "mass_small", "coefficient", "notation",
     },
-    "momentum_value_set": {"id", "kind", "values", "notation"},
+    "momentum_value_set": {"id", "kind", "values", "notation", "scope"},
     "origin_relation": {"id", "kind", "relation"},
 }
 
@@ -78,6 +78,8 @@ def _render_visible_fact(fact: dict) -> str:
             return f"安全边界为y={coefficient}x"
         return f"安全扇区用0≤y≤{coefficient}x判定"
     if kind == "momentum_value_set":
+        if fact["scope"] not in {"figure_line_0", "figure_line_1", "calculation_fixture", "origin_line"}:
+            raise ValueError("unknown momentum fact scope")
         values = fact["values"]
         if (not isinstance(values, list) or not values
                 or len(values) != len(set(values))):
@@ -108,12 +110,14 @@ def _render_visible_fact(fact: dict) -> str:
 def render_visible_physics_contract(contract: dict) -> dict[str, str]:
     """Render the prompt and explanation controlled by a visible-fact contract."""
     allowed_contract_fields = {
-        "prompt_template", "explanation_template", "facts", "figure_bindings",
+        "prompt_template", "explanation_template", "facts", "figure_bindings", "context_snapshot",
     }
     if not {"prompt_template", "explanation_template", "facts"}.issubset(contract):
         raise ValueError("visible physics contract lacks a required field")
     if not set(contract).issubset(allowed_contract_fields):
         raise ValueError("visible physics contract has an unknown field")
+    if "context_snapshot" in contract and not isinstance(contract["context_snapshot"], str):
+        raise ValueError("visible physics context snapshot must be text")
     if (not isinstance(contract["prompt_template"], str)
             or not isinstance(contract["explanation_template"], str)
             or not isinstance(contract["facts"], list)
@@ -163,6 +167,11 @@ def validate_visible_physics_contracts(source: dict) -> None:
     if source.get("section_id") != "C":
         return
     questions = _all_source_questions(source)
+    for scenario in source["scenarios"]:
+        for question in scenario["questions"]:
+            contract = question.get("visible_physics_contract")
+            if contract is not None and contract.get("context_snapshot") != scenario["context"]:
+                raise ValueError(f"question {question['key']} scenario context drifted from snapshot")
     by_key = {question["key"]: question for question in questions}
     safe_questions = [
         question for question in questions
@@ -215,6 +224,7 @@ def validate_visible_physics_contracts(source: dict) -> None:
         (ROOT / "content/courses/collision-pi/diagram-source-c.json").read_text(encoding="utf-8")
     )
     diagrams = {diagram["diagram_id"]: diagram for diagram in diagram_source["diagrams"]}
+    fixtures = {fixture["id"]: fixture for fixture in source["calculation_fixtures"]}
     for key in MOMENTUM_CONTRACT_KEYS | MOMENTUM_FIGURE_CONTRACT_KEYS:
         question = by_key[key]
         contract = question["visible_physics_contract"]
@@ -227,6 +237,39 @@ def validate_visible_physics_contracts(source: dict) -> None:
         bindings = contract.get("figure_bindings", [])
         if key in MOMENTUM_FIGURE_CONTRACT_KEYS and len(bindings) != 1:
             raise ValueError(f"question {key} must bind its momentum figure")
+        for fact in momentum_facts:
+            scope = fact["scope"]
+            if question.get("calculation_fixture_id"):
+                if scope != "calculation_fixture":
+                    raise ValueError(f"question {key} momentum must use its calculation fixture")
+                fixture = fixtures[question["calculation_fixture_id"]]
+                if fixture["kind"] == "momentum_line":
+                    expected_values = [math.sqrt(fixture["mass_large"]) * fixture["x"]
+                                       + math.sqrt(fixture["mass_small"]) * fixture["y"]]
+                elif fixture["kind"] == "line_circle_intersection":
+                    expected_values = [fixture["momentum"]]
+                else:
+                    raise ValueError(f"question {key} unsupported momentum fixture")
+            elif bindings:
+                if scope not in {"figure_line_0", "figure_line_1"}:
+                    raise ValueError(f"question {key} momentum must bind a diagram line")
+                line_index = int(scope[-1])
+                values = diagrams[bindings[0]["figure_ref"]]["parameters"]["momentum_values"]
+                if line_index >= len(values):
+                    raise ValueError(f"question {key} momentum line index is absent")
+                expected_values = [values[line_index]]
+            else:
+                # This scope defines a separate line through (0, 0), not a line
+                # taken from an accompanying state-chain illustration. Its P is
+                # zero for any positive masses: sqrt(M)*0 + sqrt(m)*0.
+                if scope != "origin_line":
+                    raise ValueError(f"question {key} momentum lacks an authoritative scope")
+                expected_values = [0]
+            if len(fact["values"]) != len(expected_values) or any(
+                not math.isclose(actual, expected, rel_tol=1e-9, abs_tol=1e-9)
+                for actual, expected in zip(fact["values"], expected_values)
+            ):
+                raise ValueError(f"question {key} momentum fact disagrees with {scope}")
         oracle_values = {
             float(value) for binding in bindings for value in binding["momentum_values"]
         } or {float(value) for fact in momentum_facts for value in fact["values"]}
@@ -351,7 +394,7 @@ def expand_questions(source: dict, puzzle: dict, section_id: str) -> list[dict]:
             contract = copy.deepcopy(question["visible_physics_contract"])
             if scenario is not None:
                 contract["prompt_template"] = (
-                    f"{scenario['context']}\n\n{contract['prompt_template']}"
+                    f"{contract['context_snapshot']}\n\n{contract['prompt_template']}"
                 )
             item["visible_physics_contract"] = contract
         expanded.append(item)

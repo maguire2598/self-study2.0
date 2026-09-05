@@ -878,6 +878,43 @@ class QuestionSourceCTests(SourceLoadMixin, unittest.TestCase):
         with self.assertRaises(ValueError):
             question_bank.validate_visible_physics_contracts(mutation)
 
+    def test_build_rejects_rerendered_momentum_and_context_drift(self):
+        puzzle = json.loads(PUZZLE.read_text(encoding="utf-8"))
+        for case in ("both_facts", "one_fact", "line_fixture", "intersection_fixture", "context"):
+            source = json.loads(SOURCE.read_text(encoding="utf-8"))
+            questions = question_bank._all_source_questions(source)
+            key = {"line_fixture": "c4-1-calculation-11", "intersection_fixture": "c4-3-calculation-13"}.get(case, "c4-2-scenario-02")
+            question = next(q for q in questions if q["key"] == key)
+            if case == "context":
+                scenario = next(s for s in source["scenarios"] if question in s["questions"])
+                scenario["context"] += "图示动量弦总动量为999。"
+            else:
+                facts = [f for f in question["visible_physics_contract"]["facts"] if f["kind"] == "momentum_value_set"]
+                for fact in (facts[:1] if case == "one_fact" else facts):
+                    fact["values"] = [999]
+                rendered = question_bank.render_visible_physics_contract(question["visible_physics_contract"])
+                question["ask" if "ask" in question else "prompt"] = rendered["prompt"]
+                question["explanation"] = rendered["explanation"]
+            with self.subTest(case=case), self.assertRaises(ValueError):
+                question_bank.build_bank(source, puzzle, section_id="C", title="C")
+
+    def test_momentum_values_follow_fixture_inputs_not_expected_answers(self):
+        puzzle = json.loads(PUZZLE.read_text(encoding="utf-8"))
+        for fixture_id, field in (("CAL-C4-LINE-01", "x"), ("CAL-C4-INTERSECT-01", "momentum")):
+            source = json.loads(SOURCE.read_text(encoding="utf-8"))
+            fixture = next(f for f in source["calculation_fixtures"] if f["id"] == fixture_id)
+            fixture[field] = 999
+            with self.subTest(fixture=fixture_id), self.assertRaises(ValueError):
+                question_bank.build_bank(source, puzzle, section_id="C", title="C")
+
+    def test_scenario_snapshot_is_required_before_expansion(self):
+        source = json.loads(SOURCE.read_text(encoding="utf-8"))
+        question = next(q for s in source["scenarios"] for q in s["questions"] if "visible_physics_contract" in q)
+        del question["visible_physics_contract"]["context_snapshot"]
+        self.assertNotEqual(validate_source_with_pwsh(source).returncode, 0)
+        with self.assertRaises(ValueError):
+            question_bank.build_bank(source, json.loads(PUZZLE.read_text(encoding="utf-8")), section_id="C", title="C")
+
     def test_expanded_bank_carries_reconstructible_visible_physics_contracts(self):
         """The formal C bank retains a contract that reconstructs full student text."""
         source = json.loads(SOURCE.read_text(encoding="utf-8"))

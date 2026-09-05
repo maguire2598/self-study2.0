@@ -5451,14 +5451,16 @@
                 "values": [
                   0
                 ],
-                "notation": "zero_words"
+                "notation": "zero_words",
+                "scope": "origin_line"
               },
               {
                 "id": "origin_relation",
                 "kind": "origin_relation",
                 "relation": "passes_origin"
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -5562,7 +5564,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_2",
@@ -5570,7 +5573,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "origin_relation",
@@ -5585,7 +5589,8 @@
                   4
                 ]
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -5699,7 +5704,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_2",
@@ -5707,7 +5713,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "origin_relation",
@@ -5722,7 +5729,8 @@
                   4
                 ]
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -5852,7 +5860,8 @@
                   4
                 ]
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -5956,14 +5965,16 @@
                 "values": [
                   0
                 ],
-                "notation": "zero_words"
+                "notation": "zero_words",
+                "scope": "origin_line"
               },
               {
                 "id": "origin_relation",
                 "kind": "origin_relation",
                 "relation": "passes_origin"
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -6067,7 +6078,8 @@
                 "values": [
                   2.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_2",
@@ -6075,7 +6087,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_1"
               },
               {
                 "id": "momentum_3",
@@ -6083,7 +6096,8 @@
                 "values": [
                   2.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_4",
@@ -6091,7 +6105,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_1"
               },
               {
                 "id": "origin_relation",
@@ -6107,7 +6122,8 @@
                   4
                 ]
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -6221,7 +6237,8 @@
                 "values": [
                   2.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_2",
@@ -6229,7 +6246,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_1"
               },
               {
                 "id": "momentum_3",
@@ -6237,7 +6255,8 @@
                 "values": [
                   2.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_4",
@@ -6245,7 +6264,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_1"
               },
               {
                 "id": "momentum_5",
@@ -6253,7 +6273,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_1"
               },
               {
                 "id": "origin_relation",
@@ -6269,7 +6290,8 @@
                   4
                 ]
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -6373,7 +6395,8 @@
                 "values": [
                   2.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_2",
@@ -6381,7 +6404,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_1"
               },
               {
                 "id": "momentum_3",
@@ -6389,7 +6413,8 @@
                 "values": [
                   2.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_4",
@@ -6397,7 +6422,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_1"
               },
               {
                 "id": "origin_relation",
@@ -6413,7 +6439,8 @@
                   4
                 ]
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -6517,14 +6544,16 @@
                 "values": [
                   0
                 ],
-                "notation": "zero_words"
+                "notation": "zero_words",
+                "scope": "origin_line"
               },
               {
                 "id": "origin_relation",
                 "kind": "origin_relation",
                 "relation": "passes_origin"
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -6628,7 +6657,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "momentum_2",
@@ -6636,7 +6666,8 @@
                 "values": [
                   4.0
                 ],
-                "notation": "symbol"
+                "notation": "symbol",
+                "scope": "figure_line_0"
               },
               {
                 "id": "origin_relation",
@@ -6651,7 +6682,8 @@
                   4
                 ]
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -6756,14 +6788,16 @@
                 "values": [
                   0
                 ],
-                "notation": "zero_words"
+                "notation": "zero_words",
+                "scope": "origin_line"
               },
               {
                 "id": "origin_relation",
                 "kind": "origin_relation",
                 "relation": "passes_origin"
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         },
         {
@@ -6868,14 +6902,16 @@
                 "values": [
                   0
                 ],
-                "notation": "zero_words"
+                "notation": "zero_words",
+                "scope": "origin_line"
               },
               {
                 "id": "origin_relation",
                 "kind": "origin_relation",
                 "relation": "passes_origin"
               }
-            ]
+            ],
+            "context_snapshot": "在质量加权速度平面中，完全弹性物块碰撞同时保持总动能和总动量；因此允许状态受圆与动量直线共同约束。"
           }
         }
       ]
@@ -8925,7 +8961,8 @@
                 "coefficient": 0.25,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "从大物块向左、小物块静止的初态出发，按真实时间顺序记录物块碰撞和撞墙两个事件。"
           }
         },
         {
@@ -9068,7 +9105,8 @@
                 "coefficient": 0.25,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "从大物块向左、小物块静止的初态出发，按真实时间顺序记录物块碰撞和撞墙两个事件。"
           }
         },
         {
@@ -9211,7 +9249,8 @@
                 "coefficient": 0.25,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "从大物块向左、小物块静止的初态出发，按真实时间顺序记录物块碰撞和撞墙两个事件。"
           }
         },
         {
@@ -9354,7 +9393,8 @@
                 "coefficient": 0.25,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "从大物块向左、小物块静止的初态出发，按真实时间顺序记录物块碰撞和撞墙两个事件。"
           }
         },
         {
@@ -9521,7 +9561,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "从大物块向左、小物块静止的初态出发，按真实时间顺序记录物块碰撞和撞墙两个事件。"
           }
         },
         {
@@ -9688,7 +9729,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "从大物块向左、小物块静止的初态出发，按真实时间顺序记录物块碰撞和撞墙两个事件。"
           }
         },
         {
@@ -9855,7 +9897,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "从大物块向左、小物块静止的初态出发，按真实时间顺序记录物块碰撞和撞墙两个事件。"
           }
         }
       ]
@@ -10009,7 +10052,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "当两个物块都向右且大物块速度不小于小物块速度时，按本课的标记约定状态进入无后续碰撞的安全区域。"
           }
         },
         {
@@ -10159,7 +10203,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "当两个物块都向右且大物块速度不小于小物块速度时，按本课的标记约定状态进入无后续碰撞的安全区域。"
           }
         },
         {
@@ -10302,7 +10347,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "当两个物块都向右且大物块速度不小于小物块速度时，按本课的标记约定状态进入无后续碰撞的安全区域。"
           }
         },
         {
@@ -10458,7 +10504,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "当两个物块都向右且大物块速度不小于小物块速度时，按本课的标记约定状态进入无后续碰撞的安全区域。"
           }
         },
         {
@@ -10626,7 +10673,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "当两个物块都向右且大物块速度不小于小物块速度时，按本课的标记约定状态进入无后续碰撞的安全区域。"
           }
         },
         {
@@ -10770,7 +10818,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "当两个物块都向右且大物块速度不小于小物块速度时，按本课的标记约定状态进入无后续碰撞的安全区域。"
           }
         },
         {
@@ -10926,7 +10975,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "当两个物块都向右且大物块速度不小于小物块速度时，按本课的标记约定状态进入无后续碰撞的安全区域。"
           }
         },
         {
@@ -11070,7 +11120,8 @@
                 "coefficient": 0.5,
                 "notation": "interval"
               }
-            ]
+            ],
+            "context_snapshot": "当两个物块都向右且大物块速度不小于小物块速度时，按本课的标记约定状态进入无后续碰撞的安全区域。"
           }
         }
       ]
@@ -14879,7 +14930,8 @@
             "values": [
               -4.0
             ],
-            "notation": "symbol"
+            "notation": "symbol",
+            "scope": "calculation_fixture"
           },
           {
             "id": "origin_relation",
@@ -14985,7 +15037,8 @@
             "values": [
               0
             ],
-            "notation": "zero_words"
+            "notation": "zero_words",
+            "scope": "origin_line"
           },
           {
             "id": "origin_relation",
@@ -15032,7 +15085,8 @@
             "values": [
               -16.0
             ],
-            "notation": "symbol"
+            "notation": "symbol",
+            "scope": "calculation_fixture"
           },
           {
             "id": "origin_relation",
@@ -15138,7 +15192,8 @@
             "values": [
               0
             ],
-            "notation": "zero_words"
+            "notation": "zero_words",
+            "scope": "origin_line"
           },
           {
             "id": "origin_relation",
@@ -15203,7 +15258,8 @@
             "values": [
               2.0
             ],
-            "notation": "symbol"
+            "notation": "symbol",
+            "scope": "calculation_fixture"
           },
           {
             "id": "origin_relation",
@@ -15309,7 +15365,8 @@
             "values": [
               0
             ],
-            "notation": "zero_words"
+            "notation": "zero_words",
+            "scope": "origin_line"
           },
           {
             "id": "origin_relation",
@@ -15374,7 +15431,8 @@
             "values": [
               2.0
             ],
-            "notation": "symbol"
+            "notation": "symbol",
+            "scope": "calculation_fixture"
           },
           {
             "id": "origin_relation",
@@ -15480,7 +15538,8 @@
             "values": [
               0
             ],
-            "notation": "zero_words"
+            "notation": "zero_words",
+            "scope": "origin_line"
           },
           {
             "id": "origin_relation",

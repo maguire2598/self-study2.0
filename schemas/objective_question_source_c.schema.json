@@ -946,7 +946,7 @@
     "visibleMomentumValueSetFact": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "kind", "values", "notation"],
+      "required": ["id", "kind", "values", "notation", "scope"],
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
         "kind": { "const": "momentum_value_set" },
@@ -954,7 +954,8 @@
           "type": "array", "minItems": 1, "uniqueItems": true,
           "items": { "type": "number" }
         },
-        "notation": { "enum": ["symbol", "zero_words"] }
+        "notation": { "enum": ["symbol", "zero_words"] },
+        "scope": { "enum": ["figure_line_0", "figure_line_1", "calculation_fixture", "origin_line"] }
       }
     },
     "visibleOriginRelationFact": {
@@ -986,6 +987,7 @@
       "additionalProperties": false,
       "required": ["prompt_template", "explanation_template", "facts"],
       "properties": {
+        "context_snapshot": { "type": "string", "minLength": 1 },
         "prompt_template": { "type": "string", "minLength": 1 },
         "explanation_template": { "type": "string", "minLength": 1 },
         "facts": {
@@ -1222,6 +1224,14 @@
         }
       },
       "allOf": [
+        {
+          "if": { "required": ["ask", "visible_physics_contract"] },
+          "then": {
+            "properties": {
+              "visible_physics_contract": { "required": ["context_snapshot"] }
+            }
+          }
+        },
         {
           "if": {
             "properties": {
