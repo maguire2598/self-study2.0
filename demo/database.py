@@ -52,6 +52,9 @@ def initialize(db_path):
             for sql in DDL:
                 db.execute(sql)
             db.execute('INSERT OR IGNORE INTO schema_migrations VALUES(1)')
+            if not db.execute('SELECT 1 FROM schema_migrations WHERE version=2').fetchone():
+                db.execute("ALTER TABLE author_changes ADD COLUMN outcome TEXT NOT NULL DEFAULT 'applied'")
+                db.execute('INSERT INTO schema_migrations VALUES(2)')
             db.execute("INSERT OR IGNORE INTO courses VALUES('collision-pi','碰撞与π')")
             for s in 'ABCD':
                 db.execute('INSERT OR IGNORE INTO sections VALUES(?,?,?,?)', (s, 'collision-pi', f'{s} 板块', 'pending' if s == 'D' else 'available'))

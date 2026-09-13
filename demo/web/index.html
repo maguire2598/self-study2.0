@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>碰撞与π · 自主学习</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head>
+<body>
+<a class="skip" href="#main-content">跳到题目</a>
+<header class="masthead"><a class="wordmark" href="/">自主学习 <span>SelfStudy / 本地 Demo</span></a><a href="/author">作者工作台 ↗</a></header>
+<div class="workbench">
+<aside class="directory" aria-label="课程目录">
+  <p class="eyebrow">物理 · 第一门课程</p><h1>碰撞与<span class="pi">π</span></h1><p class="intro">从一次碰撞，走向一个圆。</p>
+  <nav id="sections" class="sections" aria-label="知识板块"></nav>
+  <div class="filters"><label for="node">知识点</label><select id="node" data-filter><option value="">全部知识点</option></select><label for="type">题型</label><select id="type" data-filter><option value="">全部题型</option><option value="single_choice">单选题</option><option value="multiple_choice">多选题</option><option value="multi_blank">填空题</option></select></div>
+  <p id="node-summary" class="quiet"></p>
+  <details class="source-note"><summary>关于这门课</summary><p>建议先看完整课程视频，再用题目检查理解，也可以按自己的顺序学习。</p><p>本地 Demo 尚未接入视频播放器。D 板块出题待定。</p></details>
+</aside>
+<main id="main-content" tabindex="-1">
+  <div class="workspace-heading"><p class="eyebrow" id="section-label">学习工作台</p><span class="local-badge">仅保存在本机</span></div>
+  <p id="status" role="status" aria-live="polite">正在载入课程…</p><button id="reload" class="subtle" hidden>重新载入</button>
+  <article id="question" class="question-paper" hidden>
+    <div class="question-meta"><span id="question-type"></span><span id="position"></span></div>
+    <p id="question-node" class="quiet"></p><h2 id="prompt"></h2><div id="figures" class="figures"></div>
+    <form id="answer-form"><fieldset id="answers"><legend class="sr-only">填写你的答案</legend><div id="answer-fields"></div></fieldset><p id="answer-error" class="error" role="alert"></p><div class="actions"><button id="submit" type="submit">提交并检查</button><span class="quiet">先作答，再检查自己的依据。</span></div></form>
+    <section id="feedback" class="feedback" hidden aria-live="polite"><h3 id="feedback-title"></h3><p id="feedback-message"></p><button id="reflect-open" class="subtle">检查我的思路</button></section>
+    <section id="reflection" class="reflection" hidden><div class="question-meta"><h3>把思路说清楚</h3><span id="stage">演示引导，非 AI</span></div><p id="reflection-prompt">题目给出了哪些条件？你是怎样作出判断的？</p><form id="reflection-form"><label for="reflection-text">写下你的依据或疑问</label><textarea id="reflection-text" rows="3" maxlength="4000" required></textarea><p id="reflection-error" class="error" role="alert"></p><button id="reflection-submit" class="subtle">保存反思并继续</button></form><div class="actions"><button id="retry" class="subtle">重新作答</button><button id="skip" class="text-button">暂时跳过 →</button></div></section>
+    <nav class="question-nav" aria-label="题目导航"><button id="previous" class="text-button">← 上一题</button><button id="next" class="text-button">下一题 →</button></nav>
+  </article>
+</main>
+<aside class="progress-panel" aria-label="学习进度"><p class="eyebrow">你的学习记录</p><div class="metric"><strong id="completed">0</strong><span>道题已通过</span></div><p id="attempt-count" class="quiet">尚未作答</p><hr><h3>最近检查</h3><ol id="recent" class="recent"></ol><p class="quiet">答错不会公布答案。先检查条件和推理，再试一次。</p></aside>
+</div>
+<footer><details><summary>本地记录与演示边界</summary><p>作答与反思保存在本机数据库；浏览器 cookie 用于恢复记录。清除 cookie 或换浏览器会创建新学习者。本 Demo 没有云账号、支付或真实 AI，不进行心理诊断。</p></details></footer>
+</body></html>

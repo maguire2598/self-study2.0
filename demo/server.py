@@ -70,7 +70,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send(*response)
         except APIError as e:
             self.send(e.status, {'error': e.message})
-        except (ValueError, TypeError, KeyError):
+        except (ValueError, TypeError, KeyError, OverflowError):
             self.send(400, {'error': '输入格式无效。'})
         except Exception:
             self.send(500, {'error': '本地服务处理失败。'})
@@ -116,7 +116,7 @@ class Handler(BaseHTTPRequestHandler):
             raise ValueError()
         clause = ' WHERE ' + ' AND '.join(where) if where else ''
         total = self.db.execute('SELECT COUNT(*) FROM questions' + clause, values).fetchone()[0]
-        rows = self.db.execute('SELECT id FROM questions' + clause + ' ORDER BY section_id,sort_order LIMIT ? OFFSET ?', values + [limit, offset])
+        rows = self.db.execute('SELECT id FROM questions' + clause + " ORDER BY section_id,CAST(substr(node_id,2) AS INTEGER),CAST(substr(node_id,instr(node_id,'.')+1) AS INTEGER),sort_order LIMIT ? OFFSET ?", values + [limit, offset])
         return {'items': [self.question(r['id'], author) for r in rows], 'total': total}
 
     def route(self):
@@ -189,7 +189,8 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError()
             cursor = db.execute('UPDATE questions SET enabled=?,revision=revision+1 WHERE id=? AND revision=?', (int(enabled), q['id'], revision))
             if cursor.rowcount != 1:
-                raise APIError(409, '题目版本已更新，请刷新后重试。')
+                db.execute('INSERT INTO author_changes(question_id,enabled,revision,outcome) VALUES(?,?,?,?)', (q['id'], int(enabled), revision, 'conflict'))
+                return 409, {'error': '题目版本已更新，请刷新后重试。'}
             db.execute('INSERT INTO author_changes(question_id,enabled,revision) VALUES(?,?,?)', (q['id'], int(enabled), revision + 1))
             return 200, dict(id=q['id'], enabled=enabled, revision=revision + 1)
         if method == 'GET' and path.startswith('/api/diagrams/') and path.endswith('.svg'):

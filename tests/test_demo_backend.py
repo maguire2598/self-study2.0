@@ -1,4 +1,5 @@
 import hashlib
+from contextlib import closing
 import http.cookiejar
 import json
 import tempfile
@@ -14,6 +15,20 @@ from scripts.generate_collision_pi_c_questions import build_bank
 from scripts.collision_pi_question_bank import content_fingerprint
 
 class DemoTests(unittest.TestCase):
+    def test_questions_follow_knowledge_order_and_reject_oversized_offset(self):
+        status, data = self.request('/api/questions?section=A&limit=6')
+        self.assertEqual(status, 200)
+        self.assertEqual([q['node_id'] for q in data['items']], ['A1.1'] * 5 + ['A1.2'])
+        self.assertEqual(self.request('/api/questions?offset=999999999999999999999999')[0], 400)
+
+    def test_conflict_is_audited_without_changing_enabled_state(self):
+        self.request('/api/author/login', {'token': self.server.author_token})
+        q = self.request('/api/author/questions?limit=1')[1]['items'][0]
+        self.assertEqual(self.request('/api/author/questions/' + q['id'], {'enabled': False, 'revision': q['revision'] + 2}, 'PATCH')[0], 409)
+        with closing(connect(self.path)) as db:
+            self.assertEqual(db.execute('SELECT COUNT(*) FROM author_changes WHERE question_id=?', (q['id'],)).fetchone()[0], 1)
+            self.assertEqual(db.execute('SELECT enabled FROM questions WHERE id=?', (q['id'],)).fetchone()[0], 1)
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.path = Path(self.temp.name) / 'demo.sqlite3'
